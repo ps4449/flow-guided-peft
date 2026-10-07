@@ -1,0 +1,10 @@
+# GQA images and download files (only needed.txt is tracked)
+datasets/gqa/images/
+datasets/gqa/*.zip
+datasets/gqa/wget.log
+
+# Cluster user guide (restricted)
+CCDSGPU-TC2-MSc-UserGuide.pdf
+
+# LLaVA-NeXT is cloned separately during setup
+LLaVA-NeXT/
