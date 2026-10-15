@@ -17,7 +17,6 @@ Check progress with `tail -1 wget.log`. It is done when it says `'images.zip' sa
 9. `datasets/gqa/needed.txt` (in the repo) lists the 3,818 images our CSVs use, out of the 148,000 in the zip. Check it is there: `wc -l needed.txt`
 10. Extract only those images (takes a few minutes): `unzip -q images.zip $(cat needed.txt)`
 11. Check that 3,818 images were extracted: `ls images | wc -l`
-12. Delete the zip to free 20 GB: `rm images.zip`
 
 # Running the experiments
 
