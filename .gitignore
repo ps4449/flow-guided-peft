@@ -1,4 +1,4 @@
-# GQA images and download files (only needed.txt is tracked)
+# GQA images and download files (only the needed*.txt lists and question files are tracked)
 datasets/gqa/images/
 datasets/gqa/*.zip
 datasets/gqa/wget.log
