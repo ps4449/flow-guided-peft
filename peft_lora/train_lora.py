@@ -1,0 +1,248 @@
+"""LoRA fine-tuning of LLaVA-1.5-7B on the GQA train sample, shared by all methods.
+
+The method is set only by its rank file in configs/ranks/:
+  LoRA     {"layers.<i>.self_attn.<q|k|v|o>_proj": <rank>, "layers.<i>.mlp.<gate|up|down>_proj": <rank>, ...}
+           Only the listed LLM modules get LoRA (rank 0 = none). lora_alpha = 2 * rank everywhere.
+  AdaLoRA  {"adalora": {"init_r": 12, "target_r": 8, "target_modules": ["q_proj", "v_proj"], ...}}
+           Other keys in "adalora" are passed on to peft.AdaLoraConfig.
+
+The vision tower and projector stay frozen. The adapter is saved to
+output/peft/<rank file name>/seed<k>/adapter/. Before the 6 h limit the job saves a
+checkpoint and stops; submitting the same command again resumes from it.
+
+Usage:
+  python peft_lora/train_lora.py --ranks configs/ranks/<method>.json --seed 0 [--limit 100]
+"""
+import argparse
+import json
+import math
+import os
+import random
+import re
+import sys
+import time
+
+import numpy as np
+import torch
+from peft import AdaLoraConfig, LoraConfig, get_peft_model, get_peft_model_state_dict, set_peft_model_state_dict
+from torch.nn.utils.rnn import pad_sequence
+from torch.utils.data import DataLoader, Dataset
+from transformers import get_cosine_schedule_with_warmup
+
+from common import build_prompt, load_image, load_model, tokenize
+from llava.constants import IGNORE_INDEX
+
+MODULE_RE = re.compile(r"layers\.\d+\.(self_attn\.[qkvo]_proj|mlp\.(gate|up|down)_proj)")
+RESUME_EXIT_CODE = 3
+
+if "rank_pattern" not in LoraConfig.__dataclass_fields__:
+    sys.exit("This peft version has no per-layer ranks. Run: pip install peft==0.12.0")
+
+
+class GQATrain(Dataset):
+    def __init__(self, rows, image_folder, tokenizer, image_processor, model_config, conv_mode):
+        self.rows = rows
+        self.image_folder = image_folder
+        self.tokenizer = tokenizer
+        self.image_processor = image_processor
+        self.model_config = model_config
+        self.conv_mode = conv_mode
+
+    def __getitem__(self, index):
+        row = self.rows[index]
+        human, answer = row["conversations"][0]["value"], row["conversations"][1]["value"]
+        prefix = tokenize(build_prompt(human, None, self.conv_mode), self.tokenizer)
+        input_ids = tokenize(build_prompt(human, answer, self.conv_mode), self.tokenizer)
+        labels = input_ids.clone()
+        labels[: len(prefix)] = IGNORE_INDEX  # loss only on the answer tokens and </s>
+        image, size = load_image(os.path.join(self.image_folder, row["image"]), self.image_processor, self.model_config)
+        return input_ids, labels, image, size
+
+    def __len__(self):
+        return len(self.rows)
+
+
+def collate(batch, pad_id):
+    input_ids, labels, images, sizes = zip(*batch)
+    attention_mask = pad_sequence([torch.ones(len(x), dtype=torch.bool) for x in input_ids], batch_first=True)
+    return {
+        "input_ids": pad_sequence(input_ids, batch_first=True, padding_value=pad_id),
+        "labels": pad_sequence(labels, batch_first=True, padding_value=IGNORE_INDEX),
+        "attention_mask": attention_mask,
+        "images": torch.stack(images),
+        "image_sizes": list(sizes),
+    }
+
+
+def make_peft_config(spec, total_steps):
+    """Returns the peft config and, for LoRA, the expected {module: rank}."""
+    if "adalora" in spec:
+        cfg = dict(spec["adalora"])
+        names = "|".join(cfg.pop("target_modules"))
+        target = rf"model\.layers\.\d+\.(self_attn|mlp)\.({names})"
+        return AdaLoraConfig(target_modules=target, total_step=total_steps, **cfg), None
+
+    ranks = {k: int(r) for k, r in spec.items() if int(r) > 0}
+    unknown = [k for k in ranks if not MODULE_RE.fullmatch(k)]
+    if unknown:
+        sys.exit(f"Unknown module names in the rank file, e.g. {unknown[:3]}")
+    values = list(ranks.values())
+    default_r = max(set(values), key=values.count)
+    config = LoraConfig(
+        r=default_r,
+        lora_alpha=2 * default_r,
+        lora_dropout=0.05,
+        # full names, so the CLIP vision tower (which also has layers.<i>.self_attn.q_proj) is never matched
+        target_modules="|".join(re.escape("model." + k) for k in ranks),
+        rank_pattern={re.escape(k): r for k, r in ranks.items()},
+        alpha_pattern={re.escape(k): 2 * r for k, r in ranks.items()},
+    )
+    return config, ranks
+
+
+def check_ranks(model, expected):
+    got = {}
+    for name, module in model.named_modules():
+        if hasattr(module, "r") and isinstance(module.r, dict) and "default" in module.r:
+            got[re.search(r"layers\.\d+\..*", name).group(0)] = module.r["default"]
+    if got != expected:
+        wrong = sorted(set(got.items()) ^ set(expected.items()))[:5]
+        sys.exit(f"LoRA ranks do not match the rank file, e.g. {wrong}")
+
+
+def save_checkpoint(path, model, optimizer, scheduler, step):
+    torch.save({
+        "adapter": get_peft_model_state_dict(model),
+        "optimizer": optimizer.state_dict(),
+        "scheduler": scheduler.state_dict(),
+        "step": step,
+    }, path + ".tmp")
+    os.replace(path + ".tmp", path)  # never leave a half-written checkpoint
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--ranks", required=True)
+    parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--model-path", default="liuhaotian/llava-v1.5-7b")
+    parser.add_argument("--conv-mode", default="vicuna_v1")
+    parser.add_argument("--train-file", default="datasets/gqa/train_20000_llava.json")
+    parser.add_argument("--image-folder", default="datasets/gqa/images")
+    parser.add_argument("--out-dir", default=None)
+    parser.add_argument("--limit", type=int, default=None, help="train on the first N questions only (for tests)")
+    parser.add_argument("--epochs", type=int, default=1)
+    parser.add_argument("--batch-size", type=int, default=4)
+    parser.add_argument("--grad-accum", type=int, default=4)
+    parser.add_argument("--lr", type=float, default=2e-4)
+    parser.add_argument("--warmup-ratio", type=float, default=0.03)
+    parser.add_argument("--save-every", type=int, default=200, help="optimizer steps between checkpoints")
+    parser.add_argument("--max-hours", type=float, default=5.5, help="stop with a checkpoint after this long")
+    parser.add_argument("--num-workers", type=int, default=4)
+    args = parser.parse_args()
+    start = time.time()
+
+    name = os.path.splitext(os.path.basename(args.ranks))[0]
+    out_dir = args.out_dir or os.path.join("output/peft", name, f"seed{args.seed}" + (f"_limit{args.limit}" if args.limit else ""))
+    os.makedirs(out_dir, exist_ok=True)
+    adapter_dir = os.path.join(out_dir, "adapter")
+    ckpt_path = os.path.join(out_dir, "checkpoint.pt")
+    if os.path.exists(adapter_dir):
+        print(f"Already trained: {adapter_dir}")
+        return
+
+    random.seed(args.seed)
+    np.random.seed(args.seed)
+    torch.manual_seed(args.seed)
+
+    with open(args.ranks) as f:
+        spec = json.load(f)
+    with open(args.train_file) as f:
+        rows = json.load(f)[: args.limit]
+
+    tokenizer, model, image_processor = load_model(args.model_path)
+    model.config.use_cache = False
+    model.requires_grad_(False)
+    model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
+
+    bs, accum = args.batch_size, args.grad_accum
+    steps_per_epoch = math.ceil(len(rows) / bs) // accum
+    total_steps = steps_per_epoch * args.epochs
+
+    peft_config, expected_ranks = make_peft_config(spec, total_steps)
+    model = get_peft_model(model, peft_config)
+    if expected_ranks is not None:
+        check_ranks(model, expected_ranks)
+    params = [p for p in model.parameters() if p.requires_grad]
+    n_params = sum(p.numel() for p in params)
+    print(f"Method: {name}  Seed: {args.seed}  Trainable params: {n_params:,}  Steps: {total_steps}")
+
+    optimizer = torch.optim.AdamW(params, lr=args.lr, weight_decay=0.0)
+    scheduler = get_cosine_schedule_with_warmup(optimizer, int(args.warmup_ratio * total_steps), total_steps)
+
+    step = 0
+    if os.path.exists(ckpt_path):
+        state = torch.load(ckpt_path, map_location="cpu")
+        set_peft_model_state_dict(model, state["adapter"])
+        optimizer.load_state_dict(state["optimizer"])
+        scheduler.load_state_dict(state["scheduler"])
+        step = state["step"]
+        print(f"Resumed from step {step}")
+
+    dataset = GQATrain(rows, args.image_folder, tokenizer, image_processor, model.config, args.conv_mode)
+    sample = dataset[0]
+    print("Target of sample 0:", repr(tokenizer.decode(sample[0][sample[1] != IGNORE_INDEX])))
+
+    model.train()
+    is_adalora = "adalora" in spec
+    log = open(os.path.join(out_dir, "train_log.jsonl"), "a")
+    while step < total_steps:
+        # the data order depends only on seed and epoch, so a resumed run skips exactly the batches already seen
+        epoch, step_in_epoch = divmod(step, steps_per_epoch)
+        order = torch.randperm(len(rows), generator=torch.Generator().manual_seed(args.seed * 1000 + epoch)).tolist()
+        order = order[step_in_epoch * accum * bs: steps_per_epoch * accum * bs]
+        loader = DataLoader(dataset, batch_size=bs, sampler=order, num_workers=args.num_workers,
+                            collate_fn=lambda b: collate(b, tokenizer.pad_token_id))
+        running = 0.0
+        for i, batch in enumerate(loader):
+            batch = {k: v.cuda() if torch.is_tensor(v) else v for k, v in batch.items()}
+            loss = model(**batch).loss / accum
+            loss.backward()
+            running += loss.item()
+            if (i + 1) % accum:
+                continue
+
+            torch.nn.utils.clip_grad_norm_(params, 1.0)
+            optimizer.step()
+            scheduler.step()
+            if is_adalora:
+                model.base_model.update_and_allocate(step)  # AdaLoRA prunes ranks from the gradients
+            optimizer.zero_grad(set_to_none=True)
+            step += 1
+
+            if step % 10 == 0 or step == total_steps:
+                entry = {"step": step, "epoch": epoch, "loss": round(running, 4), "lr": scheduler.get_last_lr()[0],
+                         "minutes": round((time.time() - start) / 60, 1)}
+                print(json.dumps(entry), flush=True)
+                log.write(json.dumps(entry) + "\n")
+                log.flush()
+            running = 0.0
+
+            if step == total_steps:
+                break
+            if step % args.save_every == 0:
+                save_checkpoint(ckpt_path, model, optimizer, scheduler, step)
+            if time.time() - start > args.max_hours * 3600:
+                save_checkpoint(ckpt_path, model, optimizer, scheduler, step)
+                print(f"Stopped at step {step}/{total_steps} before the time limit. Submit the same command again to resume.")
+                sys.exit(RESUME_EXIT_CODE)
+
+    model.save_pretrained(adapter_dir)
+    with open(os.path.join(out_dir, "train_config.json"), "w") as f:
+        json.dump({**vars(args), "trainable_params": n_params, "total_steps": total_steps}, f, indent=2)
+    if os.path.exists(ckpt_path):
+        os.remove(ckpt_path)
+    print(f"Saved adapter to {adapter_dir}")
+
+
+if __name__ == "__main__":
+    main()

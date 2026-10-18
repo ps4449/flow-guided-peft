@@ -3,6 +3,14 @@ datasets/gqa/images/
 datasets/gqa/*.zip
 datasets/gqa/wget.log
 
+# LoRA checkpoints and results (too large for the repo; keep the empty folder)
+output/peft/*
+!output/peft/.gitkeep
+
+# Python cache
+__pycache__/
+*.pyc
+
 # Cluster user guide (restricted)
 CCDSGPU-TC2-MSc-UserGuide.pdf
 
