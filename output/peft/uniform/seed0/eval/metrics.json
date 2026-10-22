@@ -1,0 +1,50 @@
+{
+  "accuracy": 61.27,
+  "correct": 7706,
+  "total": 12578,
+  "adapter": "output/peft/uniform/seed0/adapter",
+  "by_structural": {
+    "choose": {
+      "accuracy": 81.67,
+      "total": 1129
+    },
+    "compare": {
+      "accuracy": 62.14,
+      "total": 589
+    },
+    "logical": {
+      "accuracy": 75.82,
+      "total": 1803
+    },
+    "query": {
+      "accuracy": 46.8,
+      "total": 6805
+    },
+    "verify": {
+      "accuracy": 82.86,
+      "total": 2252
+    }
+  },
+  "by_semantic": {
+    "attr": {
+      "accuracy": 68.28,
+      "total": 5186
+    },
+    "cat": {
+      "accuracy": 50.57,
+      "total": 1149
+    },
+    "global": {
+      "accuracy": 60.51,
+      "total": 157
+    },
+    "obj": {
+      "accuracy": 86.38,
+      "total": 778
+    },
+    "rel": {
+      "accuracy": 53.07,
+      "total": 5308
+    }
+  }
+}

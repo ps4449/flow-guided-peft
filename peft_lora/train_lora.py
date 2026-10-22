@@ -202,7 +202,7 @@ def main():
         order = order[step_in_epoch * accum * bs: steps_per_epoch * accum * bs]
         loader = DataLoader(dataset, batch_size=bs, sampler=order, num_workers=args.num_workers,
                             collate_fn=lambda b: collate(b, tokenizer.pad_token_id))
-        running = 0.0
+        running, logged_steps = 0.0, 0  # loss summed over the optimizer steps since the last log line
         for i, batch in enumerate(loader):
             batch = {k: v.cuda() if torch.is_tensor(v) else v for k, v in batch.items()}
             loss = model(**batch).loss / accum
@@ -218,14 +218,15 @@ def main():
                 model.base_model.update_and_allocate(step)  # AdaLoRA prunes ranks from the gradients
             optimizer.zero_grad(set_to_none=True)
             step += 1
+            logged_steps += 1
 
             if step % 10 == 0 or step == total_steps:
-                entry = {"step": step, "epoch": epoch, "loss": round(running, 4), "lr": scheduler.get_last_lr()[0],
-                         "minutes": round((time.time() - start) / 60, 1)}
+                entry = {"step": step, "epoch": epoch, "loss": round(running / logged_steps, 4),
+                         "lr": scheduler.get_last_lr()[0], "minutes": round((time.time() - start) / 60, 1)}
                 print(json.dumps(entry), flush=True)
                 log.write(json.dumps(entry) + "\n")
                 log.flush()
-            running = 0.0
+                running, logged_steps = 0.0, 0
 
             if step == total_steps:
                 break

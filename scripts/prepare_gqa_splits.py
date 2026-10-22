@@ -4,7 +4,7 @@ Reads the GQA question JSONs and writes, into datasets/gqa/:
   train_<N>_llava.json   N sampled train questions in LLaVA conversation format
   needed_train.txt       images used by the sampled train questions
 
-  testdev_questions.jsonl  testdev-balanced questions and answers for evaluation
+  testdev_questions.jsonl  testdev-balanced questions, answers and GQA question types for evaluation
   needed_testdev.txt     images used by testdev-balanced
 
 The sample is fixed by --seed, so everyone gets the same training questions.
@@ -18,6 +18,13 @@ import os
 import random
 
 PROMPT_SUFFIX = "\nAnswer the question using a single word or phrase."
+
+
+def capitalize(answer):
+    """LLaVA-1.5 answers with a capital first letter ("Yes", "Right"); GQA answers are lowercase.
+    Matching LLaVA's style keeps fine-tuning from spending updates on letter case
+    (the evaluation lowercases answers anyway)."""
+    return answer[:1].upper() + answer[1:]
 
 
 def image_list(image_ids):
@@ -44,7 +51,7 @@ def main():
             "image": f"{train[qid]['imageId']}.jpg",
             "conversations": [
                 {"from": "human", "value": "<image>\n" + train[qid]["question"] + PROMPT_SUFFIX},
-                {"from": "gpt", "value": train[qid]["answer"]},
+                {"from": "gpt", "value": capitalize(train[qid]["answer"])},
             ],
         }
         for qid in sample
@@ -56,7 +63,8 @@ def main():
         testdev = json.load(f)
     testdev_images = {q["imageId"] for q in testdev.values()}
     testdev_rows = [
-        {"question_id": qid, "image": f"{q['imageId']}.jpg", "text": q["question"] + PROMPT_SUFFIX, "answer": q["answer"]}
+        {"question_id": qid, "image": f"{q['imageId']}.jpg", "text": q["question"] + PROMPT_SUFFIX, "answer": q["answer"],
+         "structural": q["types"]["structural"], "semantic": q["types"]["semantic"]}
         for qid, q in sorted(testdev.items())
     ]
 

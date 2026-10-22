@@ -3,9 +3,10 @@ datasets/gqa/images/
 datasets/gqa/*.zip
 datasets/gqa/wget.log
 
-# LoRA checkpoints and results (too large for the repo; keep the empty folder)
-output/peft/*
-!output/peft/.gitkeep
+# LoRA weights and resume checkpoints (binary, tens of MB per run).
+# Results stay tracked: eval/predictions.jsonl, eval/metrics.json, train_log.jsonl, train_config.json
+output/peft/**/adapter/
+output/peft/**/checkpoint.pt*
 
 # Python cache
 __pycache__/

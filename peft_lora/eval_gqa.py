@@ -3,6 +3,9 @@
 Writes predictions.jsonl and metrics.json to <adapter's run folder>/eval/, or to
 output/peft/zero_shot/eval/ without an adapter. Predictions are saved as they are made,
 so a stopped job continues where it left off when submitted again.
+metrics.json has the overall accuracy and the accuracy per GQA question type
+(structural: verify/query/choose/logical/compare, semantic: obj/attr/rel/cat/global).
+If all predictions exist, only the metrics are recomputed (no GPU needed).
 
 Usage:
   python peft_lora/eval_gqa.py [--adapter output/peft/<method>/seed<k>/adapter] [--limit 100]
@@ -10,16 +13,20 @@ Usage:
 import argparse
 import json
 import os
+from collections import defaultdict
 
-import torch
-from tqdm import tqdm
-
-from common import build_prompt, load_image, load_model, tokenize
-from llava.constants import DEFAULT_IMAGE_TOKEN
+TYPE_FIELDS = ["structural", "semantic"]
 
 
 def normalize(answer):
     return answer.strip().rstrip(".").lower()
+
+
+def accuracy_by(rows, field):
+    groups = defaultdict(list)
+    for r in rows:
+        groups[r[field]].append(r["correct"])
+    return {t: {"accuracy": round(100 * sum(c) / len(c), 2), "total": len(c)} for t, c in sorted(groups.items())}
 
 
 def main():
@@ -49,6 +56,12 @@ def main():
     print(f"{len(questions)} questions, {len(done)} already done")
 
     if todo:
+        # imported here so metrics can be recomputed on a machine without the GPU packages
+        import torch
+        from tqdm import tqdm
+        from common import build_prompt, load_image, load_model, tokenize
+        from llava.constants import DEFAULT_IMAGE_TOKEN
+
         tokenizer, model, image_processor = load_model(args.model_path)
         if args.adapter:
             from peft import PeftModel
@@ -66,11 +79,19 @@ def main():
                 f.write(json.dumps({"question_id": q["question_id"], "prediction": prediction, "answer": q["answer"]}) + "\n")
                 f.flush()
 
+    # question types come from the questions file, so older predictions files get them too
+    by_id = {q["question_id"]: q for q in questions}
     with open(pred_path) as f:
         rows = [json.loads(line) for line in f]
-    correct = sum(normalize(r["prediction"]) == normalize(r["answer"]) for r in rows)
+    for r in rows:
+        r["correct"] = normalize(r["prediction"]) == normalize(r["answer"])
+        for field in TYPE_FIELDS:
+            r[field] = by_id[r["question_id"]].get(field, "unknown")
+    correct = sum(r["correct"] for r in rows)
     metrics = {"accuracy": round(100 * correct / len(rows), 2), "correct": correct, "total": len(rows),
                "adapter": args.adapter or "zero-shot"}
+    for field in TYPE_FIELDS:
+        metrics[f"by_{field}"] = accuracy_by(rows, field)
     with open(os.path.join(out_dir, "metrics.json"), "w") as f:
         json.dump(metrics, f, indent=2)
     print(json.dumps(metrics))
