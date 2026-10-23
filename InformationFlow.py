@@ -390,7 +390,9 @@ def InforFlowAna(args):
 
         input_ids = input_ids.to(device='cuda')
         image_tensor = [img_t.to(device='cuda') for img_t in image_tensor]
-        mask_tensor = [ma.to(device='cuda') for ma in mask_tensor]
+        # no object boxes (e.g. the GQA_train_*_All files) -> no mask; masks are only used by the "Image ..." object flows
+        if mask_tensor is not None:
+            mask_tensor = [ma.to(device='cuda') for ma in mask_tensor]
 
         inps={
             "inputs":input_ids,
