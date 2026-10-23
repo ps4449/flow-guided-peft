@@ -1,0 +1,17 @@
+{
+  "job_purpose": "full training, 1 epoch, seed 0",
+  "versions": {
+    "torch": "2.1.2",
+    "peft": "0.12.0",
+    "transformers": "4.40.0.dev0",
+    "llava": "1.7.0.dev0"
+  },
+  "train_sha256": "add0ec54ab54d842e892434341f9905339b4aa571df8fdac625ec6010af19a9c",
+  "git_head": "b2959d0ad6b79296075d78a898a804b58a8d330f",
+  "source_sha256": {
+    "peft_lora/train_lora.py": "939781a0b2f7de5a2a88db20a029e9de0d7dd19d87d39e2438c33b4b3438f9bb",
+    "peft_lora/adalora_runtime.py": "35b8154714d1edc9ccfcefb51f96ca5bb7a59bb256da0e1e2c57795f64c81dc4",
+    "peft_lora/common.py": "d541cd387241d36aa0ec88021ad961f831289a1e26b0aa669afbee55fb7a6328",
+    "configs/ranks/adalora.json": "abf0b7af579b5a7a63ca83a551a9797884aca9fbfef2b040e9205c9e1e465b76"
+  }
+}
