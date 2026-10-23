@@ -35,7 +35,8 @@ Jobs must be submitted with `sbatch`. The job script is `scripts/tc2_information
 `sbatch --export=ALL,BLOCK="Question->Last" scripts/tc2_informationFlow.sh` `# ~1.6 h`
 `sbatch --export=ALL,BLOCK="Image->Last" scripts/tc2_informationFlow.sh` `# ~1.6 h`
 5. To use another dataset, add `DATASET=` e.g. `sbatch --export=ALL,DATASET=datasets/GQA_val_correct_question_with_positionQuery_QueryAttr.csv,BLOCK="Question->Last" scripts/tc2_informationFlow.sh`
-6. Results (a CSV and a PDF plot per run) are saved in `output/information_flow/llava_v1_5_7b/<dataset>/val/<flow>/`
+6. Results (a CSV and a PDF plot per run) are saved in `output/information_flow/llava_v1_5_7b/<dataset>/<split>/<flow>/`, where `<split>` comes from the dataset name: `val_correct` for the paper's CSVs, `test` for `test_ChooseAttr.csv`
+7. Flow on wrong answers: `datasets/GQA_train_wrong_All.csv` and `datasets/GQA_train_correct_All.csv` hold 1,000 training questions zero-shot LLaVA gets wrong and 1,000 it gets right (made by `scripts/make_flow_failure_split.py`; the images are the training ones). Run them like any other dataset, e.g. `sbatch --export=ALL,DATASET=datasets/GQA_train_wrong_All.csv,BLOCK="Question->Last" scripts/tc2_informationFlow.sh`. A file with `_wrong_` in its name keeps only the questions answered wrongly. Results go to `output/information_flow/llava_v1_5_7b/All/train_wrong/<flow>/` and `.../All/train_correct/<flow>/`
 
 Note: For PEFT using LoRA, we do not need to run these experiments on all the 6 datasets. A verification for the setup has already been done using the ChooseAttr dataset, and visual information flow graphs obtained. Our project focuses on enhancing this visual information flow with PEFT.
 

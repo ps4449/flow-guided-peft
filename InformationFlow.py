@@ -417,7 +417,8 @@ def InforFlowAna(args):
         else:
             base_score_first, predicted_answer, first_answer_token_id, inputs_embeds_shape = run_original(model, inps, tokenizer, model_name, args=args)
 
-        if answer!=predicted_answer:
+        # keep only the questions answered correctly (default) or wrongly (--keep wrong)
+        if (answer == predicted_answer) != (args.keep == "correct"):
             continue
         else:
             index += 1
@@ -474,11 +475,17 @@ def InforFlowAna(args):
         save_name=save_name+"_noHD_noPad"
     tmp = pd.DataFrame.from_records(results)
     model_name = model_name.replace('-', '_').replace('.', '_')
-    os.makedirs(f"output/information_flow/{model_name}/{task_name}/val/{save_name}", exist_ok=True)
-    tmp.to_csv(f'output/information_flow/{model_name}/{task_name}/val/{save_name}/{args.refined_dataset.split("/")[-1].split(".csv")[0]}_window{args.window}_{save_name}.csv', index=False)
+    # <split> is the dataset's source and filter from its name, e.g. GQA_val_correct_..._ChooseAttr -> val_correct,
+    # GQA_train_wrong_All -> train_wrong; other files (e.g. test_ChooseAttr) go to their first word (test)
+    dataset_name = args.refined_dataset.split("/")[-1].split(".csv")[0]
+    name_parts = dataset_name.split("_")
+    split = "_".join(name_parts[1:3]) if name_parts[0] == "GQA" else name_parts[0]
+    out_dir = f"output/information_flow/{model_name}/{task_name}/{split}/{save_name}"
+    os.makedirs(out_dir, exist_ok=True)
+    tmp.to_csv(f'{out_dir}/{dataset_name}_window{args.window}_{save_name}.csv', index=False)
 
     # Plot the results
-    save_path=f'output/information_flow/{model_name}/{task_name}/val/{save_name}/{args.refined_dataset.split("/")[-1].split(".csv")[0]}_window{args.window}_{save_name}_first.pdf'
+    save_path=f'{out_dir}/{dataset_name}_window{args.window}_{save_name}_first.pdf'
     generate_plot(tmp, save_path, x="layer", y="relative diff first", hue="block_desc", layers=model.config.num_hidden_layers)
 
 
@@ -502,9 +509,13 @@ if __name__ == "__main__":
     parser.add_argument('--block_description', default=None, type=str, help="block_description")
     parser.add_argument('--certain_part_image', default=False, action="store_true")
     parser.add_argument('--noHD_noPad', default=False, action="store_true", help="noHD_noPad")
+    parser.add_argument('--keep', choices=["correct", "wrong"], default=None,
+                        help="questions to analyse (default: wrong if the dataset name has _wrong_, else correct)")
 
 
     args = parser.parse_args()
+    if args.keep is None:
+        args.keep = "wrong" if "_wrong_" in args.refined_dataset.split("/")[-1] else "correct"
 
     block_descs_split = args.block_description.split("->")
     if "Image " in block_descs_split[0]:

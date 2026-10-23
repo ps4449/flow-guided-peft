@@ -11,6 +11,7 @@ q_proj and v_proj of a layer get the same rank.
 Usage (from the repo root):
   python peft_lora/methods/flow_guided/make_ranks.py                 # all question types -> flow_guided.json
   python peft_lora/methods/flow_guided/make_ranks.py --types ChooseAttr --out configs/ranks/flow_guided_ChooseAttr.json
+  python peft_lora/methods/flow_guided/make_ranks.py --types All --split train_wrong --out configs/ranks/flow_wrong.json
 Prints the rank of every layer.
 """
 import argparse
@@ -73,12 +74,11 @@ def allocate(weights, total, min_rank, max_rank):
     return whole
 
 
-def find_csv(flow_dir, qtype, flow, window):
-    """The full-run CSV of one question type and flow (the 20-question test_* runs are skipped)."""
-    paths = [p for p in glob.glob(os.path.join(flow_dir, qtype, "val", flow, f"*_window{window}_{flow}.csv"))
-             if not os.path.basename(p).startswith("test_")]
+def find_csv(flow_dir, qtype, split, flow, window):
+    """The CSV of one question type, split and flow (output/information_flow/<model>/<type>/<split>/<flow>/)."""
+    paths = glob.glob(os.path.join(flow_dir, qtype, split, flow, f"*_window{window}_{flow}.csv"))
     if len(paths) != 1:
-        sys.exit(f"Expected 1 CSV for {qtype} {flow}, found {len(paths)}")
+        sys.exit(f"Expected 1 CSV for {qtype} {split} {flow}, found {len(paths)}")
     return paths[0]
 
 
@@ -89,7 +89,9 @@ def average(rows):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--flow-dir", default="output/information_flow/llava_v1_5_7b")
-    parser.add_argument("--types", nargs="+", default=None, help="question types (default: every folder in --flow-dir)")
+    parser.add_argument("--types", nargs="+", default=None,
+                        help="question types (default: every folder in --flow-dir that has --split)")
+    parser.add_argument("--split", default="val_correct", help="val_correct (paper CSVs), train_correct or train_wrong")
     parser.add_argument("--window", type=int, default=9)
     parser.add_argument("--flows", nargs="+", default=FLOWS)
     parser.add_argument("--min-rank", type=int, default=2)
@@ -97,8 +99,9 @@ def main():
     parser.add_argument("--out", default="configs/ranks/flow_guided.json")
     args = parser.parse_args()
 
-    types = args.types or sorted(d for d in os.listdir(args.flow_dir) if os.path.isdir(os.path.join(args.flow_dir, d)))
-    type_curves = {t: [flow_curve(find_csv(args.flow_dir, t, flow, args.window)) for flow in args.flows] for t in types}
+    types = args.types or sorted(d for d in os.listdir(args.flow_dir) if os.path.isdir(os.path.join(args.flow_dir, d, args.split)))
+    type_curves = {t: [flow_curve(find_csv(args.flow_dir, t, args.split, flow, args.window)) for flow in args.flows]
+                   for t in types}
     importance = average([layer_importance(curves) for curves in type_curves.values()])
     curves = [average([type_curves[t][i] for t in types]) for i in range(len(args.flows))]  # for the printout
     print(f"Question types: {', '.join(types)}")

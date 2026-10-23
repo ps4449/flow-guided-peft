@@ -42,6 +42,8 @@ dataset=${DATASET:-datasets/GQA_val_correct_question_with_choose_ChooseAttr.csv}
 #dataset=datasets/GQA_val_correct_question_with_twoCommon_CompareAttr.csv
 #dataset=datasets/GQA_val_correct_question_with_relChooser_ChooseRel.csv
 #dataset=datasets/GQA_val_correct_question_with_categoryThatThisChoose_objThisChoose_ChooseCat.csv
+#dataset=datasets/GQA_train_correct_All.csv   # training questions zero-shot gets right
+#dataset=datasets/GQA_train_wrong_All.csv     # training questions zero-shot gets wrong (keeps wrong answers only)
 
 imagefolder=$HOME/flow-guided-peft/datasets/gqa/images/
 

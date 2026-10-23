@@ -135,11 +135,11 @@ def merge(model_name, operation_path, window):
     # ######################### to last #########################
     for ind, task_name in enumerate([task1, task2, task3, task4, task5, task6]):
         data1 = read_csv(
-            path=operation_path + f"information_flow/{model_name}/{task_name.split('_')[-1].split('.csv')[0]}/val/Question___Last/{task_name.split('.csv')[0]}_window{window}_Question___Last.csv")
+            path=operation_path + f"information_flow/{model_name}/{task_name.split('_')[-1].split('.csv')[0]}/val_correct/Question___Last/{task_name.split('.csv')[0]}_window{window}_Question___Last.csv")
         data2 = read_csv(
-            path=operation_path + f"information_flow/{model_name}/{task_name.split('_')[-1].split('.csv')[0]}/val/Image___Last/{task_name.split('.csv')[0]}_window{window}_Image___Last.csv")
+            path=operation_path + f"information_flow/{model_name}/{task_name.split('_')[-1].split('.csv')[0]}/val_correct/Image___Last/{task_name.split('.csv')[0]}_window{window}_Image___Last.csv")
         data3 = read_csv(
-            path=operation_path + f"information_flow/{model_name}/{task_name.split('_')[-1].split('.csv')[0]}/val/Last___Last/{task_name.split('.csv')[0]}_window{window}_Last___Last.csv")
+            path=operation_path + f"information_flow/{model_name}/{task_name.split('_')[-1].split('.csv')[0]}/val_correct/Last___Last/{task_name.split('.csv')[0]}_window{window}_Last___Last.csv")
         # combine
         data_combined = pd.concat([data1, data2, data3])
 
@@ -151,7 +151,7 @@ def merge(model_name, operation_path, window):
                             palette=palette,
                             save_fold="toLast")
         generate_plot(data_combined,
-                      save_file=operation_path + f"information_flow/{model_name}/{task_name.split('_')[-1].split('.csv')[0]}/val/{model_name}_{task_name.split('.csv')[0]}_window{window}_ToLast_firstgen.pdf",
+                      save_file=operation_path + f"information_flow/{model_name}/{task_name.split('_')[-1].split('.csv')[0]}/val_correct/{model_name}_{task_name.split('.csv')[0]}_window{window}_ToLast_firstgen.pdf",
                       operation_path=operation_path,
                       model_name=model_name,
                       y="relative diff first",
@@ -162,12 +162,12 @@ def merge(model_name, operation_path, window):
         print(f"finish: {task_name}")
 
     ######################### Image to Question ##########################################
-    path1 = operation_path + f"information_flow/{model_name}/ChooseCat/val/Image___Question/GQA_val_correct_question_with_categoryThatThisChoose_objThisChoose_ChooseCat_window{window}_Image___Question.csv"
-    path2 = operation_path + f"information_flow/{model_name}/ChooseAttr/val/Image___Question/GQA_val_correct_question_with_choose_ChooseAttr_window{window}_Image___Question.csv"
-    path3 = operation_path + f"information_flow/{model_name}/ChooseRel/val/Image___Question/GQA_val_correct_question_with_relChooser_ChooseRel_window{window}_Image___Question.csv"
-    path4 = operation_path + f"information_flow/{model_name}/CompareAttr/val/Image___Question/GQA_val_correct_question_with_twoCommon_CompareAttr_window{window}_Image___Question.csv"
-    path5 = operation_path + f"information_flow/{model_name}/LogicalObj/val/Image___Question/GQA_val_correct_question_with_existThatOr_LogicalObj_window{window}_Image___Question.csv"
-    path6 = operation_path + f"information_flow/{model_name}/QueryAttr/val/Image___Question/GQA_val_correct_question_with_positionQuery_QueryAttr_window{window}_Image___Question.csv"
+    path1 = operation_path + f"information_flow/{model_name}/ChooseCat/val_correct/Image___Question/GQA_val_correct_question_with_categoryThatThisChoose_objThisChoose_ChooseCat_window{window}_Image___Question.csv"
+    path2 = operation_path + f"information_flow/{model_name}/ChooseAttr/val_correct/Image___Question/GQA_val_correct_question_with_choose_ChooseAttr_window{window}_Image___Question.csv"
+    path3 = operation_path + f"information_flow/{model_name}/ChooseRel/val_correct/Image___Question/GQA_val_correct_question_with_relChooser_ChooseRel_window{window}_Image___Question.csv"
+    path4 = operation_path + f"information_flow/{model_name}/CompareAttr/val_correct/Image___Question/GQA_val_correct_question_with_twoCommon_CompareAttr_window{window}_Image___Question.csv"
+    path5 = operation_path + f"information_flow/{model_name}/LogicalObj/val_correct/Image___Question/GQA_val_correct_question_with_existThatOr_LogicalObj_window{window}_Image___Question.csv"
+    path6 = operation_path + f"information_flow/{model_name}/QueryAttr/val_correct/Image___Question/GQA_val_correct_question_with_positionQuery_QueryAttr_window{window}_Image___Question.csv"
 
     data1 = read_csv(path=path1)
     data2 = read_csv(path=path2)
@@ -199,9 +199,9 @@ def merge(model_name, operation_path, window):
     # ######################### Image patches to Question #########################
     for ind, task_name in enumerate([task1, task2, task3, task4, task5, task6]):
         data1 = read_csv(
-            path=operation_path + f"information_flow/{model_name}/{task_name.split('_')[-1].split('.csv')[0]}/val/Image_Central_Object___Question/{task_name.split('.csv')[0]}_window{window}_Image_Central_Object___Question.csv")
+            path=operation_path + f"information_flow/{model_name}/{task_name.split('_')[-1].split('.csv')[0]}/val_correct/Image_Central_Object___Question/{task_name.split('.csv')[0]}_window{window}_Image_Central_Object___Question.csv")
         data2 = read_csv(
-            path=operation_path + f"information_flow/{model_name}/{task_name.split('_')[-1].split('.csv')[0]}/val/Image_Without_Central_Object___Question/{task_name.split('.csv')[0]}_window{window}_Image_Without_Central_Object___Question.csv")
+            path=operation_path + f"information_flow/{model_name}/{task_name.split('_')[-1].split('.csv')[0]}/val_correct/Image_Without_Central_Object___Question/{task_name.split('.csv')[0]}_window{window}_Image_Without_Central_Object___Question.csv")
 
         # combine
         data_combined = pd.concat([data1, data2])
@@ -215,7 +215,7 @@ def merge(model_name, operation_path, window):
                             save_fold="imagePatches2question")
 
         generate_plot(data_combined,
-                      save_file=operation_path + f"information_flow/{model_name}/{task_name.split('_')[-1].split('.csv')[0]}/val/{model_name}_{task_name.split('.csv')[0]}_window{window}_Image_patches__Question_firstgen.pdf",
+                      save_file=operation_path + f"information_flow/{model_name}/{task_name.split('_')[-1].split('.csv')[0]}/val_correct/{model_name}_{task_name.split('.csv')[0]}_window{window}_Image_patches__Question_firstgen.pdf",
                       operation_path=operation_path,
                       model_name=model_name,
                       y="relative diff first",
