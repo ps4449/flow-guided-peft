@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-24",
+  "source_hash_check": "passed",
+  "training_data_hash_check": "passed",
+  "completed_full_runs": [
+    0,
+    1,
+    2
+  ],
+  "cpu_protocol_tests": {
+    "environment": "TC2 llava_shared, CUDA_VISIBLE_DEVICES empty",
+    "passed": 3,
+    "skipped": 0,
+    "seconds": 17.233
+  },
+  "local_cpu_tests": {
+    "passed": 2,
+    "skipped": 1,
+    "reason": "Torch/PEFT not installed on Mac"
+  },
+  "note": "No new GPU training or inference was submitted for this publication. Full-run outputs and masks were validated separately; tests use a tiny CPU model."
+}

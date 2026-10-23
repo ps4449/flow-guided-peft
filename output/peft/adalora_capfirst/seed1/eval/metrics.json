@@ -1,0 +1,50 @@
+{
+  "accuracy": 62.45,
+  "correct": 7855,
+  "total": 12578,
+  "adapter": "output/peft/adalora_capfirst/seed1/adapter",
+  "by_structural": {
+    "choose": {
+      "accuracy": 83.08,
+      "total": 1129
+    },
+    "compare": {
+      "accuracy": 65.2,
+      "total": 589
+    },
+    "logical": {
+      "accuracy": 75.93,
+      "total": 1803
+    },
+    "query": {
+      "accuracy": 48.24,
+      "total": 6805
+    },
+    "verify": {
+      "accuracy": 83.53,
+      "total": 2252
+    }
+  },
+  "by_semantic": {
+    "attr": {
+      "accuracy": 69.32,
+      "total": 5186
+    },
+    "cat": {
+      "accuracy": 52.48,
+      "total": 1149
+    },
+    "global": {
+      "accuracy": 61.78,
+      "total": 157
+    },
+    "obj": {
+      "accuracy": 87.15,
+      "total": 778
+    },
+    "rel": {
+      "accuracy": 54.3,
+      "total": 5308
+    }
+  }
+}

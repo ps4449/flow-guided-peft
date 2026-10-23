@@ -20,6 +20,9 @@ same table should be compared. Using capitalised training for configurations mov
 | Uniform LoRA (rank 8), seed 2 | 61.93 | 7,789 / 12,578 correct; [outputs](output/peft/uniform/default/seed2/eval/metrics.json) |
 | **Uniform LoRA (rank 8), mean of seeds 1–2** | **61.96** | +0.05 vs zero-shot; seed 0 still to be rerun on capitalised answers (the 61.36 run below was lowercase) |
 | AdaLoRA (init rank 12 → avg 8), seed 0 | 62.56 | 7,869 / 12,578 correct; [outputs](output/peft/adalora_capfirst/seed0/eval/metrics.json); +1.12 vs lowercase seed 0 |
+| AdaLoRA (init rank 12 → avg 8), seed 1 | 62.45 | 7,855 / 12,578 correct; [outputs](output/peft/adalora_capfirst/seed1/eval/metrics.json) |
+| AdaLoRA (init rank 12 → avg 8), seed 2 | 62.47 | 7,857 / 12,578 correct; [outputs](output/peft/adalora_capfirst/seed2/eval/metrics.json) |
+| **AdaLoRA, mean ± sample std of seeds 0–2** | **62.49 ± 0.06** | Calculated from exact correct counts; std in percentage points, ddof=1; [summary](output/peft/adalora_capfirst/three_seed_summary.json) |
 | Flow-guided LoRA, seed 0 | 61.77 | 7,770 / 12,578 correct; `flow_guided/default/seed0`; log shows target 'Right</s>' |
 | Flow-guided LoRA, seed 1 | 62.03 | 7,802 / 12,578 correct; `flow_guided/default/seed1` |
 | Inverse-flow LoRA, seed 0 | 62.13 | 7,815 / 12,578 correct; `configs/ranks/inverse_flow.json`; casing not confirmed from the training log |
@@ -48,7 +51,7 @@ Capitalised training answers, with a change to the training data or setup.
 
 ## AdaLoRA capitalization comparison
 
-The seed 0 comparison changes only the first character of each training answer to uppercase; the remaining data, training settings and evaluation are unchanged. Evaluation lowercases predictions and references before exact matching, so the improvement is not direct credit for matching answer case. This is one paired seed, not evidence of robustness across seeds. Capitalised seeds 1 and 2 are in the training/evaluation pipeline as of 23 October 2026; no scores or three-seed average are available yet.
+The seed 0 comparison changes only the first character of each training answer to uppercase; the remaining data, training settings and evaluation are unchanged. Evaluation lowercases predictions and references before exact matching, so the improvement is not direct credit for matching answer case. The detailed loss and short-step comparisons are for seed 0. Capitalised seeds 0–2 are now complete (62.49 ± 0.06%, sample std); the improvement versus lowercase is not a three-seed paired estimate because lowercase seed 2 was not run. Lowercase seed 1 scored 61.35% versus 62.45% capitalised.
 
 - Full training: 205.4 minutes lowercase versus 201.0 minutes capitalised; this small timing difference does not establish a speed improvement.
 - On the fixed exploratory 512-question subset, step 100 accuracy was 61.13% lowercase versus 60.94% capitalised (one question difference). The short comparison provides no clear early learning advantage.
@@ -57,3 +60,9 @@ The seed 0 comparison changes only the first character of each training answer t
 [Full paired comparison](output/peft/adalora_capfirst/seed0/capitalization_comparison.json) · [Short comparison](output/diagnostics/case_training/quick_comparison.json) · [Run provenance](output/peft/adalora/README.md)
 
 ![AdaLoRA seed 0 answer loss, 20-step moving average](output/diagnostics/capitalization/loss_comparison.png)
+
+## AdaLoRA reproducibility and report notes
+
+- [Frozen training implementation and TC2 instructions](experiments/adalora_reproduction/README.md): the exact source used for these runs, added without replacing the shared trainer.
+- [AdaLoRA report and presentation notes](docs/ADALORA_REPORT_NOTES.md): method, parameters, results, ranks, compute and limitations.
+- Final per-layer q/v ranks and masks are stored with each capitalised run. AdaLoRA does not consume information-flow graphs.
