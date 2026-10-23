@@ -13,6 +13,9 @@ GQA testdev-balanced (12,578 questions), LLaVA-1.5-7B.
 | AdaLoRA (init rank 12 → avg 8), capitalised answers, seed 0 | 62.56 | 7,869 / 12,578 correct; [outputs](output/peft/adalora_capfirst/seed0/eval/metrics.json); +1.12 percentage points vs lowercase seed 0 |
 | Inverse-flow LoRA, seed 0 | 62.13 | 7,815 / 12,578 correct; rank budget 512; `configs/ranks/inverse_flow.json` |
 | Uniform LoRA (rank 8), capitalised answers, seed 0 | 61.36 | 7,718 / 12,578 correct; `uniform/default/seed0`; +0.09 vs lowercase (61.27) |
+| Uniform LoRA (rank 8), capitalised answers, seed 1 | 61.99 | 7,797 / 12,578 correct; [outputs](output/peft/uniform/default/seed1/eval/metrics.json) |
+| Uniform LoRA (rank 8), capitalised answers, seed 2 | 61.93 | 7,789 / 12,578 correct; [outputs](output/peft/uniform/default/seed2/eval/metrics.json) |
+| **Uniform LoRA (rank 8), capitalised answers, mean of seeds 0–2** | **61.76 ± 0.35** | sample std over 3 seeds; −0.15 vs zero-shot (61.91), within seed-to-seed variation |
 | Uniform LoRA (rank 8), trained on mistakes, seed 0 | 61.63 | 7,752 / 12,578 correct; `uniform/train_mistakes_llava/seed0`; 5,753 zero-shot-wrong + 5,753 right training questions; +0.27 vs uniform on all 20k (61.36) |
 
 ## AdaLoRA capitalization comparison
