@@ -13,7 +13,7 @@
 #SBATCH --output=slurm/logs/%x_%j.out
 #SBATCH --error=slurm/logs/%x_%j.err
 # Submit from the repo root, e.g.
-#   sbatch --export=ALL,ADAPTER=output/peft/flow_guided/seed0/adapter scripts/tc2_eval.sh
+#   sbatch --export=ALL,ADAPTER=output/peft/flow_guided/default/seed0/adapter scripts/tc2_eval.sh
 #   sbatch scripts/tc2_eval.sh                                  # zero-shot, no adapter
 # Quick test on 100 questions: add EXTRA="--limit 100" and --time=00:30:00
 # If the job stops, submit the same command again; it skips questions already answered.

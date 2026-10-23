@@ -7,7 +7,9 @@ The method is set only by its rank file in configs/ranks/:
            Other keys in "adalora" are passed on to peft.AdaLoraConfig.
 
 The vision tower and projector stay frozen. The adapter is saved to
-output/peft/<rank file name>/seed<k>/adapter/. Before the 6 h limit the job saves a
+output/peft/<rank file name>/<settings>/seed<k>/adapter/, where <settings> lists the options
+changed from their defaults (e.g. "lr1e-4_ep2"), or "default". Add --tag to name a change that
+is not an option (e.g. new training data). Before the 6 h limit the job saves a
 checkpoint and stops; submitting the same command again resumes from it.
 
 Usage:
@@ -110,6 +112,27 @@ def check_ranks(model, expected):
         sys.exit(f"LoRA ranks do not match the rank file, e.g. {wrong}")
 
 
+# options that change the training result, with their short names in the run folder
+SETTING_NAMES = {"lr": "lr", "epochs": "ep", "batch_size": "bs", "grad_accum": "ga", "warmup_ratio": "wu",
+                 "train_file": "", "limit": "limit"}  # a different train file shows as its name
+
+
+def short_value(value):
+    if isinstance(value, float) and value < 0.01:
+        return f"{value:.0e}".replace("e-0", "e-")  # 0.0001 -> 1e-4
+    if isinstance(value, str):
+        return os.path.splitext(os.path.basename(value))[0]
+    return f"{value:g}" if isinstance(value, float) else str(value)
+
+
+def settings_name(args, parser):
+    """Folder name from the options that differ from their defaults, e.g. "lr1e-4_ep2"."""
+    parts = [args.tag] if args.tag else []
+    parts += [f"{short}{short_value(getattr(args, key))}" for key, short in SETTING_NAMES.items()
+              if getattr(args, key) != parser.get_default(key)]
+    return "_".join(parts) or "default"
+
+
 def save_checkpoint(path, model, optimizer, scheduler, step):
     torch.save({
         "adapter": get_peft_model_state_dict(model),
@@ -128,7 +151,8 @@ def main():
     parser.add_argument("--conv-mode", default="vicuna_v1")
     parser.add_argument("--train-file", default="datasets/gqa/train_20000_llava.json")
     parser.add_argument("--image-folder", default="datasets/gqa/images")
-    parser.add_argument("--out-dir", default=None)
+    parser.add_argument("--out-dir", default=None, help="overrides the automatic run folder")
+    parser.add_argument("--tag", default=None, help="extra label for the run folder, e.g. a data version")
     parser.add_argument("--limit", type=int, default=None, help="train on the first N questions only (for tests)")
     parser.add_argument("--epochs", type=int, default=1)
     parser.add_argument("--batch-size", type=int, default=4)
@@ -142,7 +166,7 @@ def main():
     start = time.time()
 
     name = os.path.splitext(os.path.basename(args.ranks))[0]
-    out_dir = args.out_dir or os.path.join("output/peft", name, f"seed{args.seed}" + (f"_limit{args.limit}" if args.limit else ""))
+    out_dir = args.out_dir or os.path.join("output/peft", name, settings_name(args, parser), f"seed{args.seed}")
     os.makedirs(out_dir, exist_ok=True)
     adapter_dir = os.path.join(out_dir, "adapter")
     ckpt_path = os.path.join(out_dir, "checkpoint.pt")

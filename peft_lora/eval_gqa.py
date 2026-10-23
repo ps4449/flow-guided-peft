@@ -8,7 +8,7 @@ metrics.json has the overall accuracy and the accuracy per GQA question type
 If all predictions exist, only the metrics are recomputed (no GPU needed).
 
 Usage:
-  python peft_lora/eval_gqa.py [--adapter output/peft/<method>/seed<k>/adapter] [--limit 100]
+  python peft_lora/eval_gqa.py [--adapter output/peft/<method>/<settings>/seed<k>/adapter] [--limit 100]
 """
 import argparse
 import json
