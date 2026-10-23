@@ -14,6 +14,7 @@ checkpoint and stops; submitting the same command again resumes from it.
 
 Usage:
   python peft_lora/train_lora.py --ranks configs/ranks/<method>.json --seed 0 [--limit 100]
+  ... --train-file datasets/scienceqa/train_llava.json    # ScienceQA -> <settings> = scienceqa_train_llava
 """
 import argparse
 import json
@@ -120,8 +121,9 @@ SETTING_NAMES = {"lr": "lr", "epochs": "ep", "batch_size": "bs", "grad_accum": "
 def short_value(value):
     if isinstance(value, float) and value < 0.01:
         return f"{value:.0e}".replace("e-0", "e-")  # 0.0001 -> 1e-4
-    if isinstance(value, str):
-        return os.path.splitext(os.path.basename(value))[0]
+    if isinstance(value, str):  # a training file: its name, plus the dataset folder when it is not GQA
+        folder, stem = os.path.basename(os.path.dirname(value)), os.path.splitext(os.path.basename(value))[0]
+        return stem if folder in ("gqa", "") else f"{folder}_{stem}"  # e.g. scienceqa_train_llava
     return f"{value:g}" if isinstance(value, float) else str(value)
 
 
@@ -150,7 +152,7 @@ def main():
     parser.add_argument("--model-path", default="liuhaotian/llava-v1.5-7b")
     parser.add_argument("--conv-mode", default="vicuna_v1")
     parser.add_argument("--train-file", default="datasets/gqa/train_20000_llava.json")
-    parser.add_argument("--image-folder", default="datasets/gqa/images")
+    parser.add_argument("--image-folder", default=None, help="default: images/ next to the training file")
     parser.add_argument("--out-dir", default=None, help="overrides the automatic run folder")
     parser.add_argument("--tag", default=None, help="extra label for the run folder, e.g. a data version")
     parser.add_argument("--limit", type=int, default=None, help="train on the first N questions only (for tests)")
@@ -163,6 +165,7 @@ def main():
     parser.add_argument("--max-hours", type=float, default=5.5, help="stop with a checkpoint after this long")
     parser.add_argument("--num-workers", type=int, default=4)
     args = parser.parse_args()
+    args.image_folder = args.image_folder or os.path.join(os.path.dirname(args.train_file), "images")
     start = time.time()
 
     name = os.path.splitext(os.path.basename(args.ranks))[0]

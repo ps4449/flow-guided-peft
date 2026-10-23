@@ -63,3 +63,19 @@ On the cluster: [To by done by everyone on their GPU instance]
 3. Extract the train and testdev images: `unzip -q -n images.zip $(cat needed_train.txt needed_testdev.txt)`
 4. Check the image count: `ls images | wc -l` (the 3,818 from before plus the new ones)
 5. Delete the zip to free 20 GB once all 3 image lists are extracted: `rm images.zip`
+
+### Second dataset: ScienceQA
+
+ScienceQA is multiple-choice school science with pictures (diagrams, maps, photos). LLaVA-1.5 was never trained on it, so fine-tuning has room to help (GQA it has already seen). We only use the questions that have a picture: 6,218 train, 2,097 val, 2,017 test.
+
+The question files are already in the repo (`datasets/scienceqa/*.json*`). Only the pictures (666 MB) have to be made on the cluster, by everyone:
+1. On the head node, add the package that reads the download: `conda activate llava && pip install pyarrow`
+2. Download ScienceQA (625 MB, a few minutes; the pictures are inside these files): `huggingface-cli download derek-thomas/ScienceQA --repo-type dataset --local-dir ~/scienceqa_raw`
+3. From the project folder, save the pictures with a short job (~5 min): `cd ~/flow-guided-peft && sbatch scripts/tc2_prepare_scienceqa.sh`
+4. Check it worked: the last line of `slurm/logs/prep_scienceqa_<jobid>.out` should be `10332` (the number of pictures in `datasets/scienceqa/images/`)
+5. Delete the download to free space: `rm -r ~/scienceqa_raw`
+
+Train and evaluate on it by pointing the usual scripts at the ScienceQA files (results go to separate folders, so GQA results are not overwritten):
+`sbatch --export=ALL,EXTRA="--questions datasets/scienceqa/test_questions.jsonl" scripts/tc2_eval.sh` `# zero-shot -> output/peft/zero_shot/eval_scienceqa/`
+`sbatch --export=ALL,RANKS=configs/ranks/uniform.json,SEED=0,EXTRA="--train-file datasets/scienceqa/train_llava.json" scripts/tc2_train.sh` `# -> output/peft/uniform/scienceqa_train_llava/seed0/`
+`sbatch --export=ALL,ADAPTER=output/peft/uniform/scienceqa_train_llava/seed0/adapter,EXTRA="--questions datasets/scienceqa/test_questions.jsonl" scripts/tc2_eval.sh` `# -> .../seed0/eval_scienceqa/`

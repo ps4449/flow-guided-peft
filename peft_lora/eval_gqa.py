@@ -1,21 +1,37 @@
-"""GQA testdev-balanced accuracy of LLaVA-1.5-7B, with or without a LoRA adapter.
+"""Accuracy of LLaVA-1.5-7B, with or without a LoRA adapter, on GQA testdev-balanced (default)
+or another questions file (e.g. ScienceQA).
 
-Writes predictions.jsonl and metrics.json to <adapter's run folder>/eval/, or to
-output/peft/zero_shot/eval/ without an adapter. Predictions are saved as they are made,
-so a stopped job continues where it left off when submitted again.
-metrics.json has the overall accuracy and the accuracy per GQA question type
-(structural: verify/query/choose/logical/compare, semantic: obj/attr/rel/cat/global).
+Writes predictions.jsonl and metrics.json to <adapter's run folder>/<eval folder>/, or to
+output/peft/zero_shot/<eval folder>/ without an adapter. The eval folder is "eval" for GQA testdev,
+and is named after the questions file otherwise, e.g.
+  datasets/scienceqa/test_questions.jsonl  -> eval_scienceqa
+  datasets/scienceqa/train_questions.jsonl -> eval_scienceqa_train
+Predictions are saved as they are made, so a stopped job continues where it left off when submitted again.
+metrics.json has the overall accuracy and the accuracy per question type, for the type fields the
+questions file has (GQA: structural, semantic; ScienceQA: subject, category, grade).
 If all predictions exist, only the metrics are recomputed (no GPU needed).
 
 Usage:
   python peft_lora/eval_gqa.py [--adapter output/peft/<method>/<settings>/seed<k>/adapter] [--limit 100]
+  python peft_lora/eval_gqa.py --questions datasets/scienceqa/test_questions.jsonl [--adapter ...]
 """
 import argparse
 import json
 import os
 from collections import defaultdict
 
-TYPE_FIELDS = ["structural", "semantic"]
+DEFAULT_QUESTIONS = "datasets/gqa/testdev_questions.jsonl"
+TYPE_FIELDS = ["structural", "semantic", "subject", "category", "grade"]  # GQA, then ScienceQA
+
+
+def eval_folder_name(questions_path):
+    """"eval" for GQA testdev; otherwise "eval_" + the dataset folder (if not gqa) + the split (if not test)."""
+    if os.path.normpath(questions_path) == os.path.normpath(DEFAULT_QUESTIONS):
+        return "eval"
+    folder = os.path.basename(os.path.dirname(os.path.abspath(questions_path)))
+    split = os.path.splitext(os.path.basename(questions_path))[0].removesuffix("_questions")
+    parts = ["eval"] + ([folder] if folder != "gqa" else []) + ([split] if split not in ("test", "testdev") else [])
+    return "_".join(parts)
 
 
 def normalize(answer):
@@ -34,15 +50,16 @@ def main():
     parser.add_argument("--adapter", default=None)
     parser.add_argument("--model-path", default="liuhaotian/llava-v1.5-7b")
     parser.add_argument("--conv-mode", default="vicuna_v1")
-    parser.add_argument("--questions", default="datasets/gqa/testdev_questions.jsonl")
-    parser.add_argument("--image-folder", default="datasets/gqa/images")
+    parser.add_argument("--questions", default=DEFAULT_QUESTIONS)
+    parser.add_argument("--image-folder", default=None, help="default: images/ next to the questions file")
     parser.add_argument("--out-dir", default=None)
     parser.add_argument("--limit", type=int, default=None, help="evaluate the first N questions only (for tests)")
     parser.add_argument("--max-new-tokens", type=int, default=16)
     args = parser.parse_args()
+    args.image_folder = args.image_folder or os.path.join(os.path.dirname(args.questions), "images")
 
     run_dir = os.path.dirname(args.adapter.rstrip("/")) if args.adapter else "output/peft/zero_shot"
-    out_dir = args.out_dir or os.path.join(run_dir, "eval" + (f"_limit{args.limit}" if args.limit else ""))
+    out_dir = args.out_dir or os.path.join(run_dir, eval_folder_name(args.questions) + (f"_limit{args.limit}" if args.limit else ""))
     os.makedirs(out_dir, exist_ok=True)
     pred_path = os.path.join(out_dir, "predictions.jsonl")
 
@@ -81,16 +98,17 @@ def main():
 
     # question types come from the questions file, so older predictions files get them too
     by_id = {q["question_id"]: q for q in questions}
+    fields = [field for field in TYPE_FIELDS if any(field in q for q in questions)]
     with open(pred_path) as f:
         rows = [json.loads(line) for line in f]
     for r in rows:
         r["correct"] = normalize(r["prediction"]) == normalize(r["answer"])
-        for field in TYPE_FIELDS:
+        for field in fields:
             r[field] = by_id[r["question_id"]].get(field, "unknown")
     correct = sum(r["correct"] for r in rows)
     metrics = {"accuracy": round(100 * correct / len(rows), 2), "correct": correct, "total": len(rows),
-               "adapter": args.adapter or "zero-shot"}
-    for field in TYPE_FIELDS:
+               "adapter": args.adapter or "zero-shot", "questions": args.questions}
+    for field in fields:
         metrics[f"by_{field}"] = accuracy_by(rows, field)
     with open(os.path.join(out_dir, "metrics.json"), "w") as f:
         json.dump(metrics, f, indent=2)

@@ -25,6 +25,8 @@ same table should be compared. Using capitalised training for configurations mov
 | **AdaLoRA, mean ± sample std of seeds 0–2** | **62.49 ± 0.06** | Calculated from exact correct counts; std in percentage points, ddof=1; [summary](output/peft/adalora_capfirst/three_seed_summary.json) |
 | Flow-guided LoRA, seed 0 | 61.77 | 7,770 / 12,578 correct; `flow_guided/default/seed0`; log shows target 'Right</s>' |
 | Flow-guided LoRA, seed 1 | 62.03 | 7,802 / 12,578 correct; `flow_guided/default/seed1` |
+| Flow-guided LoRA, seed 2 | 61.57 | 7,744 / 12,578 correct; `flow_guided/default/seed2` |
+| **Flow-guided LoRA, mean of seeds 0–2** | **61.79 ± 0.23** | sample std over 3 seeds; −0.12 vs zero-shot (61.91), within seed-to-seed variation |
 | Inverse-flow LoRA, seed 0 | 62.13 | 7,815 / 12,578 correct; `configs/ranks/inverse_flow.json`; casing not confirmed from the training log |
 
 ### Variants
