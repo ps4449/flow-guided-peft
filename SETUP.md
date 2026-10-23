@@ -79,3 +79,9 @@ Train and evaluate on it by pointing the usual scripts at the ScienceQA files (r
 `sbatch --export=ALL,EXTRA="--questions datasets/scienceqa/test_questions.jsonl" scripts/tc2_eval.sh` `# zero-shot -> output/peft/zero_shot/eval_scienceqa/`
 `sbatch --export=ALL,RANKS=configs/ranks/uniform.json,SEED=0,EXTRA="--train-file datasets/scienceqa/train_llava.json" scripts/tc2_train.sh` `# -> output/peft/uniform/scienceqa_train_llava/seed0/`
 `sbatch --export=ALL,ADAPTER=output/peft/uniform/scienceqa_train_llava/seed0/adapter,EXTRA="--questions datasets/scienceqa/test_questions.jsonl" scripts/tc2_eval.sh` `# -> .../seed0/eval_scienceqa/`
+
+Information-flow graphs on ScienceQA (for ScienceQA's own flow-guided ranks):
+1. Zero-shot on the training questions: `sbatch --export=ALL,EXTRA="--questions datasets/scienceqa/train_questions.jsonl" scripts/tc2_eval.sh`
+2. Bring `output/peft/zero_shot/eval_scienceqa_train/` to your device and build the right/wrong files: `python3 scripts/make_flow_failure_split.py --dataset scienceqa` (makes `datasets/SQA_train_correct_ScienceQA.csv` and `datasets/SQA_train_wrong_ScienceQA.csv`, 1,000 each; push them)
+3. Run the flows with the ScienceQA images, e.g. `sbatch --export=ALL,DATASET=datasets/SQA_train_correct_ScienceQA.csv,IMAGES=datasets/scienceqa/images,BLOCK="Question->Last" scripts/tc2_informationFlow.sh`. Results go to `output/information_flow/llava_v1_5_7b/ScienceQA/train_correct/<flow>/` (and `train_wrong`)
+4. Ranks from the right answers: `python peft_lora/methods/flow_guided/make_ranks.py --types ScienceQA --split train_correct --out configs/ranks/flow_guided_scienceqa.json` (add `--flows Image___Question Question___Last` if Image->Last was not run)

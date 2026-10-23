@@ -45,7 +45,10 @@ dataset=${DATASET:-datasets/GQA_val_correct_question_with_choose_ChooseAttr.csv}
 #dataset=datasets/GQA_train_correct_All.csv   # training questions zero-shot gets right
 #dataset=datasets/GQA_train_wrong_All.csv     # training questions zero-shot gets wrong (keeps wrong answers only)
 
-imagefolder=$HOME/flow-guided-peft/datasets/gqa/images/
+#dataset=datasets/SQA_train_correct_ScienceQA.csv   # ScienceQA: also set IMAGES=datasets/scienceqa/images
+#dataset=datasets/SQA_train_wrong_ScienceQA.csv
+
+imagefolder=${IMAGES:-$HOME/flow-guided-peft/datasets/gqa/images/}
 
 echo "Node: $(hostname)  Job: $SLURM_JOB_ID"
 echo "Window: $current_window  Block: $current_block_desc"

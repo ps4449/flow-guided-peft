@@ -59,9 +59,16 @@ class CustomDataset(Dataset):
     def __getitem__(self, index):
 
         line = self.questions[index]
-        question = line["question"]
-        question = question + " \nAnswer the question using a single word or phrase."
-        image_file = str(line["img_id"]) + ".jpg" if ".jpg" not in str(line["img_id"]) else str(line["img_id"])
+        # a "prompt" column (e.g. ScienceQA: context, question, options, instruction) replaces the GQA prompt;
+        # the "question" column is still what the Question token range is found from
+        if line.get("prompt"):
+            question = line["prompt"]
+        else:
+            question = line["question"]
+            question = question + " \nAnswer the question using a single word or phrase."
+        image_file = str(line["img_id"])
+        if not os.path.splitext(image_file)[1]:  # GQA ids have no extension
+            image_file += ".jpg"
 
 
         qs = DEFAULT_IMAGE_TOKEN + "\n" + question  #
@@ -386,7 +393,7 @@ def InforFlowAna(args):
     for (input_ids, image_tensor, original_image_sizes, prompts, mask_tensor), line in tqdm(zip(data_loader, questions), total=len(questions)):
 
         question_id = line["q_id"]
-        img_id= str(line["img_id"]) + ".jpg"
+        img_id = str(line["img_id"]) if os.path.splitext(str(line["img_id"]))[1] else str(line["img_id"]) + ".jpg"
 
         input_ids = input_ids.to(device='cuda')
         image_tensor = [img_t.to(device='cuda') for img_t in image_tensor]
@@ -429,11 +436,15 @@ def InforFlowAna(args):
 
         #get range
         block_descs_split = args.block_description.split("->")
-        if args.certain_part_image:
-            range1 = blockdesc2range_patches(block_descs_split[0], input_ids, inputs_embeds_shape,central_object_patch_indices, pad_patch_indices, hd_patch_indice,objects_indices_in_hd, original_patch_indices)
-        else:
-            range1 = blockdesc2range(block_descs_split[0], dataset_dict, question_id, input_ids, inputs_embeds_shape,tokenizer, model_name)
-        range2 = blockdesc2range(block_descs_split[1], dataset_dict, question_id, input_ids, inputs_embeds_shape,tokenizer, model_name)
+        try:
+            if args.certain_part_image:
+                range1 = blockdesc2range_patches(block_descs_split[0], input_ids, inputs_embeds_shape,central_object_patch_indices, pad_patch_indices, hd_patch_indice,objects_indices_in_hd, original_patch_indices)
+            else:
+                range1 = blockdesc2range(block_descs_split[0], dataset_dict, question_id, input_ids, inputs_embeds_shape,tokenizer, model_name)
+            range2 = blockdesc2range(block_descs_split[1], dataset_dict, question_id, input_ids, inputs_embeds_shape,tokenizer, model_name)
+        except ValueError:  # the question text was not found in the prompt tokens (e.g. unusual characters)
+            print("Skipped (question tokens not found):", question_id)
+            continue
         block_descs = [([range1, range2], args.block_description)]
 
         for block_ids, block_desc in block_descs:
@@ -478,10 +489,11 @@ def InforFlowAna(args):
     tmp = pd.DataFrame.from_records(results)
     model_name = model_name.replace('-', '_').replace('.', '_')
     # <split> is the dataset's source and filter from its name, e.g. GQA_val_correct_..._ChooseAttr -> val_correct,
-    # GQA_train_wrong_All -> train_wrong; other files (e.g. test_ChooseAttr) go to their first word (test)
+    # GQA_train_wrong_All -> train_wrong, SQA_train_correct_ScienceQA -> train_correct;
+    # other files (e.g. test_ChooseAttr) go to their first word (test)
     dataset_name = args.refined_dataset.split("/")[-1].split(".csv")[0]
     name_parts = dataset_name.split("_")
-    split = "_".join(name_parts[1:3]) if name_parts[0] == "GQA" else name_parts[0]
+    split = "_".join(name_parts[1:3]) if len(name_parts) > 2 and name_parts[2] in ("correct", "wrong") else name_parts[0]
     out_dir = f"output/information_flow/{model_name}/{task_name}/{split}/{save_name}"
     os.makedirs(out_dir, exist_ok=True)
     tmp.to_csv(f'{out_dir}/{dataset_name}_window{args.window}_{save_name}.csv', index=False)

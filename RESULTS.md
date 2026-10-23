@@ -1,6 +1,10 @@
 # Results
 
-GQA testdev-balanced (12,578 questions), LLaVA-1.5-7B.
+LLaVA-1.5-7B on two datasets: [GQA](#gqa) (already in LLaVA's training data) and [ScienceQA](#scienceqa) (new to LLaVA).
+
+## GQA
+
+GQA testdev-balanced (12,578 questions).
 
 Training answers are either lowercase (GQA's original answers) or capitalised (first letter uppercase, matching
 LLaVA's own style). Capitalised training scores higher, so the two are kept in separate tables and only rows in the
@@ -50,6 +54,43 @@ Capitalised training answers, with a change to the training data or setup.
 | Flow-guided LoRA, seed 1 | 61.07 | 7,681 / 12,578 correct; `flow_guided/lowercase/seed1` |
 | Flow-guided LoRA, LR 1e-4, seed 0 | 61.06 | 7,680 / 12,578 correct; LR 2e-4 → 1e-4 made no difference (61.02) |
 | Flow-protected LoRA, seed 0 | 61.54 | 7,740 / 12,578 correct; `configs/ranks/flow_protected.json`; no LoRA on layers 9–15 (critical flow layers), rank 10–11 elsewhere; trained before the cluster's training file was capitalised |
+
+## ScienceQA
+
+ScienceQA-IMG test (2,017 multiple-choice questions with a picture); trained on the 6,218 training questions with a picture
+(`datasets/scienceqa/train_llava.json`). Answers are option letters (A, B, C, ...). Same LoRA budget and settings as GQA.
+Run folders: `output/peft/<ranks>/scienceqa_train_llava/seed<k>/eval_scienceqa/`.
+
+### Baseline
+
+| Configuration | Accuracy (%) | Notes |
+|---|---|---|
+| Zero-shot (no fine-tuning) | | LLaVA-1.5 paper reports 66.8; `zero_shot/eval_scienceqa` |
+
+### LoRA methods
+
+| Configuration | Accuracy (%) | Notes |
+|---|---|---|
+| Uniform LoRA (rank 8), seed 0 | | |
+| Uniform LoRA (rank 8), seed 1 | | |
+| Uniform LoRA (rank 8), seed 2 | | |
+| **Uniform LoRA, mean of seeds 0–2** | | |
+| AdaLoRA (init rank 12 → avg 8), seed 0 | | |
+| AdaLoRA (init rank 12 → avg 8), seed 1 | | |
+| AdaLoRA (init rank 12 → avg 8), seed 2 | | |
+| **AdaLoRA, mean of seeds 0–2** | | |
+| Flow-guided LoRA (GQA ranks), seed 0 | | `configs/ranks/flow_guided.json` (from the GQA flow graphs) |
+| Flow-guided LoRA (GQA ranks), seed 1 | | |
+| Flow-guided LoRA (GQA ranks), seed 2 | | |
+| **Flow-guided LoRA (GQA ranks), mean of seeds 0–2** | | |
+| Inverse-flow LoRA, seed 0 | | `configs/ranks/inverse_flow.json` |
+| Inverse-flow LoRA, seed 1 | | |
+| Inverse-flow LoRA, seed 2 | | |
+| **Inverse-flow LoRA, mean of seeds 0–2** | | |
+| Flow-guided LoRA (ScienceQA ranks), seed 0 | | ranks from the ScienceQA flow graphs (to be made) |
+| Flow-guided LoRA (ScienceQA ranks), seed 1 | | |
+| Flow-guided LoRA (ScienceQA ranks), seed 2 | | |
+| **Flow-guided LoRA (ScienceQA ranks), mean of seeds 0–2** | | |
 
 ## AdaLoRA capitalization comparison
 
