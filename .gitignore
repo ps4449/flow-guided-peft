@@ -17,3 +17,5 @@ CCDSGPU-TC2-MSc-UserGuide.pdf
 
 # LLaVA-NeXT is cloned separately during setup
 LLaVA-NeXT/
+
+slurm/logs/*
