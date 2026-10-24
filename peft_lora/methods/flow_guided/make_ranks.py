@@ -12,6 +12,7 @@ Usage (from the repo root):
   python peft_lora/methods/flow_guided/make_ranks.py                 # all question types -> flow_guided.json
   python peft_lora/methods/flow_guided/make_ranks.py --types ChooseAttr --out configs/ranks/flow_guided_ChooseAttr.json
   python peft_lora/methods/flow_guided/make_ranks.py --types All --split train_wrong --out configs/ranks/flow_wrong.json
+  python peft_lora/methods/flow_guided/make_ranks.py --inverse --out configs/ranks/inverse_flow.json   # control
 Prints the rank of every layer.
 """
 import argparse
@@ -97,6 +98,8 @@ def main():
     parser.add_argument("--min-rank", type=int, default=2)
     parser.add_argument("--max-rank", type=int, default=32)
     parser.add_argument("--out", default="configs/ranks/flow_guided.json")
+    parser.add_argument("--inverse", action="store_true",
+                        help="same ranks, reversed: the least important layer gets the largest rank (control)")
     args = parser.parse_args()
 
     types = args.types or sorted(d for d in os.listdir(args.flow_dir) if os.path.isdir(os.path.join(args.flow_dir, d, args.split)))
@@ -107,6 +110,12 @@ def main():
     print(f"Question types: {', '.join(types)}")
     per_layer_total = budget.RANK_SUM // len(budget.TARGET_MODULES)  # same rank for q_proj and v_proj
     layer_ranks = allocate(importance, per_layer_total, args.min_rank, args.max_rank)
+    if args.inverse:  # hand the largest ranks to the least important layers; same ranks, same budget
+        least_first = sorted(range(budget.NUM_LAYERS), key=lambda layer: (importance[layer], layer))
+        largest_first = sorted(layer_ranks, reverse=True)
+        layer_ranks = [0] * budget.NUM_LAYERS
+        for layer, rank in zip(least_first, largest_first):
+            layer_ranks[layer] = rank
 
     ranks = {f"layers.{layer}.self_attn.{m}": layer_ranks[layer]
              for layer in range(budget.NUM_LAYERS) for m in budget.TARGET_MODULES}

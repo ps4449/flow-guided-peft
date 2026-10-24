@@ -6,6 +6,7 @@ LLaVA-1.5-7B on two datasets: [GQA](#gqa) (already in LLaVA's training data) and
 trainer (`peft_lora/train_lora.py`), which did not pass `modalities` to LLaVA-NeXT. In the installed version, a batch of 4
 without it keeps only the first sample for the loss, so these runs may have learned from ~1 of every 4 training questions.
 Treat them as provisional until rerun with the fix; comparisons with the **1 × 16** runs (AdaLoRA) are not fair yet.
+**4 × 4 ✅** runs used the fixed trainer (it passes `modalities` for every sample); see [docs/MULTIMODAL_BATCH_FIX.md](docs/MULTIMODAL_BATCH_FIX.md).
 Zero-shot and information-flow results do not train, so they are not affected.
 
 ## GQA
@@ -82,7 +83,8 @@ Run folders: `output/peft/<ranks>/scienceqa_train_llava/seed<k>/eval_scienceqa/`
 
 | Configuration | Accuracy (%) | Batch (micro × accum) | Notes |
 |---|---|---|---|
-| Uniform LoRA (rank 8), seed 0 | | 4 × 4 ⚠️ | being rerun |
+| Uniform LoRA (rank 8), seed 0 | 80.86 | 4 × 4 ✅ | 1,631 / 2,017 correct; batch fix, all 6,208 training rows checked; `uniform/scienceqa_modalities_fixed/seed0`; merged adapter (unmerged: 81.01); +11.70 vs zero-shot |
+| Uniform LoRA (rank 8), seed 0, before the batch fix | 77.64 | 4 × 4 ⚠️ | 1,566 / 2,017 correct; trained on 1,552 of 6,208 rows (1 of 4 per microbatch); kept for reference |
 | Uniform LoRA (rank 8), seed 1 | | | |
 | Uniform LoRA (rank 8), seed 2 | | | |
 | **Uniform LoRA, mean of seeds 0–2** | | | |
