@@ -74,6 +74,7 @@ def collate(batch, pad_id):
         "attention_mask": attention_mask,
         "images": torch.stack(images),
         "image_sizes": list(sizes),
+        "modalities": ["image"] * len(batch),  # LLaVA-NeXT requires one entry per sample
     }
 
 
