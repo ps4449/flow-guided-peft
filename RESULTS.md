@@ -31,7 +31,10 @@ same table should be compared. Using capitalised training for configurations mov
 | Flow-guided LoRA, seed 1 | 62.03 | 7,802 / 12,578 correct; `flow_guided/default/seed1` |
 | Flow-guided LoRA, seed 2 | 61.57 | 7,744 / 12,578 correct; `flow_guided/default/seed2` |
 | **Flow-guided LoRA, mean of seeds 0–2** | **61.79 ± 0.23** | sample std over 3 seeds; −0.12 vs zero-shot (61.91), within seed-to-seed variation |
-| Inverse-flow LoRA, seed 0 | 62.13 | 7,815 / 12,578 correct; `configs/ranks/inverse_flow.json`; casing not confirmed from the training log |
+| Inverse-flow LoRA, seed 0 | 62.13 | 7,815 / 12,578 correct; [outputs](output/peft/inverse_flow/seed0/eval/metrics.json); capitalized targets; rank budget 512 |
+| Inverse-flow LoRA, seed 1 | 62.16 | 7,819 / 12,578 correct; [outputs](output/peft/inverse_flow/default/seed1/eval/metrics.json); capitalized targets; rank budget 512 |
+| Inverse-flow LoRA, seed 2 | 62.16 | 7,819 / 12,578 correct; [outputs](output/peft/inverse_flow/default/seed2/eval/metrics.json); capitalized targets; rank budget 512 |
+| **Inverse-flow LoRA, 3-seed mean ± SD** | **62.15 ± 0.018** | Seeds 0, 1, 2; sample SD in percentage points |
 
 ### Variants
 

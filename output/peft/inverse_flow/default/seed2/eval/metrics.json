@@ -1,0 +1,50 @@
+{
+  "accuracy": 62.16,
+  "correct": 7819,
+  "total": 12578,
+  "adapter": "output/peft/inverse_flow/default/seed2/adapter",
+  "by_structural": {
+    "choose": {
+      "accuracy": 83.08,
+      "total": 1129
+    },
+    "compare": {
+      "accuracy": 63.67,
+      "total": 589
+    },
+    "logical": {
+      "accuracy": 74.76,
+      "total": 1803
+    },
+    "query": {
+      "accuracy": 48.51,
+      "total": 6805
+    },
+    "verify": {
+      "accuracy": 82.46,
+      "total": 2252
+    }
+  },
+  "by_semantic": {
+    "attr": {
+      "accuracy": 68.18,
+      "total": 5186
+    },
+    "cat": {
+      "accuracy": 54.4,
+      "total": 1149
+    },
+    "global": {
+      "accuracy": 63.06,
+      "total": 157
+    },
+    "obj": {
+      "accuracy": 87.53,
+      "total": 778
+    },
+    "rel": {
+      "accuracy": 54.22,
+      "total": 5308
+    }
+  }
+}

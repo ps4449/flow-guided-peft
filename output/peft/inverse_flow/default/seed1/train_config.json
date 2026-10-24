@@ -1,0 +1,21 @@
+{
+  "ranks": "configs/ranks/inverse_flow.json",
+  "seed": 1,
+  "model_path": "liuhaotian/llava-v1.5-7b",
+  "conv_mode": "vicuna_v1",
+  "train_file": "datasets/gqa/train_20000_llava.json",
+  "image_folder": "datasets/gqa/images",
+  "out_dir": null,
+  "tag": null,
+  "limit": null,
+  "epochs": 1,
+  "batch_size": 4,
+  "grad_accum": 4,
+  "lr": 0.0002,
+  "warmup_ratio": 0.03,
+  "save_every": 200,
+  "max_hours": 5.5,
+  "num_workers": 4,
+  "trainable_params": 4194304,
+  "total_steps": 1250
+}
