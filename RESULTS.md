@@ -15,6 +15,7 @@ GQA testdev-balanced (12,578 questions).
 Training answers are either lowercase (GQA's original answers) or capitalised (first letter uppercase, matching
 LLaVA's own style). Capitalised training scores higher, so the two are kept in separate tables and only rows in the
 same table should be compared. Using capitalised training for configurations moving forward.
+See [docs/CAPITALIZATION_FIX.md](docs/CAPITALIZATION_FIX.md) for the fix, how to check a run, and the AdaLoRA comparison.
 
 ### Baseline
 
@@ -85,34 +86,18 @@ Run folders: `output/peft/<ranks>/scienceqa_train_llava/seed<k>/eval_scienceqa/`
 | Uniform LoRA (rank 8), seed 1 | | | |
 | Uniform LoRA (rank 8), seed 2 | | | |
 | **Uniform LoRA, mean of seeds 0–2** | | | |
-| AdaLoRA (init rank 12 → avg 8), seed 0 | | | |
-| AdaLoRA (init rank 12 → avg 8), seed 1 | | | |
-| AdaLoRA (init rank 12 → avg 8), seed 2 | | | |
-| **AdaLoRA, mean of seeds 0–2** | | | |
-| Flow-guided LoRA (GQA ranks), seed 0 | | | `configs/ranks/flow_guided.json` (from the GQA flow graphs) |
-| Flow-guided LoRA (GQA ranks), seed 1 | | | |
-| Flow-guided LoRA (GQA ranks), seed 2 | | | |
-| **Flow-guided LoRA (GQA ranks), mean of seeds 0–2** | | | |
-| Inverse-flow LoRA, seed 0 | | | `configs/ranks/inverse_flow.json` |
+| AdaLoRA (init rank 12 → avg 8), seed 0 | 71.74 | 1 × 16 | 1,447 / 2,017 correct |
+| AdaLoRA (init rank 12 → avg 8), seed 1 | 71.10 | 1 × 16 | 1,434 / 2,017 correct |
+| AdaLoRA (init rank 12 → avg 8), seed 2 | 71.24 | 1 × 16 | 1,437 / 2,017 correct |
+| **AdaLoRA, mean ± sample std of seeds 0–2** | **71.36 ± 0.34** | 1 × 16 | +2.20 vs zero-shot (69.16) |
+| Flow-guided LoRA, seed 0 | | | ranks from the ScienceQA flow graphs (to be made) |
+| Flow-guided LoRA, seed 1 | | | |
+| Flow-guided LoRA, seed 2 | | | |
+| **Flow-guided LoRA, mean of seeds 0–2** | | | |
+| Inverse-flow LoRA, seed 0 | | | inverse of the ScienceQA flow-guided ranks (to be made) |
 | Inverse-flow LoRA, seed 1 | | | |
 | Inverse-flow LoRA, seed 2 | | | |
 | **Inverse-flow LoRA, mean of seeds 0–2** | | | |
-| Flow-guided LoRA (ScienceQA ranks), seed 0 | | | ranks from the ScienceQA flow graphs (to be made) |
-| Flow-guided LoRA (ScienceQA ranks), seed 1 | | | |
-| Flow-guided LoRA (ScienceQA ranks), seed 2 | | | |
-| **Flow-guided LoRA (ScienceQA ranks), mean of seeds 0–2** | | | |
-
-## AdaLoRA capitalization comparison
-
-The seed 0 comparison changes only the first character of each training answer to uppercase; the remaining data, training settings and evaluation are unchanged. Evaluation lowercases predictions and references before exact matching, so the improvement is not direct credit for matching answer case. The detailed loss and short-step comparisons are for seed 0. Capitalised seeds 0–2 are now complete (62.49 ± 0.06%, sample std); the improvement versus lowercase is not a three-seed paired estimate because lowercase seed 2 was not run. Lowercase seed 1 scored 61.35% versus 62.45% capitalised.
-
-- Full training: 205.4 minutes lowercase versus 201.0 minutes capitalised; this small timing difference does not establish a speed improvement.
-- On the fixed exploratory 512-question subset, step 100 accuracy was 61.13% lowercase versus 60.94% capitalised (one question difference). The short comparison provides no clear early learning advantage.
-- Over the final 250 training updates, answer/task loss averaged 0.383 lowercase versus 0.342 capitalised, with per-update standard deviations 0.142 versus 0.127. These exclude AdaLoRA regularization and compare different target casing/tokenization; loss alone is not a measure of task accuracy.
-
-[Full paired comparison](output/peft/adalora_capfirst/seed0/capitalization_comparison.json) · [Short comparison](output/diagnostics/case_training/quick_comparison.json) · [Run provenance](output/peft/adalora/README.md)
-
-![AdaLoRA seed 0 answer loss, 20-step moving average](output/diagnostics/capitalization/loss_comparison.png)
 
 ## AdaLoRA reproducibility and report notes
 
