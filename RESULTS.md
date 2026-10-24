@@ -20,9 +20,10 @@ same table should be compared. Using capitalised training for configurations mov
 
 | Configuration | Accuracy (%) | Notes |
 |---|---|---|
+| Uniform LoRA (rank 8), seed 0 | 61.94 | 7,791 / 12,578 correct; `uniform/default/seed0` (rerun on capitalised answers) |
 | Uniform LoRA (rank 8), seed 1 | 61.99 | 7,797 / 12,578 correct; [outputs](output/peft/uniform/default/seed1/eval/metrics.json) |
 | Uniform LoRA (rank 8), seed 2 | 61.93 | 7,789 / 12,578 correct; [outputs](output/peft/uniform/default/seed2/eval/metrics.json) |
-| **Uniform LoRA (rank 8), mean of seeds 1–2** | **61.96** | +0.05 vs zero-shot; seed 0 still to be rerun on capitalised answers (the 61.36 run below was lowercase) |
+| **Uniform LoRA (rank 8), mean of seeds 0–2** | **61.95 ± 0.03** | sample std over 3 seeds; +0.04 vs zero-shot (61.91) |
 | AdaLoRA (init rank 12 → avg 8), seed 0 | 62.56 | 7,869 / 12,578 correct; [outputs](output/peft/adalora_capfirst/seed0/eval/metrics.json); +1.12 vs lowercase seed 0 |
 | AdaLoRA (init rank 12 → avg 8), seed 1 | 62.45 | 7,855 / 12,578 correct; [outputs](output/peft/adalora_capfirst/seed1/eval/metrics.json) |
 | AdaLoRA (init rank 12 → avg 8), seed 2 | 62.47 | 7,857 / 12,578 correct; [outputs](output/peft/adalora_capfirst/seed2/eval/metrics.json) |
@@ -68,7 +69,7 @@ Run folders: `output/peft/<ranks>/scienceqa_train_llava/seed<k>/eval_scienceqa/`
 
 | Configuration | Accuracy (%) | Notes |
 |---|---|---|
-| Zero-shot (no fine-tuning) | | LLaVA-1.5 paper reports 66.8; `zero_shot/eval_scienceqa` |
+| Zero-shot (no fine-tuning) | 69.16 | 1,395 / 2,017 correct; LLaVA-1.5 paper reports 66.8 (prompt details differ); `zero_shot/eval_scienceqa`; by subject: natural 67.41, social 72.12, language 65.91 |
 
 ### LoRA methods
 
