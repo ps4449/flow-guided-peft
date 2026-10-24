@@ -1,0 +1,16 @@
+{
+  "shared_commit": "a3060ab",
+  "files": {
+    "datasets/scienceqa/train_llava.json": "8cc00fb37a7e642e05b0063e2554a5e4a0be3a3e8bb13e49dbba20045ea1c4f9",
+    "datasets/scienceqa/train_questions.jsonl": "cb537ad249e34daf4ce93eb5729e7b83679138ca2bdfe1c90fca6a3a9a1f8c82",
+    "datasets/scienceqa/val_questions.jsonl": "3322b59e6a99dd18dba6838b3a33ca72c897890e0467f52308f704f7796f3a80",
+    "datasets/scienceqa/test_questions.jsonl": "3d3f7a94463894d4bb95c9920199cfd458ddda0f35f4d447aedc16891a3caa15",
+    "configs/ranks/uniform.json": "295d8ff85588f4d797faa0c87acfb321de7984fee30367018c284d06b9d9fc0d"
+  },
+  "sources": {
+    "experiments/scienceqa_adalora/eval_scienceqa.py": "6e3f50f17776111426ba0bd1b34e282bd792d481e297177b9118645d6568b996",
+    "experiments/scienceqa_adalora/prepare_images.py": "7d9fe88f3fc3489a756f7da7956094b969230d0604e73b767dcc544dda967765",
+    "experiments/scienceqa_adalora/team_train_lora.py": "812e1b9a235d5ec8dded1c20970748adeb4ef543e385a708260d32155fb5198a",
+    "experiments/scienceqa_adalora/download_data.py": "8c605ecc20f8d490d79ed9adea4a114eeec3a337a8fdd17bbedc1a0920e6115e"
+  }
+}

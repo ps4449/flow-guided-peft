@@ -1,0 +1,64 @@
+{
+  "batch4_accum4": {
+    "task_loss": 0.6753273755311966,
+    "total_loss": 1.79278564453125,
+    "regularization": 1.1174582690000534,
+    "seconds": 5.847612850368023,
+    "peak_allocated_gib": 16.087517738342285,
+    "gradient_norms": {
+      "lora_A": 0.08062416064751377,
+      "lora_B": 0.0806497479194882,
+      "lora_E": 0.040089452878950396
+    }
+  },
+  "batch1_accum16": {
+    "task_loss": 0.6744732976294472,
+    "total_loss": 1.7919315099716187,
+    "regularization": 1.1174582123421715,
+    "seconds": 4.071645705029368,
+    "peak_allocated_gib": 14.006975173950195,
+    "gradient_norms": {
+      "lora_A": 0.0806241605121457,
+      "lora_B": 0.08064974809992169,
+      "lora_E": 0.039935549865375425
+    }
+  },
+  "comparison": {
+    "gradient_cosine": 1.0000971555709839,
+    "relative_l2_difference": 0.0229194276034832,
+    "maximum_absolute_difference": 0.0007290920475497842
+  },
+  "scope": "Explicit modalities for every row; same initial weights and16 real training samples; dropout disabled to test accumulation equivalence. No optimizer update, rank allocation, export or modification of existing run weights. Not a convergence or final-accuracy test.",
+  "batch_shape_check": {
+    "legacy_default": {
+      "input_batch": 4,
+      "embedding_batch": 1,
+      "label_batch": 1,
+      "supervised_tokens": 2
+    },
+    "explicit_modalities": {
+      "input_batch": 4,
+      "embedding_batch": 4,
+      "label_batch": 4,
+      "supervised_tokens": 8
+    }
+  },
+  "supervised_token_counts": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ]
+}
