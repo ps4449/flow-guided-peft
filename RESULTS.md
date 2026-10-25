@@ -85,21 +85,37 @@ Run folders: `output/peft/<ranks>/scienceqa_train_llava/seed<k>/eval_scienceqa/`
 |---|---|---|---|
 | Uniform LoRA (rank 8), seed 0 | 80.86 | 4 × 4 ✅ | 1,631 / 2,017 correct; batch fix, all 6,208 training rows checked; `uniform/scienceqa_modalities_fixed/seed0`; merged adapter (unmerged: 81.01); +11.70 vs zero-shot |
 | Uniform LoRA (rank 8), seed 0, before the batch fix | 77.64 | 4 × 4 ⚠️ | 1,566 / 2,017 correct; trained on 1,552 of 6,208 rows (1 of 4 per microbatch); kept for reference |
-| Uniform LoRA (rank 8), seed 1 | | | |
-| Uniform LoRA (rank 8), seed 2 | | | |
-| **Uniform LoRA, mean of seeds 0–2** | | | |
+| Uniform LoRA (rank 8), seed 1 | 81.66 | 4 × 4 ✅ | 1,647 / 2,017 correct; [outputs](output/peft/uniform/scienceqa_modalities_fixed/seed1/eval_scienceqa/metrics.json) |
+| Uniform LoRA (rank 8), seed 2 | 81.11 | 4 × 4 ✅ | 1,636 / 2,017 correct; [outputs](output/peft/uniform/scienceqa_modalities_fixed/seed2/eval_scienceqa/metrics.json) |
+| **Uniform LoRA, mean ± sample std of seeds 0–2** | **81.21 ± 0.41** | 4 × 4 ✅ | +12.05 vs zero-shot (69.16) |
 | AdaLoRA (init rank 12 → avg 8), seed 0 | 71.74 | 1 × 16 | 1,447 / 2,017 correct |
 | AdaLoRA (init rank 12 → avg 8), seed 1 | 71.10 | 1 × 16 | 1,434 / 2,017 correct |
 | AdaLoRA (init rank 12 → avg 8), seed 2 | 71.24 | 1 × 16 | 1,437 / 2,017 correct |
 | **AdaLoRA, mean ± sample std of seeds 0–2** | **71.36 ± 0.34** | 1 × 16 | +2.20 vs zero-shot (69.16) |
-| Flow-guided LoRA, seed 0 | | | ranks from the ScienceQA flow graphs (to be made) |
+| Flow-guided LoRA, seed 0 | 81.31 | 4 × 4 ✅ | 1,640 / 2,017 correct; `configs/ranks/flow_guided_scienceqa.json` (from the ScienceQA `train_correct` Image→Question and Question→Last graphs: rank 27–28 in layers 0–4, 5–9 in 5–16, 2–4 in 17–31); `flow_guided_scienceqa/scienceqa_train_llava/seed0`; by subject: natural 76.51, social 89.01, language 79.55; +0.10 vs uniform mean |
 | Flow-guided LoRA, seed 1 | | | |
 | Flow-guided LoRA, seed 2 | | | |
 | **Flow-guided LoRA, mean of seeds 0–2** | | | |
-| Inverse-flow LoRA, seed 0 | | | inverse of the ScienceQA flow-guided ranks (to be made) |
+| Inverse-flow LoRA, seed 0 | | | `configs/ranks/inverse_flow_scienceqa.json` (`make_ranks.py --inverse`: same ranks, the least important layer gets the largest) |
 | Inverse-flow LoRA, seed 1 | | | |
 | Inverse-flow LoRA, seed 2 | | | |
 | **Inverse-flow LoRA, mean of seeds 0–2** | | | |
+
+### AdaLoRA diagnostics (seed 0)
+
+Why AdaLoRA trails uniform on ScienceQA: each of its two extra parts switched off in turn, same merged evaluation.
+Regularization-off seeds 1–2 are running (`experiments/scienceqa_adalora/regoff_seeds/`); the setting was chosen after
+looking at seed 0 test results (validation showed the same pattern), so it is not yet a main-table method.
+
+| Orthogonal regularization (weight 0.5) | Rank pruning (12 → avg 8) | Accuracy (%) |
+|---|---|---|
+| on | on (original) | 71.74 |
+| off | on | 76.05 |
+| on | off (rank 12 kept, larger budget) | 71.59 |
+| off | off | 76.35 |
+| Uniform LoRA in the same training loop as AdaLoRA (1 × 16, seed 0) | – | 81.21 |
+
+Turning the regularization off gains 4.3–4.8 points; turning pruning off changes −0.15 to +0.30. About 5 points to uniform remain unexplained.
 
 ## AdaLoRA reproducibility and report notes
 
