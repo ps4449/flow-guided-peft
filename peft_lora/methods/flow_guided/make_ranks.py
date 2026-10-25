@@ -13,6 +13,7 @@ Usage (from the repo root):
   python peft_lora/methods/flow_guided/make_ranks.py --types ChooseAttr --out configs/ranks/flow_guided_ChooseAttr.json
   python peft_lora/methods/flow_guided/make_ranks.py --types All --split train_wrong --out configs/ranks/flow_wrong.json
   python peft_lora/methods/flow_guided/make_ranks.py --inverse --out configs/ranks/inverse_flow.json   # control
+  ... --keep 16 [--inverse | --random 0] --out configs/ranks/flow_pruned16.json   # rank 8 on 16 layers only
 Prints the rank of every layer.
 """
 import argparse
@@ -20,6 +21,7 @@ import csv
 import glob
 import json
 import os
+import random
 import sys
 from collections import defaultdict
 
@@ -100,6 +102,10 @@ def main():
     parser.add_argument("--out", default="configs/ranks/flow_guided.json")
     parser.add_argument("--inverse", action="store_true",
                         help="same ranks, reversed: the least important layer gets the largest rank (control)")
+    parser.add_argument("--keep", type=int, default=None,
+                        help="pruned LoRA: rank 8 on the N most important layers, none elsewhere (with --inverse: the "
+                             "N least important; with --random: N random layers). Uses N/32 of the budget")
+    parser.add_argument("--random", type=int, default=None, metavar="SEED", help="with --keep: pick the layers at random")
     args = parser.parse_args()
 
     types = args.types or sorted(d for d in os.listdir(args.flow_dir) if os.path.isdir(os.path.join(args.flow_dir, d, args.split)))
@@ -110,7 +116,14 @@ def main():
     print(f"Question types: {', '.join(types)}")
     per_layer_total = budget.RANK_SUM // len(budget.TARGET_MODULES)  # same rank for q_proj and v_proj
     layer_ranks = allocate(importance, per_layer_total, args.min_rank, args.max_rank)
-    if args.inverse:  # hand the largest ranks to the least important layers; same ranks, same budget
+    if args.keep:  # pruned: uniform rank on the chosen layers only
+        if args.random is not None:
+            chosen = random.Random(args.random).sample(range(budget.NUM_LAYERS), args.keep)
+        else:
+            chosen = sorted(range(budget.NUM_LAYERS), key=lambda layer: (importance[layer], -layer),
+                            reverse=not args.inverse)[: args.keep]
+        layer_ranks = [budget.AVG_RANK if layer in chosen else 0 for layer in range(budget.NUM_LAYERS)]
+    elif args.inverse:  # hand the largest ranks to the least important layers; same ranks, same budget
         least_first = sorted(range(budget.NUM_LAYERS), key=lambda layer: (importance[layer], layer))
         largest_first = sorted(layer_ranks, reverse=True)
         layer_ranks = [0] * budget.NUM_LAYERS
@@ -119,7 +132,7 @@ def main():
 
     ranks = {f"layers.{layer}.self_attn.{m}": layer_ranks[layer]
              for layer in range(budget.NUM_LAYERS) for m in budget.TARGET_MODULES}
-    problems = budget.check(ranks)
+    problems = [p for p in budget.check(ranks) if not (args.keep and p.startswith("ranks sum to"))]  # pruned = smaller
     if problems:
         sys.exit("\n".join(problems))
 
