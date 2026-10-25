@@ -5,7 +5,7 @@
   "conv_mode": "vicuna_v1",
   "train_file": "datasets/scienceqa/train_llava.json",
   "image_folder": "datasets/scienceqa/images",
-  "out_dir": "output/peft/inverse_flow_scienceqa/committed_v1/seed0",
+  "out_dir": "output/peft/inverse_flow_scienceqa/seed0",
   "tag": null,
   "limit": null,
   "epochs": 1,

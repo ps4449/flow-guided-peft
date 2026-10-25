@@ -2,7 +2,7 @@
   "accuracy": 79.13,
   "correct": 1596,
   "total": 2017,
-  "adapter": "output/peft/inverse_flow_scienceqa/committed_v1/seed0/adapter",
+  "adapter": "output/peft/inverse_flow_scienceqa/seed0/adapter",
   "questions": "datasets/scienceqa/test_questions.jsonl",
   "by_subject": {
     "language science": {
