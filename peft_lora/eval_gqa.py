@@ -76,13 +76,19 @@ def main():
         # imported here so metrics can be recomputed on a machine without the GPU packages
         import torch
         from tqdm import tqdm
-        from common import build_prompt, load_image, load_model, tokenize
+        from common import FlowGates, build_prompt, load_image, load_model, tokenize
         from llava.constants import DEFAULT_IMAGE_TOKEN
 
         tokenizer, model, image_processor = load_model(args.model_path)
+        gates = None
         if args.adapter:
             from peft import PeftModel
             model = PeftModel.from_pretrained(model, args.adapter).merge_and_unload()
+            gates_path = os.path.join(args.adapter, "flow_gates.pt")
+            if os.path.exists(gates_path):  # trained with --flow-gates
+                gates = FlowGates(model)
+                gates.load_state_dict(torch.load(gates_path, map_location=model.device))
+                print(f"Loaded flow gates from {gates_path}")
         model.eval()
 
         with open(pred_path, "a") as f, torch.inference_mode():
@@ -90,6 +96,8 @@ def main():
                 image, size = load_image(os.path.join(args.image_folder, q["image"]), image_processor, model.config)
                 prompt = build_prompt(DEFAULT_IMAGE_TOKEN + "\n" + q["text"], None, args.conv_mode)
                 input_ids = tokenize(prompt, tokenizer).unsqueeze(0).cuda()
+                if gates:
+                    gates.set_spans(input_ids)
                 output_ids = model.generate(input_ids, images=image.unsqueeze(0).cuda(), image_sizes=[size],
                                             do_sample=False, max_new_tokens=args.max_new_tokens, use_cache=True)
                 prediction = tokenizer.batch_decode(output_ids, skip_special_tokens=True)[0].strip()

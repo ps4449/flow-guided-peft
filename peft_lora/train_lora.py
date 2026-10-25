@@ -12,9 +12,13 @@ changed from their defaults (e.g. "lr1e-4_ep2"), or "default". Add --tag to name
 is not an option (e.g. new training data). Before the 6 h limit the job saves a
 checkpoint and stops; submitting the same command again resumes from it.
 
+--flow-gates adds a learnable knob per head on the Image->Question attention in layers 5-15
+(FlowGates in common.py, 352 parameters, own learning rate --gate-lr), saved as adapter/flow_gates.pt.
+
 Usage:
   python peft_lora/train_lora.py --ranks configs/ranks/<method>.json --seed 0 [--limit 100]
   ... --train-file datasets/scienceqa/train_llava.json    # ScienceQA -> <settings> = scienceqa_train_llava
+  ... --flow-gates                                        # -> <settings> gets "flowgates"
 """
 import argparse
 import json
@@ -32,7 +36,7 @@ from torch.nn.utils.rnn import pad_sequence
 from torch.utils.data import DataLoader, Dataset
 from transformers import get_cosine_schedule_with_warmup
 
-from common import build_prompt, load_image, load_model, tokenize
+from common import FlowGates, build_prompt, load_image, load_model, tokenize
 from llava.constants import IGNORE_INDEX
 
 MODULE_RE = re.compile(r"layers\.\d+\.(self_attn\.[qkvo]_proj|mlp\.(gate|up|down)_proj)")
@@ -116,10 +120,13 @@ def check_ranks(model, expected):
 
 # options that change the training result, with their short names in the run folder
 SETTING_NAMES = {"lr": "lr", "epochs": "ep", "batch_size": "bs", "grad_accum": "ga", "warmup_ratio": "wu",
-                 "train_file": "", "limit": "limit"}  # a different train file shows as its name
+                 "train_file": "", "limit": "limit", "flow_gates": "flowgates", "gate_lr": "glr"}
+                 # a different train file shows as its name
 
 
 def short_value(value):
+    if isinstance(value, bool):  # a switch shows as its name only
+        return ""
     if isinstance(value, float) and value < 0.01:
         return f"{value:.0e}".replace("e-0", "e-")  # 0.0001 -> 1e-4
     if isinstance(value, str):  # a training file: its name, plus the dataset folder when it is not GQA
@@ -136,12 +143,13 @@ def settings_name(args, parser):
     return "_".join(parts) or "default"
 
 
-def save_checkpoint(path, model, optimizer, scheduler, step):
+def save_checkpoint(path, model, optimizer, scheduler, step, gates):
     torch.save({
         "adapter": get_peft_model_state_dict(model),
         "optimizer": optimizer.state_dict(),
         "scheduler": scheduler.state_dict(),
         "step": step,
+        "gates": gates.state_dict() if gates else None,
     }, path + ".tmp")
     os.replace(path + ".tmp", path)  # never leave a half-written checkpoint
 
@@ -165,6 +173,8 @@ def main():
     parser.add_argument("--save-every", type=int, default=200, help="optimizer steps between checkpoints")
     parser.add_argument("--max-hours", type=float, default=5.5, help="stop with a checkpoint after this long")
     parser.add_argument("--num-workers", type=int, default=4)
+    parser.add_argument("--flow-gates", action="store_true", help="learnable Image->Question gates in layers 5-15")
+    parser.add_argument("--gate-lr", type=float, default=1e-2, help="learning rate of the flow gates")
     args = parser.parse_args()
     args.image_folder = args.image_folder or os.path.join(os.path.dirname(args.train_file), "images")
     start = time.time()
@@ -191,6 +201,7 @@ def main():
     model.config.use_cache = False
     model.requires_grad_(False)
     model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
+    gates = FlowGates(model) if args.flow_gates else None
 
     bs, accum = args.batch_size, args.grad_accum
     steps_per_epoch = math.ceil(len(rows) / bs) // accum
@@ -201,10 +212,15 @@ def main():
     if expected_ranks is not None:
         check_ranks(model, expected_ranks)
     params = [p for p in model.parameters() if p.requires_grad]
+    groups = [{"params": params}]
+    if gates:  # the gates start at 0 and need a larger step size than LoRA to move in one epoch
+        groups.append({"params": list(gates.parameters()), "lr": args.gate_lr})
+        params = params + list(gates.parameters())
     n_params = sum(p.numel() for p in params)
-    print(f"Method: {name}  Seed: {args.seed}  Trainable params: {n_params:,}  Steps: {total_steps}")
+    print(f"Method: {name}  Seed: {args.seed}  Trainable params: {n_params:,}  Steps: {total_steps}"
+          + ("  Flow gates: on" if gates else ""))
 
-    optimizer = torch.optim.AdamW(params, lr=args.lr, weight_decay=0.0)
+    optimizer = torch.optim.AdamW(groups, lr=args.lr, weight_decay=0.0)
     scheduler = get_cosine_schedule_with_warmup(optimizer, int(args.warmup_ratio * total_steps), total_steps)
 
     step = 0
@@ -213,6 +229,8 @@ def main():
         set_peft_model_state_dict(model, state["adapter"])
         optimizer.load_state_dict(state["optimizer"])
         scheduler.load_state_dict(state["scheduler"])
+        if gates:
+            gates.load_state_dict(state["gates"])
         step = state["step"]
         print(f"Resumed from step {step}")
 
@@ -233,6 +251,8 @@ def main():
         running, logged_steps = 0.0, 0  # loss summed over the optimizer steps since the last log line
         for i, batch in enumerate(loader):
             batch = {k: v.cuda() if torch.is_tensor(v) else v for k, v in batch.items()}
+            if gates:
+                gates.set_spans(batch["input_ids"], batch["labels"], batch["attention_mask"])
             loss = model(**batch).loss / accum
             loss.backward()
             running += loss.item()
@@ -251,6 +271,8 @@ def main():
             if step % 10 == 0 or step == total_steps:
                 entry = {"step": step, "epoch": epoch, "loss": round(running / logged_steps, 4),
                          "lr": scheduler.get_last_lr()[0], "minutes": round((time.time() - start) / 60, 1)}
+                if gates:  # mean gate per layer (layers 5-15)
+                    entry["gates"] = [round(g, 3) for g in gates.log_scale.mean(1).tolist()]
                 print(json.dumps(entry), flush=True)
                 log.write(json.dumps(entry) + "\n")
                 log.flush()
@@ -259,13 +281,15 @@ def main():
             if step == total_steps:
                 break
             if step % args.save_every == 0:
-                save_checkpoint(ckpt_path, model, optimizer, scheduler, step)
+                save_checkpoint(ckpt_path, model, optimizer, scheduler, step, gates)
             if time.time() - start > args.max_hours * 3600:
-                save_checkpoint(ckpt_path, model, optimizer, scheduler, step)
+                save_checkpoint(ckpt_path, model, optimizer, scheduler, step, gates)
                 print(f"Stopped at step {step}/{total_steps} before the time limit. Submit the same command again to resume.")
                 sys.exit(RESUME_EXIT_CODE)
 
     model.save_pretrained(adapter_dir)
+    if gates:
+        torch.save(gates.state_dict(), os.path.join(adapter_dir, "flow_gates.pt"))
     with open(os.path.join(out_dir, "train_config.json"), "w") as f:
         json.dump({**vars(args), "trainable_params": n_params, "total_steps": total_steps}, f, indent=2)
     if os.path.exists(ckpt_path):
