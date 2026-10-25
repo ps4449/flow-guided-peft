@@ -96,10 +96,10 @@ Run folders: `output/peft/<ranks>/scienceqa_train_llava/seed<k>/eval_scienceqa/`
 | AdaLoRA (regularization off), seed 1 | 76.50 | 1 × 16 | 1,543 / 2,017 correct; [outputs](output/peft/adalora/scienceqa_regoff_confirm/seed1/eval_test/metrics.json) |
 | AdaLoRA (regularization off), seed 2 | 76.70 | 1 × 16 | 1,547 / 2,017 correct; [outputs](output/peft/adalora/scienceqa_regoff_confirm/seed2/eval_test/metrics.json) |
 | **AdaLoRA (regularization off), mean ± sample std of seeds 0–2** | **76.42 ± 0.33** | 1 × 16 | Pruning remains enabled; final rank sum 512. [Exact-count summary](output/peft/adalora/scienceqa_regoff_confirm/summary.json). Post-hoc configuration; original regularization-on results preserved. |
-| Flow-guided LoRA, seed 0 | 81.31 | 4 × 4 ✅ | 1,640 / 2,017 correct; `configs/ranks/flow_guided_scienceqa.json` (from the ScienceQA `train_correct` Image→Question and Question→Last graphs: rank 27–28 in layers 0–4, 5–9 in 5–16, 2–4 in 17–31); `flow_guided_scienceqa/scienceqa_train_llava/seed0`; by subject: natural 76.51, social 89.01, language 79.55; +0.10 vs uniform mean |
-| Flow-guided LoRA, seed 1 | | | |
-| Flow-guided LoRA, seed 2 | | | |
-| **Flow-guided LoRA, mean of seeds 0–2** | | | |
+| Flow-guided LoRA, seed 0 | 81.36 | 4 × 4 ✅ | 1,641 / 2,017 correct; `configs/ranks/flow_guided_scienceqa.json` (from the ScienceQA `train_correct` Image→Question and Question→Last graphs: rank 27–28 in layers 0–4, 5–9 in 5–16, 2–4 in 17–31); [outputs](output/peft/flow_guided_scienceqa/scienceqa_modalities_fixed/seed0/eval_scienceqa/metrics.json) |
+| Flow-guided LoRA, seed 1 | 82.15 | 4 × 4 ✅ | 1,657 / 2,017 correct; [outputs](output/peft/flow_guided_scienceqa/scienceqa_modalities_fixed/seed1/eval_scienceqa/metrics.json) |
+| Flow-guided LoRA, seed 2 | 80.61 | 4 × 4 ✅ | 1,626 / 2,017 correct; [outputs](output/peft/flow_guided_scienceqa/scienceqa_modalities_fixed/seed2/eval_scienceqa/metrics.json) |
+| **Flow-guided LoRA, mean ± sample std of seeds 0–2** | **81.37 ± 0.77** | 4 × 4 ✅ | +0.16 vs uniform (81.21 ± 0.41), within seed-to-seed variation; paired over the 3 seeds, flow-guided alone right on 98 questions vs uniform alone on 88 (exact McNemar p = 0.51) |
 | Inverse-flow LoRA, seed 0 | | | `configs/ranks/inverse_flow_scienceqa.json` (`make_ranks.py --inverse`: same ranks, the least important layer gets the largest) |
 | Inverse-flow LoRA, seed 1 | | | |
 | Inverse-flow LoRA, seed 2 | | | |
