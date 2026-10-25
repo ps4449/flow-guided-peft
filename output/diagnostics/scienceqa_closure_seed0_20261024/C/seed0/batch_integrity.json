@@ -1,0 +1,7 @@
+{
+  "forward_calls": 6208,
+  "input_rows": 6208,
+  "language_rows": 6208,
+  "supervised_tokens": 12416,
+  "all_batch_sizes_match": true
+}

@@ -1,0 +1,3951 @@
+{
+  "arms": {
+    "A": {
+      "reg": 0.5,
+      "pruning": true,
+      "final_rank_sum": 512,
+      "validation": {
+        "accuracy": 71.24,
+        "correct": 1494,
+        "total": 2097,
+        "adapter": "output/peft/adalora/scienceqa_train_llava/seed0/adapter",
+        "questions": "datasets/scienceqa/val_questions.jsonl",
+        "by_subject": {
+          "language science": {
+            "accuracy": 62.5,
+            "total": 48
+          },
+          "natural science": {
+            "accuracy": 69.39,
+            "total": 1287
+          },
+          "social science": {
+            "accuracy": 74.93,
+            "total": 762
+          }
+        },
+        "by_category": {
+          "Adaptations": {
+            "accuracy": 84.38,
+            "total": 96
+          },
+          "Adaptations and natural selection": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Age of Exploration": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Ancient Egypt and Kush": {
+            "accuracy": 0.0,
+            "total": 1
+          },
+          "Ancient Mesopotamia": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Animals": {
+            "accuracy": 100.0,
+            "total": 3
+          },
+          "Astronomy": {
+            "accuracy": 45.65,
+            "total": 46
+          },
+          "Atoms and molecules": {
+            "accuracy": 73.81,
+            "total": 42
+          },
+          "Basic economic principles": {
+            "accuracy": 73.44,
+            "total": 64
+          },
+          "Chemical reactions": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Cities": {
+            "accuracy": 50.0,
+            "total": 8
+          },
+          "Classification": {
+            "accuracy": 86.9,
+            "total": 84
+          },
+          "Classification and scientific names": {
+            "accuracy": 91.49,
+            "total": 47
+          },
+          "Climate change": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Colonial America": {
+            "accuracy": 64.29,
+            "total": 42
+          },
+          "Context clues": {
+            "accuracy": 80.0,
+            "total": 5
+          },
+          "Descriptive details": {
+            "accuracy": 100.0,
+            "total": 3
+          },
+          "Designing experiments": {
+            "accuracy": 96.77,
+            "total": 62
+          },
+          "Domain-specific vocabulary": {
+            "accuracy": 40.0,
+            "total": 5
+          },
+          "Early 19th century American history": {
+            "accuracy": 0.0,
+            "total": 1
+          },
+          "Early Americas": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Earth events": {
+            "accuracy": 75.0,
+            "total": 4
+          },
+          "Ecological interactions": {
+            "accuracy": 60.0,
+            "total": 25
+          },
+          "Ecosystems": {
+            "accuracy": 74.63,
+            "total": 67
+          },
+          "Engineering practices": {
+            "accuracy": 98.11,
+            "total": 53
+          },
+          "English colonies in North America": {
+            "accuracy": 51.28,
+            "total": 39
+          },
+          "Force and motion": {
+            "accuracy": 64.0,
+            "total": 25
+          },
+          "Fossils": {
+            "accuracy": 70.59,
+            "total": 17
+          },
+          "Genes to traits": {
+            "accuracy": 17.02,
+            "total": 47
+          },
+          "Geography": {
+            "accuracy": 56.34,
+            "total": 71
+          },
+          "Government": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Independent reading comprehension": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Informational texts: level 1": {
+            "accuracy": 80.0,
+            "total": 5
+          },
+          "Magnets": {
+            "accuracy": 51.88,
+            "total": 133
+          },
+          "Maps": {
+            "accuracy": 58.06,
+            "total": 62
+          },
+          "Materials": {
+            "accuracy": 75.0,
+            "total": 116
+          },
+          "Medieval Asia": {
+            "accuracy": 0.0,
+            "total": 2
+          },
+          "Natural resources and human impacts": {
+            "accuracy": 50.0,
+            "total": 2
+          },
+          "Oceania: geography": {
+            "accuracy": 23.4,
+            "total": 47
+          },
+          "Oceans and continents": {
+            "accuracy": 100.0,
+            "total": 10
+          },
+          "Oceans and continents\t": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Particle motion and energy": {
+            "accuracy": 51.47,
+            "total": 68
+          },
+          "Persuasive strategies": {
+            "accuracy": 33.33,
+            "total": 18
+          },
+          "Physical Geography": {
+            "accuracy": 76.74,
+            "total": 43
+          },
+          "Plant reproduction": {
+            "accuracy": 60.0,
+            "total": 10
+          },
+          "Plants": {
+            "accuracy": 100.0,
+            "total": 10
+          },
+          "Plate tectonics": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Read-alone texts": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Rocks and minerals": {
+            "accuracy": 97.56,
+            "total": 41
+          },
+          "Rome and the Byzantine Empire": {
+            "accuracy": 50.0,
+            "total": 2
+          },
+          "Scientific names": {
+            "accuracy": 90.48,
+            "total": 42
+          },
+          "Solutions": {
+            "accuracy": 59.7,
+            "total": 67
+          },
+          "State capitals": {
+            "accuracy": 99.06,
+            "total": 318
+          },
+          "States": {
+            "accuracy": 66.67,
+            "total": 3
+          },
+          "States of matter": {
+            "accuracy": 78.95,
+            "total": 38
+          },
+          "The American Revolution": {
+            "accuracy": 66.67,
+            "total": 3
+          },
+          "The Americas: geography": {
+            "accuracy": 30.0,
+            "total": 30
+          },
+          "The Antebellum period": {
+            "accuracy": 100.0,
+            "total": 3
+          },
+          "The Civil War and Reconstruction": {
+            "accuracy": 0.0,
+            "total": 1
+          },
+          "The Silk Road": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Thermal energy": {
+            "accuracy": 44.44,
+            "total": 18
+          },
+          "Velocity, acceleration, and forces": {
+            "accuracy": 60.78,
+            "total": 51
+          },
+          "Visual elements": {
+            "accuracy": 88.89,
+            "total": 9
+          },
+          "Water cycle": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Weather and climate": {
+            "accuracy": 32.81,
+            "total": 64
+          },
+          "World religions": {
+            "accuracy": 66.67,
+            "total": 3
+          }
+        },
+        "by_grade": {
+          "grade1": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "grade10": {
+            "accuracy": 0.0,
+            "total": 1
+          },
+          "grade12": {
+            "accuracy": 25.0,
+            "total": 8
+          },
+          "grade2": {
+            "accuracy": 80.56,
+            "total": 144
+          },
+          "grade3": {
+            "accuracy": 80.0,
+            "total": 310
+          },
+          "grade4": {
+            "accuracy": 74.01,
+            "total": 404
+          },
+          "grade5": {
+            "accuracy": 78.21,
+            "total": 335
+          },
+          "grade6": {
+            "accuracy": 65.16,
+            "total": 287
+          },
+          "grade7": {
+            "accuracy": 62.91,
+            "total": 302
+          },
+          "grade8": {
+            "accuracy": 61.97,
+            "total": 305
+          }
+        }
+      },
+      "test_merged": {
+        "accuracy": 71.74,
+        "correct": 1447,
+        "total": 2017,
+        "adapter": "output/peft/adalora/scienceqa_train_llava/seed0/adapter",
+        "questions": "datasets/scienceqa/test_questions.jsonl",
+        "by_subject": {
+          "language science": {
+            "accuracy": 70.45,
+            "total": 44
+          },
+          "natural science": {
+            "accuracy": 68.57,
+            "total": 1209
+          },
+          "social science": {
+            "accuracy": 76.83,
+            "total": 764
+          }
+        },
+        "by_category": {
+          "Adaptations": {
+            "accuracy": 84.69,
+            "total": 98
+          },
+          "Ancient Egypt and Kush": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Ancient Mesopotamia": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Animals": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Astronomy": {
+            "accuracy": 44.44,
+            "total": 36
+          },
+          "Atoms and molecules": {
+            "accuracy": 64.1,
+            "total": 39
+          },
+          "Basic economic principles": {
+            "accuracy": 81.69,
+            "total": 71
+          },
+          "Cells": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Chemical reactions": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Cities": {
+            "accuracy": 58.33,
+            "total": 12
+          },
+          "Classification": {
+            "accuracy": 88.61,
+            "total": 79
+          },
+          "Classification and scientific names": {
+            "accuracy": 93.48,
+            "total": 46
+          },
+          "Climate change": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Colonial America": {
+            "accuracy": 52.63,
+            "total": 38
+          },
+          "Context clues": {
+            "accuracy": 40.0,
+            "total": 5
+          },
+          "Descriptive details": {
+            "accuracy": 66.67,
+            "total": 3
+          },
+          "Designing experiments": {
+            "accuracy": 93.15,
+            "total": 73
+          },
+          "Domain-specific vocabulary": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Early 19th century American history": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Earth events": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Ecological interactions": {
+            "accuracy": 54.17,
+            "total": 24
+          },
+          "Ecosystems": {
+            "accuracy": 78.08,
+            "total": 73
+          },
+          "Engineering practices": {
+            "accuracy": 98.18,
+            "total": 55
+          },
+          "English colonies in North America": {
+            "accuracy": 58.97,
+            "total": 39
+          },
+          "Force and motion": {
+            "accuracy": 66.67,
+            "total": 18
+          },
+          "Fossils": {
+            "accuracy": 54.55,
+            "total": 22
+          },
+          "Genes to traits": {
+            "accuracy": 26.32,
+            "total": 38
+          },
+          "Geography": {
+            "accuracy": 73.81,
+            "total": 42
+          },
+          "Government": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Greece": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Independent reading comprehension": {
+            "accuracy": 100.0,
+            "total": 5
+          },
+          "Informational texts: level 1": {
+            "accuracy": 80.0,
+            "total": 5
+          },
+          "Kinetic and potential energy": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Magnets": {
+            "accuracy": 37.27,
+            "total": 110
+          },
+          "Maps": {
+            "accuracy": 54.35,
+            "total": 46
+          },
+          "Materials": {
+            "accuracy": 81.12,
+            "total": 143
+          },
+          "Medieval Asia": {
+            "accuracy": 50.0,
+            "total": 2
+          },
+          "Oceania: geography": {
+            "accuracy": 25.49,
+            "total": 51
+          },
+          "Oceans and continents": {
+            "accuracy": 100.0,
+            "total": 19
+          },
+          "Oceans and continents\t": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Particle motion and energy": {
+            "accuracy": 39.02,
+            "total": 41
+          },
+          "Persuasive strategies": {
+            "accuracy": 63.64,
+            "total": 11
+          },
+          "Photosynthesis": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Physical Geography": {
+            "accuracy": 76.47,
+            "total": 51
+          },
+          "Plant reproduction": {
+            "accuracy": 66.67,
+            "total": 6
+          },
+          "Plants": {
+            "accuracy": 83.33,
+            "total": 6
+          },
+          "Plate tectonics": {
+            "accuracy": 100.0,
+            "total": 3
+          },
+          "Read-alone texts": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Rocks and minerals": {
+            "accuracy": 82.76,
+            "total": 29
+          },
+          "Scientific names": {
+            "accuracy": 96.88,
+            "total": 32
+          },
+          "Solutions": {
+            "accuracy": 33.33,
+            "total": 54
+          },
+          "State capitals": {
+            "accuracy": 99.68,
+            "total": 312
+          },
+          "States": {
+            "accuracy": 50.0,
+            "total": 18
+          },
+          "States of matter": {
+            "accuracy": 71.43,
+            "total": 28
+          },
+          "The American Revolution": {
+            "accuracy": 75.0,
+            "total": 4
+          },
+          "The Americas: geography": {
+            "accuracy": 31.11,
+            "total": 45
+          },
+          "The Antebellum period": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "The Civil War and Reconstruction": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Thermal energy": {
+            "accuracy": 54.55,
+            "total": 22
+          },
+          "Topographic maps": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Velocity, acceleration, and forces": {
+            "accuracy": 46.77,
+            "total": 62
+          },
+          "Visual elements": {
+            "accuracy": 55.56,
+            "total": 9
+          },
+          "Water cycle": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Weather and climate": {
+            "accuracy": 56.9,
+            "total": 58
+          },
+          "World religions": {
+            "accuracy": 100.0,
+            "total": 1
+          }
+        },
+        "by_grade": {
+          "grade1": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "grade12": {
+            "accuracy": 60.0,
+            "total": 5
+          },
+          "grade2": {
+            "accuracy": 80.34,
+            "total": 117
+          },
+          "grade3": {
+            "accuracy": 82.46,
+            "total": 342
+          },
+          "grade4": {
+            "accuracy": 77.01,
+            "total": 361
+          },
+          "grade5": {
+            "accuracy": 78.87,
+            "total": 336
+          },
+          "grade6": {
+            "accuracy": 63.47,
+            "total": 271
+          },
+          "grade7": {
+            "accuracy": 61.21,
+            "total": 281
+          },
+          "grade8": {
+            "accuracy": 59.27,
+            "total": 302
+          }
+        }
+      },
+      "test_unmerged": {
+        "accuracy": 72.38,
+        "correct": 1460,
+        "total": 2017,
+        "adapter": "output/peft/adalora/scienceqa_train_llava/seed0/adapter",
+        "questions": "datasets/scienceqa/test_questions.jsonl",
+        "inference_mode": "unmerged_adapter",
+        "by_subject": {
+          "language science": {
+            "accuracy": 70.45,
+            "total": 44
+          },
+          "natural science": {
+            "accuracy": 69.15,
+            "total": 1209
+          },
+          "social science": {
+            "accuracy": 77.62,
+            "total": 764
+          }
+        },
+        "by_category": {
+          "Adaptations": {
+            "accuracy": 84.69,
+            "total": 98
+          },
+          "Ancient Egypt and Kush": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Ancient Mesopotamia": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Animals": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Astronomy": {
+            "accuracy": 47.22,
+            "total": 36
+          },
+          "Atoms and molecules": {
+            "accuracy": 64.1,
+            "total": 39
+          },
+          "Basic economic principles": {
+            "accuracy": 84.51,
+            "total": 71
+          },
+          "Cells": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Chemical reactions": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Cities": {
+            "accuracy": 58.33,
+            "total": 12
+          },
+          "Classification": {
+            "accuracy": 88.61,
+            "total": 79
+          },
+          "Classification and scientific names": {
+            "accuracy": 93.48,
+            "total": 46
+          },
+          "Climate change": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Colonial America": {
+            "accuracy": 52.63,
+            "total": 38
+          },
+          "Context clues": {
+            "accuracy": 40.0,
+            "total": 5
+          },
+          "Descriptive details": {
+            "accuracy": 66.67,
+            "total": 3
+          },
+          "Designing experiments": {
+            "accuracy": 94.52,
+            "total": 73
+          },
+          "Domain-specific vocabulary": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Early 19th century American history": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Earth events": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Ecological interactions": {
+            "accuracy": 54.17,
+            "total": 24
+          },
+          "Ecosystems": {
+            "accuracy": 78.08,
+            "total": 73
+          },
+          "Engineering practices": {
+            "accuracy": 98.18,
+            "total": 55
+          },
+          "English colonies in North America": {
+            "accuracy": 58.97,
+            "total": 39
+          },
+          "Force and motion": {
+            "accuracy": 66.67,
+            "total": 18
+          },
+          "Fossils": {
+            "accuracy": 54.55,
+            "total": 22
+          },
+          "Genes to traits": {
+            "accuracy": 28.95,
+            "total": 38
+          },
+          "Geography": {
+            "accuracy": 71.43,
+            "total": 42
+          },
+          "Government": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Greece": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Independent reading comprehension": {
+            "accuracy": 100.0,
+            "total": 5
+          },
+          "Informational texts: level 1": {
+            "accuracy": 80.0,
+            "total": 5
+          },
+          "Kinetic and potential energy": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Magnets": {
+            "accuracy": 38.18,
+            "total": 110
+          },
+          "Maps": {
+            "accuracy": 60.87,
+            "total": 46
+          },
+          "Materials": {
+            "accuracy": 81.12,
+            "total": 143
+          },
+          "Medieval Asia": {
+            "accuracy": 50.0,
+            "total": 2
+          },
+          "Oceania: geography": {
+            "accuracy": 25.49,
+            "total": 51
+          },
+          "Oceans and continents": {
+            "accuracy": 100.0,
+            "total": 19
+          },
+          "Oceans and continents\t": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Particle motion and energy": {
+            "accuracy": 41.46,
+            "total": 41
+          },
+          "Persuasive strategies": {
+            "accuracy": 63.64,
+            "total": 11
+          },
+          "Photosynthesis": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Physical Geography": {
+            "accuracy": 76.47,
+            "total": 51
+          },
+          "Plant reproduction": {
+            "accuracy": 66.67,
+            "total": 6
+          },
+          "Plants": {
+            "accuracy": 83.33,
+            "total": 6
+          },
+          "Plate tectonics": {
+            "accuracy": 100.0,
+            "total": 3
+          },
+          "Read-alone texts": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Rocks and minerals": {
+            "accuracy": 82.76,
+            "total": 29
+          },
+          "Scientific names": {
+            "accuracy": 96.88,
+            "total": 32
+          },
+          "Solutions": {
+            "accuracy": 37.04,
+            "total": 54
+          },
+          "State capitals": {
+            "accuracy": 100.0,
+            "total": 312
+          },
+          "States": {
+            "accuracy": 50.0,
+            "total": 18
+          },
+          "States of matter": {
+            "accuracy": 71.43,
+            "total": 28
+          },
+          "The American Revolution": {
+            "accuracy": 75.0,
+            "total": 4
+          },
+          "The Americas: geography": {
+            "accuracy": 33.33,
+            "total": 45
+          },
+          "The Antebellum period": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "The Civil War and Reconstruction": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Thermal energy": {
+            "accuracy": 54.55,
+            "total": 22
+          },
+          "Topographic maps": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Velocity, acceleration, and forces": {
+            "accuracy": 45.16,
+            "total": 62
+          },
+          "Visual elements": {
+            "accuracy": 55.56,
+            "total": 9
+          },
+          "Water cycle": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Weather and climate": {
+            "accuracy": 58.62,
+            "total": 58
+          },
+          "World religions": {
+            "accuracy": 100.0,
+            "total": 1
+          }
+        },
+        "by_grade": {
+          "grade1": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "grade12": {
+            "accuracy": 60.0,
+            "total": 5
+          },
+          "grade2": {
+            "accuracy": 79.49,
+            "total": 117
+          },
+          "grade3": {
+            "accuracy": 82.75,
+            "total": 342
+          },
+          "grade4": {
+            "accuracy": 77.56,
+            "total": 361
+          },
+          "grade5": {
+            "accuracy": 79.76,
+            "total": 336
+          },
+          "grade6": {
+            "accuracy": 64.58,
+            "total": 271
+          },
+          "grade7": {
+            "accuracy": 61.57,
+            "total": 281
+          },
+          "grade8": {
+            "accuracy": 60.6,
+            "total": 302
+          }
+        }
+      }
+    },
+    "B": {
+      "reg": 0.0,
+      "pruning": true,
+      "final_rank_sum": 512,
+      "validation": {
+        "accuracy": 77.16,
+        "correct": 1618,
+        "total": 2097,
+        "adapter": "output/diagnostics/scienceqa_closure_seed0_20261024/B/seed0/adapter",
+        "questions": "datasets/scienceqa/val_questions.jsonl",
+        "by_subject": {
+          "language science": {
+            "accuracy": 72.92,
+            "total": 48
+          },
+          "natural science": {
+            "accuracy": 73.04,
+            "total": 1287
+          },
+          "social science": {
+            "accuracy": 84.38,
+            "total": 762
+          }
+        },
+        "by_category": {
+          "Adaptations": {
+            "accuracy": 90.62,
+            "total": 96
+          },
+          "Adaptations and natural selection": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Age of Exploration": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Ancient Egypt and Kush": {
+            "accuracy": 0.0,
+            "total": 1
+          },
+          "Ancient Mesopotamia": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Animals": {
+            "accuracy": 100.0,
+            "total": 3
+          },
+          "Astronomy": {
+            "accuracy": 50.0,
+            "total": 46
+          },
+          "Atoms and molecules": {
+            "accuracy": 76.19,
+            "total": 42
+          },
+          "Basic economic principles": {
+            "accuracy": 96.88,
+            "total": 64
+          },
+          "Chemical reactions": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Cities": {
+            "accuracy": 50.0,
+            "total": 8
+          },
+          "Classification": {
+            "accuracy": 92.86,
+            "total": 84
+          },
+          "Classification and scientific names": {
+            "accuracy": 100.0,
+            "total": 47
+          },
+          "Climate change": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Colonial America": {
+            "accuracy": 71.43,
+            "total": 42
+          },
+          "Context clues": {
+            "accuracy": 60.0,
+            "total": 5
+          },
+          "Descriptive details": {
+            "accuracy": 100.0,
+            "total": 3
+          },
+          "Designing experiments": {
+            "accuracy": 98.39,
+            "total": 62
+          },
+          "Domain-specific vocabulary": {
+            "accuracy": 40.0,
+            "total": 5
+          },
+          "Early 19th century American history": {
+            "accuracy": 0.0,
+            "total": 1
+          },
+          "Early Americas": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Earth events": {
+            "accuracy": 75.0,
+            "total": 4
+          },
+          "Ecological interactions": {
+            "accuracy": 52.0,
+            "total": 25
+          },
+          "Ecosystems": {
+            "accuracy": 79.1,
+            "total": 67
+          },
+          "Engineering practices": {
+            "accuracy": 100.0,
+            "total": 53
+          },
+          "English colonies in North America": {
+            "accuracy": 64.1,
+            "total": 39
+          },
+          "Force and motion": {
+            "accuracy": 68.0,
+            "total": 25
+          },
+          "Fossils": {
+            "accuracy": 70.59,
+            "total": 17
+          },
+          "Genes to traits": {
+            "accuracy": 21.28,
+            "total": 47
+          },
+          "Geography": {
+            "accuracy": 76.06,
+            "total": 71
+          },
+          "Government": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Independent reading comprehension": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Informational texts: level 1": {
+            "accuracy": 80.0,
+            "total": 5
+          },
+          "Magnets": {
+            "accuracy": 53.38,
+            "total": 133
+          },
+          "Maps": {
+            "accuracy": 79.03,
+            "total": 62
+          },
+          "Materials": {
+            "accuracy": 81.9,
+            "total": 116
+          },
+          "Medieval Asia": {
+            "accuracy": 50.0,
+            "total": 2
+          },
+          "Natural resources and human impacts": {
+            "accuracy": 50.0,
+            "total": 2
+          },
+          "Oceania: geography": {
+            "accuracy": 48.94,
+            "total": 47
+          },
+          "Oceans and continents": {
+            "accuracy": 100.0,
+            "total": 10
+          },
+          "Oceans and continents\t": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Particle motion and energy": {
+            "accuracy": 44.12,
+            "total": 68
+          },
+          "Persuasive strategies": {
+            "accuracy": 72.22,
+            "total": 18
+          },
+          "Physical Geography": {
+            "accuracy": 88.37,
+            "total": 43
+          },
+          "Plant reproduction": {
+            "accuracy": 70.0,
+            "total": 10
+          },
+          "Plants": {
+            "accuracy": 100.0,
+            "total": 10
+          },
+          "Plate tectonics": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Read-alone texts": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Rocks and minerals": {
+            "accuracy": 100.0,
+            "total": 41
+          },
+          "Rome and the Byzantine Empire": {
+            "accuracy": 50.0,
+            "total": 2
+          },
+          "Scientific names": {
+            "accuracy": 97.62,
+            "total": 42
+          },
+          "Solutions": {
+            "accuracy": 55.22,
+            "total": 67
+          },
+          "State capitals": {
+            "accuracy": 99.69,
+            "total": 318
+          },
+          "States": {
+            "accuracy": 66.67,
+            "total": 3
+          },
+          "States of matter": {
+            "accuracy": 92.11,
+            "total": 38
+          },
+          "The American Revolution": {
+            "accuracy": 66.67,
+            "total": 3
+          },
+          "The Americas: geography": {
+            "accuracy": 36.67,
+            "total": 30
+          },
+          "The Antebellum period": {
+            "accuracy": 100.0,
+            "total": 3
+          },
+          "The Civil War and Reconstruction": {
+            "accuracy": 0.0,
+            "total": 1
+          },
+          "The Silk Road": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Thermal energy": {
+            "accuracy": 33.33,
+            "total": 18
+          },
+          "Velocity, acceleration, and forces": {
+            "accuracy": 54.9,
+            "total": 51
+          },
+          "Visual elements": {
+            "accuracy": 77.78,
+            "total": 9
+          },
+          "Water cycle": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Weather and climate": {
+            "accuracy": 57.81,
+            "total": 64
+          },
+          "World religions": {
+            "accuracy": 66.67,
+            "total": 3
+          }
+        },
+        "by_grade": {
+          "grade1": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "grade10": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "grade12": {
+            "accuracy": 87.5,
+            "total": 8
+          },
+          "grade2": {
+            "accuracy": 85.42,
+            "total": 144
+          },
+          "grade3": {
+            "accuracy": 85.81,
+            "total": 310
+          },
+          "grade4": {
+            "accuracy": 80.69,
+            "total": 404
+          },
+          "grade5": {
+            "accuracy": 83.88,
+            "total": 335
+          },
+          "grade6": {
+            "accuracy": 67.94,
+            "total": 287
+          },
+          "grade7": {
+            "accuracy": 69.54,
+            "total": 302
+          },
+          "grade8": {
+            "accuracy": 68.2,
+            "total": 305
+          }
+        }
+      },
+      "test_merged": {
+        "accuracy": 76.05,
+        "correct": 1534,
+        "total": 2017,
+        "adapter": "output/diagnostics/scienceqa_closure_seed0_20261024/B/seed0/adapter",
+        "questions": "datasets/scienceqa/test_questions.jsonl",
+        "by_subject": {
+          "language science": {
+            "accuracy": 79.55,
+            "total": 44
+          },
+          "natural science": {
+            "accuracy": 71.63,
+            "total": 1209
+          },
+          "social science": {
+            "accuracy": 82.85,
+            "total": 764
+          }
+        },
+        "by_category": {
+          "Adaptations": {
+            "accuracy": 86.73,
+            "total": 98
+          },
+          "Ancient Egypt and Kush": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Ancient Mesopotamia": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Animals": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Astronomy": {
+            "accuracy": 50.0,
+            "total": 36
+          },
+          "Atoms and molecules": {
+            "accuracy": 76.92,
+            "total": 39
+          },
+          "Basic economic principles": {
+            "accuracy": 98.59,
+            "total": 71
+          },
+          "Cells": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Chemical reactions": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Cities": {
+            "accuracy": 58.33,
+            "total": 12
+          },
+          "Classification": {
+            "accuracy": 93.67,
+            "total": 79
+          },
+          "Classification and scientific names": {
+            "accuracy": 97.83,
+            "total": 46
+          },
+          "Climate change": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Colonial America": {
+            "accuracy": 55.26,
+            "total": 38
+          },
+          "Context clues": {
+            "accuracy": 40.0,
+            "total": 5
+          },
+          "Descriptive details": {
+            "accuracy": 66.67,
+            "total": 3
+          },
+          "Designing experiments": {
+            "accuracy": 97.26,
+            "total": 73
+          },
+          "Domain-specific vocabulary": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Early 19th century American history": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Earth events": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Ecological interactions": {
+            "accuracy": 54.17,
+            "total": 24
+          },
+          "Ecosystems": {
+            "accuracy": 76.71,
+            "total": 73
+          },
+          "Engineering practices": {
+            "accuracy": 100.0,
+            "total": 55
+          },
+          "English colonies in North America": {
+            "accuracy": 66.67,
+            "total": 39
+          },
+          "Force and motion": {
+            "accuracy": 72.22,
+            "total": 18
+          },
+          "Fossils": {
+            "accuracy": 59.09,
+            "total": 22
+          },
+          "Genes to traits": {
+            "accuracy": 36.84,
+            "total": 38
+          },
+          "Geography": {
+            "accuracy": 78.57,
+            "total": 42
+          },
+          "Government": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Greece": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Independent reading comprehension": {
+            "accuracy": 100.0,
+            "total": 5
+          },
+          "Informational texts: level 1": {
+            "accuracy": 100.0,
+            "total": 5
+          },
+          "Kinetic and potential energy": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Magnets": {
+            "accuracy": 32.73,
+            "total": 110
+          },
+          "Maps": {
+            "accuracy": 82.61,
+            "total": 46
+          },
+          "Materials": {
+            "accuracy": 88.11,
+            "total": 143
+          },
+          "Medieval Asia": {
+            "accuracy": 50.0,
+            "total": 2
+          },
+          "Oceania: geography": {
+            "accuracy": 43.14,
+            "total": 51
+          },
+          "Oceans and continents": {
+            "accuracy": 100.0,
+            "total": 19
+          },
+          "Oceans and continents\t": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Particle motion and energy": {
+            "accuracy": 46.34,
+            "total": 41
+          },
+          "Persuasive strategies": {
+            "accuracy": 90.91,
+            "total": 11
+          },
+          "Photosynthesis": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Physical Geography": {
+            "accuracy": 80.39,
+            "total": 51
+          },
+          "Plant reproduction": {
+            "accuracy": 66.67,
+            "total": 6
+          },
+          "Plants": {
+            "accuracy": 83.33,
+            "total": 6
+          },
+          "Plate tectonics": {
+            "accuracy": 100.0,
+            "total": 3
+          },
+          "Read-alone texts": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Rocks and minerals": {
+            "accuracy": 89.66,
+            "total": 29
+          },
+          "Scientific names": {
+            "accuracy": 100.0,
+            "total": 32
+          },
+          "Solutions": {
+            "accuracy": 48.15,
+            "total": 54
+          },
+          "State capitals": {
+            "accuracy": 100.0,
+            "total": 312
+          },
+          "States": {
+            "accuracy": 50.0,
+            "total": 18
+          },
+          "States of matter": {
+            "accuracy": 82.14,
+            "total": 28
+          },
+          "The American Revolution": {
+            "accuracy": 75.0,
+            "total": 4
+          },
+          "The Americas: geography": {
+            "accuracy": 37.78,
+            "total": 45
+          },
+          "The Antebellum period": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "The Civil War and Reconstruction": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Thermal energy": {
+            "accuracy": 36.36,
+            "total": 22
+          },
+          "Topographic maps": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Velocity, acceleration, and forces": {
+            "accuracy": 40.32,
+            "total": 62
+          },
+          "Visual elements": {
+            "accuracy": 55.56,
+            "total": 9
+          },
+          "Water cycle": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Weather and climate": {
+            "accuracy": 55.17,
+            "total": 58
+          },
+          "World religions": {
+            "accuracy": 100.0,
+            "total": 1
+          }
+        },
+        "by_grade": {
+          "grade1": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "grade12": {
+            "accuracy": 100.0,
+            "total": 5
+          },
+          "grade2": {
+            "accuracy": 81.2,
+            "total": 117
+          },
+          "grade3": {
+            "accuracy": 85.67,
+            "total": 342
+          },
+          "grade4": {
+            "accuracy": 79.22,
+            "total": 361
+          },
+          "grade5": {
+            "accuracy": 83.04,
+            "total": 336
+          },
+          "grade6": {
+            "accuracy": 66.79,
+            "total": 271
+          },
+          "grade7": {
+            "accuracy": 68.33,
+            "total": 281
+          },
+          "grade8": {
+            "accuracy": 66.56,
+            "total": 302
+          }
+        }
+      },
+      "test_unmerged": {
+        "accuracy": 76.0,
+        "correct": 1533,
+        "total": 2017,
+        "adapter": "output/diagnostics/scienceqa_closure_seed0_20261024/B/seed0/adapter",
+        "questions": "datasets/scienceqa/test_questions.jsonl",
+        "inference_mode": "unmerged_adapter",
+        "by_subject": {
+          "language science": {
+            "accuracy": 79.55,
+            "total": 44
+          },
+          "natural science": {
+            "accuracy": 71.3,
+            "total": 1209
+          },
+          "social science": {
+            "accuracy": 83.25,
+            "total": 764
+          }
+        },
+        "by_category": {
+          "Adaptations": {
+            "accuracy": 86.73,
+            "total": 98
+          },
+          "Ancient Egypt and Kush": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Ancient Mesopotamia": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Animals": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Astronomy": {
+            "accuracy": 52.78,
+            "total": 36
+          },
+          "Atoms and molecules": {
+            "accuracy": 76.92,
+            "total": 39
+          },
+          "Basic economic principles": {
+            "accuracy": 100.0,
+            "total": 71
+          },
+          "Cells": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Chemical reactions": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Cities": {
+            "accuracy": 58.33,
+            "total": 12
+          },
+          "Classification": {
+            "accuracy": 92.41,
+            "total": 79
+          },
+          "Classification and scientific names": {
+            "accuracy": 97.83,
+            "total": 46
+          },
+          "Climate change": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Colonial America": {
+            "accuracy": 57.89,
+            "total": 38
+          },
+          "Context clues": {
+            "accuracy": 40.0,
+            "total": 5
+          },
+          "Descriptive details": {
+            "accuracy": 66.67,
+            "total": 3
+          },
+          "Designing experiments": {
+            "accuracy": 97.26,
+            "total": 73
+          },
+          "Domain-specific vocabulary": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Early 19th century American history": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Earth events": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Ecological interactions": {
+            "accuracy": 54.17,
+            "total": 24
+          },
+          "Ecosystems": {
+            "accuracy": 76.71,
+            "total": 73
+          },
+          "Engineering practices": {
+            "accuracy": 100.0,
+            "total": 55
+          },
+          "English colonies in North America": {
+            "accuracy": 66.67,
+            "total": 39
+          },
+          "Force and motion": {
+            "accuracy": 72.22,
+            "total": 18
+          },
+          "Fossils": {
+            "accuracy": 59.09,
+            "total": 22
+          },
+          "Genes to traits": {
+            "accuracy": 34.21,
+            "total": 38
+          },
+          "Geography": {
+            "accuracy": 80.95,
+            "total": 42
+          },
+          "Government": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Greece": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Independent reading comprehension": {
+            "accuracy": 100.0,
+            "total": 5
+          },
+          "Informational texts: level 1": {
+            "accuracy": 100.0,
+            "total": 5
+          },
+          "Kinetic and potential energy": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Magnets": {
+            "accuracy": 33.64,
+            "total": 110
+          },
+          "Maps": {
+            "accuracy": 82.61,
+            "total": 46
+          },
+          "Materials": {
+            "accuracy": 86.01,
+            "total": 143
+          },
+          "Medieval Asia": {
+            "accuracy": 50.0,
+            "total": 2
+          },
+          "Oceania: geography": {
+            "accuracy": 45.1,
+            "total": 51
+          },
+          "Oceans and continents": {
+            "accuracy": 100.0,
+            "total": 19
+          },
+          "Oceans and continents\t": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Particle motion and energy": {
+            "accuracy": 46.34,
+            "total": 41
+          },
+          "Persuasive strategies": {
+            "accuracy": 90.91,
+            "total": 11
+          },
+          "Photosynthesis": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Physical Geography": {
+            "accuracy": 80.39,
+            "total": 51
+          },
+          "Plant reproduction": {
+            "accuracy": 66.67,
+            "total": 6
+          },
+          "Plants": {
+            "accuracy": 83.33,
+            "total": 6
+          },
+          "Plate tectonics": {
+            "accuracy": 100.0,
+            "total": 3
+          },
+          "Read-alone texts": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Rocks and minerals": {
+            "accuracy": 86.21,
+            "total": 29
+          },
+          "Scientific names": {
+            "accuracy": 100.0,
+            "total": 32
+          },
+          "Solutions": {
+            "accuracy": 46.3,
+            "total": 54
+          },
+          "State capitals": {
+            "accuracy": 100.0,
+            "total": 312
+          },
+          "States": {
+            "accuracy": 44.44,
+            "total": 18
+          },
+          "States of matter": {
+            "accuracy": 82.14,
+            "total": 28
+          },
+          "The American Revolution": {
+            "accuracy": 75.0,
+            "total": 4
+          },
+          "The Americas: geography": {
+            "accuracy": 37.78,
+            "total": 45
+          },
+          "The Antebellum period": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "The Civil War and Reconstruction": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Thermal energy": {
+            "accuracy": 36.36,
+            "total": 22
+          },
+          "Topographic maps": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Velocity, acceleration, and forces": {
+            "accuracy": 40.32,
+            "total": 62
+          },
+          "Visual elements": {
+            "accuracy": 55.56,
+            "total": 9
+          },
+          "Water cycle": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Weather and climate": {
+            "accuracy": 56.9,
+            "total": 58
+          },
+          "World religions": {
+            "accuracy": 100.0,
+            "total": 1
+          }
+        },
+        "by_grade": {
+          "grade1": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "grade12": {
+            "accuracy": 100.0,
+            "total": 5
+          },
+          "grade2": {
+            "accuracy": 82.91,
+            "total": 117
+          },
+          "grade3": {
+            "accuracy": 85.96,
+            "total": 342
+          },
+          "grade4": {
+            "accuracy": 78.95,
+            "total": 361
+          },
+          "grade5": {
+            "accuracy": 81.55,
+            "total": 336
+          },
+          "grade6": {
+            "accuracy": 66.79,
+            "total": 271
+          },
+          "grade7": {
+            "accuracy": 68.68,
+            "total": 281
+          },
+          "grade8": {
+            "accuracy": 66.89,
+            "total": 302
+          }
+        }
+      }
+    },
+    "C": {
+      "reg": 0.5,
+      "pruning": false,
+      "final_rank_sum": 768,
+      "validation": {
+        "accuracy": 71.15,
+        "correct": 1492,
+        "total": 2097,
+        "adapter": "output/diagnostics/scienceqa_closure_seed0_20261024/C/seed0/adapter",
+        "questions": "datasets/scienceqa/val_questions.jsonl",
+        "by_subject": {
+          "language science": {
+            "accuracy": 62.5,
+            "total": 48
+          },
+          "natural science": {
+            "accuracy": 69.46,
+            "total": 1287
+          },
+          "social science": {
+            "accuracy": 74.54,
+            "total": 762
+          }
+        },
+        "by_category": {
+          "Adaptations": {
+            "accuracy": 84.38,
+            "total": 96
+          },
+          "Adaptations and natural selection": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Age of Exploration": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Ancient Egypt and Kush": {
+            "accuracy": 0.0,
+            "total": 1
+          },
+          "Ancient Mesopotamia": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Animals": {
+            "accuracy": 100.0,
+            "total": 3
+          },
+          "Astronomy": {
+            "accuracy": 45.65,
+            "total": 46
+          },
+          "Atoms and molecules": {
+            "accuracy": 73.81,
+            "total": 42
+          },
+          "Basic economic principles": {
+            "accuracy": 68.75,
+            "total": 64
+          },
+          "Chemical reactions": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Cities": {
+            "accuracy": 50.0,
+            "total": 8
+          },
+          "Classification": {
+            "accuracy": 86.9,
+            "total": 84
+          },
+          "Classification and scientific names": {
+            "accuracy": 91.49,
+            "total": 47
+          },
+          "Climate change": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Colonial America": {
+            "accuracy": 61.9,
+            "total": 42
+          },
+          "Context clues": {
+            "accuracy": 80.0,
+            "total": 5
+          },
+          "Descriptive details": {
+            "accuracy": 100.0,
+            "total": 3
+          },
+          "Designing experiments": {
+            "accuracy": 95.16,
+            "total": 62
+          },
+          "Domain-specific vocabulary": {
+            "accuracy": 40.0,
+            "total": 5
+          },
+          "Early 19th century American history": {
+            "accuracy": 0.0,
+            "total": 1
+          },
+          "Early Americas": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Earth events": {
+            "accuracy": 75.0,
+            "total": 4
+          },
+          "Ecological interactions": {
+            "accuracy": 60.0,
+            "total": 25
+          },
+          "Ecosystems": {
+            "accuracy": 76.12,
+            "total": 67
+          },
+          "Engineering practices": {
+            "accuracy": 98.11,
+            "total": 53
+          },
+          "English colonies in North America": {
+            "accuracy": 48.72,
+            "total": 39
+          },
+          "Force and motion": {
+            "accuracy": 60.0,
+            "total": 25
+          },
+          "Fossils": {
+            "accuracy": 76.47,
+            "total": 17
+          },
+          "Genes to traits": {
+            "accuracy": 14.89,
+            "total": 47
+          },
+          "Geography": {
+            "accuracy": 56.34,
+            "total": 71
+          },
+          "Government": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Independent reading comprehension": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Informational texts: level 1": {
+            "accuracy": 80.0,
+            "total": 5
+          },
+          "Magnets": {
+            "accuracy": 52.63,
+            "total": 133
+          },
+          "Maps": {
+            "accuracy": 58.06,
+            "total": 62
+          },
+          "Materials": {
+            "accuracy": 75.0,
+            "total": 116
+          },
+          "Medieval Asia": {
+            "accuracy": 0.0,
+            "total": 2
+          },
+          "Natural resources and human impacts": {
+            "accuracy": 50.0,
+            "total": 2
+          },
+          "Oceania: geography": {
+            "accuracy": 23.4,
+            "total": 47
+          },
+          "Oceans and continents": {
+            "accuracy": 100.0,
+            "total": 10
+          },
+          "Oceans and continents\t": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Particle motion and energy": {
+            "accuracy": 50.0,
+            "total": 68
+          },
+          "Persuasive strategies": {
+            "accuracy": 33.33,
+            "total": 18
+          },
+          "Physical Geography": {
+            "accuracy": 76.74,
+            "total": 43
+          },
+          "Plant reproduction": {
+            "accuracy": 60.0,
+            "total": 10
+          },
+          "Plants": {
+            "accuracy": 100.0,
+            "total": 10
+          },
+          "Plate tectonics": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Read-alone texts": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Rocks and minerals": {
+            "accuracy": 95.12,
+            "total": 41
+          },
+          "Rome and the Byzantine Empire": {
+            "accuracy": 50.0,
+            "total": 2
+          },
+          "Scientific names": {
+            "accuracy": 90.48,
+            "total": 42
+          },
+          "Solutions": {
+            "accuracy": 62.69,
+            "total": 67
+          },
+          "State capitals": {
+            "accuracy": 99.37,
+            "total": 318
+          },
+          "States": {
+            "accuracy": 66.67,
+            "total": 3
+          },
+          "States of matter": {
+            "accuracy": 78.95,
+            "total": 38
+          },
+          "The American Revolution": {
+            "accuracy": 66.67,
+            "total": 3
+          },
+          "The Americas: geography": {
+            "accuracy": 33.33,
+            "total": 30
+          },
+          "The Antebellum period": {
+            "accuracy": 100.0,
+            "total": 3
+          },
+          "The Civil War and Reconstruction": {
+            "accuracy": 0.0,
+            "total": 1
+          },
+          "The Silk Road": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Thermal energy": {
+            "accuracy": 44.44,
+            "total": 18
+          },
+          "Velocity, acceleration, and forces": {
+            "accuracy": 62.75,
+            "total": 51
+          },
+          "Visual elements": {
+            "accuracy": 88.89,
+            "total": 9
+          },
+          "Water cycle": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Weather and climate": {
+            "accuracy": 32.81,
+            "total": 64
+          },
+          "World religions": {
+            "accuracy": 66.67,
+            "total": 3
+          }
+        },
+        "by_grade": {
+          "grade1": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "grade10": {
+            "accuracy": 0.0,
+            "total": 1
+          },
+          "grade12": {
+            "accuracy": 25.0,
+            "total": 8
+          },
+          "grade2": {
+            "accuracy": 80.56,
+            "total": 144
+          },
+          "grade3": {
+            "accuracy": 80.0,
+            "total": 310
+          },
+          "grade4": {
+            "accuracy": 74.01,
+            "total": 404
+          },
+          "grade5": {
+            "accuracy": 77.91,
+            "total": 335
+          },
+          "grade6": {
+            "accuracy": 65.51,
+            "total": 287
+          },
+          "grade7": {
+            "accuracy": 61.92,
+            "total": 302
+          },
+          "grade8": {
+            "accuracy": 62.3,
+            "total": 305
+          }
+        }
+      },
+      "test_merged": {
+        "accuracy": 71.59,
+        "correct": 1444,
+        "total": 2017,
+        "adapter": "output/diagnostics/scienceqa_closure_seed0_20261024/C/seed0/adapter",
+        "questions": "datasets/scienceqa/test_questions.jsonl",
+        "by_subject": {
+          "language science": {
+            "accuracy": 72.73,
+            "total": 44
+          },
+          "natural science": {
+            "accuracy": 68.57,
+            "total": 1209
+          },
+          "social science": {
+            "accuracy": 76.31,
+            "total": 764
+          }
+        },
+        "by_category": {
+          "Adaptations": {
+            "accuracy": 84.69,
+            "total": 98
+          },
+          "Ancient Egypt and Kush": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Ancient Mesopotamia": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Animals": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Astronomy": {
+            "accuracy": 41.67,
+            "total": 36
+          },
+          "Atoms and molecules": {
+            "accuracy": 64.1,
+            "total": 39
+          },
+          "Basic economic principles": {
+            "accuracy": 76.06,
+            "total": 71
+          },
+          "Cells": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Chemical reactions": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Cities": {
+            "accuracy": 58.33,
+            "total": 12
+          },
+          "Classification": {
+            "accuracy": 88.61,
+            "total": 79
+          },
+          "Classification and scientific names": {
+            "accuracy": 93.48,
+            "total": 46
+          },
+          "Climate change": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Colonial America": {
+            "accuracy": 52.63,
+            "total": 38
+          },
+          "Context clues": {
+            "accuracy": 40.0,
+            "total": 5
+          },
+          "Descriptive details": {
+            "accuracy": 66.67,
+            "total": 3
+          },
+          "Designing experiments": {
+            "accuracy": 94.52,
+            "total": 73
+          },
+          "Domain-specific vocabulary": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Early 19th century American history": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Earth events": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Ecological interactions": {
+            "accuracy": 54.17,
+            "total": 24
+          },
+          "Ecosystems": {
+            "accuracy": 78.08,
+            "total": 73
+          },
+          "Engineering practices": {
+            "accuracy": 98.18,
+            "total": 55
+          },
+          "English colonies in North America": {
+            "accuracy": 58.97,
+            "total": 39
+          },
+          "Force and motion": {
+            "accuracy": 66.67,
+            "total": 18
+          },
+          "Fossils": {
+            "accuracy": 54.55,
+            "total": 22
+          },
+          "Genes to traits": {
+            "accuracy": 26.32,
+            "total": 38
+          },
+          "Geography": {
+            "accuracy": 73.81,
+            "total": 42
+          },
+          "Government": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Greece": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Independent reading comprehension": {
+            "accuracy": 100.0,
+            "total": 5
+          },
+          "Informational texts: level 1": {
+            "accuracy": 100.0,
+            "total": 5
+          },
+          "Kinetic and potential energy": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Magnets": {
+            "accuracy": 38.18,
+            "total": 110
+          },
+          "Maps": {
+            "accuracy": 56.52,
+            "total": 46
+          },
+          "Materials": {
+            "accuracy": 81.12,
+            "total": 143
+          },
+          "Medieval Asia": {
+            "accuracy": 50.0,
+            "total": 2
+          },
+          "Oceania: geography": {
+            "accuracy": 25.49,
+            "total": 51
+          },
+          "Oceans and continents": {
+            "accuracy": 100.0,
+            "total": 19
+          },
+          "Oceans and continents\t": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Particle motion and energy": {
+            "accuracy": 36.59,
+            "total": 41
+          },
+          "Persuasive strategies": {
+            "accuracy": 63.64,
+            "total": 11
+          },
+          "Photosynthesis": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Physical Geography": {
+            "accuracy": 72.55,
+            "total": 51
+          },
+          "Plant reproduction": {
+            "accuracy": 66.67,
+            "total": 6
+          },
+          "Plants": {
+            "accuracy": 83.33,
+            "total": 6
+          },
+          "Plate tectonics": {
+            "accuracy": 100.0,
+            "total": 3
+          },
+          "Read-alone texts": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Rocks and minerals": {
+            "accuracy": 86.21,
+            "total": 29
+          },
+          "Scientific names": {
+            "accuracy": 96.88,
+            "total": 32
+          },
+          "Solutions": {
+            "accuracy": 33.33,
+            "total": 54
+          },
+          "State capitals": {
+            "accuracy": 99.68,
+            "total": 312
+          },
+          "States": {
+            "accuracy": 50.0,
+            "total": 18
+          },
+          "States of matter": {
+            "accuracy": 75.0,
+            "total": 28
+          },
+          "The American Revolution": {
+            "accuracy": 75.0,
+            "total": 4
+          },
+          "The Americas: geography": {
+            "accuracy": 33.33,
+            "total": 45
+          },
+          "The Antebellum period": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "The Civil War and Reconstruction": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Thermal energy": {
+            "accuracy": 54.55,
+            "total": 22
+          },
+          "Topographic maps": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Velocity, acceleration, and forces": {
+            "accuracy": 43.55,
+            "total": 62
+          },
+          "Visual elements": {
+            "accuracy": 55.56,
+            "total": 9
+          },
+          "Water cycle": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Weather and climate": {
+            "accuracy": 56.9,
+            "total": 58
+          },
+          "World religions": {
+            "accuracy": 100.0,
+            "total": 1
+          }
+        },
+        "by_grade": {
+          "grade1": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "grade12": {
+            "accuracy": 60.0,
+            "total": 5
+          },
+          "grade2": {
+            "accuracy": 79.49,
+            "total": 117
+          },
+          "grade3": {
+            "accuracy": 83.33,
+            "total": 342
+          },
+          "grade4": {
+            "accuracy": 77.29,
+            "total": 361
+          },
+          "grade5": {
+            "accuracy": 79.17,
+            "total": 336
+          },
+          "grade6": {
+            "accuracy": 63.47,
+            "total": 271
+          },
+          "grade7": {
+            "accuracy": 59.43,
+            "total": 281
+          },
+          "grade8": {
+            "accuracy": 58.61,
+            "total": 302
+          }
+        }
+      },
+      "test_unmerged": {
+        "accuracy": 71.84,
+        "correct": 1449,
+        "total": 2017,
+        "adapter": "output/diagnostics/scienceqa_closure_seed0_20261024/C/seed0/adapter",
+        "questions": "datasets/scienceqa/test_questions.jsonl",
+        "inference_mode": "unmerged_adapter",
+        "by_subject": {
+          "language science": {
+            "accuracy": 70.45,
+            "total": 44
+          },
+          "natural science": {
+            "accuracy": 68.65,
+            "total": 1209
+          },
+          "social science": {
+            "accuracy": 76.96,
+            "total": 764
+          }
+        },
+        "by_category": {
+          "Adaptations": {
+            "accuracy": 84.69,
+            "total": 98
+          },
+          "Ancient Egypt and Kush": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Ancient Mesopotamia": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Animals": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Astronomy": {
+            "accuracy": 47.22,
+            "total": 36
+          },
+          "Atoms and molecules": {
+            "accuracy": 64.1,
+            "total": 39
+          },
+          "Basic economic principles": {
+            "accuracy": 81.69,
+            "total": 71
+          },
+          "Cells": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Chemical reactions": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Cities": {
+            "accuracy": 58.33,
+            "total": 12
+          },
+          "Classification": {
+            "accuracy": 88.61,
+            "total": 79
+          },
+          "Classification and scientific names": {
+            "accuracy": 93.48,
+            "total": 46
+          },
+          "Climate change": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Colonial America": {
+            "accuracy": 55.26,
+            "total": 38
+          },
+          "Context clues": {
+            "accuracy": 40.0,
+            "total": 5
+          },
+          "Descriptive details": {
+            "accuracy": 66.67,
+            "total": 3
+          },
+          "Designing experiments": {
+            "accuracy": 94.52,
+            "total": 73
+          },
+          "Domain-specific vocabulary": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Early 19th century American history": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Earth events": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Ecological interactions": {
+            "accuracy": 54.17,
+            "total": 24
+          },
+          "Ecosystems": {
+            "accuracy": 78.08,
+            "total": 73
+          },
+          "Engineering practices": {
+            "accuracy": 98.18,
+            "total": 55
+          },
+          "English colonies in North America": {
+            "accuracy": 58.97,
+            "total": 39
+          },
+          "Force and motion": {
+            "accuracy": 61.11,
+            "total": 18
+          },
+          "Fossils": {
+            "accuracy": 54.55,
+            "total": 22
+          },
+          "Genes to traits": {
+            "accuracy": 28.95,
+            "total": 38
+          },
+          "Geography": {
+            "accuracy": 71.43,
+            "total": 42
+          },
+          "Government": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Greece": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Independent reading comprehension": {
+            "accuracy": 100.0,
+            "total": 5
+          },
+          "Informational texts: level 1": {
+            "accuracy": 80.0,
+            "total": 5
+          },
+          "Kinetic and potential energy": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Magnets": {
+            "accuracy": 37.27,
+            "total": 110
+          },
+          "Maps": {
+            "accuracy": 56.52,
+            "total": 46
+          },
+          "Materials": {
+            "accuracy": 81.12,
+            "total": 143
+          },
+          "Medieval Asia": {
+            "accuracy": 50.0,
+            "total": 2
+          },
+          "Oceania: geography": {
+            "accuracy": 25.49,
+            "total": 51
+          },
+          "Oceans and continents": {
+            "accuracy": 100.0,
+            "total": 19
+          },
+          "Oceans and continents\t": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Particle motion and energy": {
+            "accuracy": 36.59,
+            "total": 41
+          },
+          "Persuasive strategies": {
+            "accuracy": 63.64,
+            "total": 11
+          },
+          "Photosynthesis": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Physical Geography": {
+            "accuracy": 74.51,
+            "total": 51
+          },
+          "Plant reproduction": {
+            "accuracy": 66.67,
+            "total": 6
+          },
+          "Plants": {
+            "accuracy": 83.33,
+            "total": 6
+          },
+          "Plate tectonics": {
+            "accuracy": 100.0,
+            "total": 3
+          },
+          "Read-alone texts": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Rocks and minerals": {
+            "accuracy": 86.21,
+            "total": 29
+          },
+          "Scientific names": {
+            "accuracy": 96.88,
+            "total": 32
+          },
+          "Solutions": {
+            "accuracy": 37.04,
+            "total": 54
+          },
+          "State capitals": {
+            "accuracy": 99.68,
+            "total": 312
+          },
+          "States": {
+            "accuracy": 50.0,
+            "total": 18
+          },
+          "States of matter": {
+            "accuracy": 71.43,
+            "total": 28
+          },
+          "The American Revolution": {
+            "accuracy": 75.0,
+            "total": 4
+          },
+          "The Americas: geography": {
+            "accuracy": 33.33,
+            "total": 45
+          },
+          "The Antebellum period": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "The Civil War and Reconstruction": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Thermal energy": {
+            "accuracy": 54.55,
+            "total": 22
+          },
+          "Topographic maps": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Velocity, acceleration, and forces": {
+            "accuracy": 43.55,
+            "total": 62
+          },
+          "Visual elements": {
+            "accuracy": 55.56,
+            "total": 9
+          },
+          "Water cycle": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Weather and climate": {
+            "accuracy": 55.17,
+            "total": 58
+          },
+          "World religions": {
+            "accuracy": 100.0,
+            "total": 1
+          }
+        },
+        "by_grade": {
+          "grade1": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "grade12": {
+            "accuracy": 60.0,
+            "total": 5
+          },
+          "grade2": {
+            "accuracy": 78.63,
+            "total": 117
+          },
+          "grade3": {
+            "accuracy": 82.46,
+            "total": 342
+          },
+          "grade4": {
+            "accuracy": 76.73,
+            "total": 361
+          },
+          "grade5": {
+            "accuracy": 79.17,
+            "total": 336
+          },
+          "grade6": {
+            "accuracy": 64.94,
+            "total": 271
+          },
+          "grade7": {
+            "accuracy": 60.5,
+            "total": 281
+          },
+          "grade8": {
+            "accuracy": 59.93,
+            "total": 302
+          }
+        }
+      }
+    },
+    "D": {
+      "reg": 0.0,
+      "pruning": false,
+      "final_rank_sum": 768,
+      "validation": {
+        "accuracy": 77.44,
+        "correct": 1624,
+        "total": 2097,
+        "adapter": "output/diagnostics/scienceqa_closure_seed0_20261024/D/seed0/adapter",
+        "questions": "datasets/scienceqa/val_questions.jsonl",
+        "by_subject": {
+          "language science": {
+            "accuracy": 75.0,
+            "total": 48
+          },
+          "natural science": {
+            "accuracy": 73.35,
+            "total": 1287
+          },
+          "social science": {
+            "accuracy": 84.51,
+            "total": 762
+          }
+        },
+        "by_category": {
+          "Adaptations": {
+            "accuracy": 90.62,
+            "total": 96
+          },
+          "Adaptations and natural selection": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Age of Exploration": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Ancient Egypt and Kush": {
+            "accuracy": 0.0,
+            "total": 1
+          },
+          "Ancient Mesopotamia": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Animals": {
+            "accuracy": 100.0,
+            "total": 3
+          },
+          "Astronomy": {
+            "accuracy": 47.83,
+            "total": 46
+          },
+          "Atoms and molecules": {
+            "accuracy": 80.95,
+            "total": 42
+          },
+          "Basic economic principles": {
+            "accuracy": 96.88,
+            "total": 64
+          },
+          "Chemical reactions": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Cities": {
+            "accuracy": 50.0,
+            "total": 8
+          },
+          "Classification": {
+            "accuracy": 92.86,
+            "total": 84
+          },
+          "Classification and scientific names": {
+            "accuracy": 100.0,
+            "total": 47
+          },
+          "Climate change": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Colonial America": {
+            "accuracy": 71.43,
+            "total": 42
+          },
+          "Context clues": {
+            "accuracy": 60.0,
+            "total": 5
+          },
+          "Descriptive details": {
+            "accuracy": 100.0,
+            "total": 3
+          },
+          "Designing experiments": {
+            "accuracy": 98.39,
+            "total": 62
+          },
+          "Domain-specific vocabulary": {
+            "accuracy": 40.0,
+            "total": 5
+          },
+          "Early 19th century American history": {
+            "accuracy": 0.0,
+            "total": 1
+          },
+          "Early Americas": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Earth events": {
+            "accuracy": 75.0,
+            "total": 4
+          },
+          "Ecological interactions": {
+            "accuracy": 52.0,
+            "total": 25
+          },
+          "Ecosystems": {
+            "accuracy": 77.61,
+            "total": 67
+          },
+          "Engineering practices": {
+            "accuracy": 100.0,
+            "total": 53
+          },
+          "English colonies in North America": {
+            "accuracy": 66.67,
+            "total": 39
+          },
+          "Force and motion": {
+            "accuracy": 68.0,
+            "total": 25
+          },
+          "Fossils": {
+            "accuracy": 70.59,
+            "total": 17
+          },
+          "Genes to traits": {
+            "accuracy": 21.28,
+            "total": 47
+          },
+          "Geography": {
+            "accuracy": 74.65,
+            "total": 71
+          },
+          "Government": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Independent reading comprehension": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Informational texts: level 1": {
+            "accuracy": 80.0,
+            "total": 5
+          },
+          "Magnets": {
+            "accuracy": 54.14,
+            "total": 133
+          },
+          "Maps": {
+            "accuracy": 80.65,
+            "total": 62
+          },
+          "Materials": {
+            "accuracy": 81.9,
+            "total": 116
+          },
+          "Medieval Asia": {
+            "accuracy": 50.0,
+            "total": 2
+          },
+          "Natural resources and human impacts": {
+            "accuracy": 50.0,
+            "total": 2
+          },
+          "Oceania: geography": {
+            "accuracy": 48.94,
+            "total": 47
+          },
+          "Oceans and continents": {
+            "accuracy": 100.0,
+            "total": 10
+          },
+          "Oceans and continents\t": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Particle motion and energy": {
+            "accuracy": 50.0,
+            "total": 68
+          },
+          "Persuasive strategies": {
+            "accuracy": 77.78,
+            "total": 18
+          },
+          "Physical Geography": {
+            "accuracy": 88.37,
+            "total": 43
+          },
+          "Plant reproduction": {
+            "accuracy": 70.0,
+            "total": 10
+          },
+          "Plants": {
+            "accuracy": 100.0,
+            "total": 10
+          },
+          "Plate tectonics": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Read-alone texts": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Rocks and minerals": {
+            "accuracy": 100.0,
+            "total": 41
+          },
+          "Rome and the Byzantine Empire": {
+            "accuracy": 50.0,
+            "total": 2
+          },
+          "Scientific names": {
+            "accuracy": 97.62,
+            "total": 42
+          },
+          "Solutions": {
+            "accuracy": 55.22,
+            "total": 67
+          },
+          "State capitals": {
+            "accuracy": 99.69,
+            "total": 318
+          },
+          "States": {
+            "accuracy": 66.67,
+            "total": 3
+          },
+          "States of matter": {
+            "accuracy": 89.47,
+            "total": 38
+          },
+          "The American Revolution": {
+            "accuracy": 66.67,
+            "total": 3
+          },
+          "The Americas: geography": {
+            "accuracy": 36.67,
+            "total": 30
+          },
+          "The Antebellum period": {
+            "accuracy": 100.0,
+            "total": 3
+          },
+          "The Civil War and Reconstruction": {
+            "accuracy": 0.0,
+            "total": 1
+          },
+          "The Silk Road": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Thermal energy": {
+            "accuracy": 33.33,
+            "total": 18
+          },
+          "Velocity, acceleration, and forces": {
+            "accuracy": 54.9,
+            "total": 51
+          },
+          "Visual elements": {
+            "accuracy": 77.78,
+            "total": 9
+          },
+          "Water cycle": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Weather and climate": {
+            "accuracy": 57.81,
+            "total": 64
+          },
+          "World religions": {
+            "accuracy": 66.67,
+            "total": 3
+          }
+        },
+        "by_grade": {
+          "grade1": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "grade10": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "grade12": {
+            "accuracy": 87.5,
+            "total": 8
+          },
+          "grade2": {
+            "accuracy": 85.42,
+            "total": 144
+          },
+          "grade3": {
+            "accuracy": 85.48,
+            "total": 310
+          },
+          "grade4": {
+            "accuracy": 80.45,
+            "total": 404
+          },
+          "grade5": {
+            "accuracy": 84.18,
+            "total": 335
+          },
+          "grade6": {
+            "accuracy": 68.99,
+            "total": 287
+          },
+          "grade7": {
+            "accuracy": 70.86,
+            "total": 302
+          },
+          "grade8": {
+            "accuracy": 68.2,
+            "total": 305
+          }
+        }
+      },
+      "test_merged": {
+        "accuracy": 76.35,
+        "correct": 1540,
+        "total": 2017,
+        "adapter": "output/diagnostics/scienceqa_closure_seed0_20261024/D/seed0/adapter",
+        "questions": "datasets/scienceqa/test_questions.jsonl",
+        "by_subject": {
+          "language science": {
+            "accuracy": 79.55,
+            "total": 44
+          },
+          "natural science": {
+            "accuracy": 71.79,
+            "total": 1209
+          },
+          "social science": {
+            "accuracy": 83.38,
+            "total": 764
+          }
+        },
+        "by_category": {
+          "Adaptations": {
+            "accuracy": 87.76,
+            "total": 98
+          },
+          "Ancient Egypt and Kush": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Ancient Mesopotamia": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Animals": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Astronomy": {
+            "accuracy": 52.78,
+            "total": 36
+          },
+          "Atoms and molecules": {
+            "accuracy": 76.92,
+            "total": 39
+          },
+          "Basic economic principles": {
+            "accuracy": 98.59,
+            "total": 71
+          },
+          "Cells": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Chemical reactions": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Cities": {
+            "accuracy": 58.33,
+            "total": 12
+          },
+          "Classification": {
+            "accuracy": 93.67,
+            "total": 79
+          },
+          "Classification and scientific names": {
+            "accuracy": 97.83,
+            "total": 46
+          },
+          "Climate change": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Colonial America": {
+            "accuracy": 55.26,
+            "total": 38
+          },
+          "Context clues": {
+            "accuracy": 40.0,
+            "total": 5
+          },
+          "Descriptive details": {
+            "accuracy": 66.67,
+            "total": 3
+          },
+          "Designing experiments": {
+            "accuracy": 97.26,
+            "total": 73
+          },
+          "Domain-specific vocabulary": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Early 19th century American history": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Earth events": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Ecological interactions": {
+            "accuracy": 54.17,
+            "total": 24
+          },
+          "Ecosystems": {
+            "accuracy": 75.34,
+            "total": 73
+          },
+          "Engineering practices": {
+            "accuracy": 100.0,
+            "total": 55
+          },
+          "English colonies in North America": {
+            "accuracy": 66.67,
+            "total": 39
+          },
+          "Force and motion": {
+            "accuracy": 72.22,
+            "total": 18
+          },
+          "Fossils": {
+            "accuracy": 59.09,
+            "total": 22
+          },
+          "Genes to traits": {
+            "accuracy": 36.84,
+            "total": 38
+          },
+          "Geography": {
+            "accuracy": 80.95,
+            "total": 42
+          },
+          "Government": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Greece": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Independent reading comprehension": {
+            "accuracy": 100.0,
+            "total": 5
+          },
+          "Informational texts: level 1": {
+            "accuracy": 100.0,
+            "total": 5
+          },
+          "Kinetic and potential energy": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Magnets": {
+            "accuracy": 34.55,
+            "total": 110
+          },
+          "Maps": {
+            "accuracy": 82.61,
+            "total": 46
+          },
+          "Materials": {
+            "accuracy": 86.01,
+            "total": 143
+          },
+          "Medieval Asia": {
+            "accuracy": 50.0,
+            "total": 2
+          },
+          "Oceania: geography": {
+            "accuracy": 47.06,
+            "total": 51
+          },
+          "Oceans and continents": {
+            "accuracy": 100.0,
+            "total": 19
+          },
+          "Oceans and continents\t": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Particle motion and energy": {
+            "accuracy": 53.66,
+            "total": 41
+          },
+          "Persuasive strategies": {
+            "accuracy": 90.91,
+            "total": 11
+          },
+          "Photosynthesis": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Physical Geography": {
+            "accuracy": 82.35,
+            "total": 51
+          },
+          "Plant reproduction": {
+            "accuracy": 66.67,
+            "total": 6
+          },
+          "Plants": {
+            "accuracy": 83.33,
+            "total": 6
+          },
+          "Plate tectonics": {
+            "accuracy": 100.0,
+            "total": 3
+          },
+          "Read-alone texts": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Rocks and minerals": {
+            "accuracy": 89.66,
+            "total": 29
+          },
+          "Scientific names": {
+            "accuracy": 100.0,
+            "total": 32
+          },
+          "Solutions": {
+            "accuracy": 48.15,
+            "total": 54
+          },
+          "State capitals": {
+            "accuracy": 100.0,
+            "total": 312
+          },
+          "States": {
+            "accuracy": 50.0,
+            "total": 18
+          },
+          "States of matter": {
+            "accuracy": 82.14,
+            "total": 28
+          },
+          "The American Revolution": {
+            "accuracy": 75.0,
+            "total": 4
+          },
+          "The Americas: geography": {
+            "accuracy": 37.78,
+            "total": 45
+          },
+          "The Antebellum period": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "The Civil War and Reconstruction": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Thermal energy": {
+            "accuracy": 36.36,
+            "total": 22
+          },
+          "Topographic maps": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Velocity, acceleration, and forces": {
+            "accuracy": 37.1,
+            "total": 62
+          },
+          "Visual elements": {
+            "accuracy": 55.56,
+            "total": 9
+          },
+          "Water cycle": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Weather and climate": {
+            "accuracy": 56.9,
+            "total": 58
+          },
+          "World religions": {
+            "accuracy": 100.0,
+            "total": 1
+          }
+        },
+        "by_grade": {
+          "grade1": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "grade12": {
+            "accuracy": 100.0,
+            "total": 5
+          },
+          "grade2": {
+            "accuracy": 81.2,
+            "total": 117
+          },
+          "grade3": {
+            "accuracy": 85.96,
+            "total": 342
+          },
+          "grade4": {
+            "accuracy": 79.5,
+            "total": 361
+          },
+          "grade5": {
+            "accuracy": 83.04,
+            "total": 336
+          },
+          "grade6": {
+            "accuracy": 68.27,
+            "total": 271
+          },
+          "grade7": {
+            "accuracy": 69.04,
+            "total": 281
+          },
+          "grade8": {
+            "accuracy": 65.89,
+            "total": 302
+          }
+        }
+      },
+      "test_unmerged": {
+        "accuracy": 75.95,
+        "correct": 1532,
+        "total": 2017,
+        "adapter": "output/diagnostics/scienceqa_closure_seed0_20261024/D/seed0/adapter",
+        "questions": "datasets/scienceqa/test_questions.jsonl",
+        "inference_mode": "unmerged_adapter",
+        "by_subject": {
+          "language science": {
+            "accuracy": 79.55,
+            "total": 44
+          },
+          "natural science": {
+            "accuracy": 71.3,
+            "total": 1209
+          },
+          "social science": {
+            "accuracy": 83.12,
+            "total": 764
+          }
+        },
+        "by_category": {
+          "Adaptations": {
+            "accuracy": 86.73,
+            "total": 98
+          },
+          "Ancient Egypt and Kush": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Ancient Mesopotamia": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Animals": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Astronomy": {
+            "accuracy": 52.78,
+            "total": 36
+          },
+          "Atoms and molecules": {
+            "accuracy": 76.92,
+            "total": 39
+          },
+          "Basic economic principles": {
+            "accuracy": 100.0,
+            "total": 71
+          },
+          "Cells": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Chemical reactions": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Cities": {
+            "accuracy": 58.33,
+            "total": 12
+          },
+          "Classification": {
+            "accuracy": 91.14,
+            "total": 79
+          },
+          "Classification and scientific names": {
+            "accuracy": 97.83,
+            "total": 46
+          },
+          "Climate change": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Colonial America": {
+            "accuracy": 55.26,
+            "total": 38
+          },
+          "Context clues": {
+            "accuracy": 40.0,
+            "total": 5
+          },
+          "Descriptive details": {
+            "accuracy": 66.67,
+            "total": 3
+          },
+          "Designing experiments": {
+            "accuracy": 97.26,
+            "total": 73
+          },
+          "Domain-specific vocabulary": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Early 19th century American history": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Earth events": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Ecological interactions": {
+            "accuracy": 54.17,
+            "total": 24
+          },
+          "Ecosystems": {
+            "accuracy": 75.34,
+            "total": 73
+          },
+          "Engineering practices": {
+            "accuracy": 100.0,
+            "total": 55
+          },
+          "English colonies in North America": {
+            "accuracy": 61.54,
+            "total": 39
+          },
+          "Force and motion": {
+            "accuracy": 72.22,
+            "total": 18
+          },
+          "Fossils": {
+            "accuracy": 59.09,
+            "total": 22
+          },
+          "Genes to traits": {
+            "accuracy": 34.21,
+            "total": 38
+          },
+          "Geography": {
+            "accuracy": 80.95,
+            "total": 42
+          },
+          "Government": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Greece": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Independent reading comprehension": {
+            "accuracy": 100.0,
+            "total": 5
+          },
+          "Informational texts: level 1": {
+            "accuracy": 100.0,
+            "total": 5
+          },
+          "Kinetic and potential energy": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Magnets": {
+            "accuracy": 34.55,
+            "total": 110
+          },
+          "Maps": {
+            "accuracy": 82.61,
+            "total": 46
+          },
+          "Materials": {
+            "accuracy": 86.01,
+            "total": 143
+          },
+          "Medieval Asia": {
+            "accuracy": 50.0,
+            "total": 2
+          },
+          "Oceania: geography": {
+            "accuracy": 47.06,
+            "total": 51
+          },
+          "Oceans and continents": {
+            "accuracy": 100.0,
+            "total": 19
+          },
+          "Oceans and continents\t": {
+            "accuracy": 100.0,
+            "total": 4
+          },
+          "Particle motion and energy": {
+            "accuracy": 43.9,
+            "total": 41
+          },
+          "Persuasive strategies": {
+            "accuracy": 90.91,
+            "total": 11
+          },
+          "Photosynthesis": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Physical Geography": {
+            "accuracy": 80.39,
+            "total": 51
+          },
+          "Plant reproduction": {
+            "accuracy": 66.67,
+            "total": 6
+          },
+          "Plants": {
+            "accuracy": 83.33,
+            "total": 6
+          },
+          "Plate tectonics": {
+            "accuracy": 100.0,
+            "total": 3
+          },
+          "Read-alone texts": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Rocks and minerals": {
+            "accuracy": 89.66,
+            "total": 29
+          },
+          "Scientific names": {
+            "accuracy": 100.0,
+            "total": 32
+          },
+          "Solutions": {
+            "accuracy": 50.0,
+            "total": 54
+          },
+          "State capitals": {
+            "accuracy": 100.0,
+            "total": 312
+          },
+          "States": {
+            "accuracy": 50.0,
+            "total": 18
+          },
+          "States of matter": {
+            "accuracy": 82.14,
+            "total": 28
+          },
+          "The American Revolution": {
+            "accuracy": 75.0,
+            "total": 4
+          },
+          "The Americas: geography": {
+            "accuracy": 37.78,
+            "total": 45
+          },
+          "The Antebellum period": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "The Civil War and Reconstruction": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Thermal energy": {
+            "accuracy": 36.36,
+            "total": 22
+          },
+          "Topographic maps": {
+            "accuracy": 100.0,
+            "total": 1
+          },
+          "Velocity, acceleration, and forces": {
+            "accuracy": 40.32,
+            "total": 62
+          },
+          "Visual elements": {
+            "accuracy": 55.56,
+            "total": 9
+          },
+          "Water cycle": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "Weather and climate": {
+            "accuracy": 55.17,
+            "total": 58
+          },
+          "World religions": {
+            "accuracy": 100.0,
+            "total": 1
+          }
+        },
+        "by_grade": {
+          "grade1": {
+            "accuracy": 100.0,
+            "total": 2
+          },
+          "grade12": {
+            "accuracy": 100.0,
+            "total": 5
+          },
+          "grade2": {
+            "accuracy": 83.76,
+            "total": 117
+          },
+          "grade3": {
+            "accuracy": 86.26,
+            "total": 342
+          },
+          "grade4": {
+            "accuracy": 77.84,
+            "total": 361
+          },
+          "grade5": {
+            "accuracy": 81.85,
+            "total": 336
+          },
+          "grade6": {
+            "accuracy": 67.9,
+            "total": 271
+          },
+          "grade7": {
+            "accuracy": 67.97,
+            "total": 281
+          },
+          "grade8": {
+            "accuracy": 66.56,
+            "total": 302
+          }
+        }
+      }
+    }
+  },
+  "scope": "Exploratory seed-0 mechanism audit. C/D retain rank12 (larger budget). No extra runs or model selection.",
+  "comparisons": {
+    "validation": {
+      "scores": {
+        "A": 71.24463519313305,
+        "B": 77.15784453981878,
+        "C": 71.14926084883166,
+        "D": 77.44396757272294
+      },
+      "remove_reg_with_pruning": 5.913209346685733,
+      "remove_reg_without_pruning": 6.294706723891281,
+      "remove_pruning_with_reg": -0.09537434430139058,
+      "remove_pruning_without_reg": 0.2861230329041575
+    },
+    "test_merged": {
+      "scores": {
+        "A": 71.74020823004462,
+        "B": 76.05354486861675,
+        "C": 71.59147248388696,
+        "D": 76.35101636093208
+      },
+      "remove_reg_with_pruning": 4.313336638572139,
+      "remove_reg_without_pruning": 4.759543877045118,
+      "remove_pruning_with_reg": -0.14873574615765506,
+      "remove_pruning_without_reg": 0.2974714923153243
+    },
+    "test_unmerged": {
+      "scores": {
+        "A": 72.38472979672781,
+        "B": 76.00396628656421,
+        "C": 71.83936539414972,
+        "D": 75.95438770451165
+      },
+      "remove_reg_with_pruning": 3.6192364898363962,
+      "remove_reg_without_pruning": 4.115022310361923,
+      "remove_pruning_with_reg": -0.5453644025780875,
+      "remove_pruning_without_reg": -0.04957858205256116
+    }
+  }
+}

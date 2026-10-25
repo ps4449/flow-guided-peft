@@ -1,0 +1,8 @@
+{
+  "final_rank_sum": 512,
+  "matrix_count": 64,
+  "per_rank_AB_cost": 8192,
+  "uniform_reference_parameters": 4194304,
+  "method": "static_lora",
+  "allocated_adapter_parameters": 4194304
+}

@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "scope": [
+    "B",
+    "C",
+    "D"
+  ],
+  "jobs": [
+    {
+      "arm": "B",
+      "job_id": "46572",
+      "state": "COMPLETED"
+    },
+    {
+      "arm": "C",
+      "job_id": "46603",
+      "state": "COMPLETED"
+    },
+    {
+      "arm": "D",
+      "job_id": "46622",
+      "state": "COMPLETED"
+    }
+  ],
+  "stop_rule": "Exactly three predeclared conditions; no follow-up training or best-arm selection."
+}

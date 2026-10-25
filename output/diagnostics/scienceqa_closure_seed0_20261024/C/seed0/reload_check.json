@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "max_abs_difference": 0.0,
+  "scope": "last eight token positions on one training input; not an accuracy evaluation",
+  "atol": 0.03,
+  "rtol": 0.01
+}
