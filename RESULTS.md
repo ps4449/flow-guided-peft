@@ -100,10 +100,26 @@ Run folders: `output/peft/<ranks>/scienceqa_train_llava/seed<k>/eval_scienceqa/`
 | Flow-guided LoRA, seed 1 | 82.15 | 4 × 4 ✅ | 1,657 / 2,017 correct; [outputs](output/peft/flow_guided_scienceqa/scienceqa_modalities_fixed/seed1/eval_scienceqa/metrics.json) |
 | Flow-guided LoRA, seed 2 | 80.61 | 4 × 4 ✅ | 1,626 / 2,017 correct; [outputs](output/peft/flow_guided_scienceqa/scienceqa_modalities_fixed/seed2/eval_scienceqa/metrics.json) |
 | **Flow-guided LoRA, mean ± sample std of seeds 0–2** | **81.37 ± 0.77** | 4 × 4 ✅ | +0.16 vs uniform (81.21 ± 0.41), within seed-to-seed variation; paired over the 3 seeds, flow-guided alone right on 98 questions vs uniform alone on 88 (exact McNemar p = 0.51) |
-| Inverse-flow LoRA, seed 0 | | | `configs/ranks/inverse_flow_scienceqa.json` (`make_ranks.py --inverse`: same ranks, the least important layer gets the largest) |
-| Inverse-flow LoRA, seed 1 | | | |
-| Inverse-flow LoRA, seed 2 | | | |
-| **Inverse-flow LoRA, mean of seeds 0–2** | | | |
+| Inverse-flow LoRA, seed 0 | 79.13 | 4 × 4 ✅ | 1,596 / 2,017 correct; `configs/ranks/inverse_flow_scienceqa.json` (`make_ranks.py --inverse`: same ranks, the least important layer gets the largest); [outputs](output/peft/inverse_flow_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json) |
+| Inverse-flow LoRA, seed 1 | 79.08 | 4 × 4 ✅ | 1,595 / 2,017 correct; [outputs](output/peft/inverse_flow_scienceqa/scienceqa_train_llava/seed1/eval_scienceqa/metrics.json) |
+| Inverse-flow LoRA, seed 2 | 79.42 | 4 × 4 ✅ | 1,602 / 2,017 correct; [outputs](output/peft/inverse_flow_scienceqa/scienceqa_train_llava/seed2/eval_scienceqa/metrics.json) |
+| **Inverse-flow LoRA, mean ± sample std of seeds 0–2** | **79.21 ± 0.19** | 4 × 4 ✅ | −2.00 vs uniform (81.21 ± 0.41), −2.16 vs flow-guided; worse on every seed (McNemar p < 0.001 vs uniform each seed; paired over the 3 seeds, inverse alone right on 61 questions vs uniform alone on 182); largest drops in grades 4–8 and social science |
+
+### Pruned LoRA (half the parameters)
+
+LoRA rank 8 on 16 of the 32 layers and none on the others: 2,097,152 trainable parameters (half of the 4,194,304 above).
+The 16 layers come from the same ScienceQA `train_correct` Image→Question and Question→Last importance
+(`make_ranks.py --keep 16`, with `--inverse` or `--random 0`). Seed 0 only; McNemar tests are paired on the same questions.
+
+| Configuration | Layers with LoRA | Accuracy (%) | Batch (micro × accum) | Notes |
+|---|---|---|---|---|
+| Flow-pruned LoRA, seed 0 | 0–15 (most important) | **81.11** | 4 × 4 ✅ | 1,636 / 2,017 correct; `configs/ranks/flow_pruned16_scienceqa.json`; same as uniform seed 0 (80.86; 21 vs 16 questions, p = 0.51); final loss 0.237 (uniform 0.239); [outputs](output/peft/flow_pruned16_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json) |
+| Random-pruned LoRA, seed 0 | 1, 4, 6, 8, 9, 11, 12, 13, 15, 16, 18, 24, 25, 28, 30, 31 (9 shared with flow) | 79.38 | 4 × 4 ✅ | 1,601 / 2,017 correct; `configs/ranks/random_pruned16_scienceqa.json`; −1.73 vs flow-pruned (56 vs 21 questions, p = 8e-5); final loss 0.246; [outputs](output/peft/random_pruned16_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json) |
+| Inverse-pruned LoRA, seed 0 | 16–31 (least important) | 72.43 | 4 × 4 ✅ | 1,461 / 2,017 correct; `configs/ranks/inverse_pruned16_scienceqa.json`; −8.68 vs flow-pruned (228 vs 53 questions, p = 5e-27), only +3.27 over zero-shot; final loss 0.346; natural science 68.7, social 78.1; [outputs](output/peft/inverse_pruned16_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json) |
+
+Ordered flow > random > inverse, matching the knockout importance. With half the parameters, flow-pruned matches
+full uniform LoRA. Same story as the full-budget runs (inverse-flow 79.21 vs uniform 81.21): the early flow layers must
+be tuned, the late ones add little. Seeds 1–2 are needed before this is final.
 
 ### AdaLoRA diagnostics (seed 0)
 
