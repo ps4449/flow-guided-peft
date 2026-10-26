@@ -2,10 +2,10 @@
 
 LLaVA-1.5-7B on two datasets: [GQA](#gqa) (already in LLaVA's training data) and [ScienceQA](#scienceqa) (new to LLaVA).
 
-**Batch** is microbatch × gradient accumulation (16 questions per update either way). ⚠️ **4 × 4** runs used the shared
+**Batch** is microbatch × gradient accumulation (16 questions per update either way). **4 × 4 ⚠️** runs used the shared
 trainer (`peft_lora/train_lora.py`), which did not pass `modalities` to LLaVA-NeXT. In the installed version, a batch of 4
 without it keeps only the first sample for the loss, so these runs may have learned from ~1 of every 4 training questions.
-Treat them as provisional until rerun with the fix; comparisons with the **1 × 16** runs (AdaLoRA) are not fair yet.
+Treat them as provisional until rerun with the fix; comparisons between these affected runs and the **1 × 16** runs (AdaLoRA) are not fair yet.
 **4 × 4 ✅** runs used the fixed trainer (it passes `modalities` for every sample); see [docs/MULTIMODAL_BATCH_FIX.md](docs/MULTIMODAL_BATCH_FIX.md).
 Zero-shot and information-flow results do not train, so they are not affected.
 
@@ -40,10 +40,10 @@ See [docs/CAPITALIZATION_FIX.md](docs/CAPITALIZATION_FIX.md) for the fix, how to
 | Flow-guided LoRA, seed 1 | 62.03 | 4 × 4 ⚠️ | 7,802 / 12,578 correct; `flow_guided/default/seed1` |
 | Flow-guided LoRA, seed 2 | 61.57 | 4 × 4 ⚠️ | 7,744 / 12,578 correct; `flow_guided/default/seed2` |
 | **Flow-guided LoRA, mean of seeds 0–2** | **61.79 ± 0.23** | 4 × 4 ⚠️ | sample std over 3 seeds; −0.12 vs zero-shot (61.91), within seed-to-seed variation |
-| Inverse-flow LoRA, seed 0 | 62.13 | 4 × 4 ⚠️ | 7,815 / 12,578 correct; [outputs](output/peft/inverse_flow/seed0/eval/metrics.json); capitalized targets; rank budget 512 |
-| Inverse-flow LoRA, seed 1 | 62.16 | 4 × 4 ⚠️ | 7,819 / 12,578 correct; [outputs](output/peft/inverse_flow/default/seed1/eval/metrics.json); capitalized targets; rank budget 512 |
-| Inverse-flow LoRA, seed 2 | 62.16 | 4 × 4 ⚠️ | 7,819 / 12,578 correct; [outputs](output/peft/inverse_flow/default/seed2/eval/metrics.json); capitalized targets; rank budget 512 |
-| **Inverse-flow LoRA, 3-seed mean ± SD** | **62.15 ± 0.018** | 4 × 4 ⚠️ | Seeds 0, 1, 2; sample SD in percentage points |
+| Inverse-flow LoRA, seed 0 | 62.72 | 4 × 4 ✅ | 7,889 / 12,578 correct; [outputs](output/peft/inverse_flow/default/seed0/eval/metrics.json); rerun with the batch fix; capitalized targets; rank budget 512 |
+| Inverse-flow LoRA, seed 1 | 62.73 | 4 × 4 ✅ | 7,890 / 12,578 correct; [outputs](output/peft/inverse_flow/default/seed1/eval/metrics.json); rerun with the batch fix; capitalized targets; rank budget 512 |
+| Inverse-flow LoRA, seed 2 | 62.79 | 4 × 4 ✅ | 7,898 / 12,578 correct; [outputs](output/peft/inverse_flow/default/seed2/eval/metrics.json); rerun with the batch fix; capitalized targets; rank budget 512 |
+| **Inverse-flow LoRA, mean ± sample std of seeds 0–2** | **62.75 ± 0.04** | 4 × 4 ✅ | Calculated from exact correct counts; std in percentage points, ddof=1; +0.84 vs zero-shot (61.91) |
 
 ### Variants
 
