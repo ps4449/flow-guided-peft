@@ -4,7 +4,10 @@ from pathlib import Path
 import torch
 from torch import nn
 from types import SimpleNamespace
-import train_engine as e
+import importlib.util
+engine_path=Path(__file__).resolve().parents[1]/"train.py"
+spec_loader=importlib.util.spec_from_file_location("scienceqa_clean_train",engine_path)
+e=importlib.util.module_from_spec(spec_loader);spec_loader.loader.exec_module(e)
 from peft import get_peft_model,PeftModel
 class Tiny(nn.Module):
     def __init__(self):

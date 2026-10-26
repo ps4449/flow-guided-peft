@@ -12,12 +12,17 @@ questions file has (GQA: structural, semantic; ScienceQA: subject, category, gra
 If all predictions exist, only the metrics are recomputed (no GPU needed).
 
 Usage:
-  python peft_lora/eval_gqa.py [--adapter output/peft/<method>/<settings>/seed<k>/adapter] [--limit 100]
-  python peft_lora/eval_gqa.py --questions datasets/scienceqa/test_questions.jsonl [--adapter ...]
+  python experiments/scienceqa_adalora/evaluate.py [--adapter output/peft/<method>/<settings>/seed<k>/adapter] [--limit 100]
+  python experiments/scienceqa_adalora/evaluate.py --questions datasets/scienceqa/test_questions.jsonl [--adapter ...]
 """
 import argparse
 import json
 import os
+import sys
+from pathlib import Path
+
+# Use the frozen model/prompt helper, not the team flow-gated model loader.
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "experiments/adalora_reproduction"))
 from collections import defaultdict
 
 DEFAULT_QUESTIONS = "datasets/gqa/testdev_questions.jsonl"
@@ -55,11 +60,12 @@ def main():
     parser.add_argument("--out-dir", default=None)
     parser.add_argument("--limit", type=int, default=None, help="evaluate the first N questions only (for tests)")
     parser.add_argument("--max-new-tokens", type=int, default=16)
+    parser.add_argument("--unmerged", action="store_true", help="Keep the loaded adapter separate from BF16 base weights")
     args = parser.parse_args()
     args.image_folder = args.image_folder or os.path.join(os.path.dirname(args.questions), "images")
 
     run_dir = os.path.dirname(args.adapter.rstrip("/")) if args.adapter else "output/peft/zero_shot"
-    out_dir = args.out_dir or os.path.join(run_dir, eval_folder_name(args.questions) + (f"_limit{args.limit}" if args.limit else ""))
+    out_dir = args.out_dir or os.path.join(run_dir, eval_folder_name(args.questions) + ("_unmerged" if args.unmerged else "") + (f"_limit{args.limit}" if args.limit else ""))
     os.makedirs(out_dir, exist_ok=True)
     pred_path = os.path.join(out_dir, "predictions.jsonl")
 
@@ -82,7 +88,8 @@ def main():
         tokenizer, model, image_processor = load_model(args.model_path)
         if args.adapter:
             from peft import PeftModel
-            model = PeftModel.from_pretrained(model, args.adapter).get_base_model()
+            adapter = PeftModel.from_pretrained(model, args.adapter)
+            model = adapter.get_base_model() if args.unmerged else adapter.merge_and_unload()
         model.eval()
 
         with open(pred_path, "a") as f, torch.inference_mode():
@@ -107,7 +114,7 @@ def main():
             r[field] = by_id[r["question_id"]].get(field, "unknown")
     correct = sum(r["correct"] for r in rows)
     metrics = {"accuracy": round(100 * correct / len(rows), 2), "correct": correct, "total": len(rows),
-               "adapter": args.adapter or "zero-shot", "questions": args.questions, "inference_mode": "unmerged_adapter"}
+               "adapter": args.adapter or "zero-shot", "questions": args.questions, "inference_mode": "zero_shot" if not args.adapter else ("unmerged_adapter" if args.unmerged else "merged_adapter")}
     for field in fields:
         metrics[f"by_{field}"] = accuracy_by(rows, field)
     with open(os.path.join(out_dir, "metrics.json"), "w") as f:

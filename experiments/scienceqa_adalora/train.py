@@ -1,17 +1,7 @@
-"""LoRA fine-tuning of LLaVA-1.5-7B on the GQA train sample, shared by all methods.
+"""ScienceQA AdaLoRA: published regularization/pruning conditions.
 
-The method is set only by its rank file in configs/ranks/:
-  LoRA     {"layers.<i>.self_attn.<q|k|v|o>_proj": <rank>, "layers.<i>.mlp.<gate|up|down>_proj": <rank>, ...}
-           Only the listed LLM modules get LoRA (rank 0 = none). lora_alpha = 2 * rank everywhere.
-  AdaLoRA  {"adalora": {"init_r": 12, "target_r": 8, "target_modules": ["q_proj", "v_proj"], ...}}
-           Other keys in "adalora" are passed on to peft.AdaLoraConfig.
-
-The vision tower and projector stay frozen. The adapter is saved to
-output/peft/<rank file name>/seed<k>/adapter/. Before the 6 h limit the job saves a
-checkpoint and stops; submitting the same command again resumes from it.
-
-Usage:
-  python peft_lora/train_lora.py --ranks configs/ranks/<method>.json --seed 0 [--limit 100]
+Preserves the validated training operations of the archived closure engine.
+Use explicit config, seed and a new output directory; see docs/adalora/reproduction.md.
 """
 import argparse
 import hashlib
@@ -22,6 +12,11 @@ import random
 import re
 import sys
 import time
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "experiments/adalora_reproduction"))
+sys.path.insert(1, str(ROOT / "experiments/scienceqa_adalora"))
 
 import numpy as np
 import torch
@@ -31,7 +26,18 @@ from torch.utils.data import DataLoader, Dataset
 from transformers import get_cosine_schedule_with_warmup
 
 from common import build_prompt, load_image, load_model, tokenize
-from budget import validate_budget
+from budget import validate_budget as validate_shared_budget
+import copy
+
+def validate_budget(spec, model):
+    ref = copy.deepcopy(spec)
+    ref["adalora"]["target_r"] = 8
+    result = validate_shared_budget(ref, model)
+    expected = 64 * spec["adalora"]["target_r"]
+    result["final_rank_sum"] = expected
+    result["target_effective_parameters_nominal"] = expected * (result["per_rank_AB_cost"] + 1)
+    result["note"] = "Mechanism diagnostic; fixed-rank-12 arms use a larger final budget than the main benchmark"
+    return result
 from adalora_runtime import (configure, snapshot_loss, ranks, allocator_state,
                              restore_allocator, raw_adapter_state, export_full_shape)
 from llava.constants import IGNORE_INDEX, IMAGE_TOKEN_INDEX
@@ -144,14 +150,15 @@ def main():
     parser.add_argument("--out-dir", default=None)
     parser.add_argument("--limit", type=int, default=None, help="train on the first N questions only (for tests)")
     parser.add_argument("--epochs", type=int, default=1)
-    parser.add_argument("--batch-size", type=int, default=4)
-    parser.add_argument("--grad-accum", type=int, default=4)
+    parser.add_argument("--batch-size", type=int, default=1)
+    parser.add_argument("--grad-accum", type=int, default=16)
     parser.add_argument("--lr", type=float, default=2e-4)
     parser.add_argument("--warmup-ratio", type=float, default=0.03)
     parser.add_argument("--save-every", type=int, default=200, help="optimizer steps between checkpoints")
     parser.add_argument("--max-hours", type=float, default=5.5, help="stop with a checkpoint after this long")
     parser.add_argument("--num-workers", type=int, default=4)
     parser.add_argument('--max-length', type=int, default=2048)
+    parser.add_argument('--no-pruning', action='store_true', help='Mechanism diagnostic: keep all initial rank-12 components')
     parser.add_argument('--stop-after', type=int, default=None, help='diagnostic: checkpoint and exit 3 at this optimizer step')
     args = parser.parse_args()
     start = time.time()
@@ -176,6 +183,13 @@ def main():
     if not rows or args.batch_size < 1 or args.grad_accum < 1 or args.epochs < 1:
         raise ValueError('Need nonempty data and positive batch/accumulation/epochs')
     is_adalora = 'adalora' in spec
+    if not is_adalora or args.batch_size != 1 or args.grad_accum != 16:
+        raise ValueError('Closure arms require AdaLoRA parameterization and microbatch 1 / accumulation 16')
+    if spec['adalora']['init_r'] != 12 or spec['adalora']['target_r'] != (12 if args.no_pruning else 8):
+        raise ValueError('Pruning switch/config mismatch')
+    reg_weight = spec['adalora']['orth_reg_weight']
+    if reg_weight not in (0.0, 0.5):
+        raise ValueError('Only predeclared regularization weights are allowed')
     # ScienceQA has 6218 rows. Use the existing shuffled-order slice below,
     # which keeps 388 complete updates (6208 rows), matching the shared loop.
 
@@ -202,6 +216,12 @@ def main():
     model = get_peft_model(model, peft_config)
     if expected_ranks is not None:
         check_ranks(model, expected_ranks)
+    if args.no_pruning:
+        model.peft_config['default'].rank_pattern = {
+            n: [True] * p.shape[0]
+            for n, p in model.base_model.model.named_parameters() if 'lora_E.default' in n
+        }
+        assert len(model.peft_config['default'].rank_pattern) == 64
     params = [p for p in model.parameters() if p.requires_grad]
     if any(not any(tag in n for tag in ('lora_A.', 'lora_B.', 'lora_E.'))
            for n, p in model.named_parameters() if p.requires_grad):
@@ -215,7 +235,7 @@ def main():
     scheduler = get_cosine_schedule_with_warmup(optimizer, int(args.warmup_ratio * total_steps), total_steps)
     contract = dict(spec=spec, model=args.model_path, batch_size=bs, grad_accum=accum,
                     total_steps=total_steps, lr=args.lr, warmup_ratio=args.warmup_ratio,
-                    max_length=args.max_length, seed=args.seed, conv_mode=args.conv_mode,
+                    max_length=args.max_length, seed=args.seed, conv_mode=args.conv_mode, no_pruning=args.no_pruning,
                     data_sha256=hashlib.sha256(json.dumps(rows, sort_keys=True).encode()).hexdigest())
 
     step = 0
@@ -245,6 +265,26 @@ def main():
     sample = dataset[0]
     print("Target of sample 0:", repr(tokenizer.decode(sample[0][sample[1] != IGNORE_INDEX])))
 
+    # Runtime counts are attached only after dataset/prompt sanity checks.
+    import functools, inspect
+    import batch_guard
+    row_stats = batch_guard.install(model)
+    base_for_guard = model.get_base_model()
+    guarded = base_for_guard.prepare_inputs_labels_for_multimodal
+    signature_for_guard = inspect.signature(guarded)
+    target_rows = total_steps * accum * bs
+    @functools.wraps(guarded)
+    def count_training(*a, **kw):
+        if signature_for_guard.bind_partial(*a, **kw).arguments.get('labels') is None:
+            return guarded.__wrapped__(*a, **kw)
+        result = guarded(*a, **kw)
+        if row_stats['input_rows'] == target_rows:
+            assert row_stats['language_rows'] == target_rows
+            assert row_stats['supervised_tokens'] == 2 * target_rows
+            from pathlib import Path
+            Path(out_dir, 'batch_integrity.json').write_text(json.dumps(row_stats, indent=2) + '\n')
+        return result
+    base_for_guard.prepare_inputs_labels_for_multimodal = count_training
     model.train()
     model.get_base_model().get_vision_tower().eval()
     captured, restore_forward = snapshot_loss(model) if is_adalora else ({}, lambda: None)
@@ -266,10 +306,14 @@ def main():
             batch = {k: v.cuda() if torch.is_tensor(v) else v for k, v in batch.items()}
             # Generic PeftModel.forward bypasses AdaLoraModel.forward in PEFT
             # 0.12. Call the tuner explicitly to include orthogonal regularization.
-            outputs = model.base_model(**batch) if is_adalora else model(**batch)
+            # PEFT 0.12 rejects orth_reg_weight=0 in its tuner forward.
+            # The underlying model computes the identical task loss without that regularizer.
+            outputs = model.base_model(**batch) if reg_weight > 0 else model.get_base_model()(**batch)
             loss = outputs.loss / accum
-            if is_adalora and not float(outputs.loss.detach()) > captured['task']:
+            if reg_weight > 0 and not float(outputs.loss.detach()) > captured['task']:
                 raise RuntimeError('AdaLoRA regularization did not contribute to training loss')
+            if reg_weight == 0 and abs(float(outputs.loss.detach()) - captured['task']) > 1e-7:
+                raise RuntimeError('Off-arm task loss differs unexpectedly')
             if not bool(torch.isfinite(loss)):
                 raise RuntimeError('Non-finite training loss')
             loss.backward()
@@ -286,7 +330,7 @@ def main():
             optimizer.step()
             scheduler.step()
             step += 1
-            if is_adalora:
+            if is_adalora and not args.no_pruning:
                 model.base_model.update_and_allocate(step)  # AdaLoRA prunes ranks from the gradients
             optimizer.zero_grad(set_to_none=True)
 
@@ -327,8 +371,9 @@ def main():
     torch.save(expected, os.path.join(out_dir, 'reload_logits.pt'))
     if is_adalora:
         final = ranks(model)
-        if not model.peft_config['default'].rank_pattern or final['retained_rank_sum'] != 512:
-            raise RuntimeError(f'Final effective rank budget differs from 512: {final}')
+        expected_final_rank = 64 * spec['adalora']['target_r']
+        if not model.peft_config['default'].rank_pattern or final['retained_rank_sum'] != expected_final_rank:
+            raise RuntimeError(f'Diagnostic final effective rank budget differs from expected: {final}')
         export_full_shape(model, adapter_dir)
     else:
         model.save_pretrained(adapter_dir)

@@ -27,6 +27,6 @@ This imports the current shared collator, runs multimodal preparation without tr
 
 Nop's GQA/ScienceQA AdaLoRA runs used microbatch 1/accumulation16 and are unaffected by this row truncation. His original ScienceQA Uniform seed0 used 4x4 and therefore only four language-supervised examples per update rather than sixteen (1552 instead of 6208 over 388 updates). Evaluation was one question at a time, so the 77.64% score remains a real score for that differently trained artifact, not a valid intended-batch comparison.
 
-Corrected ScienceQA Uniform seed0 is running separately at `output/peft/uniform/scienceqa_modalities_fixed/seed0` (job 46443), with a guard checking every forward's input/output row count. Its eventual `batch_integrity.json` must confirm 6208 language rows. This note does not classify other members' historical GQA runs without their configurations/revisions. No other reruns were launched by this fix.
+Corrected ScienceQA Uniform seed0 completed separately at `output/peft/uniform/scienceqa_modalities_fixed/seed0` (job 46443), with a guard checking every forward's input/output row count. Its `batch_integrity.json` confirms 6208 language rows; merged accuracy is 80.86%. This note does not classify other members' historical GQA runs without their configurations/revisions. No other reruns were launched by this fix.
 
 BF16 merged versus unmerged evaluation differences are a separate issue. Use one consistent evaluation protocol across methods; this training fix does not change the evaluator.

@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parents[2]
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--prepared',type=Path);args=parser.parse_args()
-    manifest=json.loads((ROOT/'experiments/scienceqa_adalora/input_manifest.json').read_text())
+    manifest=json.loads((ROOT/'experiments/scienceqa_adalora/configs/data_manifest.json').read_text())
     for name,digest in manifest['files'].items():assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==digest,name
     folder=ROOT/'datasets/scienceqa'
     ids={}

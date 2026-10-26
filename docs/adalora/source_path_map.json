@@ -1,0 +1,200 @@
+{
+  "archive_tag": "archive/nop-experiments-2026-10-26",
+  "files": {
+    "experiments/scienceqa_adalora/adalora_train_engine.py": {
+      "current": "experiments/scienceqa_adalora/train.py",
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/adalora_train_engine.py"
+    },
+    "experiments/scienceqa_adalora/audit_saved_runs.py": {
+      "current": "experiments/scienceqa_adalora/validate_run.py",
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/audit_saved_runs.py"
+    },
+    "experiments/scienceqa_adalora/check_batch_gradients.py": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/check_batch_gradients.py"
+    },
+    "experiments/scienceqa_adalora/check_explicit_modalities.py": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/check_explicit_modalities.py"
+    },
+    "experiments/scienceqa_adalora/check_inference_integrity.py": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/check_inference_integrity.py"
+    },
+    "experiments/scienceqa_adalora/check_partial_batch_fix.py": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/check_partial_batch_fix.py"
+    },
+    "experiments/scienceqa_adalora/check_rank_flow_alignment.py": {
+      "current": "experiments/scienceqa_adalora/analysis/rank_flow_alignment.py",
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/check_rank_flow_alignment.py"
+    },
+    "experiments/scienceqa_adalora/closure/README.md": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/closure/README.md"
+    },
+    "experiments/scienceqa_adalora/closure/check_mechanics.py": {
+      "current": "experiments/scienceqa_adalora/tests/check_mechanics.py",
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/closure/check_mechanics.py"
+    },
+    "experiments/scienceqa_adalora/closure/configs/B.json": {
+      "current": "experiments/scienceqa_adalora/configs/regularization_off.json",
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/closure/configs/B.json"
+    },
+    "experiments/scienceqa_adalora/closure/configs/C.json": {
+      "current": "experiments/scienceqa_adalora/configs/no_pruning.json",
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/closure/configs/C.json"
+    },
+    "experiments/scienceqa_adalora/closure/configs/D.json": {
+      "current": "experiments/scienceqa_adalora/configs/neither.json",
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/closure/configs/D.json"
+    },
+    "experiments/scienceqa_adalora/closure/login_controller.py": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/closure/login_controller.py"
+    },
+    "experiments/scienceqa_adalora/closure/source_manifest.json": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/closure/source_manifest.json"
+    },
+    "experiments/scienceqa_adalora/closure/summarize.py": {
+      "current": "experiments/scienceqa_adalora/summarize.py",
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/closure/summarize.py"
+    },
+    "experiments/scienceqa_adalora/closure/tc2_arm.sh": {
+      "current": "experiments/scienceqa_adalora/tc2_run.sh",
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/closure/tc2_arm.sh"
+    },
+    "experiments/scienceqa_adalora/closure/train_engine.py": {
+      "current": "experiments/scienceqa_adalora/train.py",
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/closure/train_engine.py"
+    },
+    "experiments/scienceqa_adalora/closure/validate_arm.py": {
+      "current": "experiments/scienceqa_adalora/validate_run.py",
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/closure/validate_arm.py"
+    },
+    "experiments/scienceqa_adalora/common.py": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/common.py"
+    },
+    "experiments/scienceqa_adalora/download_data.py": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/download_data.py"
+    },
+    "experiments/scienceqa_adalora/eval_scienceqa.py": {
+      "current": "experiments/scienceqa_adalora/evaluate.py",
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/eval_scienceqa.py"
+    },
+    "experiments/scienceqa_adalora/eval_scienceqa_unmerged.py": {
+      "current": "experiments/scienceqa_adalora/evaluate.py",
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/eval_scienceqa_unmerged.py",
+      "arguments": [
+        "--unmerged"
+      ]
+    },
+    "experiments/scienceqa_adalora/input_manifest.json": {
+      "current": "experiments/scienceqa_adalora/configs/data_manifest.json",
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/input_manifest.json"
+    },
+    "experiments/scienceqa_adalora/login_pipeline.py": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/login_pipeline.py"
+    },
+    "experiments/scienceqa_adalora/prepare_images.py": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/prepare_images.py"
+    },
+    "experiments/scienceqa_adalora/publication_manifest.json": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/publication_manifest.json"
+    },
+    "experiments/scienceqa_adalora/record_environment.py": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/record_environment.py"
+    },
+    "experiments/scienceqa_adalora/record_uniform_fixed.py": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/record_uniform_fixed.py"
+    },
+    "experiments/scienceqa_adalora/regoff_seeds/README.md": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/regoff_seeds/README.md"
+    },
+    "experiments/scienceqa_adalora/regoff_seeds/summarize.py": {
+      "current": "experiments/scienceqa_adalora/summarize.py",
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/regoff_seeds/summarize.py"
+    },
+    "experiments/scienceqa_adalora/regoff_seeds/tc2_run.sh": {
+      "current": "experiments/scienceqa_adalora/tc2_run.sh",
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/regoff_seeds/tc2_run.sh"
+    },
+    "experiments/scienceqa_adalora/regoff_seeds/validate.py": {
+      "current": "experiments/scienceqa_adalora/validate_run.py",
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/regoff_seeds/validate.py"
+    },
+    "experiments/scienceqa_adalora/run_manifest.json": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/run_manifest.json"
+    },
+    "experiments/scienceqa_adalora/tc2_batch_gradients.sh": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/tc2_batch_gradients.sh"
+    },
+    "experiments/scienceqa_adalora/tc2_explicit_modalities.sh": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/tc2_explicit_modalities.sh"
+    },
+    "experiments/scienceqa_adalora/tc2_full.sh": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/tc2_full.sh"
+    },
+    "experiments/scienceqa_adalora/tc2_full_unmerged_check.sh": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/tc2_full_unmerged_check.sh"
+    },
+    "experiments/scienceqa_adalora/tc2_inference_integrity.sh": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/tc2_inference_integrity.sh"
+    },
+    "experiments/scienceqa_adalora/tc2_prepare_smoke.sh": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/tc2_prepare_smoke.sh"
+    },
+    "experiments/scienceqa_adalora/tc2_uniform_fixed.sh": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/tc2_uniform_fixed.sh"
+    },
+    "experiments/scienceqa_adalora/tc2_uniform_matched.sh": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/tc2_uniform_matched.sh"
+    },
+    "experiments/scienceqa_adalora/team_train_lora.py": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/team_train_lora.py"
+    },
+    "experiments/scienceqa_adalora/train_adalora.py": {
+      "current": "experiments/scienceqa_adalora/train.py",
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/train_adalora.py"
+    },
+    "experiments/scienceqa_adalora/train_uniform_matched.py": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/train_uniform_matched.py"
+    },
+    "experiments/scienceqa_adalora/train_uniform_modalities_fixed.py": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/train_uniform_modalities_fixed.py"
+    },
+    "experiments/scienceqa_adalora/validate_outputs.py": {
+      "current": "experiments/scienceqa_adalora/validate_run.py",
+      "recovery": "archive/nop-experiments-2026-10-26:experiments/scienceqa_adalora/validate_outputs.py"
+    },
+    "output/diagnostics/scienceqa_investigation/scienceqa_weight_audit.json": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:output/diagnostics/scienceqa_investigation/scienceqa_weight_audit.json"
+    },
+    "output/diagnostics/scienceqa_investigation/tc2_source_hashes.json": {
+      "current": null,
+      "recovery": "archive/nop-experiments-2026-10-26:output/diagnostics/scienceqa_investigation/tc2_source_hashes.json"
+    }
+  }
+}
