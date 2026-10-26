@@ -1,6 +1,6 @@
 # Exploratory ScienceQA rank/flow alignment
 
-Reproduce with `python experiments/scienceqa_adalora/check_rank_flow_alignment.py`; numerical output is `output/diagnostics/scienceqa_investigation/rank_flow_alignment.json`.
+Reproduce with `python experiments/scienceqa_adalora/check_rank_flow_alignment.py`; numerical output is `output/analysis/adalora/rank_flow_alignment.json`.
 
 The available ScienceQA flow CSVs measure **Question -> Last**, with centered/clipped window 9, on train_correct and train_wrong subsets (989 and 977 retained question IDs). Scores are negative mean relative probability change: larger means stronger probability drop under blocking. AdaLoRA ranks come from final masks for seeds 0–2. Neither ranks nor scores were fitted to maximize this relationship.
 

@@ -2,7 +2,7 @@
   "scope": "Regularization-off confirmation seeds 1\u20132 requested after the exploratory seed-0 ablation; not an untouched-test confirmatory study. No configuration changes or extra runs.",
   "runs": {
     "0": {
-      "path": "output/diagnostics/scienceqa_closure_seed0_20261024/B/seed0",
+      "path": "output/peft/adalora/scienceqa_regoff_confirm/seed0",
       "metrics": {
         "eval_val": {
           "correct": 1618,

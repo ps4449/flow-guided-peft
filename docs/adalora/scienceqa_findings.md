@@ -6,7 +6,7 @@ The three completed AdaLoRA runs used the correct ScienceQA data and completed t
 
 ## Evidence from actual saved runs
 
-The CPU audit is reproducible from the repository root using `python experiments/scienceqa_adalora/audit_saved_runs.py` once the published artifacts are present. Its report is `output/diagnostics/scienceqa_investigation/saved_run_audit.json`.
+The CPU audit is reproducible from the repository root using `python experiments/scienceqa_adalora/audit_saved_runs.py` once the published artifacts are present. Its report is `output/analysis/adalora/historical_saved_run_audit.json`.
 
 - Dataset: `datasets/scienceqa/train_llava.json`, SHA256 `8cc00fb37a7e642e05b0063e2554a5e4a0be3a3e8bb13e49dbba20045ea1c4f9`, 6,218 rows. All targets are uppercase option letters. Each AdaLoRA run's saved environment manifest records this exact hash. The image directory is `datasets/scienceqa/images`.
 - On TC2, `validate_data.py` passed: the conversation text, image names and labels match the shared question objects, splits are disjoint, and 10,332 image files exist.

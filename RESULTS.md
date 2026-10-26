@@ -92,7 +92,7 @@ Run folders: `output/peft/<ranks>/scienceqa_train_llava/seed<k>/eval_scienceqa/`
 | AdaLoRA (regularization 0.5; init rank 12 → avg 8), seed 1 | 71.10 | 1 × 16 | 1,434 / 2,017 correct |
 | AdaLoRA (regularization 0.5; init rank 12 → avg 8), seed 2 | 71.24 | 1 × 16 | 1,437 / 2,017 correct |
 | **AdaLoRA (regularization 0.5), mean ± sample std of seeds 0–2** | **71.36 ± 0.34** | 1 × 16 | +2.20 vs zero-shot (69.16) |
-| AdaLoRA (regularization off), seed 0 | 76.05 | 1 × 16 | 1,534 / 2,017 correct; [outputs](output/diagnostics/scienceqa_closure_seed0_20261024/B/seed0/eval_test/metrics.json); selected after exploratory seed-0 analysis |
+| AdaLoRA (regularization off), seed 0 | 76.05 | 1 × 16 | 1,534 / 2,017 correct; [outputs](output/peft/adalora/scienceqa_regoff_confirm/seed0/eval_test/metrics.json); selected after exploratory seed-0 analysis |
 | AdaLoRA (regularization off), seed 1 | 76.50 | 1 × 16 | 1,543 / 2,017 correct; [outputs](output/peft/adalora/scienceqa_regoff_confirm/seed1/eval_test/metrics.json) |
 | AdaLoRA (regularization off), seed 2 | 76.70 | 1 × 16 | 1,547 / 2,017 correct; [outputs](output/peft/adalora/scienceqa_regoff_confirm/seed2/eval_test/metrics.json) |
 | **AdaLoRA (regularization off), mean ± sample std of seeds 0–2** | **76.42 ± 0.33** | 1 × 16 | Pruning remains enabled; final rank sum 512. [Exact-count summary](output/peft/adalora/scienceqa_regoff_confirm/summary.json). Post-hoc configuration; original regularization-on results preserved. |
@@ -124,7 +124,7 @@ be tuned, the late ones add little. Seeds 1–2 are needed before this is final.
 ### AdaLoRA diagnostics (seed 0)
 
 Why AdaLoRA trails uniform on ScienceQA: each of its two extra parts switched off in turn, same merged evaluation.
-Regularization-off seeds 1–2 are complete. The setting was chosen after inspecting seed 0 test results (validation showed the same pattern); the three-seed results above are explicitly labelled as a post-hoc configuration, not an untouched-test confirmatory study. All three planned diagnostic conditions are complete; no further diagnostic training is queued. [Full diagnostic summary](output/diagnostics/scienceqa_closure_seed0_20261024/final_summary.json).
+Regularization-off seeds 1–2 are complete. The setting was chosen after inspecting seed 0 test results (validation showed the same pattern); the three-seed results above are explicitly labelled as a post-hoc configuration, not an untouched-test confirmatory study. All three planned diagnostic conditions are complete; no further diagnostic training is queued. [Full diagnostic summary](output/ablations/adalora/scienceqa_summary.json).
 
 | Orthogonal regularization (weight 0.5) | Rank pruning (12 → avg 8) | Accuracy (%) |
 |---|---|---|
