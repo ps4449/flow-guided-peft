@@ -28,29 +28,42 @@ See [docs/CAPITALIZATION_FIX.md](docs/CAPITALIZATION_FIX.md) for the fix, how to
 
 | Configuration | Accuracy (%) | Batch (micro × accum) | Notes |
 |---|---|---|---|
-| Uniform LoRA (rank 8), seed 0 | 61.94 | 4 × 4 ⚠️ | 7,791 / 12,578 correct; `uniform/default/seed0` (rerun on capitalised answers) |
-| Uniform LoRA (rank 8), seed 1 | 61.99 | 4 × 4 ⚠️ | 7,797 / 12,578 correct; [outputs](output/peft/uniform/default/seed1/eval/metrics.json) |
-| Uniform LoRA (rank 8), seed 2 | 61.93 | 4 × 4 ⚠️ | 7,789 / 12,578 correct; [outputs](output/peft/uniform/default/seed2/eval/metrics.json) |
-| **Uniform LoRA (rank 8), mean of seeds 0–2** | **61.95 ± 0.03** | 4 × 4 ⚠️ | sample std over 3 seeds; +0.04 vs zero-shot (61.91) |
+| Uniform LoRA (rank 8), seed 0 | | 4 × 4 ✅ | running (rerun with the batch fix) |
+| Uniform LoRA (rank 8), seed 1 | | 4 × 4 ✅ | |
+| Uniform LoRA (rank 8), seed 2 | | 4 × 4 ✅ | |
+| **Uniform LoRA (rank 8), mean ± sample std of seeds 0–2** | | 4 × 4 ✅ | |
 | AdaLoRA (init rank 12 → avg 8), seed 0 | 62.56 | 1 × 16 | 7,869 / 12,578 correct; [outputs](output/peft/adalora_capfirst/seed0/eval/metrics.json); +1.12 vs lowercase seed 0 |
 | AdaLoRA (init rank 12 → avg 8), seed 1 | 62.45 | 1 × 16 | 7,855 / 12,578 correct; [outputs](output/peft/adalora_capfirst/seed1/eval/metrics.json) |
 | AdaLoRA (init rank 12 → avg 8), seed 2 | 62.47 | 1 × 16 | 7,857 / 12,578 correct; [outputs](output/peft/adalora_capfirst/seed2/eval/metrics.json) |
 | **AdaLoRA, mean ± sample std of seeds 0–2** | **62.49 ± 0.06** | 1 × 16 | Calculated from exact correct counts; std in percentage points, ddof=1; [summary](output/peft/adalora_capfirst/three_seed_summary.json) |
-| Flow-guided LoRA, seed 0 | 61.77 | 4 × 4 ⚠️ | 7,770 / 12,578 correct; `flow_guided/default/seed0`; log shows target 'Right</s>' |
-| Flow-guided LoRA, seed 1 | 62.03 | 4 × 4 ⚠️ | 7,802 / 12,578 correct; `flow_guided/default/seed1` |
-| Flow-guided LoRA, seed 2 | 61.57 | 4 × 4 ⚠️ | 7,744 / 12,578 correct; `flow_guided/default/seed2` |
-| **Flow-guided LoRA, mean of seeds 0–2** | **61.79 ± 0.23** | 4 × 4 ⚠️ | sample std over 3 seeds; −0.12 vs zero-shot (61.91), within seed-to-seed variation |
+| Flow-guided LoRA, seed 0 | 62.38 | 4 × 4 ✅ | 7,846 / 12,578 correct; `configs/ranks/flow_guided.json`; [outputs](output/peft/flow_guided/modalities_fixed/seed0/eval/metrics.json) |
+| Flow-guided LoRA, seed 1 | 62.67 | 4 × 4 ✅ | 7,883 / 12,578 correct; [outputs](output/peft/flow_guided/modalities_fixed/seed1/eval/metrics.json) |
+| Flow-guided LoRA, seed 2 | 62.82 | 4 × 4 ✅ | 7,901 / 12,578 correct; [outputs](output/peft/flow_guided/modalities_fixed/seed2/eval/metrics.json) |
+| **Flow-guided LoRA, mean ± sample std of seeds 0–2** | **62.62 ± 0.22** | 4 × 4 ✅ | +0.71 vs zero-shot (61.91; better on every seed, McNemar p = 0.04 / 7e-4 / 4e-5); −0.13 vs inverse-flow (paired over the 3 seeds, flow alone right on 543 questions vs inverse alone on 590, not significant); +0.13 vs AdaLoRA (883 vs 834, not significant); +0.83 vs the pre-fix runs (61.79) |
 | Inverse-flow LoRA, seed 0 | 62.72 | 4 × 4 ✅ | 7,889 / 12,578 correct; [outputs](output/peft/inverse_flow/default/seed0/eval/metrics.json); rerun with the batch fix; capitalized targets; rank budget 512 |
 | Inverse-flow LoRA, seed 1 | 62.73 | 4 × 4 ✅ | 7,890 / 12,578 correct; [outputs](output/peft/inverse_flow/default/seed1/eval/metrics.json); rerun with the batch fix; capitalized targets; rank budget 512 |
 | Inverse-flow LoRA, seed 2 | 62.79 | 4 × 4 ✅ | 7,898 / 12,578 correct; [outputs](output/peft/inverse_flow/default/seed2/eval/metrics.json); rerun with the batch fix; capitalized targets; rank budget 512 |
 | **Inverse-flow LoRA, mean ± sample std of seeds 0–2** | **62.75 ± 0.04** | 4 × 4 ✅ | Calculated from exact correct counts; std in percentage points, ddof=1; +0.84 vs zero-shot (61.91) |
 
-### Variants
+### Variants: before the batch fix
 
-Capitalised training answers, with a change to the training data or setup.
+Capitalised training answers, trained before the batch fix (⚠️: may have learned from ~1 of every 4 training questions).
+Kept for reference; the table above replaces them.
 
 | Configuration | Accuracy (%) | Batch (micro × accum) | Notes |
 |---|---|---|---|
+| Uniform LoRA (rank 8), seed 0 | 61.94 | 4 × 4 ⚠️ | 7,791 / 12,578 correct; `uniform/default/seed0` (rerun on capitalised answers) |
+| Uniform LoRA (rank 8), seed 1 | 61.99 | 4 × 4 ⚠️ | 7,797 / 12,578 correct; [outputs](output/peft/uniform/default/seed1/eval/metrics.json) |
+| Uniform LoRA (rank 8), seed 2 | 61.93 | 4 × 4 ⚠️ | 7,789 / 12,578 correct; [outputs](output/peft/uniform/default/seed2/eval/metrics.json) |
+| **Uniform LoRA (rank 8), mean of seeds 0–2** | **61.95 ± 0.03** | 4 × 4 ⚠️ | sample std over 3 seeds; +0.04 vs zero-shot (61.91) |
+| Flow-guided LoRA, seed 0 | 61.77 | 4 × 4 ⚠️ | 7,770 / 12,578 correct; `flow_guided/default/seed0`; log shows target 'Right</s>' |
+| Flow-guided LoRA, seed 1 | 62.03 | 4 × 4 ⚠️ | 7,802 / 12,578 correct; `flow_guided/default/seed1` |
+| Flow-guided LoRA, seed 2 | 61.57 | 4 × 4 ⚠️ | 7,744 / 12,578 correct; `flow_guided/default/seed2` |
+| **Flow-guided LoRA, mean of seeds 0–2** | **61.79 ± 0.23** | 4 × 4 ⚠️ | sample std over 3 seeds; −0.12 vs zero-shot (61.91), within seed-to-seed variation |
+| Inverse-flow LoRA, seed 0 | 62.13 | 4 × 4 ⚠️ | 7,815 / 12,578 correct; [outputs](output/peft/inverse_flow/seed0/eval/metrics.json); rank budget 512 |
+| Inverse-flow LoRA, seed 1 | 62.16 | 4 × 4 ⚠️ | 7,819 / 12,578 correct; outputs overwritten by the fixed rerun in `inverse_flow/default/seed1` (in git history before 8113224) |
+| Inverse-flow LoRA, seed 2 | 62.16 | 4 × 4 ⚠️ | 7,819 / 12,578 correct; outputs overwritten by the fixed rerun in `inverse_flow/default/seed2` (in git history before 8113224) |
+| **Inverse-flow LoRA, mean of seeds 0–2** | **62.15 ± 0.02** | 4 × 4 ⚠️ | sample std over 3 seeds |
 | Uniform LoRA (rank 8), trained on mistakes, seed 0 | 61.63 | 4 × 4 ⚠️ | 7,752 / 12,578 correct; `uniform/train_mistakes_llava/seed0`; 5,753 zero-shot-wrong + 5,753 right training questions |
 
 ### Lowercase training answers
@@ -59,7 +72,7 @@ Capitalised training answers, with a change to the training data or setup.
 |---|---|---|---|
 | Uniform LoRA (rank 8), seed 0 | 61.27 | 4 × 4 ⚠️ | 7,706 / 12,578 correct; `configs/ranks/uniform.json` |
 | Uniform LoRA (rank 8), seed 0, rerun | 61.36 | 4 × 4 ⚠️ | 7,718 / 12,578 correct; `uniform/default/seed0`; meant to be capitalised, but the cluster still had the lowercase training file |
-| AdaLoRA (init rank 12 → avg 8), seed 0 | 61.44 | 1 × 16 | 7,728 / 12,578 correct; [outputs](output/peft/adalora/seed0/eval/metrics.json); final ranks in `adalora_seed0_ranks.csv` |
+| AdaLoRA (init rank 12 → avg 8), seed 0 | 61.44 | 1 × 16 | 7,728 / 12,578 correct; [outputs](output/peft/adalora/seed0/eval/metrics.json); final ranks in [`configs/adalora_seed0_ranks_gqa.csv`](configs/adalora_seed0_ranks_gqa.csv) |
 | AdaLoRA (init rank 12 → avg 8), seed 1 | 61.35 | 1 × 16 | 7,717 / 12,578 correct; [outputs](output/peft/adalora/seed1/eval/metrics.json) |
 | Flow-guided LoRA, seed 0 | 61.02 | 4 × 4 ⚠️ | 7,675 / 12,578 correct; ranks averaged over 6 question types (`configs/ranks/flow_guided.json`) |
 | Flow-guided LoRA, seed 0, rerun | 61.24 | 4 × 4 ⚠️ | 7,703 / 12,578 correct; same setup as 61.02 (log shows 'right</s>'); shows run-to-run variation of ~0.2 |
