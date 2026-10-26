@@ -139,7 +139,7 @@ Turning the regularization off gains 4.3–4.8 points; turning pruning off chang
 ## AdaLoRA reproducibility and report notes
 
 - [Frozen training implementation and TC2 instructions](experiments/adalora_reproduction/README.md): the exact source used for these runs, added without replacing the shared trainer.
-- [AdaLoRA report and presentation notes](docs/ADALORA_REPORT_NOTES.md): method, parameters, results, ranks, compute and limitations.
+- [AdaLoRA report and presentation notes](docs/adalora/report_notes.md): method, parameters, results, ranks, compute and limitations.
 - Final per-layer q/v ranks and masks are stored with each capitalised run. AdaLoRA does not consume information-flow graphs.
 
 ### Matched-loop Uniform control (ScienceQA, seed 0)
