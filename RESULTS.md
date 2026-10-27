@@ -101,9 +101,9 @@ Run folders: `output/peft/<ranks>/scienceqa_train_llava/seed<k>/eval_scienceqa/`
 | Uniform LoRA (rank 8), seed 1 | 81.66 | 4 × 4 ✅ | 1,647 / 2,017 correct; [outputs](output/peft/uniform/scienceqa_modalities_fixed/seed1/eval_scienceqa/metrics.json) |
 | Uniform LoRA (rank 8), seed 2 | 81.11 | 4 × 4 ✅ | 1,636 / 2,017 correct; [outputs](output/peft/uniform/scienceqa_modalities_fixed/seed2/eval_scienceqa/metrics.json) |
 | **Uniform LoRA, mean ± sample std of seeds 0–2** | **81.21 ± 0.41** | 4 × 4 ✅ | +12.05 vs zero-shot (69.16) |
-| AdaLoRA (regularization 0.5; init rank 12 → avg 8), seed 0 | 71.74 | 1 × 16 | 1,447 / 2,017 correct |
-| AdaLoRA (regularization 0.5; init rank 12 → avg 8), seed 1 | 71.10 | 1 × 16 | 1,434 / 2,017 correct |
-| AdaLoRA (regularization 0.5; init rank 12 → avg 8), seed 2 | 71.24 | 1 × 16 | 1,437 / 2,017 correct |
+| AdaLoRA (regularization 0.5; init rank 12 → avg 8), seed 0 | 71.74 | 1 × 16 | 1,447 / 2,017 correct; [outputs](output/peft/adalora/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json) |
+| AdaLoRA (regularization 0.5; init rank 12 → avg 8), seed 1 | 71.10 | 1 × 16 | 1,434 / 2,017 correct; [outputs](output/peft/adalora/scienceqa_train_llava/seed1/eval_scienceqa/metrics.json) |
+| AdaLoRA (regularization 0.5; init rank 12 → avg 8), seed 2 | 71.24 | 1 × 16 | 1,437 / 2,017 correct; [outputs](output/peft/adalora/scienceqa_train_llava/seed2/eval_scienceqa/metrics.json) |
 | **AdaLoRA (regularization 0.5), mean ± sample std of seeds 0–2** | **71.36 ± 0.34** | 1 × 16 | +2.20 vs zero-shot (69.16) |
 | AdaLoRA (regularization off), seed 0 | 76.05 | 1 × 16 | 1,534 / 2,017 correct; [outputs](output/peft/adalora/scienceqa_regoff_confirm/seed0/eval_test/metrics.json); selected after exploratory seed-0 analysis |
 | AdaLoRA (regularization off), seed 1 | 76.50 | 1 × 16 | 1,543 / 2,017 correct; [outputs](output/peft/adalora/scienceqa_regoff_confirm/seed1/eval_test/metrics.json) |
@@ -160,7 +160,8 @@ still give more per parameter than random or late layers.
 ### AdaLoRA diagnostics (seed 0)
 
 Why AdaLoRA trails uniform on ScienceQA: each of its two extra parts switched off in turn, same merged evaluation.
-Regularization-off seeds 1–2 are complete. The setting was chosen after inspecting seed 0 test results (validation showed the same pattern); the three-seed results above are explicitly labelled as a post-hoc configuration, not an untouched-test confirmatory study. All three planned diagnostic conditions are complete; no further diagnostic training is queued. [Full diagnostic summary](output/ablations/adalora/scienceqa_summary.json).
+The regularization-off setting above was chosen from these seed-0 test results (post-hoc). Configs:
+`experiments/scienceqa_adalora/configs/`; run outputs are in the Git tag `archive/nop-experiments-2026-10-26`.
 
 | Orthogonal regularization (weight 0.5) | Rank pruning (12 → avg 8) | Accuracy (%) |
 |---|---|---|
@@ -172,14 +173,5 @@ Regularization-off seeds 1–2 are complete. The setting was chosen after inspec
 
 Turning the regularization off gains 4.3–4.8 points; turning pruning off changes −0.15 to +0.30. About 5 points to uniform remain unexplained.
 
-## AdaLoRA reproducibility and report notes
-
-- [Frozen training implementation and TC2 instructions](experiments/adalora_reproduction/README.md): the exact source used for these runs, added without replacing the shared trainer.
-- [AdaLoRA report and presentation notes](docs/adalora/report_notes.md): method, parameters, results, ranks, compute and limitations.
-- Final per-layer q/v ranks and masks are stored with each capitalised run. AdaLoRA does not consume information-flow graphs.
-
-### Matched-loop Uniform control (ScienceQA, seed 0)
-
-Uniform rank 8 through the same engine/microbatch 1 × accumulation 16 as AdaLoRA scored **81.21% (1638/2017) merged** and **81.31% (1640/2017) unmerged**. All 6208 training rows reached the language model and fresh adapter reload passed. Training took 66.2 minutes. This is a single-seed pipeline control, separate from the 4 × 4 Uniform three-seed benchmark above. [Artifacts](output/peft/uniform/scienceqa_matched_engine/job46525/seed0/eval_scienceqa/metrics.json).
-
-The seed-0 ablation improved merged test accuracy by 4.31–4.76 pp when removing regularization; disabling pruning alone changed scores by −0.15 to +0.30 pp. Fixed-rank-12 diagnostic arms use a larger final budget. These observations implicate the original regularization setting in part of the deficit but do not fully explain the remaining gap to Uniform, establish statistical significance, or generalize beyond the tested settings.
+How to rerun AdaLoRA (GQA and ScienceQA): [experiments/README.md](experiments/README.md). Final per-layer q/v ranks of the
+capitalised GQA runs: `output/peft/adalora_capfirst/seed<k>/final_ranks.csv`.

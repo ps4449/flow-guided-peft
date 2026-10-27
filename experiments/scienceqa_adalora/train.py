@@ -1,7 +1,7 @@
 """ScienceQA AdaLoRA: published regularization/pruning conditions.
 
 Preserves the validated training operations of the archived closure engine.
-Use explicit config, seed and a new output directory; see docs/adalora/reproduction.md.
+Use explicit config, seed and a new output directory; see experiments/README.md.
 """
 import argparse
 import hashlib

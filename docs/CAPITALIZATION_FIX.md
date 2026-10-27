@@ -66,6 +66,6 @@ The seed 0 comparison changes only the first character of each training answer t
 - On the fixed exploratory 512-question subset, step 100 accuracy was 61.13% lowercase versus 60.94% capitalised (one question difference). The short comparison provides no clear early learning advantage.
 - Over the final 250 training updates, answer/task loss averaged 0.383 lowercase versus 0.342 capitalised, with per-update standard deviations 0.142 versus 0.127. These exclude AdaLoRA regularization and compare different target casing/tokenization; loss alone is not a measure of task accuracy.
 
-[Full paired comparison](../output/peft/adalora_capfirst/seed0/capitalization_comparison.json) · [Short comparison](../output/analysis/adalora/capitalization/quick_comparison.json) · [Run provenance](../output/peft/adalora/README.md)
-
-![AdaLoRA seed 0 answer loss, 20-step moving average](../output/analysis/adalora/capitalization/loss_comparison.png)
+The comparison files and loss plot are in the Git tag `archive/nop-experiments-2026-10-26`
+(`output/peft/adalora_capfirst/seed0/capitalization_comparison.json`, `output/analysis/adalora/capitalization/`).
+How to rerun AdaLoRA: [experiments/README.md](../experiments/README.md).
