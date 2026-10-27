@@ -25,8 +25,8 @@ Published runs: `output/peft/adalora_capfirst/seed0-2` (capitalised answers, the
 before it was capitalised). 1,250 optimizer steps on the 20,000-question training sample.
 
 ```bash
-sbatch experiments/adalora_reproduction/run_tc2.sh train 0   # seed 0, 1 or 2; resubmit on exit code 3
-sbatch experiments/adalora_reproduction/run_tc2.sh eval 0    # after training and its reload check
+sbatch AdaLoRA-experiments/adalora_reproduction/run_tc2.sh train 0   # seed 0, 1 or 2; resubmit on exit code 3
+sbatch AdaLoRA-experiments/adalora_reproduction/run_tc2.sh eval 0    # after training and its reload check
 ```
 
 `run_tc2.sh` checks the environment (`verify_protocol.py`), builds the capitalised training file and checks its hash
@@ -47,7 +47,7 @@ The trainer imports the model loader from `adalora_reproduction/`.
 | `neither.json` | off | off, rank 12 kept (larger budget, diagnostic only) |
 
 ```bash
-sbatch experiments/scienceqa_adalora/tc2_run.sh regularization_off 0   # config name, then seed 0, 1 or 2
+sbatch AdaLoRA-experiments/scienceqa_adalora/tc2_run.sh regularization_off 0   # config name, then seed 0, 1 or 2
 ```
 
 `tc2_run.sh` checks the data hashes (`validate_data.py`), trains, checks reload, validates the run

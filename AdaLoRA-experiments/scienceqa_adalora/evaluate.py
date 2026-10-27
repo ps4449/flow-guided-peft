@@ -12,8 +12,8 @@ questions file has (GQA: structural, semantic; ScienceQA: subject, category, gra
 If all predictions exist, only the metrics are recomputed (no GPU needed).
 
 Usage:
-  python experiments/scienceqa_adalora/evaluate.py [--adapter output/peft/<method>/<settings>/seed<k>/adapter] [--limit 100]
-  python experiments/scienceqa_adalora/evaluate.py --questions datasets/scienceqa/test_questions.jsonl [--adapter ...]
+  python AdaLoRA-experiments/scienceqa_adalora/evaluate.py [--adapter output/peft/<method>/<settings>/seed<k>/adapter] [--limit 100]
+  python AdaLoRA-experiments/scienceqa_adalora/evaluate.py --questions datasets/scienceqa/test_questions.jsonl [--adapter ...]
 """
 import argparse
 import json
@@ -22,7 +22,7 @@ import sys
 from pathlib import Path
 
 # Use the frozen model/prompt helper, not the team flow-gated model loader.
-sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "experiments/adalora_reproduction"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "AdaLoRA-experiments/adalora_reproduction"))
 from collections import defaultdict
 
 DEFAULT_QUESTIONS = "datasets/gqa/testdev_questions.jsonl"

@@ -68,4 +68,4 @@ The seed 0 comparison changes only the first character of each training answer t
 
 The comparison files and loss plot are in the Git tag `archive/nop-experiments-2026-10-26`
 (`output/peft/adalora_capfirst/seed0/capitalization_comparison.json`, `output/analysis/adalora/capitalization/`).
-How to rerun AdaLoRA: [experiments/README.md](../experiments/README.md).
+How to rerun AdaLoRA: [AdaLoRA-experiments/README.md](../AdaLoRA-experiments/README.md).

@@ -17,7 +17,7 @@ case "$seed" in 0|1|2) ;; *) echo 'Expected seed 0, 1 or 2' >&2;exit 2;; esac
 # sbatch copies this script to its spool; submit from the repository root.
 root="${SLURM_SUBMIT_DIR:-$PWD}"
 cd "$root"
-code=experiments/adalora_reproduction
+code=AdaLoRA-experiments/adalora_reproduction
 module load anaconda
 eval "$(conda shell.bash hook)"
 conda activate llava_shared

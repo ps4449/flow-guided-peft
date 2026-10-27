@@ -161,7 +161,7 @@ still give more per parameter than random or late layers.
 
 Why AdaLoRA trails uniform on ScienceQA: each of its two extra parts switched off in turn, same merged evaluation.
 The regularization-off setting above was chosen from these seed-0 test results (post-hoc). Configs:
-`experiments/scienceqa_adalora/configs/`; run outputs are in the Git tag `archive/nop-experiments-2026-10-26`.
+`AdaLoRA-experiments/scienceqa_adalora/configs/`; run outputs are in the Git tag `archive/nop-experiments-2026-10-26`.
 
 | Orthogonal regularization (weight 0.5) | Rank pruning (12 → avg 8) | Accuracy (%) |
 |---|---|---|
@@ -173,5 +173,5 @@ The regularization-off setting above was chosen from these seed-0 test results (
 
 Turning the regularization off gains 4.3–4.8 points; turning pruning off changes −0.15 to +0.30. About 5 points to uniform remain unexplained.
 
-How to rerun AdaLoRA (GQA and ScienceQA): [experiments/README.md](experiments/README.md). Final per-layer q/v ranks of the
+How to rerun AdaLoRA (GQA and ScienceQA): [AdaLoRA-experiments/README.md](AdaLoRA-experiments/README.md). Final per-layer q/v ranks of the
 capitalised GQA runs: `output/peft/adalora_capfirst/seed<k>/final_ranks.csv`.

@@ -1,7 +1,7 @@
 """ScienceQA AdaLoRA: published regularization/pruning conditions.
 
 Preserves the validated training operations of the archived closure engine.
-Use explicit config, seed and a new output directory; see experiments/README.md.
+Use explicit config, seed and a new output directory; see AdaLoRA-experiments/README.md.
 """
 import argparse
 import hashlib
@@ -15,8 +15,8 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / "experiments/adalora_reproduction"))
-sys.path.insert(1, str(ROOT / "experiments/scienceqa_adalora"))
+sys.path.insert(0, str(ROOT / "AdaLoRA-experiments/adalora_reproduction"))
+sys.path.insert(1, str(ROOT / "AdaLoRA-experiments/scienceqa_adalora"))
 
 import numpy as np
 import torch
