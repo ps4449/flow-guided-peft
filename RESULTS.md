@@ -157,6 +157,21 @@ The top 8 and top 4 layers by the same importance (`make_ranks.py --keep 8` / `-
 Accuracy rises with the number of flow layers and reaches full LoRA at 16; fewer layers lose accuracy, but flow layers
 still give more per parameter than random or late layers.
 
+#### Other ways to choose the 16 layers (seed 0)
+
+Layer-selection methods from the literature, scored without the knockout by
+`peft_lora/methods/layer_baselines/make_ranks.py` (scores in `output/layer_baselines/scienceqa/scores.json`;
+grad and similarity use 512 random training questions), then rank 8 on the top 16 layers as above.
+
+| Configuration | Layers with LoRA | Accuracy (%) | Batch (micro × accum) | Notes |
+|---|---|---|---|---|
+| Gradient size (IST, EMNLP'24 Findings; LISA, NeurIPS'24) | 0–15 | = flow-pruned (81.36 ± 0.31) | — | not trained: `configs/ranks/grad_pruned16_scienceqa.json` is identical to `flow_pruned16_scienceqa.json`; mean ‖grad‖ of q/v is highest in layers 0–11 and below 1 in layers 21–30 |
+| Weight spectrum (AlphaLoRA, EMNLP'24) | 16–31 | = inverse-pruned (72.83 ± 0.37) | — | not trained: `configs/ranks/spectrum_pruned16_scienceqa.json` is identical to `inverse_pruned16_scienceqa.json`; the heavy-tail α rises with depth (1.49 → 1.99), so it picks the deep layers |
+| Layer similarity (Gromov et al., ICLR'25), seed 0 | 0–8, 13–17, 30, 31 (12 shared with flow) | 80.61 | 4 × 4 ✅ | 1,626 / 2,017 correct; `configs/ranks/similarity_pruned16_scienceqa.json`; same as flow-pruned seed 0 (81.11; 24 vs 34 questions, p = 0.24) and uniform seed 0 (80.86; 30 vs 35, p = 0.62); +1.23 vs random-pruned seed 0 (52 vs 27, p = 0.007); final loss 0.252; [outputs](output/peft/similarity_pruned16_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json) |
+
+The methods that pick early layers (flow, gradient size, similarity) all match full LoRA; the one that picks the deep
+layers (spectrum) fails like inverse-pruned. Flow ties gradient size by construction (same layers) and similarity on one seed.
+
 ### AdaLoRA diagnostics (seed 0)
 
 Why AdaLoRA trails uniform on ScienceQA: each of its two extra parts switched off in turn, same merged evaluation.
