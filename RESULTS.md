@@ -122,17 +122,40 @@ Run folders: `output/peft/<ranks>/scienceqa_train_llava/seed<k>/eval_scienceqa/`
 
 LoRA rank 8 on 16 of the 32 layers and none on the others: 2,097,152 trainable parameters (half of the 4,194,304 above).
 The 16 layers come from the same ScienceQA `train_correct` Image→Question and Question→Last importance
-(`make_ranks.py --keep 16`, with `--inverse` or `--random 0`). Seed 0 only; McNemar tests are paired on the same questions.
+(`make_ranks.py --keep 16`, with `--inverse` or `--random 0`; the random layers are the same for every seed).
+McNemar tests are paired on the same questions and seed; "pooled" adds the counts over seeds 0–2.
 
 | Configuration | Layers with LoRA | Accuracy (%) | Batch (micro × accum) | Notes |
 |---|---|---|---|---|
-| Flow-pruned LoRA, seed 0 | 0–15 (most important) | **81.11** | 4 × 4 ✅ | 1,636 / 2,017 correct; `configs/ranks/flow_pruned16_scienceqa.json`; same as uniform seed 0 (80.86; 21 vs 16 questions, p = 0.51); final loss 0.237 (uniform 0.239); [outputs](output/peft/flow_pruned16_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json) |
+| Flow-pruned LoRA, seed 0 | 0–15 (most important) | 81.11 | 4 × 4 ✅ | 1,636 / 2,017 correct; `configs/ranks/flow_pruned16_scienceqa.json`; same as uniform seed 0 (80.86; 21 vs 16 questions, p = 0.51); final loss 0.237 (uniform 0.239); [outputs](output/peft/flow_pruned16_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json) |
+| Flow-pruned LoRA, seed 1 | 0–15 | 81.71 | 4 × 4 ✅ | 1,648 / 2,017 correct; [outputs](output/peft/flow_pruned16_scienceqa/scienceqa_train_llava/seed1/eval_scienceqa/metrics.json) |
+| Flow-pruned LoRA, seed 2 | 0–15 | 81.26 | 4 × 4 ✅ | 1,639 / 2,017 correct; [outputs](output/peft/flow_pruned16_scienceqa/scienceqa_train_llava/seed2/eval_scienceqa/metrics.json) |
+| **Flow-pruned LoRA, mean ± sample std of seeds 0–2** | 0–15 | **81.36 ± 0.31** | 4 × 4 ✅ | +0.15 vs uniform with half the parameters (81.21 ± 0.41; pooled 64 vs 55 questions, not significant); same as flow-guided at full budget (81.37) |
 | Random-pruned LoRA, seed 0 | 1, 4, 6, 8, 9, 11, 12, 13, 15, 16, 18, 24, 25, 28, 30, 31 (9 shared with flow) | 79.38 | 4 × 4 ✅ | 1,601 / 2,017 correct; `configs/ranks/random_pruned16_scienceqa.json`; −1.73 vs flow-pruned (56 vs 21 questions, p = 8e-5); final loss 0.246; [outputs](output/peft/random_pruned16_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json) |
+| Random-pruned LoRA, seed 1 | same as seed 0 | 80.61 | 4 × 4 ✅ | 1,626 / 2,017 correct; [outputs](output/peft/random_pruned16_scienceqa/scienceqa_train_llava/seed1/eval_scienceqa/metrics.json) |
+| Random-pruned LoRA, seed 2 | same as seed 0 | 79.47 | 4 × 4 ✅ | 1,603 / 2,017 correct; [outputs](output/peft/random_pruned16_scienceqa/scienceqa_train_llava/seed2/eval_scienceqa/metrics.json) |
+| **Random-pruned LoRA, mean ± sample std of seeds 0–2** | same as seed 0 | **79.82 ± 0.69** | 4 × 4 ✅ | −1.54 vs flow-pruned (worse on every seed, p = 8e-5 / 0.02 / 7e-5; pooled 72 vs 165 questions); −1.39 vs uniform (worse on every seed; pooled 66 vs 150) |
 | Inverse-pruned LoRA, seed 0 | 16–31 (least important) | 72.43 | 4 × 4 ✅ | 1,461 / 2,017 correct; `configs/ranks/inverse_pruned16_scienceqa.json`; −8.68 vs flow-pruned (228 vs 53 questions, p = 5e-27), only +3.27 over zero-shot; final loss 0.346; natural science 68.7, social 78.1; [outputs](output/peft/inverse_pruned16_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json) |
+| Inverse-pruned LoRA, seed 1 | 16–31 | 72.88 | 4 × 4 ✅ | 1,470 / 2,017 correct; [outputs](output/peft/inverse_pruned16_scienceqa/scienceqa_train_llava/seed1/eval_scienceqa/metrics.json) |
+| Inverse-pruned LoRA, seed 2 | 16–31 | 73.18 | 4 × 4 ✅ | 1,476 / 2,017 correct; [outputs](output/peft/inverse_pruned16_scienceqa/scienceqa_train_llava/seed2/eval_scienceqa/metrics.json) |
+| **Inverse-pruned LoRA, mean ± sample std of seeds 0–2** | 16–31 | **72.83 ± 0.37** | 4 × 4 ✅ | −8.53 vs flow-pruned (worse on every seed, p < 1e-22; pooled 187 vs 703 questions); +3.67 over zero-shot |
 
-Ordered flow > random > inverse, matching the knockout importance. With half the parameters, flow-pruned matches
-full uniform LoRA. Same story as the full-budget runs (inverse-flow 79.21 vs uniform 81.21): the early flow layers must
-be tuned, the late ones add little. Seeds 1–2 are needed before this is final.
+Ordered flow > random > inverse on every seed, matching the knockout importance. With half the parameters, flow-pruned
+matches full uniform LoRA, while a random half loses 1.4 and the opposite half loses 8.4. Same story as the full-budget
+runs (inverse-flow 79.21 vs uniform 81.21): the early flow layers must be tuned, the late ones add little.
+
+#### Fewer layers (seed 0)
+
+The top 8 and top 4 layers by the same importance (`make_ranks.py --keep 8` / `--keep 4`), rank 8 each.
+
+| Configuration | Layers with LoRA | Parameters | Accuracy (%) | Batch (micro × accum) | Notes |
+|---|---|---|---|---|---|
+| Flow-pruned LoRA, 16 layers, seed 0 | 0–15 | 2,097,152 | 81.11 | 4 × 4 ✅ | from the table above |
+| Flow-pruned LoRA, 8 layers, seed 0 | 0, 1, 2, 3, 4, 9, 10, 11 | 1,048,576 | 79.57 | 4 × 4 ✅ | 1,605 / 2,017 correct; `configs/ranks/flow_pruned8_scienceqa.json`; −1.54 vs 16 layers (35 vs 66 questions, p = 0.003), −1.29 vs uniform seed 0 (p = 0.01); same as random-pruned 16 layers seed 0 (79.38, p = 0.75) with half its parameters; final loss 0.239; [outputs](output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json) |
+| Flow-pruned LoRA, 4 layers, seed 0 | 0, 2, 3, 4 | 524,288 | 77.99 | 4 × 4 ✅ | 1,573 / 2,017 correct; `configs/ranks/flow_pruned4_scienceqa.json`; −3.12 vs 16 layers (45 vs 108 questions, p = 4e-7); +8.83 over zero-shot and +5.56 over inverse-pruned 16 layers seed 0, with 1/4 of its parameters; final loss 0.258; [outputs](output/peft/flow_pruned4_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json) |
+
+Accuracy rises with the number of flow layers and reaches full LoRA at 16; fewer layers lose accuracy, but flow layers
+still give more per parameter than random or late layers.
 
 ### AdaLoRA diagnostics (seed 0)
 
