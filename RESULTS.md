@@ -172,6 +172,32 @@ grad and similarity use 512 random training questions), then rank 8 on the top 1
 The methods that pick early layers (flow, gradient size, similarity) all match full LoRA; the one that picks the deep
 layers (spectrum) fails like inverse-pruned. Flow ties gradient size by construction (same layers) and similarity on one seed.
 
+#### LoRA variants on the flow layers
+
+Same 16 flow layers and rank 8 (`flow_pruned16_scienceqa.json`), with the adapter changed by `train_lora.py --variant`
+(or the learning rate by `--lr`). The uniform rows use all 32 layers (`uniform.json`) as the control.
+
+| Configuration | Parameters | Accuracy (%) | Batch (micro × accum) | Notes |
+|---|---|---|---|---|
+| Flow-pruned LoRA, seed 0 | 2,097,152 | 81.11 | 4 × 4 ✅ | from the table above |
+| Flow-pruned DoRA (ICML'24), seed 0 | 2,228,224 | 81.26 | 4 × 4 ✅ | 1,639 / 2,017 correct; same as plain LoRA (12 vs 9 questions, p = 0.66) and uniform seed 0 (80.86; 24 vs 16, p = 0.27); final loss 0.240 (LoRA 0.237); 75 min training vs 57; evaluated with the merged weights cast back to bf16 (peft 0.12 leaves DoRA merges in float32); [outputs](output/peft/flow_pruned16_scienceqa/scienceqa_train_llava_dora/seed0/eval_scienceqa/metrics.json) |
+| Flow-pruned PiSSA (NeurIPS'24), seed 0 | 2,097,152 | 83.19 | 4 × 4 ✅ | 1,678 / 2,017 correct; +2.08 vs plain LoRA (76 vs 34 questions, p = 8e-5); +2.33 vs uniform seed 0 (78 vs 31, p = 8e-6) with half the parameters; gains mostly in grades 6–8 (grade 7: 72.2 → 77.9); mean loss over steps 300–388 0.202 (LoRA 0.204); saved converted to a plain rank-16 LoRA; resumed from step 200 after a full-disk crash; [outputs](output/peft/flow_pruned16_scienceqa/scienceqa_train_llava_pissa/seed0/eval_scienceqa/metrics.json) |
+| Flow-pruned LoRA+ (ICML'24), seed 0 | 2,097,152 | 83.59 | 4 × 4 ✅ | 1,686 / 2,017 correct; B learns 16× faster than A; +2.48 vs plain LoRA (92 vs 42 questions, p = 2e-5); +2.73 vs uniform seed 0 (94 vs 39, p = 2e-6); same as PiSSA (54 vs 46, p = 0.48); mean loss over steps 300–388 0.186 (LoRA 0.204); 57 min training; [outputs](output/peft/flow_pruned16_scienceqa/scienceqa_train_llava_loraplus/seed0/eval_scienceqa/metrics.json) |
+| Uniform PiSSA (all 32 layers), seed 0 | 4,194,304 | 82.00 | 4 × 4 ✅ | 1,654 / 2,017 correct; −1.19 vs flow-pruned PiSSA with twice the parameters (43 vs 67 questions, p = 0.03); +1.14 vs uniform LoRA seed 0 (76 vs 53, p = 0.05); flow-pruned PiSSA is ahead mostly in grades 7–8 (77.9 vs 73.3, 75.8 vs 73.8) and language science (81.8 vs 77.3); mean loss over steps 300–388 0.202; 63 min training; [outputs](output/peft/uniform/scienceqa_train_llava_pissa/seed0/eval_scienceqa/metrics.json) |
+| Flow-pruned PiSSA, seed 1 | 2,097,152 | 83.04 | 4 × 4 ✅ | 1,675 / 2,017 correct; [outputs](output/peft/flow_pruned16_scienceqa/scienceqa_train_llava_pissa/seed1/eval_scienceqa/metrics.json) |
+| Flow-pruned PiSSA, seed 2 | 2,097,152 | 82.94 | 4 × 4 ✅ | 1,673 / 2,017 correct; [outputs](output/peft/flow_pruned16_scienceqa/scienceqa_train_llava_pissa/seed2/eval_scienceqa/metrics.json) |
+| **Flow-pruned PiSSA, mean ± sample std of seeds 0–2** | 2,097,152 | **83.06 ± 0.12** | 4 × 4 ✅ | +1.70 vs flow-pruned LoRA (81.36 ± 0.31; better on every seed, pooled 270 vs 167 questions, p = 1e-6); +1.85 vs uniform LoRA (81.21 ± 0.41; pooled 281 vs 169, p = 2e-7) |
+| Uniform PiSSA, seed 1 | 4,194,304 | 83.49 | 4 × 4 ✅ | 1,684 / 2,017 correct; [outputs](output/peft/uniform/scienceqa_train_llava_pissa/seed1/eval_scienceqa/metrics.json) |
+| Uniform PiSSA, seed 2 | 4,194,304 | 81.61 | 4 × 4 ✅ | 1,646 / 2,017 correct; [outputs](output/peft/uniform/scienceqa_train_llava_pissa/seed2/eval_scienceqa/metrics.json) |
+| **Uniform PiSSA, mean ± sample std of seeds 0–2** | 4,194,304 | **82.37 ± 0.99** | 4 × 4 ✅ | −0.69 vs flow-pruned PiSSA with twice the parameters (flow ahead on seeds 0 and 2, p = 0.03 / 0.05; behind on seed 1, 41 vs 50, p = 0.40; pooled 171 vs 213, p = 0.04); +1.16 vs uniform LoRA (pooled 243 vs 173, p = 7e-4) |
+| Uniform LoRA+, seed 0 | 4,194,304 | 82.75 | 4 × 4 ✅ | 1,669 / 2,017 correct; −0.84 vs flow-pruned LoRA+ (64 vs 81 questions, p = 0.18, not significant); +1.89 vs uniform LoRA seed 0 (92 vs 54, p = 0.002); mean loss over steps 300–388 0.187; 60 min training; [outputs](output/peft/uniform/scienceqa_train_llava_loraplus/seed0/eval_scienceqa/metrics.json) |
+| Flow-pruned LoRA, lr 8e-4 (4×), seed 0 | 2,097,152 | 81.41 | 4 × 4 ✅ | 1,642 / 2,017 correct; same as lr 2e-4 (82 vs 76 questions, p = 0.69); below PiSSA (52 vs 88, p = 0.003) and LoRA+ (41 vs 85, p = 1e-4); mean loss over steps 300–388 0.192 (lr 2e-4: 0.204); [outputs](output/peft/flow_pruned16_scienceqa/lr8e-4_scienceqa_train_llava/seed0/eval_scienceqa/metrics.json) |
+
+PiSSA and LoRA+ add about 2–2.5 points on the flow layers, while DoRA adds nothing. The gain is not just a larger step:
+plain LoRA at 4× the learning rate stays at 81.4. Over three seeds, flow-pruned PiSSA (83.06 ± 0.12) matches or beats
+uniform PiSSA (82.37 ± 0.99) with half the parameters and is far more stable across seeds; uniform PiSSA has the single
+best seed (83.49). LoRA+ shows the same direction on seed 0 (83.59 vs 82.75) but is not significant on one seed.
+
 ### AdaLoRA diagnostics (seed 0)
 
 Why AdaLoRA trails uniform on ScienceQA: each of its two extra parts switched off in turn, same merged evaluation.

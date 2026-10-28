@@ -15,10 +15,18 @@ checkpoint and stops; submitting the same command again resumes from it.
 --flow-gates adds a learnable knob per head on the Image->Question attention in layers 5-15
 (FlowGates in common.py, 352 parameters, own learning rate --gate-lr), saved as adapter/flow_gates.pt.
 
+--variant changes the LoRA itself, same ranks and layers (LoRA only):
+  dora      weight = magnitude * direction, LoRA on the direction (DoRA, ICML 2024); adds one
+            magnitude vector per module (4,096 parameters each)
+  pissa     A and B start from the top singular vectors of each weight, the rest stays frozen (PiSSA,
+            NeurIPS 2024). Saved converted to a plain LoRA of twice the rank, so it loads on the original model.
+  loraplus  B learns --loraplus-ratio times faster than A (LoRA+, ICML 2024)
+
 Usage:
   python peft_lora/train_lora.py --ranks configs/ranks/<method>.json --seed 0 [--limit 100]
   ... --train-file datasets/scienceqa/train_llava.json    # ScienceQA -> <settings> = scienceqa_train_llava
   ... --flow-gates                                        # -> <settings> gets "flowgates"
+  ... --variant dora                                      # -> <settings> gets "dora"
 """
 import argparse
 import json
@@ -82,9 +90,11 @@ def collate(batch, pad_id):
     }
 
 
-def make_peft_config(spec, total_steps):
+def make_peft_config(spec, total_steps, variant="lora"):
     """Returns the peft config and, for LoRA, the expected {module: rank}."""
     if "adalora" in spec:
+        if variant != "lora":
+            sys.exit("--variant works with LoRA rank files only")
         cfg = dict(spec["adalora"])
         names = "|".join(cfg.pop("target_modules"))
         target = rf"model\.layers\.\d+\.(self_attn|mlp)\.({names})"
@@ -104,6 +114,8 @@ def make_peft_config(spec, total_steps):
         target_modules="|".join(re.escape("model." + k) for k in ranks),
         rank_pattern={re.escape(k): r for k, r in ranks.items()},
         alpha_pattern={re.escape(k): 2 * r for k, r in ranks.items()},
+        use_dora=variant == "dora",
+        init_lora_weights="pissa" if variant == "pissa" else True,
     )
     return config, ranks
 
@@ -120,7 +132,8 @@ def check_ranks(model, expected):
 
 # options that change the training result, with their short names in the run folder
 SETTING_NAMES = {"lr": "lr", "epochs": "ep", "batch_size": "bs", "grad_accum": "ga", "warmup_ratio": "wu",
-                 "train_file": "", "limit": "limit", "flow_gates": "flowgates", "gate_lr": "glr"}
+                 "train_file": "", "limit": "limit", "flow_gates": "flowgates", "gate_lr": "glr",
+                 "variant": "", "loraplus_ratio": "lpr"}
                  # a different train file shows as its name
 
 
@@ -175,6 +188,8 @@ def main():
     parser.add_argument("--num-workers", type=int, default=4)
     parser.add_argument("--flow-gates", action="store_true", help="learnable Image->Question gates in layers 5-15")
     parser.add_argument("--gate-lr", type=float, default=1e-2, help="learning rate of the flow gates")
+    parser.add_argument("--variant", default="lora", choices=["lora", "dora", "pissa", "loraplus"])
+    parser.add_argument("--loraplus-ratio", type=float, default=16.0, help="B / A learning rate for --variant loraplus")
     args = parser.parse_args()
     args.image_folder = args.image_folder or os.path.join(os.path.dirname(args.train_file), "images")
     start = time.time()
@@ -207,18 +222,29 @@ def main():
     steps_per_epoch = math.ceil(len(rows) / bs) // accum
     total_steps = steps_per_epoch * args.epochs
 
-    peft_config, expected_ranks = make_peft_config(spec, total_steps)
+    peft_config, expected_ranks = make_peft_config(spec, total_steps, args.variant)
     model = get_peft_model(model, peft_config)
     if expected_ranks is not None:
         check_ranks(model, expected_ranks)
-    params = [p for p in model.parameters() if p.requires_grad]
-    groups = [{"params": params}]
+    pissa_init_dir = os.path.join(out_dir, "pissa_init")
+    if args.variant == "pissa" and not os.path.exists(pissa_init_dir):
+        # the starting A and B, needed to save the result as a plain LoRA (the SVD gives the same start on resume)
+        model.peft_config["default"].init_lora_weights = True
+        model.save_pretrained(pissa_init_dir)
+        model.peft_config["default"].init_lora_weights = "pissa"
+    named = [(n, p) for n, p in model.named_parameters() if p.requires_grad]
+    params = [p for _, p in named]
+    if args.variant == "loraplus":
+        groups = [{"params": [p for n, p in named if "lora_B" not in n]},
+                  {"params": [p for n, p in named if "lora_B" in n], "lr": args.lr * args.loraplus_ratio}]
+    else:
+        groups = [{"params": params}]
     if gates:  # the gates start at 0 and need a larger step size than LoRA to move in one epoch
         groups.append({"params": list(gates.parameters()), "lr": args.gate_lr})
         params = params + list(gates.parameters())
     n_params = sum(p.numel() for p in params)
     print(f"Method: {name}  Seed: {args.seed}  Trainable params: {n_params:,}  Steps: {total_steps}"
-          + ("  Flow gates: on" if gates else ""))
+          + ("  Flow gates: on" if gates else "") + (f"  Variant: {args.variant}" if args.variant != "lora" else ""))
 
     optimizer = torch.optim.AdamW(groups, lr=args.lr, weight_decay=0.0)
     scheduler = get_cosine_schedule_with_warmup(optimizer, int(args.warmup_ratio * total_steps), total_steps)
@@ -287,7 +313,10 @@ def main():
                 print(f"Stopped at step {step}/{total_steps} before the time limit. Submit the same command again to resume.")
                 sys.exit(RESUME_EXIT_CODE)
 
-    model.save_pretrained(adapter_dir)
+    if args.variant == "pissa":
+        model.save_pretrained(adapter_dir, path_initial_model_for_weight_conversion=pissa_init_dir)
+    else:
+        model.save_pretrained(adapter_dir)
     if gates:
         torch.save(gates.state_dict(), os.path.join(adapter_dir, "flow_gates.pt"))
     with open(os.path.join(out_dir, "train_config.json"), "w") as f:

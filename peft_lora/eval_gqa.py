@@ -76,7 +76,7 @@ def main():
         # imported here so metrics can be recomputed on a machine without the GPU packages
         import torch
         from tqdm import tqdm
-        from common import FlowGates, build_prompt, load_image, load_model, tokenize
+        from common import DTYPE, FlowGates, build_prompt, load_image, load_model, tokenize
         from llava.constants import DEFAULT_IMAGE_TOKEN
 
         tokenizer, model, image_processor = load_model(args.model_path)
@@ -84,6 +84,7 @@ def main():
         if args.adapter:
             from peft import PeftModel
             model = PeftModel.from_pretrained(model, args.adapter).merge_and_unload()
+            model.to(DTYPE)  # peft 0.12 leaves DoRA-merged weights in float32
             gates_path = os.path.join(args.adapter, "flow_gates.pt")
             if os.path.exists(gates_path):  # trained with --flow-gates
                 gates = FlowGates(model)
