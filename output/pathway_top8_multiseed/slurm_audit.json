@@ -1,0 +1,86 @@
+{
+  "queried_at": "2026-10-29T21:08:02.136837+08:00",
+  "timezone": "Asia/Singapore",
+  "history_start": "2026-10-01",
+  "active_jobs": [],
+  "matching_history": [
+    {
+      "job_id": "48610",
+      "name": "sqa_q2l8_s0_train",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "submitted": "2026-10-29T03:33:46",
+      "started": "2026-10-29T03:33:47",
+      "ended": "2026-10-29T04:29:44",
+      "workdir": "/home/msai/swarangi001/flow-guided-peft",
+      "submit_line": "sbatch --parsable --chdir /home/msai/swarangi001/flow-guided-peft --job-name sqa_q2l8_s0_train --comment pathway_top8_seed0:question_to_last:train:b61dfe2343f1 --open-mode=append --output /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/question_to_last/logs/train_%j.out --error /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/question_to_last/logs/train_%j.err --export=ALL,SCIENCEQA_TOP8_EXPERIMENT=question_to_last --begin 2026-10-29T03:30:00 /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/tc2_train_job.sh"
+    },
+    {
+      "job_id": "48611",
+      "name": "sqa_mid8_s0_train",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "submitted": "2026-10-29T03:33:46",
+      "started": "2026-10-29T04:29:45",
+      "ended": "2026-10-29T05:25:20",
+      "workdir": "/home/msai/swarangi001/flow-guided-peft",
+      "submit_line": "sbatch --parsable --chdir /home/msai/swarangi001/flow-guided-peft --job-name sqa_mid8_s0_train --comment pathway_top8_seed0:middle_control:train:8a3709eeb4b6 --open-mode=append --output /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/middle_control/logs/train_%j.out --error /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/middle_control/logs/train_%j.err --export=ALL,SCIENCEQA_TOP8_EXPERIMENT=middle_control --begin 2026-10-29T03:30:00 /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/tc2_train_job.sh"
+    },
+    {
+      "job_id": "48619",
+      "name": "sqa_q2l8_s0_eval",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "submitted": "2026-10-29T04:30:13",
+      "started": "2026-10-29T05:25:20",
+      "ended": "2026-10-29T05:32:59",
+      "workdir": "/home/msai/swarangi001/flow-guided-peft",
+      "submit_line": "sbatch --parsable --chdir /home/msai/swarangi001/flow-guided-peft --job-name sqa_q2l8_s0_eval --comment pathway_top8_seed0:question_to_last:eval:b9307b25709b --open-mode=append --output /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/question_to_last/logs/eval_%j.out --error /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/question_to_last/logs/eval_%j.err --export=ALL,SCIENCEQA_TOP8_EXPERIMENT=question_to_last --dependency afterok:48610 /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/tc2_eval_job.sh"
+    },
+    {
+      "job_id": "48623",
+      "name": "sqa_mid8_s0_eval",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "submitted": "2026-10-29T05:25:21",
+      "started": "2026-10-29T05:32:59",
+      "ended": "2026-10-29T05:40:31",
+      "workdir": "/home/msai/swarangi001/flow-guided-peft",
+      "submit_line": "sbatch --parsable --chdir /home/msai/swarangi001/flow-guided-peft --job-name sqa_mid8_s0_eval --comment pathway_top8_seed0:middle_control:eval:93302693a208 --open-mode=append --output /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/middle_control/logs/eval_%j.out --error /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/middle_control/logs/eval_%j.err --export=ALL,SCIENCEQA_TOP8_EXPERIMENT=middle_control --dependency afterok:48611 /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/tc2_eval_job.sh"
+    },
+    {
+      "job_id": "48704",
+      "name": "sqa_final_early8_s0_train",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "submitted": "2026-10-29T12:34:11",
+      "started": "2026-10-29T12:34:11",
+      "ended": "2026-10-29T13:29:57",
+      "workdir": "/home/msai/swarangi001/flow-guided-peft",
+      "submit_line": "sbatch --parsable --partition=MGPU-TC2 --qos=normal --nodes=1 --gres=gpu:1 --cpus-per-task=8 --mem=30G --time=06:00:00 --job-name sqa_final_early8_s0_train --chdir /home/msai/swarangi001/flow-guided-peft --comment final_early8_seed0:train:b962a171f080 --open-mode=append --output /home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/logs/train_%j.out --error /home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/logs/train_%j.err --export=ALL --wrap exec /home/msai/swarangi001/.conda/envs/llava/bin/python -u /home/msai/swarangi001/flow-guided-peft/peft_lora/methods/pathway_specific/final_early8_seed0.py --worker train"
+    },
+    {
+      "job_id": "48705",
+      "name": "sqa_final_early8_s0_eval",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "submitted": "2026-10-29T12:34:12",
+      "started": "2026-10-29T13:29:57",
+      "ended": "2026-10-29T13:37:36",
+      "workdir": "/home/msai/swarangi001/flow-guided-peft",
+      "submit_line": "sbatch --parsable --partition=MGPU-TC2 --qos=normal --nodes=1 --gres=gpu:1 --cpus-per-task=4 --mem=30G --time=06:00:00 --job-name sqa_final_early8_s0_eval --chdir /home/msai/swarangi001/flow-guided-peft --comment final_early8_seed0:eval:b962a171f080 --open-mode=append --output /home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/logs/eval_%j.out --error /home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/logs/eval_%j.err --dependency afterok:48704 --export=ALL --wrap exec /home/msai/swarangi001/.conda/envs/llava/bin/python -u /home/msai/swarangi001/flow-guided-peft/peft_lora/methods/pathway_specific/final_early8_seed0.py --worker eval"
+    }
+  ],
+  "queries_read_only": true,
+  "history_total_records": 51,
+  "qos": {
+    "command_exit": 0,
+    "output": "normal|2|2|cpu=10,gres/gpu=1,mem=30G|06:00:00",
+    "error": ""
+  },
+  "partition": {
+    "command_exit": 0,
+    "output": "MGPU-TC2*|up|infinite|gpu:nvidia:8(S:0-1)\nMGPU-TC2*|up|infinite|gpu:nvidia:4(S:0-1)",
+    "error": ""
+  }
+}

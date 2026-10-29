@@ -1,0 +1,840 @@
+{
+  "audited_at": "2026-10-29T21:17:41.115097+08:00",
+  "state": "audit_complete_not_submitted",
+  "branch": "experiments/flow-placement-ablations",
+  "branch_commit": "7c63b204a879af2b45f5b540477e89f66bfaa6da",
+  "main_dev_commit_at_audit": "1138b73485adb664691abf46fc1f9ed69fb50fc5",
+  "seed_status": [
+    {
+      "allocation": "combined",
+      "selected_layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11
+      ],
+      "seed": 0,
+      "required": true,
+      "run_directory": "output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0",
+      "observed_in_branch": true,
+      "observed_in_main": true,
+      "state": "completed",
+      "correct": 1605,
+      "total": 2017,
+      "accuracy_percent": 79.57362419434804,
+      "metrics": {
+        "path": "output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+        "sha256": "3518ff8472b1f7dc5751fa4e0537e0429f63efc8c74b4aaa2e4cc97a783cc906"
+      },
+      "predictions": {
+        "path": "output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+        "sha256": "1a090cb3ec5c0f2983445d180de9d0f3b7132b136e112bd82278cbe0fcfa3641"
+      }
+    },
+    {
+      "allocation": "combined",
+      "selected_layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11
+      ],
+      "seed": 1,
+      "required": true,
+      "run_directory": "output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed1",
+      "observed_in_branch": false,
+      "observed_in_main": false,
+      "state": "missing_required",
+      "correct": null,
+      "total": null,
+      "accuracy_percent": null
+    },
+    {
+      "allocation": "combined",
+      "selected_layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11
+      ],
+      "seed": 2,
+      "required": true,
+      "run_directory": "output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed2",
+      "observed_in_branch": false,
+      "observed_in_main": false,
+      "state": "missing_required",
+      "correct": null,
+      "total": null,
+      "accuracy_percent": null
+    },
+    {
+      "allocation": "question_last",
+      "selected_layers": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "seed": 0,
+      "required": true,
+      "run_directory": "output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0",
+      "observed_in_branch": true,
+      "observed_in_main": true,
+      "state": "completed",
+      "correct": 1572,
+      "total": 2017,
+      "accuracy_percent": 77.93753098661378,
+      "metrics": {
+        "path": "output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+        "sha256": "1a1f2a0a5ec7e5e998cfbdfc8f7c6c3207c3a0be60cb632681006877b0a13280"
+      },
+      "predictions": {
+        "path": "output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+        "sha256": "f8fd1e78a6fc1958c2280fe9e004f50bcc100607bfe65aa4c64ae8189c278cbd"
+      }
+    },
+    {
+      "allocation": "question_last",
+      "selected_layers": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "seed": 1,
+      "required": true,
+      "run_directory": "output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed1",
+      "observed_in_branch": false,
+      "observed_in_main": false,
+      "state": "missing_required",
+      "correct": null,
+      "total": null,
+      "accuracy_percent": null
+    },
+    {
+      "allocation": "question_last",
+      "selected_layers": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "seed": 2,
+      "required": true,
+      "run_directory": "output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed2",
+      "observed_in_branch": false,
+      "observed_in_main": false,
+      "state": "missing_required",
+      "correct": null,
+      "total": null,
+      "accuracy_percent": null
+    },
+    {
+      "allocation": "middle",
+      "selected_layers": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "seed": 0,
+      "required": true,
+      "run_directory": "output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0",
+      "observed_in_branch": true,
+      "observed_in_main": true,
+      "state": "completed",
+      "correct": 1522,
+      "total": 2017,
+      "accuracy_percent": 75.45860188398612,
+      "metrics": {
+        "path": "output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+        "sha256": "88e3c009f96f840a5911039b2b69654b3dfb82786317505d81ab39b6795a9900"
+      },
+      "predictions": {
+        "path": "output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+        "sha256": "c43805ef8c75349d73541a9cfe1e2edb20b2726fb534cbc3c51cb646c2652bc8"
+      }
+    },
+    {
+      "allocation": "middle",
+      "selected_layers": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "seed": 1,
+      "required": true,
+      "run_directory": "output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed1",
+      "observed_in_branch": false,
+      "observed_in_main": false,
+      "state": "missing_required",
+      "correct": null,
+      "total": null,
+      "accuracy_percent": null
+    },
+    {
+      "allocation": "middle",
+      "selected_layers": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "seed": 2,
+      "required": true,
+      "run_directory": "output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed2",
+      "observed_in_branch": false,
+      "observed_in_main": false,
+      "state": "missing_required",
+      "correct": null,
+      "total": null,
+      "accuracy_percent": null
+    },
+    {
+      "allocation": "early",
+      "selected_layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "seed": 0,
+      "required": false,
+      "run_directory": "output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0",
+      "observed_in_branch": true,
+      "observed_in_main": true,
+      "state": "completed",
+      "correct": 1605,
+      "total": 2017,
+      "accuracy_percent": 79.57362419434804,
+      "metrics": {
+        "path": "output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+        "sha256": "a7ee955382e724ccc031a99ffa6bfa8db35dacdcff07a696e855cf585bbf6502"
+      },
+      "predictions": {
+        "path": "output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+        "sha256": "cc8a987acb9f4157ddb4a6cd3c72269d73c30ca4b56c8d498b8dd3798929adb2"
+      }
+    },
+    {
+      "allocation": "early",
+      "selected_layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "seed": 1,
+      "required": false,
+      "run_directory": "output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed1",
+      "observed_in_branch": false,
+      "observed_in_main": false,
+      "state": "missing_optional_approval_pending",
+      "correct": null,
+      "total": null,
+      "accuracy_percent": null
+    },
+    {
+      "allocation": "early",
+      "selected_layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "seed": 2,
+      "required": false,
+      "run_directory": "output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed2",
+      "observed_in_branch": false,
+      "observed_in_main": false,
+      "state": "missing_optional_approval_pending",
+      "correct": null,
+      "total": null,
+      "accuracy_percent": null
+    }
+  ],
+  "alternate_path_audit": {
+    "training_configs_scanned": {
+      "/home/msai/swarangi001/flow-guided-peft": 58,
+      "/tmp/flow-placement-ablations": 55
+    },
+    "matching_configurations": [
+      {
+        "checkout": "/home/msai/swarangi001/flow-guided-peft",
+        "training_config": "output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/train_config.json",
+        "allocation": "question_last",
+        "seed": 0,
+        "dataset": "datasets/scienceqa/train_llava.json",
+        "variant": "lora",
+        "flow_gates": false,
+        "trainable_parameters": 1048576
+      },
+      {
+        "checkout": "/home/msai/swarangi001/flow-guided-peft",
+        "training_config": "output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/train_config.json",
+        "allocation": "combined",
+        "seed": 0,
+        "dataset": "datasets/scienceqa/train_llava.json",
+        "variant": "lora",
+        "flow_gates": false,
+        "trainable_parameters": 1048576
+      },
+      {
+        "checkout": "/home/msai/swarangi001/flow-guided-peft",
+        "training_config": "output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/train_config.json",
+        "allocation": "middle",
+        "seed": 0,
+        "dataset": "datasets/scienceqa/train_llava.json",
+        "variant": "lora",
+        "flow_gates": false,
+        "trainable_parameters": 1048576
+      },
+      {
+        "checkout": "/home/msai/swarangi001/flow-guided-peft",
+        "training_config": "output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/train_config.json",
+        "allocation": "early",
+        "seed": 0,
+        "dataset": "datasets/scienceqa/train_llava.json",
+        "variant": "lora",
+        "flow_gates": false,
+        "trainable_parameters": 1048576
+      },
+      {
+        "checkout": "/tmp/flow-placement-ablations",
+        "training_config": "output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/train_config.json",
+        "allocation": "early",
+        "seed": 0,
+        "dataset": "datasets/scienceqa/train_llava.json",
+        "variant": "lora",
+        "flow_gates": false,
+        "trainable_parameters": 1048576
+      },
+      {
+        "checkout": "/tmp/flow-placement-ablations",
+        "training_config": "output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/train_config.json",
+        "allocation": "middle",
+        "seed": 0,
+        "dataset": "datasets/scienceqa/train_llava.json",
+        "variant": "lora",
+        "flow_gates": false,
+        "trainable_parameters": 1048576
+      },
+      {
+        "checkout": "/tmp/flow-placement-ablations",
+        "training_config": "output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/train_config.json",
+        "allocation": "question_last",
+        "seed": 0,
+        "dataset": "datasets/scienceqa/train_llava.json",
+        "variant": "lora",
+        "flow_gates": false,
+        "trainable_parameters": 1048576
+      },
+      {
+        "checkout": "/tmp/flow-placement-ablations",
+        "training_config": "output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/train_config.json",
+        "allocation": "combined",
+        "seed": 0,
+        "dataset": "datasets/scienceqa/train_llava.json",
+        "variant": "lora",
+        "flow_gates": false,
+        "trainable_parameters": 1048576
+      }
+    ],
+    "unresolved_rank_paths": [
+      "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora_capfirst/seed2/train_config.json",
+      "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora_capfirst/seed1/train_config.json",
+      "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora_capfirst/seed0/train_config.json",
+      "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora/seed1/train_config.json",
+      "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora/seed0/train_config.json",
+      "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora/scienceqa_train_llava/seed2/train_config.json",
+      "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora/scienceqa_train_llava/seed1/train_config.json",
+      "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora/scienceqa_train_llava/seed0/train_config.json",
+      "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora/scienceqa_regoff_confirm/seed2/train_config.json",
+      "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora/scienceqa_regoff_confirm/seed1/train_config.json",
+      "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora/scienceqa_regoff_confirm/seed0/train_config.json",
+      "/tmp/flow-placement-ablations/output/peft/adalora_capfirst/seed0/train_config.json",
+      "/tmp/flow-placement-ablations/output/peft/adalora_capfirst/seed1/train_config.json",
+      "/tmp/flow-placement-ablations/output/peft/adalora_capfirst/seed2/train_config.json",
+      "/tmp/flow-placement-ablations/output/peft/adalora/seed0/train_config.json",
+      "/tmp/flow-placement-ablations/output/peft/adalora/seed1/train_config.json",
+      "/tmp/flow-placement-ablations/output/peft/adalora/scienceqa_train_llava/seed0/train_config.json",
+      "/tmp/flow-placement-ablations/output/peft/adalora/scienceqa_train_llava/seed1/train_config.json",
+      "/tmp/flow-placement-ablations/output/peft/adalora/scienceqa_train_llava/seed2/train_config.json",
+      "/tmp/flow-placement-ablations/output/peft/adalora/scienceqa_regoff_confirm/seed0/train_config.json",
+      "/tmp/flow-placement-ablations/output/peft/adalora/scienceqa_regoff_confirm/seed1/train_config.json",
+      "/tmp/flow-placement-ablations/output/peft/adalora/scienceqa_regoff_confirm/seed2/train_config.json"
+    ],
+    "excluded_unresolved_rank_configs": [
+      {
+        "training_config": "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora_capfirst/seed2/train_config.json",
+        "seed": 2,
+        "dataset": "datasets/gqa/train_20000_capfirst_diagnostic.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      },
+      {
+        "training_config": "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora_capfirst/seed1/train_config.json",
+        "seed": 1,
+        "dataset": "datasets/gqa/train_20000_capfirst_diagnostic.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      },
+      {
+        "training_config": "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora_capfirst/seed0/train_config.json",
+        "seed": 0,
+        "dataset": "datasets/gqa/train_20000_capfirst_diagnostic.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      },
+      {
+        "training_config": "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora/seed1/train_config.json",
+        "seed": 1,
+        "dataset": "datasets/gqa/train_20000_llava.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      },
+      {
+        "training_config": "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora/seed0/train_config.json",
+        "seed": 0,
+        "dataset": "datasets/gqa/train_20000_llava.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      },
+      {
+        "training_config": "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora/scienceqa_train_llava/seed2/train_config.json",
+        "seed": 2,
+        "dataset": "datasets/scienceqa/train_llava.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      },
+      {
+        "training_config": "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora/scienceqa_train_llava/seed1/train_config.json",
+        "seed": 1,
+        "dataset": "datasets/scienceqa/train_llava.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      },
+      {
+        "training_config": "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora/scienceqa_train_llava/seed0/train_config.json",
+        "seed": 0,
+        "dataset": "datasets/scienceqa/train_llava.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      },
+      {
+        "training_config": "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora/scienceqa_regoff_confirm/seed2/train_config.json",
+        "seed": 2,
+        "dataset": "datasets/scienceqa/train_llava.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      },
+      {
+        "training_config": "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora/scienceqa_regoff_confirm/seed1/train_config.json",
+        "seed": 1,
+        "dataset": "datasets/scienceqa/train_llava.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      },
+      {
+        "training_config": "/home/msai/swarangi001/flow-guided-peft/output/peft/adalora/scienceqa_regoff_confirm/seed0/train_config.json",
+        "seed": 0,
+        "dataset": "datasets/scienceqa/train_llava.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      },
+      {
+        "training_config": "/tmp/flow-placement-ablations/output/peft/adalora_capfirst/seed0/train_config.json",
+        "seed": 0,
+        "dataset": "datasets/gqa/train_20000_capfirst_diagnostic.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      },
+      {
+        "training_config": "/tmp/flow-placement-ablations/output/peft/adalora_capfirst/seed1/train_config.json",
+        "seed": 1,
+        "dataset": "datasets/gqa/train_20000_capfirst_diagnostic.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      },
+      {
+        "training_config": "/tmp/flow-placement-ablations/output/peft/adalora_capfirst/seed2/train_config.json",
+        "seed": 2,
+        "dataset": "datasets/gqa/train_20000_capfirst_diagnostic.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      },
+      {
+        "training_config": "/tmp/flow-placement-ablations/output/peft/adalora/seed0/train_config.json",
+        "seed": 0,
+        "dataset": "datasets/gqa/train_20000_llava.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      },
+      {
+        "training_config": "/tmp/flow-placement-ablations/output/peft/adalora/seed1/train_config.json",
+        "seed": 1,
+        "dataset": "datasets/gqa/train_20000_llava.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      },
+      {
+        "training_config": "/tmp/flow-placement-ablations/output/peft/adalora/scienceqa_train_llava/seed0/train_config.json",
+        "seed": 0,
+        "dataset": "datasets/scienceqa/train_llava.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      },
+      {
+        "training_config": "/tmp/flow-placement-ablations/output/peft/adalora/scienceqa_train_llava/seed1/train_config.json",
+        "seed": 1,
+        "dataset": "datasets/scienceqa/train_llava.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      },
+      {
+        "training_config": "/tmp/flow-placement-ablations/output/peft/adalora/scienceqa_train_llava/seed2/train_config.json",
+        "seed": 2,
+        "dataset": "datasets/scienceqa/train_llava.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      },
+      {
+        "training_config": "/tmp/flow-placement-ablations/output/peft/adalora/scienceqa_regoff_confirm/seed0/train_config.json",
+        "seed": 0,
+        "dataset": "datasets/scienceqa/train_llava.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      },
+      {
+        "training_config": "/tmp/flow-placement-ablations/output/peft/adalora/scienceqa_regoff_confirm/seed1/train_config.json",
+        "seed": 1,
+        "dataset": "datasets/scienceqa/train_llava.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      },
+      {
+        "training_config": "/tmp/flow-placement-ablations/output/peft/adalora/scienceqa_regoff_confirm/seed2/train_config.json",
+        "seed": 2,
+        "dataset": "datasets/scienceqa/train_llava.json",
+        "recorded_parameters": 6292224,
+        "exclusion_reason": "AdaLoRA configuration with a different parameter budget; not one of the rank-8 1,048,576-parameter sparse allocations"
+      }
+    ]
+  },
+  "existing_seed0_shared_configuration": {
+    "ranks": "configs/ranks/flow_pruned8_scienceqa.json",
+    "seed": 0,
+    "model_path": "liuhaotian/llava-v1.5-7b",
+    "conv_mode": "vicuna_v1",
+    "train_file": "datasets/scienceqa/train_llava.json",
+    "image_folder": "datasets/scienceqa/images",
+    "out_dir": null,
+    "tag": null,
+    "limit": null,
+    "epochs": 1,
+    "batch_size": 4,
+    "grad_accum": 4,
+    "lr": 0.0002,
+    "warmup_ratio": 0.03,
+    "save_every": 200,
+    "max_hours": 5.5,
+    "num_workers": 4,
+    "trainable_params": 1048576,
+    "total_steps": 388
+  },
+  "matching_training_fields": [
+    "model_path",
+    "conv_mode",
+    "train_file",
+    "image_folder",
+    "epochs",
+    "batch_size",
+    "grad_accum",
+    "lr",
+    "warmup_ratio",
+    "save_every",
+    "max_hours",
+    "num_workers",
+    "trainable_params",
+    "total_steps"
+  ],
+  "protocol_source_comparison": [
+    {
+      "path": "peft_lora/train_lora.py",
+      "recorded_seed0_sha256": "282a8c7796a344ec88d4955b640c16e99ab1b1bc2806e1247d50da2ae5bbe6da",
+      "branch_sha256": "afa8638194a8abd634be3caeae6628ab61cf2f65fcd34b0982a1092bb86e4698",
+      "matches_recorded_seed0": false
+    },
+    {
+      "path": "peft_lora/eval_gqa.py",
+      "recorded_seed0_sha256": "9bdec040c2b6a1c93adfd7d9f5687556c2c79a91ff7832ed29d9261a78dc9281",
+      "branch_sha256": "dfe3aa0a8139edf74f18b42ebd18ece08ad4ede8c85960208381d140abb48ad8",
+      "matches_recorded_seed0": false
+    },
+    {
+      "path": "peft_lora/common.py",
+      "recorded_seed0_sha256": "8cbe56ac54d2413c7611445a0447c6da16e7b71d88f3711b8484a6783fc65ebd",
+      "branch_sha256": "8cbe56ac54d2413c7611445a0447c6da16e7b71d88f3711b8484a6783fc65ebd",
+      "matches_recorded_seed0": true
+    },
+    {
+      "path": "scripts/tc2_train.sh",
+      "recorded_seed0_sha256": "116486c12cf3c8fda042ed55d2a9143dfbe4524e136a7ef46b0a37f3a48b3a71",
+      "branch_sha256": "116486c12cf3c8fda042ed55d2a9143dfbe4524e136a7ef46b0a37f3a48b3a71",
+      "matches_recorded_seed0": true
+    },
+    {
+      "path": "scripts/tc2_eval.sh",
+      "recorded_seed0_sha256": "94092c8141047c4500f0b5ae0a03f1f6556697f6b24fde80540886b7db9a716e",
+      "branch_sha256": "94092c8141047c4500f0b5ae0a03f1f6556697f6b24fde80540886b7db9a716e",
+      "matches_recorded_seed0": true
+    },
+    {
+      "path": "datasets/scienceqa/train_llava.json",
+      "recorded_seed0_sha256": "8cc00fb37a7e642e05b0063e2554a5e4a0be3a3e8bb13e49dbba20045ea1c4f9",
+      "branch_sha256": "8cc00fb37a7e642e05b0063e2554a5e4a0be3a3e8bb13e49dbba20045ea1c4f9",
+      "matches_recorded_seed0": true
+    },
+    {
+      "path": "datasets/scienceqa/test_questions.jsonl",
+      "recorded_seed0_sha256": "3d3f7a94463894d4bb95c9920199cfd458ddda0f35f4d447aedc16891a3caa15",
+      "branch_sha256": "3d3f7a94463894d4bb95c9920199cfd458ddda0f35f4d447aedc16891a3caa15",
+      "matches_recorded_seed0": true
+    }
+  ],
+  "llava_runtime_source_checks": [
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/LLaVA-NeXT/llava/model/llava_arch.py",
+      "sha256": "ce3d69fbcd69fcb0d056d419a1b6760237a209f1fc09584174bb10e54b9ff3af",
+      "matches_recorded_seed0": true
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/LLaVA-NeXT/llava/model/builder.py",
+      "sha256": "288a4dc45ff84623332e312e2072adeadba2712853518475cca4a6fdf3e524e1",
+      "matches_recorded_seed0": true
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/LLaVA-NeXT/llava/conversation.py",
+      "sha256": "f3a902025d032b19f7d2c37fe08707b3e184e5fa6f00aba7c931ca5d1e249629",
+      "matches_recorded_seed0": true
+    }
+  ],
+  "packages_match_seed0": true,
+  "training_cohort": {
+    "rows": 6218,
+    "supervised_rows_per_epoch": 6208,
+    "optimizer_steps": 388,
+    "answer_format": "uppercase A-E option letters with original prompts/EOS"
+  },
+  "evaluation_cohort": {
+    "rows": 2017,
+    "unique_ids": 2017,
+    "exact_labels_verified": true,
+    "normalization": "unchanged evaluator.normalize: strip().rstrip(\".\").lower()"
+  },
+  "per_seed_accuracy_differences": [
+    {
+      "seed": 0,
+      "a": "combined",
+      "b": "question_last",
+      "a_correct": 1605,
+      "b_correct": 1572,
+      "difference_pp": 1.6360932077342587,
+      "state": "available"
+    },
+    {
+      "seed": 0,
+      "a": "combined",
+      "b": "middle",
+      "a_correct": 1605,
+      "b_correct": 1522,
+      "difference_pp": 4.1150223103619235,
+      "state": "available"
+    },
+    {
+      "seed": 0,
+      "a": "question_last",
+      "b": "middle",
+      "a_correct": 1572,
+      "b_correct": 1522,
+      "difference_pp": 2.478929102627665,
+      "state": "available"
+    },
+    {
+      "seed": 1,
+      "a": "combined",
+      "b": "question_last",
+      "a_correct": null,
+      "b_correct": null,
+      "difference_pp": null,
+      "state": "awaiting_both_completed_runs"
+    },
+    {
+      "seed": 1,
+      "a": "combined",
+      "b": "middle",
+      "a_correct": null,
+      "b_correct": null,
+      "difference_pp": null,
+      "state": "awaiting_both_completed_runs"
+    },
+    {
+      "seed": 1,
+      "a": "question_last",
+      "b": "middle",
+      "a_correct": null,
+      "b_correct": null,
+      "difference_pp": null,
+      "state": "awaiting_both_completed_runs"
+    },
+    {
+      "seed": 2,
+      "a": "combined",
+      "b": "question_last",
+      "a_correct": null,
+      "b_correct": null,
+      "difference_pp": null,
+      "state": "awaiting_both_completed_runs"
+    },
+    {
+      "seed": 2,
+      "a": "combined",
+      "b": "middle",
+      "a_correct": null,
+      "b_correct": null,
+      "difference_pp": null,
+      "state": "awaiting_both_completed_runs"
+    },
+    {
+      "seed": 2,
+      "a": "question_last",
+      "b": "middle",
+      "a_correct": null,
+      "b_correct": null,
+      "difference_pp": null,
+      "state": "awaiting_both_completed_runs"
+    }
+  ],
+  "three_seed_summary": [
+    {
+      "allocation": "combined",
+      "completed_seeds": [
+        0
+      ],
+      "three_seed_mean_accuracy_percent": null,
+      "three_seed_sample_sd_pp": null,
+      "state": "not_computable_until_seeds_1_and_2_complete",
+      "summary_seeds": [
+        0,
+        1,
+        2
+      ],
+      "training_scope": "required"
+    },
+    {
+      "allocation": "question_last",
+      "completed_seeds": [
+        0
+      ],
+      "three_seed_mean_accuracy_percent": null,
+      "three_seed_sample_sd_pp": null,
+      "state": "not_computable_until_seeds_1_and_2_complete",
+      "summary_seeds": [
+        0,
+        1,
+        2
+      ],
+      "training_scope": "required"
+    },
+    {
+      "allocation": "middle",
+      "completed_seeds": [
+        0
+      ],
+      "three_seed_mean_accuracy_percent": null,
+      "three_seed_sample_sd_pp": null,
+      "state": "not_computable_until_seeds_1_and_2_complete",
+      "summary_seeds": [
+        0,
+        1,
+        2
+      ],
+      "training_scope": "required"
+    },
+    {
+      "allocation": "early",
+      "completed_seeds": [
+        0
+      ],
+      "three_seed_mean_accuracy_percent": null,
+      "three_seed_sample_sd_pp": null,
+      "state": "not_computable_until_seeds_1_and_2_complete",
+      "summary_seeds": [
+        0,
+        1,
+        2
+      ],
+      "training_scope": "optional_team_approval_pending"
+    }
+  ],
+  "cross_seed_ordering_conclusion": "Unknown: only seed 0 has completed. No three-seed mean or sample SD is reported.",
+  "bootstrap_note": "Previous question-bootstrap tests concern fixed seed-0 checkpoints; new training seeds measure a different source of variation.",
+  "source_matching_decision": "Pin the actual seed-0 trainer/evaluator/common at 8734991 in an isolated runtime export. Current branch adds optional LoRA variants and a post-merge dtype cast; shared sources remain unchanged.",
+  "accounting_limits": "Current query since 2026-10-01 returned 51 available allocation records; it did not return the older combined seed-0 jobs. Their previously verified accounting is retained in the existing paired-analysis artifact. No seed-1/2 matches found in available records; current queue was empty.",
+  "gpu_jobs_submitted": false,
+  "submission_review": {
+    "approved": true,
+    "required_pairs": 6,
+    "optional_early_excluded": true,
+    "controller": "nohup requested by user; GPU work through Slurm only"
+  }
+}

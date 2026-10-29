@@ -27,3 +27,7 @@ slurm/logs/*
 outputs/final_early8_seed0/adapter/
 outputs/final_early8_seed0/checkpoint.pt*
 outputs/final_early8_seed0/logs/
+
+# Recreated from the recorded seed-0 Git revision, never committed as duplicate code.
+output/pathway_top8_multiseed/runtime_seed0/
+output/pathway_top8_multiseed/.*.lock
