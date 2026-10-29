@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "feasible_region_pairs_checked": 136,
+  "independent_optimum_boundaries": [
+    [
+      0,
+      7
+    ],
+    [
+      9,
+      16
+    ]
+  ],
+  "uniform_score_tie_break": "passed",
+  "invalid_gap_rejection": "passed",
+  "rank_file_entries": 64,
+  "rank_sum": 256,
+  "baseline_prediction_ids_and_answers_match_test": true,
+  "baseline_correct_recomputed": 1636,
+  "baseline_total": 2017,
+  "test_questions": 2017,
+  "all_test_images_exist": true
+}

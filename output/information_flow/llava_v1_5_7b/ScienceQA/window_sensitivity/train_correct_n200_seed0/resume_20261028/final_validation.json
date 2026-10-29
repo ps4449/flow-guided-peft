@@ -1,0 +1,26 @@
+{
+  "validated_at_unix": 1793190467.2319345,
+  "original_artifacts_preserved": 13,
+  "preexisting_rank_configs_preserved": 15,
+  "row_counts": {
+    "window9/Image___Question": 6400,
+    "window9/Question___Last": 6400,
+    "window3/Image___Question": 6400,
+    "window3/Question___Last": 6400
+  },
+  "all_32_scores_match_original_scoring": true,
+  "selections_match_original_scoring": true,
+  "original_174_question_csv_bytes_preserved": true,
+  "new_rank_configuration_created": false,
+  "training_submitted": false,
+  "decision": {
+    "meaningfully_different": false,
+    "stable": false,
+    "prepare_rank8_config": false,
+    "reason": "no_candidate_unless_both_difference_and_stability_pass"
+  },
+  "analysis_code": {
+    "path": "peft_lora/methods/window_sensitivity/analyze.py",
+    "sha256": "a366ec6c9a37604093cec9b45b0fdc458bad28cef4f171b6175082b577dc7c0e"
+  }
+}

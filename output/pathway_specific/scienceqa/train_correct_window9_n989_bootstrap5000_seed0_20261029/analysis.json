@@ -1,0 +1,1516 @@
+{
+  "n": 989,
+  "window": 9,
+  "bootstrap": {
+    "replicates": 5000,
+    "seed": 0,
+    "unit": "question",
+    "paired_across_pathways": true,
+    "generator": "numpy.default_rng(0).integers(0,989,size=989) once per draw"
+  },
+  "criteria": {
+    "maximum_combined_overlap_for_distinct": 5,
+    "minimum_bootstrap_median_overlap": 7,
+    "minimum_bootstrap_fifth_percentile": 6,
+    "minimum_each_half_overlap": 7,
+    "interpretation": "Practical screening choices saved before pathway scores/bootstrap; not a significance test"
+  },
+  "existing_combined_config": {
+    "path": "configs/ranks/flow_pruned8_scienceqa.json",
+    "sha256": "e14269da571bb3e48d6a50a1e39ef2963d6e61e838217499106573351736b030"
+  },
+  "existing_combined_top8": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    9,
+    10,
+    11
+  ],
+  "rankings": {
+    "image_question": {
+      "scores": [
+        11.985766593125193,
+        11.811106737772741,
+        12.143581414574241,
+        12.25368387440687,
+        11.958143632234133,
+        1.3823902588457475,
+        1.48364407739158,
+        1.739844952772055,
+        1.5001449785815453,
+        1.495864887964304,
+        1.4134026901845549,
+        1.2736186390904634,
+        1.0388522460434464,
+        0.8270490241107578,
+        1.1371025479636352,
+        0.26642680940620384,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "descending_layer_order": [
+        3,
+        2,
+        0,
+        4,
+        1,
+        7,
+        8,
+        9,
+        6,
+        10,
+        5,
+        11,
+        14,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "top8_rank_order": [
+        3,
+        2,
+        0,
+        4,
+        1,
+        7,
+        8,
+        9
+      ],
+      "top8_sorted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        9
+      ],
+      "selected_score_sum": 64.88813707143107,
+      "all32_score_sum": 73.71062336446747,
+      "selected_score_fraction": 0.8803091618230797,
+      "vs_existing_combined_top8": {
+        "count": 6,
+        "fraction": 0.75,
+        "jaccard": 0.6,
+        "shared": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          9
+        ],
+        "only_first": [
+          7,
+          8
+        ],
+        "only_second": [
+          10,
+          11
+        ]
+      }
+    },
+    "question_last": {
+      "scores": [
+        0.03678312638436376,
+        0.02016080571366487,
+        0.08103740347686174,
+        0.09754974905955921,
+        0.0,
+        0.3034007898089155,
+        0.2521911258009569,
+        0.19306274794814623,
+        0.5651350069085475,
+        1.4838497602992788,
+        1.6494982855509142,
+        1.512931781819635,
+        1.7182325101040767,
+        1.844319613232576,
+        1.4201582401335873,
+        1.461117849408386,
+        1.5079604402116353,
+        0.9801002037925312,
+        0.24321953582029895,
+        0.017152760116123295,
+        0.15063178869730653,
+        0.1545058935542797,
+        0.08254278894660812,
+        0.08420482279302534,
+        0.09987251106923675,
+        0.13588435552005737,
+        0.12356589644126609,
+        0.1663123066303022,
+        0.1620781101298408,
+        0.14882971625903502,
+        0.1398569014729254,
+        0.11788285087654708
+      ],
+      "descending_layer_order": [
+        13,
+        12,
+        10,
+        11,
+        16,
+        9,
+        15,
+        14,
+        17,
+        8,
+        5,
+        6,
+        18,
+        7,
+        27,
+        28,
+        21,
+        20,
+        29,
+        30,
+        25,
+        26,
+        31,
+        24,
+        3,
+        23,
+        22,
+        2,
+        0,
+        1,
+        19,
+        4
+      ],
+      "top8_rank_order": [
+        13,
+        12,
+        10,
+        11,
+        16,
+        9,
+        15,
+        14
+      ],
+      "top8_sorted": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "selected_score_sum": 12.59806848076009,
+      "all32_score_sum": 16.95402967798049,
+      "selected_score_fraction": 0.7430722205896676,
+      "vs_existing_combined_top8": {
+        "count": 3,
+        "fraction": 0.375,
+        "jaccard": 0.23076923076923078,
+        "shared": [
+          9,
+          10,
+          11
+        ],
+        "only_first": [
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "only_second": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "combined": {
+      "scores": [
+        12.022549719509557,
+        11.831267543486407,
+        12.224618818051102,
+        12.35123362346643,
+        11.958143632234133,
+        1.685791048654663,
+        1.7358352031925368,
+        1.9329077007202011,
+        2.0652799854900925,
+        2.979714648263583,
+        3.0629009757354693,
+        2.7865504209100984,
+        2.757084756147523,
+        2.671368637343334,
+        2.5572607880972225,
+        1.72754465881459,
+        1.5079604402116353,
+        0.9801002037925312,
+        0.24321953582029895,
+        0.017152760116123295,
+        0.15063178869730653,
+        0.1545058935542797,
+        0.08254278894660812,
+        0.08420482279302534,
+        0.09987251106923675,
+        0.13588435552005737,
+        0.12356589644126609,
+        0.1663123066303022,
+        0.1620781101298408,
+        0.14882971625903502,
+        0.1398569014729254,
+        0.11788285087654708
+      ],
+      "descending_layer_order": [
+        3,
+        2,
+        0,
+        4,
+        1,
+        10,
+        9,
+        11,
+        12,
+        13,
+        14,
+        8,
+        7,
+        6,
+        15,
+        5,
+        16,
+        17,
+        18,
+        27,
+        28,
+        21,
+        20,
+        29,
+        30,
+        25,
+        26,
+        31,
+        24,
+        23,
+        22,
+        19
+      ],
+      "top8_rank_order": [
+        3,
+        2,
+        0,
+        4,
+        1,
+        10,
+        9,
+        11
+      ],
+      "top8_sorted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11
+      ],
+      "selected_score_sum": 69.21697938165678,
+      "all32_score_sum": 90.66465304244795,
+      "selected_score_fraction": 0.763439522006998,
+      "vs_existing_combined_top8": {
+        "count": 8,
+        "fraction": 1.0,
+        "jaccard": 1.0,
+        "shared": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          9,
+          10,
+          11
+        ],
+        "only_first": [],
+        "only_second": []
+      }
+    }
+  },
+  "allocations": {
+    "image_question": {
+      "layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        9
+      ],
+      "fixed_position_control": false,
+      "score_sums": {
+        "image_question": 64.88813707143107,
+        "question_last": 2.477578599790422,
+        "combined": 67.36571567122151
+      },
+      "vs_existing_combined_top8": {
+        "count": 6,
+        "fraction": 0.75,
+        "jaccard": 0.6,
+        "shared": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          9
+        ],
+        "only_first": [
+          7,
+          8
+        ],
+        "only_second": [
+          10,
+          11
+        ]
+      }
+    },
+    "question_last": {
+      "layers": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "fixed_position_control": false,
+      "score_sums": {
+        "image_question": 7.452316844763366,
+        "question_last": 12.59806848076009,
+        "combined": 20.050385325523457
+      },
+      "vs_existing_combined_top8": {
+        "count": 3,
+        "fraction": 0.375,
+        "jaccard": 0.23076923076923078,
+        "shared": [
+          9,
+          10,
+          11
+        ],
+        "only_first": [
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "only_second": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "combined": {
+      "layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11
+      ],
+      "fixed_position_control": false,
+      "score_sums": {
+        "image_question": 64.3351684693525,
+        "question_last": 4.881810912304277,
+        "combined": 69.21697938165678
+      },
+      "vs_existing_combined_top8": {
+        "count": 8,
+        "fraction": 1.0,
+        "jaccard": 1.0,
+        "shared": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          9,
+          10,
+          11
+        ],
+        "only_first": [],
+        "only_second": []
+      }
+    },
+    "early_eight": {
+      "layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "fixed_position_control": true,
+      "score_sums": {
+        "image_question": 64.75816154112256,
+        "question_last": 0.9841857481924681,
+        "combined": 65.74234728931503
+      },
+      "vs_existing_combined_top8": {
+        "count": 5,
+        "fraction": 0.625,
+        "jaccard": 0.45454545454545453,
+        "shared": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "only_first": [
+          5,
+          6,
+          7
+        ],
+        "only_second": [
+          9,
+          10,
+          11
+        ]
+      }
+    },
+    "middle_eight": {
+      "layers": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "fixed_position_control": true,
+      "score_sums": {
+        "image_question": 3.2694306275240432,
+        "question_last": 9.192261152819215,
+        "combined": 12.461691780343259
+      },
+      "vs_existing_combined_top8": {
+        "count": 0,
+        "fraction": 0.0,
+        "jaccard": 0.0,
+        "shared": [],
+        "only_first": [
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "only_second": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          9,
+          10,
+          11
+        ]
+      }
+    }
+  },
+  "stability": {
+    "image_question": {
+      "overlap_with_full_top8": {
+        "mean": 6.9622,
+        "median": 7.0,
+        "fifth_percentile": 6.0,
+        "ninety_fifth_percentile": 8.0,
+        "ci95_percentile": [
+          6.0,
+          8.0
+        ],
+        "counts": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 4,
+          "6": 1414,
+          "7": 2349,
+          "8": 1233
+        },
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0,
+          "5": 0.0008,
+          "6": 0.2828,
+          "7": 0.4698,
+          "8": 0.2466
+        }
+      },
+      "overlap_with_fixed_existing_combined": {
+        "mean": 5.711,
+        "median": 6.0,
+        "fifth_percentile": 5.0,
+        "ninety_fifth_percentile": 7.0,
+        "ci95_percentile": [
+          5.0,
+          7.0
+        ],
+        "counts": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 2189,
+          "6": 2078,
+          "7": 722,
+          "8": 11
+        },
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0,
+          "5": 0.4378,
+          "6": 0.4156,
+          "7": 0.1444,
+          "8": 0.0022
+        }
+      },
+      "overlap_with_paired_resampled_combined": {
+        "mean": 5.7422,
+        "median": 6.0,
+        "fifth_percentile": 5.0,
+        "ninety_fifth_percentile": 7.0,
+        "ci95_percentile": [
+          5.0,
+          7.0
+        ],
+        "counts": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 2018,
+          "6": 2261,
+          "7": 713,
+          "8": 8
+        },
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0,
+          "5": 0.4036,
+          "6": 0.4522,
+          "7": 0.1426,
+          "8": 0.0016
+        }
+      },
+      "inclusion_frequency": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.2988,
+        0.4574,
+        0.9946,
+        0.47,
+        0.4976,
+        0.1934,
+        0.02,
+        0.0002,
+        0.0004,
+        0.0676,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_selections": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          9
+        ]
+      ],
+      "half_overlaps_with_full": [
+        8,
+        7
+      ],
+      "cutoff": {
+        "eighth_layer": 9,
+        "ninth_layer": 6,
+        "eighth_score": 1.495864887964304,
+        "ninth_score": 1.48364407739158,
+        "score_gap": 0.01222081057272395,
+        "gap_ci95": [
+          -0.35826595058959737,
+          0.40304207072800896
+        ],
+        "probability_eighth_strictly_exceeds_ninth": 0.527,
+        "probability_exact_score_tie": 0.0,
+        "eighth_inclusion_frequency": 0.4976,
+        "ninth_inclusion_frequency": 0.4574,
+        "full_cutoff_exact_tie_count": 1
+      },
+      "boundary_layers_ranks6_to11": [
+        {
+          "rank": 6,
+          "layer": 7,
+          "score": 1.739844952772055,
+          "inclusion_frequency": 0.9946,
+          "score_bootstrap_ci95": [
+            1.0647018954676655,
+            2.4402790740433487
+          ]
+        },
+        {
+          "rank": 7,
+          "layer": 8,
+          "score": 1.5001449785815453,
+          "inclusion_frequency": 0.47,
+          "score_bootstrap_ci95": [
+            0.8444452923286032,
+            2.187175233603268
+          ]
+        },
+        {
+          "rank": 8,
+          "layer": 9,
+          "score": 1.495864887964304,
+          "inclusion_frequency": 0.4976,
+          "score_bootstrap_ci95": [
+            0.8226889775780093,
+            2.194863693887536
+          ]
+        },
+        {
+          "rank": 9,
+          "layer": 6,
+          "score": 1.48364407739158,
+          "inclusion_frequency": 0.4574,
+          "score_bootstrap_ci95": [
+            0.8510210193716125,
+            2.124017449999712
+          ]
+        },
+        {
+          "rank": 10,
+          "layer": 10,
+          "score": 1.4134026901845549,
+          "inclusion_frequency": 0.1934,
+          "score_bootstrap_ci95": [
+            0.7665614142897988,
+            2.079925735365852
+          ]
+        },
+        {
+          "rank": 11,
+          "layer": 5,
+          "score": 1.3823902588457475,
+          "inclusion_frequency": 0.2988,
+          "score_bootstrap_ci95": [
+            0.7606774314560568,
+            2.0224130301709944
+          ]
+        }
+      ]
+    },
+    "question_last": {
+      "overlap_with_full_top8": {
+        "mean": 7.9984,
+        "median": 8.0,
+        "fifth_percentile": 8.0,
+        "ninety_fifth_percentile": 8.0,
+        "ci95_percentile": [
+          8.0,
+          8.0
+        ],
+        "counts": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 8,
+          "8": 4992
+        },
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0,
+          "5": 0.0,
+          "6": 0.0,
+          "7": 0.0016,
+          "8": 0.9984
+        }
+      },
+      "overlap_with_fixed_existing_combined": {
+        "mean": 2.9986,
+        "median": 3.0,
+        "fifth_percentile": 3.0,
+        "ninety_fifth_percentile": 3.0,
+        "ci95_percentile": [
+          3.0,
+          3.0
+        ],
+        "counts": {
+          "0": 0,
+          "1": 0,
+          "2": 7,
+          "3": 4993,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0,
+          "8": 0
+        },
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0014,
+          "3": 0.9986,
+          "4": 0.0,
+          "5": 0.0,
+          "6": 0.0,
+          "7": 0.0,
+          "8": 0.0
+        }
+      },
+      "overlap_with_paired_resampled_combined": {
+        "mean": 2.9948,
+        "median": 3.0,
+        "fifth_percentile": 3.0,
+        "ninety_fifth_percentile": 3.0,
+        "ci95_percentile": [
+          3.0,
+          3.0
+        ],
+        "counts": {
+          "0": 0,
+          "1": 0,
+          "2": 26,
+          "3": 4974,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0,
+          "8": 0
+        },
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0052,
+          "3": 0.9948,
+          "4": 0.0,
+          "5": 0.0,
+          "6": 0.0,
+          "7": 0.0,
+          "8": 0.0
+        }
+      },
+      "inclusion_frequency": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.9988,
+        1.0,
+        0.9998,
+        1.0,
+        1.0,
+        0.9998,
+        1.0,
+        1.0,
+        0.0016,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_selections": [
+        [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      ],
+      "half_overlaps_with_full": [
+        8,
+        8
+      ],
+      "cutoff": {
+        "eighth_layer": 14,
+        "ninth_layer": 17,
+        "eighth_score": 1.4201582401335873,
+        "ninth_score": 0.9801002037925312,
+        "score_gap": 0.4400580363410561,
+        "gap_ci95": [
+          0.20437933379714138,
+          0.6644623153394758
+        ],
+        "probability_eighth_strictly_exceeds_ninth": 0.9998,
+        "probability_exact_score_tie": 0.0,
+        "eighth_inclusion_frequency": 0.9998,
+        "ninth_inclusion_frequency": 0.0016,
+        "full_cutoff_exact_tie_count": 1
+      },
+      "boundary_layers_ranks6_to11": [
+        {
+          "rank": 6,
+          "layer": 9,
+          "score": 1.4838497602992788,
+          "inclusion_frequency": 0.9988,
+          "score_bootstrap_ci95": [
+            1.0112253888589342,
+            1.9740263214023637
+          ]
+        },
+        {
+          "rank": 7,
+          "layer": 15,
+          "score": 1.461117849408386,
+          "inclusion_frequency": 1.0,
+          "score_bootstrap_ci95": [
+            0.9363765082303671,
+            2.0065236463344953
+          ]
+        },
+        {
+          "rank": 8,
+          "layer": 14,
+          "score": 1.4201582401335873,
+          "inclusion_frequency": 0.9998,
+          "score_bootstrap_ci95": [
+            0.9049534301529152,
+            1.9536089047124527
+          ]
+        },
+        {
+          "rank": 9,
+          "layer": 17,
+          "score": 0.9801002037925312,
+          "inclusion_frequency": 0.0016,
+          "score_bootstrap_ci95": [
+            0.5547671206098624,
+            1.4494544460310008
+          ]
+        },
+        {
+          "rank": 10,
+          "layer": 8,
+          "score": 0.5651350069085475,
+          "inclusion_frequency": 0.0,
+          "score_bootstrap_ci95": [
+            0.25782430610327606,
+            0.8485757741751078
+          ]
+        },
+        {
+          "rank": 11,
+          "layer": 5,
+          "score": 0.3034007898089155,
+          "inclusion_frequency": 0.0,
+          "score_bootstrap_ci95": [
+            0.09840477896620807,
+            0.5026199043856008
+          ]
+        }
+      ]
+    },
+    "combined": {
+      "overlap_with_full_top8": {
+        "mean": 7.4142,
+        "median": 8.0,
+        "fifth_percentile": 6.0,
+        "ninety_fifth_percentile": 8.0,
+        "ci95_percentile": [
+          6.0,
+          8.0
+        ],
+        "counts": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 40,
+          "6": 352,
+          "7": 2105,
+          "8": 2503
+        },
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0,
+          "5": 0.008,
+          "6": 0.0704,
+          "7": 0.421,
+          "8": 0.5006
+        }
+      },
+      "overlap_with_fixed_existing_combined": {
+        "mean": 7.4142,
+        "median": 8.0,
+        "fifth_percentile": 6.0,
+        "ninety_fifth_percentile": 8.0,
+        "ci95_percentile": [
+          6.0,
+          8.0
+        ],
+        "counts": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 40,
+          "6": 352,
+          "7": 2105,
+          "8": 2503
+        },
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0,
+          "5": 0.008,
+          "6": 0.0704,
+          "7": 0.421,
+          "8": 0.5006
+        }
+      },
+      "overlap_with_paired_resampled_combined": {
+        "mean": 8.0,
+        "median": 8.0,
+        "fifth_percentile": 8.0,
+        "ninety_fifth_percentile": 8.0,
+        "ci95_percentile": [
+          8.0,
+          8.0
+        ],
+        "counts": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0,
+          "8": 5000
+        },
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0,
+          "5": 0.0,
+          "6": 0.0,
+          "7": 0.0,
+          "8": 1.0
+        }
+      },
+      "inclusion_frequency": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0012,
+        0.0016,
+        0.0016,
+        0.0004,
+        0.89,
+        0.9872,
+        0.537,
+        0.2668,
+        0.1872,
+        0.127,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_selections": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          9,
+          10,
+          14
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          9,
+          10,
+          11
+        ]
+      ],
+      "half_overlaps_with_full": [
+        7,
+        8
+      ],
+      "cutoff": {
+        "eighth_layer": 11,
+        "ninth_layer": 12,
+        "eighth_score": 2.7865504209100984,
+        "ninth_score": 2.757084756147523,
+        "score_gap": 0.029465664762575283,
+        "gap_ci95": [
+          -0.18590055747809556,
+          0.2405287478243589
+        ],
+        "probability_eighth_strictly_exceeds_ninth": 0.6098,
+        "probability_exact_score_tie": 0.0,
+        "eighth_inclusion_frequency": 0.537,
+        "ninth_inclusion_frequency": 0.2668,
+        "full_cutoff_exact_tie_count": 1
+      },
+      "boundary_layers_ranks6_to11": [
+        {
+          "rank": 6,
+          "layer": 10,
+          "score": 3.0629009757354693,
+          "inclusion_frequency": 0.9872,
+          "score_bootstrap_ci95": [
+            2.183033400490426,
+            3.9886452321652497
+          ]
+        },
+        {
+          "rank": 7,
+          "layer": 9,
+          "score": 2.979714648263583,
+          "inclusion_frequency": 0.89,
+          "score_bootstrap_ci95": [
+            2.0910098145914913,
+            3.9082703385202993
+          ]
+        },
+        {
+          "rank": 8,
+          "layer": 11,
+          "score": 2.7865504209100984,
+          "inclusion_frequency": 0.537,
+          "score_bootstrap_ci95": [
+            1.9206742719790455,
+            3.6973946765120282
+          ]
+        },
+        {
+          "rank": 9,
+          "layer": 12,
+          "score": 2.757084756147523,
+          "inclusion_frequency": 0.2668,
+          "score_bootstrap_ci95": [
+            1.9185427403873336,
+            3.634439638596427
+          ]
+        },
+        {
+          "rank": 10,
+          "layer": 13,
+          "score": 2.671368637343334,
+          "inclusion_frequency": 0.1872,
+          "score_bootstrap_ci95": [
+            1.9234924083038576,
+            3.4500311469653386
+          ]
+        },
+        {
+          "rank": 11,
+          "layer": 14,
+          "score": 2.5572607880972225,
+          "inclusion_frequency": 0.127,
+          "score_bootstrap_ci95": [
+            1.8014530804823972,
+            3.3800278656178038
+          ]
+        }
+      ]
+    }
+  },
+  "decisions": {
+    "image_question": {
+      "distinct": false,
+      "stable": true,
+      "passes_training_screen": false,
+      "overlap_with_early_control": {
+        "count": 6,
+        "fraction": 0.75,
+        "jaccard": 0.6,
+        "shared": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "only_first": [
+          8,
+          9
+        ],
+        "only_second": [
+          5,
+          6
+        ]
+      },
+      "overlap_with_middle_control": {
+        "count": 0,
+        "fraction": 0.0,
+        "jaccard": 0.0,
+        "shared": [],
+        "only_first": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          7,
+          8,
+          9
+        ],
+        "only_second": [
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ]
+      }
+    },
+    "question_last": {
+      "distinct": true,
+      "stable": true,
+      "passes_training_screen": true,
+      "overlap_with_early_control": {
+        "count": 0,
+        "fraction": 0.0,
+        "jaccard": 0.0,
+        "shared": [],
+        "only_first": [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "only_second": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "overlap_with_middle_control": {
+        "count": 5,
+        "fraction": 0.625,
+        "jaccard": 0.45454545454545453,
+        "shared": [
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "only_first": [
+          9,
+          10,
+          11
+        ],
+        "only_second": [
+          17,
+          18,
+          19
+        ]
+      }
+    },
+    "combined": {
+      "distinct": false,
+      "stable": true,
+      "passes_training_screen": false,
+      "overlap_with_early_control": {
+        "count": 5,
+        "fraction": 0.625,
+        "jaccard": 0.45454545454545453,
+        "shared": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "only_first": [
+          9,
+          10,
+          11
+        ],
+        "only_second": [
+          5,
+          6,
+          7
+        ]
+      },
+      "overlap_with_middle_control": {
+        "count": 0,
+        "fraction": 0.0,
+        "jaccard": 0.0,
+        "shared": [],
+        "only_first": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          9,
+          10,
+          11
+        ],
+        "only_second": [
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ]
+      }
+    }
+  },
+  "control_overlap_with_resampled_combined": {
+    "early_eight": {
+      "mean": 5.0044,
+      "median": 5.0,
+      "fifth_percentile": 5.0,
+      "ninety_fifth_percentile": 5.0,
+      "ci95_percentile": [
+        5.0,
+        5.0
+      ],
+      "counts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 4978,
+        "6": 22,
+        "7": 0,
+        "8": 0
+      },
+      "probabilities": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.0,
+        "5": 0.9956,
+        "6": 0.0044,
+        "7": 0.0,
+        "8": 0.0
+      }
+    },
+    "middle_eight": {
+      "mean": 0.581,
+      "median": 0.0,
+      "fifth_percentile": 0.0,
+      "ninety_fifth_percentile": 2.0,
+      "ci95_percentile": [
+        0.0,
+        2.0
+      ],
+      "counts": {
+        "0": 2526,
+        "1": 2083,
+        "2": 351,
+        "3": 40,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0
+      },
+      "probabilities": {
+        "0": 0.5052,
+        "1": 0.4166,
+        "2": 0.0702,
+        "3": 0.008,
+        "4": 0.0,
+        "5": 0.0,
+        "6": 0.0,
+        "7": 0.0,
+        "8": 0.0
+      }
+    }
+  },
+  "models_trained_or_evaluated": false,
+  "gpu_jobs_submitted": false,
+  "limits": "Overlapping window-center scores; cohort-conditional bootstrap; no pathway superiority or downstream model performance established."
+}

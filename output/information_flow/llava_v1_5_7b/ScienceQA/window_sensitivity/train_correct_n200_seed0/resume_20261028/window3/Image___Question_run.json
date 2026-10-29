@@ -1,0 +1,26 @@
+{
+  "state": "complete",
+  "flow": "Image___Question",
+  "window": 3,
+  "started_at_unix": 1793188390.1229672,
+  "slurm_job_id": "48456",
+  "node": "TC2N01",
+  "gpu": "NVIDIA A40",
+  "torch": "2.1.2+cu121",
+  "transformers": "4.40.0.dev0",
+  "actual_model_dtype": "torch.float16",
+  "actual_attention_implementation": "sdpa",
+  "parameters_trainable_during_inference": "no gradients; no adapters",
+  "resumed_complete_questions": 174,
+  "parity_tolerance": {
+    "rtol": 0.001,
+    "atol": 1e-05
+  },
+  "runner": {
+    "path": "scripts/flow_window_sensitivity.py",
+    "sha256": "629a783365304c72b2445a699e85208ad9eb3e3d18f74b82ab8c0f7373cdf00b"
+  },
+  "completed_questions": 200,
+  "elapsed_seconds": 217.44673006236553,
+  "completed_at_unix": 1793188607.6113052
+}

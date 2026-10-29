@@ -1,0 +1,147 @@
+{
+  "created_at_unix": 1793188321.1827533,
+  "source_output": "output/information_flow/llava_v1_5_7b/ScienceQA/window_sensitivity/train_correct_n200_seed0",
+  "source_artifacts_preserved": [
+    {
+      "path": "output/information_flow/llava_v1_5_7b/ScienceQA/window_sensitivity/train_correct_n200_seed0/boundary_audit.json",
+      "sha256": "200c2f09c4eeac9e644765a481fb9d4b69d0ab9f750e2e7f312d45f8381ed8a3",
+      "bytes": 11437
+    },
+    {
+      "path": "output/information_flow/llava_v1_5_7b/ScienceQA/window_sensitivity/train_correct_n200_seed0/calibration_questions.csv",
+      "sha256": "c694f5a271074e1de86ed9293a16eb08a2813d1ecf2d0b8878b893e134258f42",
+      "bytes": 90989
+    },
+    {
+      "path": "output/information_flow/llava_v1_5_7b/ScienceQA/window_sensitivity/train_correct_n200_seed0/input_provenance.json",
+      "sha256": "d4e5a38da77649e8f32aac2b828e40a6dec092263982c682c0492a4382a0aeb4",
+      "bytes": 31908
+    },
+    {
+      "path": "output/information_flow/llava_v1_5_7b/ScienceQA/window_sensitivity/train_correct_n200_seed0/jobs.json",
+      "sha256": "4aca1d9378185db6bb852e5ddbaae428f0f2d91dfee48f4fe3dfa136a92d30b4",
+      "bytes": 499
+    },
+    {
+      "path": "output/information_flow/llava_v1_5_7b/ScienceQA/window_sensitivity/train_correct_n200_seed0/status.json",
+      "sha256": "9049f334b6e666afaff62681053709397dcb78761039bfc2ffde45bab95e7134",
+      "bytes": 177
+    },
+    {
+      "path": "output/information_flow/llava_v1_5_7b/ScienceQA/window_sensitivity/train_correct_n200_seed0/subset_manifest.json",
+      "sha256": "81c7f8d5b011cbdb7de592f4f5cb3fefe9df7d302b79f9518c40c8fe063b88e7",
+      "bytes": 6625
+    },
+    {
+      "path": "output/information_flow/llava_v1_5_7b/ScienceQA/window_sensitivity/train_correct_n200_seed0/window3/Image___Question.csv",
+      "sha256": "d1487059f4035c2cf1fbc31d26aa9cd9bb6f8ddee9ade13067358a347b1fd07e",
+      "bytes": 884469
+    },
+    {
+      "path": "output/information_flow/llava_v1_5_7b/ScienceQA/window_sensitivity/train_correct_n200_seed0/window3/Image___Question_parity.json",
+      "sha256": "8747c3957689b1f9e224d385738fc1c89f3471f08a368df4fac58ab2ca88447a",
+      "bytes": 30563
+    },
+    {
+      "path": "output/information_flow/llava_v1_5_7b/ScienceQA/window_sensitivity/train_correct_n200_seed0/window3/Image___Question_parity.json.tmp",
+      "sha256": "482e0909c9ca130745f1dc9d2686cfd810be02f9a83eb710f3672d9b59f069dc",
+      "bytes": 8192
+    },
+    {
+      "path": "output/information_flow/llava_v1_5_7b/ScienceQA/window_sensitivity/train_correct_n200_seed0/window3/Image___Question_run.json",
+      "sha256": "81e1ff4a0109869bbe141ca27341c870333fc9c4f1285ad39da91c6da9655883",
+      "bytes": 719
+    },
+    {
+      "path": "output/information_flow/llava_v1_5_7b/ScienceQA/window_sensitivity/train_correct_n200_seed0/window9/Image___Question.csv",
+      "sha256": "88921c4264238b8cf292831821ed2653d23e36dbe07a6265e370dae11a24ce48",
+      "bytes": 1007626
+    },
+    {
+      "path": "output/information_flow/llava_v1_5_7b/ScienceQA/window_sensitivity/train_correct_n200_seed0/window9/Question___Last.csv",
+      "sha256": "81c7284be2be0dc764cb1d6e97d01f26e0e91995aa3eddb4546969153a4d0fe5",
+      "bytes": 1001274
+    },
+    {
+      "path": "output/information_flow/llava_v1_5_7b/ScienceQA/window_sensitivity/train_correct_n200_seed0/window9_analysis.json",
+      "sha256": "028367327223f3aec8ae88ca78a52d76c80983b770c3ee99c99d66fdaeaf3c74",
+      "bytes": 8796
+    }
+  ],
+  "rank_configs_before_resume": [
+    {
+      "path": "configs/ranks/flow_guided.json",
+      "sha256": "8aed0ec2e88f07ad59e01c3f0c4e7860dae1588589354261d0d1a9a3376941e3"
+    },
+    {
+      "path": "configs/ranks/flow_guided_scienceqa.json",
+      "sha256": "a9e93be667375bc30c41bf063582219d26bf571b2ab88132c6943e363d494066"
+    },
+    {
+      "path": "configs/ranks/flow_protected.json",
+      "sha256": "dc48c0c0abdd2e712b796d1aa7b856d616fce71c2c4a624c3e8e3081dac15995"
+    },
+    {
+      "path": "configs/ranks/flow_pruned16_scienceqa.json",
+      "sha256": "05094e6cd18990e91ca848e9fe37714cf66199082ab92707604c09bf9927fa1d"
+    },
+    {
+      "path": "configs/ranks/flow_pruned4_scienceqa.json",
+      "sha256": "f7a6ca823645e4910c47d90e27453f73dcc049b7fd0bc421d8fad1e9436463e7"
+    },
+    {
+      "path": "configs/ranks/flow_pruned8_scienceqa.json",
+      "sha256": "e14269da571bb3e48d6a50a1e39ef2963d6e61e838217499106573351736b030"
+    },
+    {
+      "path": "configs/ranks/grad_pruned16_scienceqa.json",
+      "sha256": "05094e6cd18990e91ca848e9fe37714cf66199082ab92707604c09bf9927fa1d"
+    },
+    {
+      "path": "configs/ranks/inverse_flow.json",
+      "sha256": "7fdab216e14086685f9adc0f53bf994e6f4870f3a6620995e88a679667198e49"
+    },
+    {
+      "path": "configs/ranks/inverse_flow_scienceqa.json",
+      "sha256": "4ec1b4fa7a88728861be043838441263f5a2fedd116a29b43a0fc3eae1ff106c"
+    },
+    {
+      "path": "configs/ranks/inverse_pruned16_scienceqa.json",
+      "sha256": "7feffd78cc670c522d6bf7aa59a8e428ea11104758677fe7611c596dbe1e6f5f"
+    },
+    {
+      "path": "configs/ranks/random_pruned16_scienceqa.json",
+      "sha256": "558f9ca2106dd63a73463f0c5a41667b7d7c245e8db008999e2f680f02f2537b"
+    },
+    {
+      "path": "configs/ranks/region_pruned16_scienceqa.json",
+      "sha256": "c772dd955e844f15cc9ba91b6bd69d9d505e63d37dd886432cdb50fd3731e2a8"
+    },
+    {
+      "path": "configs/ranks/similarity_pruned16_scienceqa.json",
+      "sha256": "f4a26bd5da93bf76544b1204b54ee038815c1bc475ff30599c405935a9b3a2e4"
+    },
+    {
+      "path": "configs/ranks/spectrum_pruned16_scienceqa.json",
+      "sha256": "7feffd78cc670c522d6bf7aa59a8e428ea11104758677fe7611c596dbe1e6f5f"
+    },
+    {
+      "path": "configs/ranks/uniform.json",
+      "sha256": "295d8ff85588f4d797faa0c87acfb321de7984fee30367018c284d06b9d9fc0d"
+    }
+  ],
+  "reason": "Preserve failed jobs 48389/48390 artifacts; continue identical frozen cohort and settings in an isolated directory",
+  "failed_jobs": {
+    "48389": {
+      "state": "FAILED",
+      "exit_code": "1:0",
+      "preserved_complete_questions": 174
+    },
+    "48390": {
+      "state": "FAILED",
+      "exit_code": "1:0",
+      "preserved_complete_questions": 0
+    }
+  },
+  "training_submitted": false
+}

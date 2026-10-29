@@ -1,0 +1,1352 @@
+{
+  "created_at": "2026-10-29T10:28:58.768383+08:00",
+  "n": 2017,
+  "models": {
+    "combined": {
+      "run_dir": "output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0",
+      "predictions": {
+        "path": "output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+        "sha256": "1a090cb3ec5c0f2983445d180de9d0f3b7132b136e112bd82278cbe0fcfa3641"
+      },
+      "metrics": {
+        "path": "output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+        "sha256": "3518ff8472b1f7dc5751fa4e0537e0429f63efc8c74b4aaa2e4cc97a783cc906"
+      },
+      "training_config": {
+        "ranks": "configs/ranks/flow_pruned8_scienceqa.json",
+        "seed": 0,
+        "model_path": "liuhaotian/llava-v1.5-7b",
+        "conv_mode": "vicuna_v1",
+        "train_file": "datasets/scienceqa/train_llava.json",
+        "image_folder": "datasets/scienceqa/images",
+        "out_dir": null,
+        "tag": null,
+        "limit": null,
+        "epochs": 1,
+        "batch_size": 4,
+        "grad_accum": 4,
+        "lr": 0.0002,
+        "warmup_ratio": 0.03,
+        "save_every": 200,
+        "max_hours": 5.5,
+        "num_workers": 4,
+        "trainable_params": 1048576,
+        "total_steps": 388
+      },
+      "rank_configuration": {
+        "path": "configs/ranks/flow_pruned8_scienceqa.json",
+        "sha256": "e14269da571bb3e48d6a50a1e39ef2963d6e61e838217499106573351736b030"
+      },
+      "selected_layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11
+      ],
+      "correct": 1605,
+      "total": 2017,
+      "accuracy_percent": 79.57362419434804,
+      "adapter_available": false,
+      "raw_prediction_changed_by_normalization": 2017
+    },
+    "question_last": {
+      "run_dir": "output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0",
+      "predictions": {
+        "path": "output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+        "sha256": "f8fd1e78a6fc1958c2280fe9e004f50bcc100607bfe65aa4c64ae8189c278cbd"
+      },
+      "metrics": {
+        "path": "output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+        "sha256": "1a1f2a0a5ec7e5e998cfbdfc8f7c6c3207c3a0be60cb632681006877b0a13280"
+      },
+      "training_config": {
+        "ranks": "configs/ranks/question_last_pruned8_scienceqa.json",
+        "seed": 0,
+        "model_path": "liuhaotian/llava-v1.5-7b",
+        "conv_mode": "vicuna_v1",
+        "train_file": "datasets/scienceqa/train_llava.json",
+        "image_folder": "datasets/scienceqa/images",
+        "out_dir": "output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0",
+        "tag": null,
+        "limit": null,
+        "epochs": 1,
+        "batch_size": 4,
+        "grad_accum": 4,
+        "lr": 0.0002,
+        "warmup_ratio": 0.03,
+        "save_every": 200,
+        "max_hours": 5.5,
+        "num_workers": 4,
+        "flow_gates": false,
+        "gate_lr": 0.01,
+        "trainable_params": 1048576,
+        "total_steps": 388
+      },
+      "rank_configuration": {
+        "path": "configs/ranks/question_last_pruned8_scienceqa.json",
+        "sha256": "ca5cf005ad7d2ae908e91792a765f8cabd0a79c34ccdf11d44f9f060ac7d2110"
+      },
+      "selected_layers": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "correct": 1572,
+      "total": 2017,
+      "accuracy_percent": 77.93753098661378,
+      "adapter_available": true,
+      "raw_prediction_changed_by_normalization": 2017
+    },
+    "middle": {
+      "run_dir": "output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0",
+      "predictions": {
+        "path": "output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+        "sha256": "c43805ef8c75349d73541a9cfe1e2edb20b2726fb534cbc3c51cb646c2652bc8"
+      },
+      "metrics": {
+        "path": "output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+        "sha256": "88e3c009f96f840a5911039b2b69654b3dfb82786317505d81ab39b6795a9900"
+      },
+      "training_config": {
+        "ranks": "configs/ranks/middle_pruned8_scienceqa.json",
+        "seed": 0,
+        "model_path": "liuhaotian/llava-v1.5-7b",
+        "conv_mode": "vicuna_v1",
+        "train_file": "datasets/scienceqa/train_llava.json",
+        "image_folder": "datasets/scienceqa/images",
+        "out_dir": "output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0",
+        "tag": null,
+        "limit": null,
+        "epochs": 1,
+        "batch_size": 4,
+        "grad_accum": 4,
+        "lr": 0.0002,
+        "warmup_ratio": 0.03,
+        "save_every": 200,
+        "max_hours": 5.5,
+        "num_workers": 4,
+        "flow_gates": false,
+        "gate_lr": 0.01,
+        "trainable_params": 1048576,
+        "total_steps": 388
+      },
+      "rank_configuration": {
+        "path": "configs/ranks/middle_pruned8_scienceqa.json",
+        "sha256": "b2030711cc66ceb1adc5f786edf74c45e489e2ef894b3bf56f60b39646613e32"
+      },
+      "selected_layers": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "correct": 1522,
+      "total": 2017,
+      "accuracy_percent": 75.45860188398612,
+      "adapter_available": true,
+      "raw_prediction_changed_by_normalization": 2017
+    }
+  },
+  "pairs": [
+    {
+      "a": "combined",
+      "b": "question_last",
+      "n": 2017,
+      "both_correct": 1513,
+      "both_wrong": 353,
+      "a_only_correct": 92,
+      "b_only_correct": 59,
+      "a_correct": 1605,
+      "b_correct": 1572,
+      "accuracy_difference_pp": 1.6360932077342683,
+      "paired_bootstrap_ci95_pp": [
+        0.44620723847297966,
+        2.875557759048091
+      ],
+      "mcnemar_exact_p": 0.008986616457699267,
+      "examples": {
+        "a_only_correct": [
+          {
+            "question_id": "test_3430",
+            "subject": "natural science",
+            "grade": "grade2",
+            "disagreement_subject_count": 59,
+            "question": "What is the direction of this push?",
+            "full_prompt": "Context: A girl uses a stick to hit a piñata. She pushes the piñata with the stick. So, the piñata swings.\nWhat is the direction of this push?\nA. toward the stick\nB. away from the stick\nAnswer with the option's letter from the given choices directly.",
+            "image": "datasets/scienceqa/images/test_3430.png",
+            "answer": "B",
+            "a_prediction": "B",
+            "b_prediction": "A"
+          },
+          {
+            "question_id": "test_2504",
+            "subject": "social science",
+            "grade": "grade5",
+            "disagreement_subject_count": 32,
+            "question": "What is the name of the colony shown?",
+            "full_prompt": "What is the name of the colony shown?\nA. Georgia\nB. North Carolina\nC. Tennessee\nD. Pennsylvania\nAnswer with the option's letter from the given choices directly.",
+            "image": "datasets/scienceqa/images/test_2504.png",
+            "answer": "D",
+            "a_prediction": "D",
+            "b_prediction": "B"
+          },
+          {
+            "question_id": "test_1578",
+            "subject": "language science",
+            "grade": "grade6",
+            "disagreement_subject_count": 1,
+            "question": "Which term matches the picture?",
+            "full_prompt": "Context: Read the text.\nScientists divide the history of Earth into eras. Different types of animal life help distinguish these eras. We live in the Cenozoic era, which began roughly sixty-six million years ago. The Cenozoic era is known as the Age of Mammals because mammals, like humans, are the largest land animals. During the previous era, called the Mesozoic era, big reptiles, like dinosaurs, were the dominant animal species—it's nicknamed the Age of Reptiles. Some scientists believe that, at the end of the Mesozoic era, a large object from space collided with Earth, helping cause the mass extinction of the dinosaurs and ushering in the Age of Mammals.\nWhich term matches the picture?\nA. Cenozoic era\nB. Mesozoic era\nAnswer with the option's letter from the given choices directly.",
+            "image": "datasets/scienceqa/images/test_1578.png",
+            "answer": "B",
+            "a_prediction": "B",
+            "b_prediction": "A"
+          }
+        ],
+        "b_only_correct": [
+          {
+            "question_id": "test_1188",
+            "subject": "natural science",
+            "grade": "grade5",
+            "disagreement_subject_count": 44,
+            "question": "Which of these organisms contains matter that was once part of the bear sedge?",
+            "full_prompt": "Context: Below is a food web from a tundra ecosystem in Nunavut, a territory in Northern Canada.\nA food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.\nWhich of these organisms contains matter that was once part of the bear sedge?\nA. collared lemming\nB. grizzly bear\nAnswer with the option's letter from the given choices directly.",
+            "image": "datasets/scienceqa/images/test_1188.png",
+            "answer": "A",
+            "a_prediction": "B",
+            "b_prediction": "A"
+          },
+          {
+            "question_id": "test_2677",
+            "subject": "social science",
+            "grade": "grade8",
+            "disagreement_subject_count": 12,
+            "question": "What is the name of the colony shown?",
+            "full_prompt": "What is the name of the colony shown?\nA. Florida\nB. South Carolina\nC. Maryland\nD. Tennessee\nAnswer with the option's letter from the given choices directly.",
+            "image": "datasets/scienceqa/images/test_2677.png",
+            "answer": "C",
+            "a_prediction": "B",
+            "b_prediction": "C"
+          },
+          {
+            "question_id": "test_1127",
+            "subject": "language science",
+            "grade": "grade8",
+            "disagreement_subject_count": 3,
+            "question": "Which term matches the picture?",
+            "full_prompt": "Context: Read the text.\nIn the sciences, it's important to distinguish between the accuracy and precision of measurements. Accuracy refers to how close measured values are to a true value. Precision refers to how close measured values are to each other. A common metaphor used to illustrate the difference between these terms is a bull's-eye, or target. Darts thrown accurately at a bull's-eye all hit close to the center of the target but not necessarily close to each other. Darts thrown precisely at a bull's-eye, by contrast, all hit the same spot but not necessarily at the center of the bull's-eye.\nWhich term matches the picture?\nA. accuracy\nB. precision\nAnswer with the option's letter from the given choices directly.",
+            "image": "datasets/scienceqa/images/test_1127.png",
+            "answer": "B",
+            "a_prediction": "A",
+            "b_prediction": "B"
+          }
+        ]
+      },
+      "mcnemar_holm_p": 0.008986616457699267
+    },
+    {
+      "a": "combined",
+      "b": "middle",
+      "n": 2017,
+      "both_correct": 1461,
+      "both_wrong": 351,
+      "a_only_correct": 144,
+      "b_only_correct": 61,
+      "a_correct": 1605,
+      "b_correct": 1522,
+      "accuracy_difference_pp": 4.115022310361926,
+      "paired_bootstrap_ci95_pp": [
+        2.7268220128904312,
+        5.552801189885969
+      ],
+      "mcnemar_exact_p": 6.404925733312152e-09,
+      "examples": {
+        "a_only_correct": [
+          {
+            "question_id": "test_1589",
+            "subject": "natural science",
+            "grade": "grade3",
+            "disagreement_subject_count": 85,
+            "question": "Which better describes the tide pool ecosystems in Little Corona Beach?",
+            "full_prompt": "Context: Figure: Little Corona Beach.\nLittle Corona Beach is in southern California. It has many tide pool ecosystems.\nWhich better describes the tide pool ecosystems in Little Corona Beach?\nA. It has daily flooding and draining of seawater. It also has water that is poor in nutrients.\nB. It has daily flooding and draining of seawater. It also has water that is rich in nutrients.\nAnswer with the option's letter from the given choices directly.",
+            "image": "datasets/scienceqa/images/test_1589.png",
+            "answer": "B",
+            "a_prediction": "B",
+            "b_prediction": "A"
+          },
+          {
+            "question_id": "test_3692",
+            "subject": "social science",
+            "grade": "grade5",
+            "disagreement_subject_count": 58,
+            "question": "Which of these cities is marked on the map?",
+            "full_prompt": "Which of these cities is marked on the map?\nA. New York City\nB. San Antonio\nC. Denver\nD. St. Louis\nAnswer with the option's letter from the given choices directly.",
+            "image": "datasets/scienceqa/images/test_3692.png",
+            "answer": "D",
+            "a_prediction": "D",
+            "b_prediction": "C"
+          },
+          {
+            "question_id": "test_1578",
+            "subject": "language science",
+            "grade": "grade6",
+            "disagreement_subject_count": 1,
+            "question": "Which term matches the picture?",
+            "full_prompt": "Context: Read the text.\nScientists divide the history of Earth into eras. Different types of animal life help distinguish these eras. We live in the Cenozoic era, which began roughly sixty-six million years ago. The Cenozoic era is known as the Age of Mammals because mammals, like humans, are the largest land animals. During the previous era, called the Mesozoic era, big reptiles, like dinosaurs, were the dominant animal species—it's nicknamed the Age of Reptiles. Some scientists believe that, at the end of the Mesozoic era, a large object from space collided with Earth, helping cause the mass extinction of the dinosaurs and ushering in the Age of Mammals.\nWhich term matches the picture?\nA. Cenozoic era\nB. Mesozoic era\nAnswer with the option's letter from the given choices directly.",
+            "image": "datasets/scienceqa/images/test_1578.png",
+            "answer": "B",
+            "a_prediction": "B",
+            "b_prediction": "A"
+          }
+        ],
+        "b_only_correct": [
+          {
+            "question_id": "test_4060",
+            "subject": "natural science",
+            "grade": "grade8",
+            "disagreement_subject_count": 44,
+            "question": "What is the probability that a cockatiel produced by this cross will have bright orange cheeks?",
+            "full_prompt": "Context: In a group of cockatiels, some individuals have bright orange cheeks and others have pale orange cheeks. In this group, the gene for the cheek color trait has two alleles. The allele for bright orange cheeks (R) is dominant over the allele for pale orange cheeks (r).\nThis Punnett square shows a cross between two cockatiels.\nWhat is the probability that a cockatiel produced by this cross will have bright orange cheeks?\nA. 2/4\nB. 1/4\nC. 4/4\nD. 0/4\nE. 3/4\nAnswer with the option's letter from the given choices directly.",
+            "image": "datasets/scienceqa/images/test_4060.png",
+            "answer": "A",
+            "a_prediction": "C",
+            "b_prediction": "A"
+          },
+          {
+            "question_id": "test_3796",
+            "subject": "social science",
+            "grade": "grade6",
+            "disagreement_subject_count": 15,
+            "question": "Which country is highlighted?",
+            "full_prompt": "Which country is highlighted?\nA. Saint Kitts and Nevis\nB. Saint Lucia\nC. Trinidad and Tobago\nD. Antigua and Barbuda\nAnswer with the option's letter from the given choices directly.",
+            "image": "datasets/scienceqa/images/test_3796.png",
+            "answer": "A",
+            "a_prediction": "D",
+            "b_prediction": "A"
+          },
+          {
+            "question_id": "test_1127",
+            "subject": "language science",
+            "grade": "grade8",
+            "disagreement_subject_count": 2,
+            "question": "Which term matches the picture?",
+            "full_prompt": "Context: Read the text.\nIn the sciences, it's important to distinguish between the accuracy and precision of measurements. Accuracy refers to how close measured values are to a true value. Precision refers to how close measured values are to each other. A common metaphor used to illustrate the difference between these terms is a bull's-eye, or target. Darts thrown accurately at a bull's-eye all hit close to the center of the target but not necessarily close to each other. Darts thrown precisely at a bull's-eye, by contrast, all hit the same spot but not necessarily at the center of the bull's-eye.\nWhich term matches the picture?\nA. accuracy\nB. precision\nAnswer with the option's letter from the given choices directly.",
+            "image": "datasets/scienceqa/images/test_1127.png",
+            "answer": "B",
+            "a_prediction": "A",
+            "b_prediction": "B"
+          }
+        ]
+      },
+      "mcnemar_holm_p": 1.9214777199936455e-08
+    },
+    {
+      "a": "question_last",
+      "b": "middle",
+      "n": 2017,
+      "both_correct": 1485,
+      "both_wrong": 408,
+      "a_only_correct": 87,
+      "b_only_correct": 37,
+      "a_correct": 1572,
+      "b_correct": 1522,
+      "accuracy_difference_pp": 2.4789291026276583,
+      "paired_bootstrap_ci95_pp": [
+        1.3882002974714922,
+        3.5696579077838373
+      ],
+      "mcnemar_exact_p": 8.274158969176748e-06,
+      "examples": {
+        "a_only_correct": [
+          {
+            "question_id": "test_3341",
+            "subject": "natural science",
+            "grade": "grade3",
+            "disagreement_subject_count": 49,
+            "question": "Select the mammal below.",
+            "full_prompt": "Context: Mammals have hair or fur and feed their young milk. A giraffe is an example of a mammal.\nSelect the mammal below.\nA. eastern newt\nB. black howler\nAnswer with the option's letter from the given choices directly.",
+            "image": "datasets/scienceqa/images/test_3341.png",
+            "answer": "B",
+            "a_prediction": "B",
+            "b_prediction": "A"
+          },
+          {
+            "question_id": "test_960",
+            "subject": "social science",
+            "grade": "grade7",
+            "disagreement_subject_count": 37,
+            "question": "Which country is highlighted?",
+            "full_prompt": "Which country is highlighted?\nA. Solomon Islands\nB. Tonga\nC. Fiji\nD. Vanuatu\nAnswer with the option's letter from the given choices directly.",
+            "image": "datasets/scienceqa/images/test_960.png",
+            "answer": "C",
+            "a_prediction": "C",
+            "b_prediction": "A"
+          },
+          {
+            "question_id": "test_3884",
+            "subject": "language science",
+            "grade": "grade2",
+            "disagreement_subject_count": 1,
+            "question": "Look at the picture. Which word best describes the sound these birds make?",
+            "full_prompt": "Look at the picture. Which word best describes the sound these birds make?\nA. chirping\nB. quacking\nC. popping\nAnswer with the option's letter from the given choices directly.",
+            "image": "datasets/scienceqa/images/test_3884.png",
+            "answer": "A",
+            "a_prediction": "A",
+            "b_prediction": "C"
+          }
+        ],
+        "b_only_correct": [
+          {
+            "question_id": "test_1889",
+            "subject": "natural science",
+            "grade": "grade7",
+            "disagreement_subject_count": 23,
+            "question": "Which of these organisms contains matter that was once part of the lichen?",
+            "full_prompt": "Context: Below is a food web from a tundra ecosystem in Nunavut, a territory in Northern Canada.\nA food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.\nWhich of these organisms contains matter that was once part of the lichen?\nA. rough-legged hawk\nB. parasitic jaeger\nC. Arctic fox\nD. snowy owl\nE. barren-ground caribou\nAnswer with the option's letter from the given choices directly.",
+            "image": "datasets/scienceqa/images/test_1889.png",
+            "answer": "E",
+            "a_prediction": "D",
+            "b_prediction": "E"
+          },
+          {
+            "question_id": "test_3265",
+            "subject": "social science",
+            "grade": "grade7",
+            "disagreement_subject_count": 14,
+            "question": "What is the name of the colony shown?",
+            "full_prompt": "What is the name of the colony shown?\nA. West Virginia\nB. New Hampshire\nC. Massachusetts\nD. New Jersey\nAnswer with the option's letter from the given choices directly.",
+            "image": "datasets/scienceqa/images/test_3265.png",
+            "answer": "C",
+            "a_prediction": "B",
+            "b_prediction": "C"
+          }
+        ]
+      },
+      "mcnemar_holm_p": 1.6548317938353496e-05
+    }
+  ],
+  "subgroups": [
+    {
+      "field": "subject",
+      "group": "language science",
+      "n": 44,
+      "a": "combined",
+      "b": "question_last",
+      "a_correct": 35,
+      "b_correct": 37,
+      "a_accuracy_percent": 79.54545454545455,
+      "b_accuracy_percent": 84.0909090909091,
+      "accuracy_difference_pp": -4.545454545454552,
+      "both_correct": 34,
+      "both_wrong": 6,
+      "a_only_correct": 1,
+      "b_only_correct": 3
+    },
+    {
+      "field": "subject",
+      "group": "language science",
+      "n": 44,
+      "a": "combined",
+      "b": "middle",
+      "a_correct": 35,
+      "b_correct": 36,
+      "a_accuracy_percent": 79.54545454545455,
+      "b_accuracy_percent": 81.81818181818183,
+      "accuracy_difference_pp": -2.272727272727282,
+      "both_correct": 34,
+      "both_wrong": 7,
+      "a_only_correct": 1,
+      "b_only_correct": 2
+    },
+    {
+      "field": "subject",
+      "group": "language science",
+      "n": 44,
+      "a": "question_last",
+      "b": "middle",
+      "a_correct": 37,
+      "b_correct": 36,
+      "a_accuracy_percent": 84.0909090909091,
+      "b_accuracy_percent": 81.81818181818183,
+      "accuracy_difference_pp": 2.2727272727272707,
+      "both_correct": 36,
+      "both_wrong": 7,
+      "a_only_correct": 1,
+      "b_only_correct": 0
+    },
+    {
+      "field": "subject",
+      "group": "natural science",
+      "n": 1209,
+      "a": "combined",
+      "b": "question_last",
+      "a_correct": 905,
+      "b_correct": 890,
+      "a_accuracy_percent": 74.85525227460711,
+      "b_accuracy_percent": 73.61455748552522,
+      "accuracy_difference_pp": 1.2406947890818865,
+      "both_correct": 846,
+      "both_wrong": 260,
+      "a_only_correct": 59,
+      "b_only_correct": 44
+    },
+    {
+      "field": "subject",
+      "group": "natural science",
+      "n": 1209,
+      "a": "combined",
+      "b": "middle",
+      "a_correct": 905,
+      "b_correct": 864,
+      "a_accuracy_percent": 74.85525227460711,
+      "b_accuracy_percent": 71.46401985111662,
+      "accuracy_difference_pp": 3.3912324234904867,
+      "both_correct": 820,
+      "both_wrong": 260,
+      "a_only_correct": 85,
+      "b_only_correct": 44
+    },
+    {
+      "field": "subject",
+      "group": "natural science",
+      "n": 1209,
+      "a": "question_last",
+      "b": "middle",
+      "a_correct": 890,
+      "b_correct": 864,
+      "a_accuracy_percent": 73.61455748552522,
+      "b_accuracy_percent": 71.46401985111662,
+      "accuracy_difference_pp": 2.1505376344086002,
+      "both_correct": 841,
+      "both_wrong": 296,
+      "a_only_correct": 49,
+      "b_only_correct": 23
+    },
+    {
+      "field": "subject",
+      "group": "social science",
+      "n": 764,
+      "a": "combined",
+      "b": "question_last",
+      "a_correct": 665,
+      "b_correct": 645,
+      "a_accuracy_percent": 87.04188481675392,
+      "b_accuracy_percent": 84.42408376963351,
+      "accuracy_difference_pp": 2.617801047120416,
+      "both_correct": 633,
+      "both_wrong": 87,
+      "a_only_correct": 32,
+      "b_only_correct": 12
+    },
+    {
+      "field": "subject",
+      "group": "social science",
+      "n": 764,
+      "a": "combined",
+      "b": "middle",
+      "a_correct": 665,
+      "b_correct": 622,
+      "a_accuracy_percent": 87.04188481675392,
+      "b_accuracy_percent": 81.41361256544502,
+      "accuracy_difference_pp": 5.628272251308896,
+      "both_correct": 607,
+      "both_wrong": 84,
+      "a_only_correct": 58,
+      "b_only_correct": 15
+    },
+    {
+      "field": "subject",
+      "group": "social science",
+      "n": 764,
+      "a": "question_last",
+      "b": "middle",
+      "a_correct": 645,
+      "b_correct": 622,
+      "a_accuracy_percent": 84.42408376963351,
+      "b_accuracy_percent": 81.41361256544502,
+      "accuracy_difference_pp": 3.0104712041884807,
+      "both_correct": 608,
+      "both_wrong": 105,
+      "a_only_correct": 37,
+      "b_only_correct": 14
+    },
+    {
+      "field": "grade",
+      "group": "grade1",
+      "n": 2,
+      "a": "combined",
+      "b": "question_last",
+      "a_correct": 2,
+      "b_correct": 2,
+      "a_accuracy_percent": 100.0,
+      "b_accuracy_percent": 100.0,
+      "accuracy_difference_pp": 0.0,
+      "both_correct": 2,
+      "both_wrong": 0,
+      "a_only_correct": 0,
+      "b_only_correct": 0
+    },
+    {
+      "field": "grade",
+      "group": "grade1",
+      "n": 2,
+      "a": "combined",
+      "b": "middle",
+      "a_correct": 2,
+      "b_correct": 2,
+      "a_accuracy_percent": 100.0,
+      "b_accuracy_percent": 100.0,
+      "accuracy_difference_pp": 0.0,
+      "both_correct": 2,
+      "both_wrong": 0,
+      "a_only_correct": 0,
+      "b_only_correct": 0
+    },
+    {
+      "field": "grade",
+      "group": "grade1",
+      "n": 2,
+      "a": "question_last",
+      "b": "middle",
+      "a_correct": 2,
+      "b_correct": 2,
+      "a_accuracy_percent": 100.0,
+      "b_accuracy_percent": 100.0,
+      "accuracy_difference_pp": 0.0,
+      "both_correct": 2,
+      "both_wrong": 0,
+      "a_only_correct": 0,
+      "b_only_correct": 0
+    },
+    {
+      "field": "grade",
+      "group": "grade12",
+      "n": 5,
+      "a": "combined",
+      "b": "question_last",
+      "a_correct": 5,
+      "b_correct": 5,
+      "a_accuracy_percent": 100.0,
+      "b_accuracy_percent": 100.0,
+      "accuracy_difference_pp": 0.0,
+      "both_correct": 5,
+      "both_wrong": 0,
+      "a_only_correct": 0,
+      "b_only_correct": 0
+    },
+    {
+      "field": "grade",
+      "group": "grade12",
+      "n": 5,
+      "a": "combined",
+      "b": "middle",
+      "a_correct": 5,
+      "b_correct": 5,
+      "a_accuracy_percent": 100.0,
+      "b_accuracy_percent": 100.0,
+      "accuracy_difference_pp": 0.0,
+      "both_correct": 5,
+      "both_wrong": 0,
+      "a_only_correct": 0,
+      "b_only_correct": 0
+    },
+    {
+      "field": "grade",
+      "group": "grade12",
+      "n": 5,
+      "a": "question_last",
+      "b": "middle",
+      "a_correct": 5,
+      "b_correct": 5,
+      "a_accuracy_percent": 100.0,
+      "b_accuracy_percent": 100.0,
+      "accuracy_difference_pp": 0.0,
+      "both_correct": 5,
+      "both_wrong": 0,
+      "a_only_correct": 0,
+      "b_only_correct": 0
+    },
+    {
+      "field": "grade",
+      "group": "grade2",
+      "n": 117,
+      "a": "combined",
+      "b": "question_last",
+      "a_correct": 98,
+      "b_correct": 98,
+      "a_accuracy_percent": 83.76068376068376,
+      "b_accuracy_percent": 83.76068376068376,
+      "accuracy_difference_pp": 0.0,
+      "both_correct": 95,
+      "both_wrong": 16,
+      "a_only_correct": 3,
+      "b_only_correct": 3
+    },
+    {
+      "field": "grade",
+      "group": "grade2",
+      "n": 117,
+      "a": "combined",
+      "b": "middle",
+      "a_correct": 98,
+      "b_correct": 94,
+      "a_accuracy_percent": 83.76068376068376,
+      "b_accuracy_percent": 80.34188034188034,
+      "accuracy_difference_pp": 3.4188034188034178,
+      "both_correct": 93,
+      "both_wrong": 18,
+      "a_only_correct": 5,
+      "b_only_correct": 1
+    },
+    {
+      "field": "grade",
+      "group": "grade2",
+      "n": 117,
+      "a": "question_last",
+      "b": "middle",
+      "a_correct": 98,
+      "b_correct": 94,
+      "a_accuracy_percent": 83.76068376068376,
+      "b_accuracy_percent": 80.34188034188034,
+      "accuracy_difference_pp": 3.4188034188034178,
+      "both_correct": 93,
+      "both_wrong": 18,
+      "a_only_correct": 5,
+      "b_only_correct": 1
+    },
+    {
+      "field": "grade",
+      "group": "grade3",
+      "n": 342,
+      "a": "combined",
+      "b": "question_last",
+      "a_correct": 301,
+      "b_correct": 302,
+      "a_accuracy_percent": 88.01169590643275,
+      "b_accuracy_percent": 88.30409356725146,
+      "accuracy_difference_pp": -0.29239766081871066,
+      "both_correct": 295,
+      "both_wrong": 34,
+      "a_only_correct": 6,
+      "b_only_correct": 7
+    },
+    {
+      "field": "grade",
+      "group": "grade3",
+      "n": 342,
+      "a": "combined",
+      "b": "middle",
+      "a_correct": 301,
+      "b_correct": 299,
+      "a_accuracy_percent": 88.01169590643275,
+      "b_accuracy_percent": 87.42690058479532,
+      "accuracy_difference_pp": 0.5847953216374324,
+      "both_correct": 293,
+      "both_wrong": 35,
+      "a_only_correct": 8,
+      "b_only_correct": 6
+    },
+    {
+      "field": "grade",
+      "group": "grade3",
+      "n": 342,
+      "a": "question_last",
+      "b": "middle",
+      "a_correct": 302,
+      "b_correct": 299,
+      "a_accuracy_percent": 88.30409356725146,
+      "b_accuracy_percent": 87.42690058479532,
+      "accuracy_difference_pp": 0.8771929824561431,
+      "both_correct": 297,
+      "both_wrong": 38,
+      "a_only_correct": 5,
+      "b_only_correct": 2
+    },
+    {
+      "field": "grade",
+      "group": "grade4",
+      "n": 361,
+      "a": "combined",
+      "b": "question_last",
+      "a_correct": 304,
+      "b_correct": 293,
+      "a_accuracy_percent": 84.21052631578947,
+      "b_accuracy_percent": 81.16343490304709,
+      "accuracy_difference_pp": 3.0470914127423754,
+      "both_correct": 286,
+      "both_wrong": 50,
+      "a_only_correct": 18,
+      "b_only_correct": 7
+    },
+    {
+      "field": "grade",
+      "group": "grade4",
+      "n": 361,
+      "a": "combined",
+      "b": "middle",
+      "a_correct": 304,
+      "b_correct": 286,
+      "a_accuracy_percent": 84.21052631578947,
+      "b_accuracy_percent": 79.22437673130193,
+      "accuracy_difference_pp": 4.986149584487531,
+      "both_correct": 276,
+      "both_wrong": 47,
+      "a_only_correct": 28,
+      "b_only_correct": 10
+    },
+    {
+      "field": "grade",
+      "group": "grade4",
+      "n": 361,
+      "a": "question_last",
+      "b": "middle",
+      "a_correct": 293,
+      "b_correct": 286,
+      "a_accuracy_percent": 81.16343490304709,
+      "b_accuracy_percent": 79.22437673130193,
+      "accuracy_difference_pp": 1.939058171745156,
+      "both_correct": 278,
+      "both_wrong": 60,
+      "a_only_correct": 15,
+      "b_only_correct": 8
+    },
+    {
+      "field": "grade",
+      "group": "grade5",
+      "n": 336,
+      "a": "combined",
+      "b": "question_last",
+      "a_correct": 284,
+      "b_correct": 275,
+      "a_accuracy_percent": 84.52380952380952,
+      "b_accuracy_percent": 81.84523809523809,
+      "accuracy_difference_pp": 2.67857142857143,
+      "both_correct": 267,
+      "both_wrong": 44,
+      "a_only_correct": 17,
+      "b_only_correct": 8
+    },
+    {
+      "field": "grade",
+      "group": "grade5",
+      "n": 336,
+      "a": "combined",
+      "b": "middle",
+      "a_correct": 284,
+      "b_correct": 272,
+      "a_accuracy_percent": 84.52380952380952,
+      "b_accuracy_percent": 80.95238095238095,
+      "accuracy_difference_pp": 3.57142857142857,
+      "both_correct": 263,
+      "both_wrong": 43,
+      "a_only_correct": 21,
+      "b_only_correct": 9
+    },
+    {
+      "field": "grade",
+      "group": "grade5",
+      "n": 336,
+      "a": "question_last",
+      "b": "middle",
+      "a_correct": 275,
+      "b_correct": 272,
+      "a_accuracy_percent": 81.84523809523809,
+      "b_accuracy_percent": 80.95238095238095,
+      "accuracy_difference_pp": 0.8928571428571397,
+      "both_correct": 266,
+      "both_wrong": 55,
+      "a_only_correct": 9,
+      "b_only_correct": 6
+    },
+    {
+      "field": "grade",
+      "group": "grade6",
+      "n": 271,
+      "a": "combined",
+      "b": "question_last",
+      "a_correct": 194,
+      "b_correct": 190,
+      "a_accuracy_percent": 71.58671586715867,
+      "b_accuracy_percent": 70.11070110701108,
+      "accuracy_difference_pp": 1.4760147601475926,
+      "both_correct": 176,
+      "both_wrong": 63,
+      "a_only_correct": 18,
+      "b_only_correct": 14
+    },
+    {
+      "field": "grade",
+      "group": "grade6",
+      "n": 271,
+      "a": "combined",
+      "b": "middle",
+      "a_correct": 194,
+      "b_correct": 181,
+      "a_accuracy_percent": 71.58671586715867,
+      "b_accuracy_percent": 66.78966789667896,
+      "accuracy_difference_pp": 4.797047970479706,
+      "both_correct": 167,
+      "both_wrong": 63,
+      "a_only_correct": 27,
+      "b_only_correct": 14
+    },
+    {
+      "field": "grade",
+      "group": "grade6",
+      "n": 271,
+      "a": "question_last",
+      "b": "middle",
+      "a_correct": 190,
+      "b_correct": 181,
+      "a_accuracy_percent": 70.11070110701108,
+      "b_accuracy_percent": 66.78966789667896,
+      "accuracy_difference_pp": 3.321033210332114,
+      "both_correct": 177,
+      "both_wrong": 77,
+      "a_only_correct": 13,
+      "b_only_correct": 4
+    },
+    {
+      "field": "grade",
+      "group": "grade7",
+      "n": 281,
+      "a": "combined",
+      "b": "question_last",
+      "a_correct": 198,
+      "b_correct": 195,
+      "a_accuracy_percent": 70.46263345195729,
+      "b_accuracy_percent": 69.3950177935943,
+      "accuracy_difference_pp": 1.0676156583629859,
+      "both_correct": 186,
+      "both_wrong": 74,
+      "a_only_correct": 12,
+      "b_only_correct": 9
+    },
+    {
+      "field": "grade",
+      "group": "grade7",
+      "n": 281,
+      "a": "combined",
+      "b": "middle",
+      "a_correct": 198,
+      "b_correct": 188,
+      "a_accuracy_percent": 70.46263345195729,
+      "b_accuracy_percent": 66.90391459074732,
+      "accuracy_difference_pp": 3.558718861209964,
+      "both_correct": 175,
+      "both_wrong": 70,
+      "a_only_correct": 23,
+      "b_only_correct": 13
+    },
+    {
+      "field": "grade",
+      "group": "grade7",
+      "n": 281,
+      "a": "question_last",
+      "b": "middle",
+      "a_correct": 195,
+      "b_correct": 188,
+      "a_accuracy_percent": 69.3950177935943,
+      "b_accuracy_percent": 66.90391459074732,
+      "accuracy_difference_pp": 2.491103202846978,
+      "both_correct": 178,
+      "both_wrong": 76,
+      "a_only_correct": 17,
+      "b_only_correct": 10
+    },
+    {
+      "field": "grade",
+      "group": "grade8",
+      "n": 302,
+      "a": "combined",
+      "b": "question_last",
+      "a_correct": 219,
+      "b_correct": 212,
+      "a_accuracy_percent": 72.51655629139073,
+      "b_accuracy_percent": 70.19867549668875,
+      "accuracy_difference_pp": 2.3178807947019875,
+      "both_correct": 201,
+      "both_wrong": 72,
+      "a_only_correct": 18,
+      "b_only_correct": 11
+    },
+    {
+      "field": "grade",
+      "group": "grade8",
+      "n": 302,
+      "a": "combined",
+      "b": "middle",
+      "a_correct": 219,
+      "b_correct": 195,
+      "a_accuracy_percent": 72.51655629139073,
+      "b_accuracy_percent": 64.56953642384106,
+      "accuracy_difference_pp": 7.947019867549676,
+      "both_correct": 187,
+      "both_wrong": 75,
+      "a_only_correct": 32,
+      "b_only_correct": 8
+    },
+    {
+      "field": "grade",
+      "group": "grade8",
+      "n": 302,
+      "a": "question_last",
+      "b": "middle",
+      "a_correct": 212,
+      "b_correct": 195,
+      "a_accuracy_percent": 70.19867549668875,
+      "b_accuracy_percent": 64.56953642384106,
+      "accuracy_difference_pp": 5.629139072847689,
+      "both_correct": 189,
+      "both_wrong": 84,
+      "a_only_correct": 23,
+      "b_only_correct": 6
+    }
+  ],
+  "verification": {
+    "unique_ids_match": true,
+    "exact_gold_labels_match": true,
+    "original_prediction_orders_identical": true,
+    "normalization": "Original evaluator.normalize: answer.strip().rstrip('.').lower()",
+    "saved_overall_and_group_metrics_reproduce": true,
+    "existing_inputs_unchanged": true
+  },
+  "bootstrap": {
+    "replicates": 20000,
+    "seed": 0,
+    "resampling_unit": "question",
+    "paired_across_models": true,
+    "interval": "2.5/97.5 percentile; marginal 95%; same draw indices for all contrasts",
+    "question_order_sha256": "1f1f9d7f01da730d21fa3ae697aaf14c78dcc31164a8cb8c65a87dbaf66a14cd"
+  },
+  "example_selection": "For each pair/direction, hash-chosen question in each of three largest disagreement-subject strata; no manual cherry-picking",
+  "provenance": {
+    "analysis_commit": "8734991cd5c80eff45b09eb954d6d849ef495d58",
+    "analysis_implementation": {
+      "path": "peft_lora/methods/pathway_specific/paired_errors.py",
+      "sha256": "1f96774b2a6ba493e09dba1091c02e0fa245392a385e33fa6b16b6925e30e49e"
+    },
+    "slurm": {
+      "queried_at": "2026-10-29T10:27:28.995843+08:00",
+      "timezone": "Asia/Singapore",
+      "command": [
+        "sacct",
+        "--allocations",
+        "--noheader",
+        "--parsable2",
+        "--starttime",
+        "2026-10-20",
+        "--jobs",
+        "47417,47421,48610,48611,48619,48623",
+        "--format=JobIDRaw,User,JobName%60,State,Submit,Start,End,Elapsed,ExitCode,NodeList,ReqCPUS,ReqMem,AllocTRES%200,SubmitLine%2000"
+      ],
+      "records": [
+        {
+          "job_id": "47417",
+          "user": "c250117",
+          "job_name": "lora_train",
+          "state": "COMPLETED",
+          "submitted_at": "2026-10-27T04:21:51",
+          "started_at": "2026-10-27T04:21:51",
+          "ended_at": "2026-10-27T05:17:47",
+          "elapsed": "00:55:56",
+          "exit_code": "0:0",
+          "nodes": "TC2N01",
+          "requested_cpus": "8",
+          "requested_memory": "30G",
+          "allocated_resources": "billing=8,cpu=8,gres/gpu:nvidia=1,gres/gpu=1,node=1",
+          "submission_command": "sbatch --parsable --export=ALL,RANKS=configs/ranks/flow_pruned8_scienceqa.json,SEED=0,EXTRA=--train-file datasets/scienceqa/train_llava.json scripts/tc2_train.sh"
+        },
+        {
+          "job_id": "47421",
+          "user": "c250117",
+          "job_name": "lora_eval",
+          "state": "COMPLETED",
+          "submitted_at": "2026-10-27T05:21:51",
+          "started_at": "2026-10-27T06:12:36",
+          "ended_at": "2026-10-27T06:20:36",
+          "elapsed": "00:08:00",
+          "exit_code": "0:0",
+          "nodes": "TC2N01",
+          "requested_cpus": "4",
+          "requested_memory": "30G",
+          "allocated_resources": "billing=4,cpu=4,gres/gpu:nvidia=1,gres/gpu=1,node=1",
+          "submission_command": "sbatch --parsable --export=ALL,ADAPTER=output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter,EXTRA=--questions datasets/scienceqa/test_questions.jsonl scripts/tc2_eval.sh"
+        },
+        {
+          "job_id": "48610",
+          "user": "swarangi001",
+          "job_name": "sqa_q2l8_s0_train",
+          "state": "COMPLETED",
+          "submitted_at": "2026-10-29T03:33:46",
+          "started_at": "2026-10-29T03:33:47",
+          "ended_at": "2026-10-29T04:29:44",
+          "elapsed": "00:55:57",
+          "exit_code": "0:0",
+          "nodes": "TC2N01",
+          "requested_cpus": "8",
+          "requested_memory": "30G",
+          "allocated_resources": "billing=8,cpu=8,gres/gpu:nvidia=1,gres/gpu=1,node=1",
+          "submission_command": "sbatch --parsable --chdir /home/msai/swarangi001/flow-guided-peft --job-name sqa_q2l8_s0_train --comment pathway_top8_seed0:question_to_last:train:b61dfe2343f1 --open-mode=append --output /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/question_to_last/logs/train_%j.out --error /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/question_to_last/logs/train_%j.err --export=ALL,SCIENCEQA_TOP8_EXPERIMENT=question_to_last --begin 2026-10-29T03:30:00 /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/tc2_train_job.sh"
+        },
+        {
+          "job_id": "48611",
+          "user": "swarangi001",
+          "job_name": "sqa_mid8_s0_train",
+          "state": "COMPLETED",
+          "submitted_at": "2026-10-29T03:33:46",
+          "started_at": "2026-10-29T04:29:45",
+          "ended_at": "2026-10-29T05:25:20",
+          "elapsed": "00:55:35",
+          "exit_code": "0:0",
+          "nodes": "TC2N01",
+          "requested_cpus": "8",
+          "requested_memory": "30G",
+          "allocated_resources": "billing=8,cpu=8,gres/gpu:nvidia=1,gres/gpu=1,node=1",
+          "submission_command": "sbatch --parsable --chdir /home/msai/swarangi001/flow-guided-peft --job-name sqa_mid8_s0_train --comment pathway_top8_seed0:middle_control:train:8a3709eeb4b6 --open-mode=append --output /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/middle_control/logs/train_%j.out --error /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/middle_control/logs/train_%j.err --export=ALL,SCIENCEQA_TOP8_EXPERIMENT=middle_control --begin 2026-10-29T03:30:00 /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/tc2_train_job.sh"
+        },
+        {
+          "job_id": "48619",
+          "user": "swarangi001",
+          "job_name": "sqa_q2l8_s0_eval",
+          "state": "COMPLETED",
+          "submitted_at": "2026-10-29T04:30:13",
+          "started_at": "2026-10-29T05:25:20",
+          "ended_at": "2026-10-29T05:32:59",
+          "elapsed": "00:07:39",
+          "exit_code": "0:0",
+          "nodes": "TC2N01",
+          "requested_cpus": "4",
+          "requested_memory": "30G",
+          "allocated_resources": "billing=4,cpu=4,gres/gpu:nvidia=1,gres/gpu=1,node=1",
+          "submission_command": "sbatch --parsable --chdir /home/msai/swarangi001/flow-guided-peft --job-name sqa_q2l8_s0_eval --comment pathway_top8_seed0:question_to_last:eval:b9307b25709b --open-mode=append --output /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/question_to_last/logs/eval_%j.out --error /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/question_to_last/logs/eval_%j.err --export=ALL,SCIENCEQA_TOP8_EXPERIMENT=question_to_last --dependency afterok:48610 /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/tc2_eval_job.sh"
+        },
+        {
+          "job_id": "48623",
+          "user": "swarangi001",
+          "job_name": "sqa_mid8_s0_eval",
+          "state": "COMPLETED",
+          "submitted_at": "2026-10-29T05:25:21",
+          "started_at": "2026-10-29T05:32:59",
+          "ended_at": "2026-10-29T05:40:31",
+          "elapsed": "00:07:32",
+          "exit_code": "0:0",
+          "nodes": "TC2N01",
+          "requested_cpus": "4",
+          "requested_memory": "30G",
+          "allocated_resources": "billing=4,cpu=4,gres/gpu:nvidia=1,gres/gpu=1,node=1",
+          "submission_command": "sbatch --parsable --chdir /home/msai/swarangi001/flow-guided-peft --job-name sqa_mid8_s0_eval --comment pathway_top8_seed0:middle_control:eval:93302693a208 --open-mode=append --output /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/middle_control/logs/eval_%j.out --error /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/middle_control/logs/eval_%j.err --export=ALL,SCIENCEQA_TOP8_EXPERIMENT=middle_control --dependency afterok:48611 /home/msai/swarangi001/flow-guided-peft/outputs/pathway_top8_seed0/tc2_eval_job.sh"
+        }
+      ]
+    },
+    "matched_training_fields": [
+      "seed",
+      "model_path",
+      "conv_mode",
+      "train_file",
+      "image_folder",
+      "tag",
+      "limit",
+      "epochs",
+      "batch_size",
+      "grad_accum",
+      "lr",
+      "warmup_ratio",
+      "save_every",
+      "max_hours",
+      "num_workers",
+      "trainable_params",
+      "total_steps"
+    ],
+    "new_run_submitted_source_checks": [
+      {
+        "path": "/home/msai/swarangi001/flow-guided-peft/peft_lora/train_lora.py",
+        "sha256": "282a8c7796a344ec88d4955b640c16e99ab1b1bc2806e1247d50da2ae5bbe6da",
+        "matches_current": true
+      },
+      {
+        "path": "/home/msai/swarangi001/flow-guided-peft/peft_lora/eval_gqa.py",
+        "sha256": "9bdec040c2b6a1c93adfd7d9f5687556c2c79a91ff7832ed29d9261a78dc9281",
+        "matches_current": true
+      },
+      {
+        "path": "/home/msai/swarangi001/flow-guided-peft/peft_lora/common.py",
+        "sha256": "8cbe56ac54d2413c7611445a0447c6da16e7b71d88f3711b8484a6783fc65ebd",
+        "matches_current": true
+      },
+      {
+        "path": "/home/msai/swarangi001/flow-guided-peft/datasets/scienceqa/train_llava.json",
+        "sha256": "8cc00fb37a7e642e05b0063e2554a5e4a0be3a3e8bb13e49dbba20045ea1c4f9",
+        "matches_current": true
+      },
+      {
+        "path": "/home/msai/swarangi001/flow-guided-peft/datasets/scienceqa/test_questions.jsonl",
+        "sha256": "3d3f7a94463894d4bb95c9920199cfd458ddda0f35f4d447aedc16891a3caa15",
+        "matches_current": true
+      }
+    ],
+    "baseline_artifact_addition_commit": "6efc769401506c0a2b5c5416578f8f0f05602891",
+    "baseline_source_comparison": {
+      "peft_lora/train_lora.py": {
+        "identical_to_current": true,
+        "sha256": "282a8c7796a344ec88d4955b640c16e99ab1b1bc2806e1247d50da2ae5bbe6da"
+      },
+      "peft_lora/eval_gqa.py": {
+        "identical_to_current": true,
+        "sha256": "9bdec040c2b6a1c93adfd7d9f5687556c2c79a91ff7832ed29d9261a78dc9281"
+      },
+      "peft_lora/common.py": {
+        "identical_to_current": true,
+        "sha256": "8cbe56ac54d2413c7611445a0447c6da16e7b71d88f3711b8484a6783fc65ebd"
+      },
+      "datasets/scienceqa/train_llava.json": {
+        "identical_to_current": true,
+        "sha256": "8cc00fb37a7e642e05b0063e2554a5e4a0be3a3e8bb13e49dbba20045ea1c4f9"
+      },
+      "datasets/scienceqa/test_questions.jsonl": {
+        "identical_to_current": true,
+        "sha256": "3d3f7a94463894d4bb95c9920199cfd458ddda0f35f4d447aedc16891a3caa15"
+      }
+    },
+    "baseline_runtime_commit": "Not recorded; artifact-addition commit is not runtime-attestation",
+    "new_run_recorded_commit": "8734991cd5c80eff45b09eb954d6d849ef495d58",
+    "baseline_config_missing_inactive_fields": [
+      "flow_gates",
+      "gate_lr"
+    ],
+    "preserved_inputs": [
+      {
+        "path": "datasets/scienceqa/test_questions.jsonl",
+        "sha256": "3d3f7a94463894d4bb95c9920199cfd458ddda0f35f4d447aedc16891a3caa15"
+      },
+      {
+        "path": "datasets/scienceqa/train_llava.json",
+        "sha256": "8cc00fb37a7e642e05b0063e2554a5e4a0be3a3e8bb13e49dbba20045ea1c4f9"
+      },
+      {
+        "path": "peft_lora/train_lora.py",
+        "sha256": "282a8c7796a344ec88d4955b640c16e99ab1b1bc2806e1247d50da2ae5bbe6da"
+      },
+      {
+        "path": "peft_lora/eval_gqa.py",
+        "sha256": "9bdec040c2b6a1c93adfd7d9f5687556c2c79a91ff7832ed29d9261a78dc9281"
+      },
+      {
+        "path": "peft_lora/common.py",
+        "sha256": "8cbe56ac54d2413c7611445a0447c6da16e7b71d88f3711b8484a6783fc65ebd"
+      },
+      {
+        "path": "output/pathway_top8_seed0/submission_manifest.json",
+        "sha256": "0312d1230d467cdcd53113077aed011c9ff71dd7de65067a948fb3fdc9cbb4fb"
+      },
+      {
+        "path": "configs/ranks/uniform.json",
+        "sha256": "295d8ff85588f4d797faa0c87acfb321de7984fee30367018c284d06b9d9fc0d"
+      },
+      {
+        "path": "output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+        "sha256": "1a090cb3ec5c0f2983445d180de9d0f3b7132b136e112bd82278cbe0fcfa3641"
+      },
+      {
+        "path": "output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+        "sha256": "3518ff8472b1f7dc5751fa4e0537e0429f63efc8c74b4aaa2e4cc97a783cc906"
+      },
+      {
+        "path": "output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/train_config.json",
+        "sha256": "f1e87a36741bf5b1e043e787c11df9d496258e082788f6db5da6ea1efeb1d6b5"
+      },
+      {
+        "path": "output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/train_log.jsonl",
+        "sha256": "9f54079ef8a4da9baa0336e83539d81838f6b39c3df85cf453302ee5d1beef55"
+      },
+      {
+        "path": "configs/ranks/flow_pruned8_scienceqa.json",
+        "sha256": "e14269da571bb3e48d6a50a1e39ef2963d6e61e838217499106573351736b030"
+      },
+      {
+        "path": "output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+        "sha256": "f8fd1e78a6fc1958c2280fe9e004f50bcc100607bfe65aa4c64ae8189c278cbd"
+      },
+      {
+        "path": "output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+        "sha256": "1a1f2a0a5ec7e5e998cfbdfc8f7c6c3207c3a0be60cb632681006877b0a13280"
+      },
+      {
+        "path": "output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/train_config.json",
+        "sha256": "a925211b80633f6cc55da4b6d7d460e8166e600e7743487c134827e9fa876390"
+      },
+      {
+        "path": "output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/train_log.jsonl",
+        "sha256": "d45464c4ad48379f576f8958b7039b27cdbd41973d3bd34c7ca456c810152eaa"
+      },
+      {
+        "path": "configs/ranks/question_last_pruned8_scienceqa.json",
+        "sha256": "ca5cf005ad7d2ae908e91792a765f8cabd0a79c34ccdf11d44f9f060ac7d2110"
+      },
+      {
+        "path": "output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter/adapter_config.json",
+        "sha256": "05543202eadb086504624b371cd7391664a43b0e8d88ee234c4e3fef8be3eba2"
+      },
+      {
+        "path": "output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter/adapter_model.safetensors",
+        "sha256": "70e1aa97334fac67ffc0e07cf49dba2fc28d05a84fc8ca3c76960e7a3927f1e5"
+      },
+      {
+        "path": "output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter/README.md",
+        "sha256": "c9e595723cb622aa1c660bcc0f42fc1946f84e21105fc32f34c185e2d8565af7"
+      },
+      {
+        "path": "output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+        "sha256": "c43805ef8c75349d73541a9cfe1e2edb20b2726fb534cbc3c51cb646c2652bc8"
+      },
+      {
+        "path": "output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+        "sha256": "88e3c009f96f840a5911039b2b69654b3dfb82786317505d81ab39b6795a9900"
+      },
+      {
+        "path": "output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/train_config.json",
+        "sha256": "1bba15c9abcce52d0f4f8db5b1f248030e6afafa98401ec01122c3e56116f187"
+      },
+      {
+        "path": "output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/train_log.jsonl",
+        "sha256": "3d50c41fe7f61a63e846a1ff3a8e183ed0c7aa418986dde7a783f74b77600461"
+      },
+      {
+        "path": "configs/ranks/middle_pruned8_scienceqa.json",
+        "sha256": "b2030711cc66ceb1adc5f786edf74c45e489e2ef894b3bf56f60b39646613e32"
+      },
+      {
+        "path": "output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter/adapter_config.json",
+        "sha256": "61778d2ab6f8893f15d2527d7f8ff7aa4ed6329e27fc641e3afe3c1219121eda"
+      },
+      {
+        "path": "output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter/adapter_model.safetensors",
+        "sha256": "e1d7f328506035bab4f2c47218f7718371e04aa3a59a6438815172370fd21486"
+      },
+      {
+        "path": "output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter/README.md",
+        "sha256": "c9e595723cb622aa1c660bcc0f42fc1946f84e21105fc32f34c185e2d8565af7"
+      }
+    ],
+    "packages": {
+      "numpy": "1.26.1",
+      "scipy": "1.15.3"
+    }
+  },
+  "uncertainty": "Conditional evaluation-question uncertainty for fixed seed-0 artifacts; no training-seed uncertainty estimated; no superiority claim across seeds",
+  "gpu_jobs_submitted": false,
+  "inference_performed": false
+}

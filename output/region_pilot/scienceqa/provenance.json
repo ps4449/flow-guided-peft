@@ -1,0 +1,50 @@
+{
+  "branch": "dev",
+  "commit": "8734991cd5c80eff45b09eb954d6d849ef495d58",
+  "files": [
+    {
+      "path": "configs/ranks/flow_pruned16_scienceqa.json",
+      "sha256": "05094e6cd18990e91ca848e9fe37714cf66199082ab92707604c09bf9927fa1d"
+    },
+    {
+      "path": "output/peft/flow_pruned16_scienceqa/scienceqa_train_llava/seed0/train_config.json",
+      "sha256": "77ef6680aebd0d990281eb9b3cbfee73aac94fe8225e9aa208313a735997e5a4"
+    },
+    {
+      "path": "output/peft/flow_pruned16_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+      "sha256": "366fff723123a4259965cd85af4d580e9762640e2b992c47b4cd3fee11d3fc40"
+    },
+    {
+      "path": "datasets/scienceqa/train_llava.json",
+      "sha256": "8cc00fb37a7e642e05b0063e2554a5e4a0be3a3e8bb13e49dbba20045ea1c4f9"
+    },
+    {
+      "path": "datasets/scienceqa/test_questions.jsonl",
+      "sha256": "3d3f7a94463894d4bb95c9920199cfd458ddda0f35f4d447aedc16891a3caa15"
+    },
+    {
+      "path": "peft_lora/methods/flow_guided/make_ranks.py",
+      "sha256": "d7960854107c57569e1f449824e98a48652142beac8b1934a3abcdd7eb43df32"
+    },
+    {
+      "path": "peft_lora/train_lora.py",
+      "sha256": "282a8c7796a344ec88d4955b640c16e99ab1b1bc2806e1247d50da2ae5bbe6da"
+    },
+    {
+      "path": "peft_lora/eval_gqa.py",
+      "sha256": "9bdec040c2b6a1c93adfd7d9f5687556c2c79a91ff7832ed29d9261a78dc9281"
+    },
+    {
+      "path": "peft_lora/common.py",
+      "sha256": "8cbe56ac54d2413c7611445a0447c6da16e7b71d88f3711b8484a6783fc65ebd"
+    },
+    {
+      "path": "peft_lora/methods/region_guided/make_ranks.py",
+      "sha256": "50be1bdf60a661e2ea61b8a548d4d412b23491f449edc4699a027bcd66503ef8"
+    },
+    {
+      "path": "configs/ranks/region_pruned16_scienceqa.json",
+      "sha256": "c772dd955e844f15cc9ba91b6bd69d9d505e63d37dd886432cdb50fd3731e2a8"
+    }
+  ]
+}

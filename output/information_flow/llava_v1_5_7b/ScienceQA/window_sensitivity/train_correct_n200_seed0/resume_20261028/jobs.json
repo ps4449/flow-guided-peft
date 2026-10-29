@@ -1,0 +1,29 @@
+{
+  "submitted_at_unix": 1793188359.4471917,
+  "jobs": [
+    {
+      "job_id": "48456",
+      "flow": "Image___Question",
+      "resumes_questions": 174,
+      "command": "sbatch --parsable --export=ALL,FLOW=Image___Question scripts/tc2_flow_window_sensitivity_resume.sh",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "started_at": "2026-10-28T19:52:30+08:00",
+      "ended_at": "2026-10-28T19:56:49+08:00",
+      "elapsed": "00:04:19"
+    },
+    {
+      "job_id": "48457",
+      "flow": "Question___Last",
+      "resumes_questions": 0,
+      "dependency": "afterok:48456",
+      "command": "sbatch --parsable --dependency=afterok:48456 --export=ALL,FLOW=Question___Last scripts/tc2_flow_window_sensitivity_resume.sh",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "started_at": "2026-10-28T19:56:49+08:00",
+      "ended_at": "2026-10-28T20:19:46+08:00",
+      "elapsed": "00:22:57"
+    }
+  ],
+  "purpose": "window3 attention-knockout measurements only; no training"
+}

@@ -1,0 +1,1284 @@
+question_id,img_id,question,answer,prompt,subject,category,grade
+train_4771,train_4771.png,What is the capital of Virginia?,b,"What is the capital of Virginia?
+A. Jefferson City
+B. Richmond
+C. Arlington
+D. Norfolk
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade5
+train_4970,train_4970.png,Which better describes the Eastern Siberian Taiga ecosystem?,a,"Context: Figure: East Siberian Taiga.
+The Eastern Siberian Taiga is a taiga ecosystem in Russia.
+Which better describes the Eastern Siberian Taiga ecosystem?
+A. It has short, cool summers. It also has many evergreen trees.
+B. It has short, cool summers. It also has soil that is rich in nutrients.
+Answer with the option's letter from the given choices directly.",natural science,Ecosystems,grade4
+train_4686,train_4686.png,"Is a baseball a solid, a liquid, or a gas?",a,"Is a baseball a solid, a liquid, or a gas?
+A. a solid
+B. a liquid
+C. a gas
+Answer with the option's letter from the given choices directly.",natural science,States of matter,grade3
+train_5805,train_5805.png,What is the capital of Texas?,a,"What is the capital of Texas?
+A. Austin
+B. Lincoln
+C. Jackson
+D. Nampa
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade5
+train_7648,train_7648.png,Select the organism in the same genus as the bush honeysuckle.,c,"Context: This organism is a bush honeysuckle. Its scientific name is Lonicera maackii.
+Select the organism in the same genus as the bush honeysuckle.
+A. Camellia sasanqua
+B. Sarracenia purpurea
+C. Lonicera japonica
+Answer with the option's letter from the given choices directly.",natural science,Scientific names,grade5
+train_4226,train_4226.png,Which animal's feet are also adapted for grabbing prey?,a,"Context: White-tailed eagles eat fish, mammals, and other birds. The 's feet are adapted for grabbing prey.
+Figure: white-tailed eagle.
+Which animal's feet are also adapted for grabbing prey?
+A. red-tailed hawk
+B. pygmy hippopotamus
+Answer with the option's letter from the given choices directly.",natural science,Adaptations,grade3
+train_12690,train_12690.png,"Based on the continuum scale, which planet is smaller?",a,"Context: This continuum scale shows the sizes of the inner planets of our solar system.
+Based on the continuum scale, which planet is smaller?
+A. Mars
+B. Venus
+Answer with the option's letter from the given choices directly.",language science,Visual elements,grade5
+train_4452,train_4452.png,Which ocean is highlighted?,c,"Which ocean is highlighted?
+A. the Indian Ocean
+B. the Atlantic Ocean
+C. the Arctic Ocean
+D. the Southern Ocean
+Answer with the option's letter from the given choices directly.",social science,Physical Geography,grade7
+train_3987,train_3987.png,What is the capital of Iowa?,a,"What is the capital of Iowa?
+A. Des Moines
+B. Columbia
+C. Cedar Rapids
+D. Lansing
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade5
+train_10324,train_10324.png,Where does the thin brown stalk grow?,b,"Context: This diagram shows the life cycle of a moss.
+Where does the thin brown stalk grow?
+A. on top of the male part
+B. on top of the female part
+Answer with the option's letter from the given choices directly.",natural science,Plant reproduction,grade7
+train_4767,train_4767.png,Which property matches this object?,b,"Context: Select the better answer.
+Which property matches this object?
+A. sticky
+B. smooth
+Answer with the option's letter from the given choices directly.",natural science,Materials,grade2
+train_6775,train_6775.png,Which statement is supported by these pictures?,a,"Context: Look at the two pictures below. The Japanese sea lily is a modern organism, and Hapalocrinus is an extinct one. The Japanese sea lily has many of the traits that Hapalocrinus had.
+Which statement is supported by these pictures?
+A. The Japanese sea lily has feather-like arms, and so did Hapalocrinus.
+B. The Japanese sea lily has a long stem, but Hapalocrinus did not.
+Answer with the option's letter from the given choices directly.",natural science,Fossils,grade4
+train_3454,train_3454.png,What is the capital of Colorado?,a,"What is the capital of Colorado?
+A. Denver
+B. Nampa
+C. Frankfort
+D. Helena
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade4
+train_2641,train_2641.png,Which better describes the Kaeng Krachan National Park ecosystem?,a,"Context: Figure: Kaeng Krachan National Park.
+Kaeng Krachan National Park is a tropical rain forest ecosystem in western Thailand.
+Which better describes the Kaeng Krachan National Park ecosystem?
+A. It has year-round rain. It also has many different types of organisms.
+B. It has cold winters. It also has many different types of organisms.
+Answer with the option's letter from the given choices directly.",natural science,Ecosystems,grade3
+train_2571,train_2571.png,"Is a hammer a solid, a liquid, or a gas?",a,"Is a hammer a solid, a liquid, or a gas?
+A. a solid
+B. a gas
+C. a liquid
+Answer with the option's letter from the given choices directly.",natural science,States of matter,grade2
+train_12364,train_12364.png,What is the capital of Oklahoma?,c,"What is the capital of Oklahoma?
+A. Little Rock
+B. Tulsa
+C. Oklahoma City
+D. Trenton
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade5
+train_6998,train_6998.png,What is the capital of Indiana?,c,"What is the capital of Indiana?
+A. Tucson
+B. Kansas City
+C. Indianapolis
+D. Lincoln
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade5
+train_6277,train_6277.png,What is the capital of Hawaii?,b,"What is the capital of Hawaii?
+A. Saint Paul
+B. Honolulu
+C. Boise
+D. Nashville
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade5
+train_4204,train_4204.png,Which solution has a higher concentration of purple particles?,a,"Context: The diagram below is a model of two solutions. Each purple ball represents one particle of solute.
+Which solution has a higher concentration of purple particles?
+A. Solution A
+B. Solution B
+C. neither; their concentrations are the same
+Answer with the option's letter from the given choices directly.",natural science,Solutions,grade8
+train_3705,train_3705.png,Think about the magnetic force between the magnets in each pair. Which of the following statements is true?,c,"Context: The images below show two pairs of magnets. The magnets in different pairs do not affect each other. All the magnets shown are made of the same material.
+Think about the magnetic force between the magnets in each pair. Which of the following statements is true?
+A. The magnetic force is weaker in Pair 1.
+B. The magnetic force is weaker in Pair 2.
+C. The strength of the magnetic force is the same in both pairs.
+Answer with the option's letter from the given choices directly.",natural science,Magnets,grade4
+train_1364,train_1364.png,Which rhetorical appeal is primarily used in this ad?,a,"Which rhetorical appeal is primarily used in this ad?
+A. pathos (emotion)
+B. ethos (character)
+C. logos (reason)
+Answer with the option's letter from the given choices directly.",language science,Persuasive strategies,grade12
+train_250,train_250.png,Select the organism in the same genus as the small-mouth salamander.,b,"Context: This organism is a small-mouth salamander. Its scientific name is Ambystoma texanum.
+Select the organism in the same genus as the small-mouth salamander.
+A. Lissotriton helveticus
+B. Ambystoma texanum
+C. Lissotriton vulgaris
+Answer with the option's letter from the given choices directly.",natural science,Classification and scientific names,grade8
+train_3858,train_3858.png,Which continent is highlighted?,c,"Which continent is highlighted?
+A. Australia
+B. Asia
+C. Antarctica
+D. North America
+Answer with the option's letter from the given choices directly.",social science,Physical Geography,grade8
+train_7973,train_7973.png,Which of the following could Allie's test show?,a,"Context: People can use the engineering-design process to develop solutions to problems. One step in the process is testing if a potential solution meets the requirements of the design.
+The passage below describes how the engineering-design process was used to test a solution to a problem. Read the passage. Then answer the question below.
+
+People with diabetes sometimes take a medicine made from insulin. Insulin can be made by a special type of bacteria. Allie was a bioengineer who wanted to increase the amount of insulin that the bacteria produced by 20%. She read that giving the bacteria more nutrients could affect the amount of insulin they produced. So, Allie gave extra nutrients to some of the bacteria. Then, she measured how much insulin those bacteria produced compared to bacteria that did not get extra nutrients.
+Figure: studying bacteria in a laboratory.
+Which of the following could Allie's test show?
+A. whether she added enough nutrients to help the bacteria produce 20% more insulin
+B. whether different types of bacteria would need different nutrients to produce insulin
+C. whether producing more insulin would help the bacteria grow faster
+Answer with the option's letter from the given choices directly.",natural science,Engineering practices,grade7
+train_8592,train_8592.png,Which of these states is farthest west?,a,"Which of these states is farthest west?
+A. New Mexico
+B. Vermont
+C. Tennessee
+D. Florida
+Answer with the option's letter from the given choices directly.",social science,Maps,grade4
+train_5391,train_5391.png,What is the capital of Oklahoma?,c,"What is the capital of Oklahoma?
+A. Lansing
+B. Saint Paul
+C. Oklahoma City
+D. Raleigh
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade4
+train_3529,train_3529.png,What is the direction of this push?,b,"Context: A soccer player pushes the ball up the field with her head.
+What is the direction of this push?
+A. toward the soccer player's head
+B. away from the soccer player's head
+Answer with the option's letter from the given choices directly.",natural science,Force and motion,grade2
+train_11018,train_11018.png,Which solution has a higher concentration of green particles?,c,"Context: The diagram below is a model of two solutions. Each green ball represents one particle of solute.
+Which solution has a higher concentration of green particles?
+A. neither; their concentrations are the same
+B. Solution A
+C. Solution B
+Answer with the option's letter from the given choices directly.",natural science,Solutions,grade7
+train_5742,train_5742.png,"Is aluminum foil a solid, a liquid, or a gas?",b,"Is aluminum foil a solid, a liquid, or a gas?
+A. a liquid
+B. a solid
+C. a gas
+Answer with the option's letter from the given choices directly.",natural science,States of matter,grade4
+train_8771,train_8771.png,Which i in column 1?,c,"Which i in column 1?
+A. the fast-food restaurant
+B. the theater
+C. the pond
+D. the grocery store
+Answer with the option's letter from the given choices directly.",social science,Geography,grade3
+train_5899,train_5899.png,Which month is the coolest on average in Detroit?,b,"Context: Use the graph to answer the question below.
+Which month is the coolest on average in Detroit?
+A. November and December
+B. January and February
+C. June and July
+Answer with the option's letter from the given choices directly.",natural science,Weather and climate,grade4
+train_3001,train_3001.png,Select the organism in the same species as the Burmese python.,a,"Context: This organism is a Burmese python. Its scientific name is Python bivittatus.
+Select the organism in the same species as the Burmese python.
+A. Python bivittatus
+B. Melanoplus bivittatus
+C. Falco peregrinus
+Answer with the option's letter from the given choices directly.",natural science,Classification and scientific names,grade7
+train_11833,train_11833.png,What is the capital of Indiana?,c,"What is the capital of Indiana?
+A. Fort Wayne
+B. Springfield
+C. Indianapolis
+D. Topeka
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade4
+train_10661,train_10661.png,Which animal's skin is better adapted as a warning sign to ward off predators?,a,"Context: Lionfish can release venom from the spines on their brightly colored bodies. The bright colors serve as a warning sign that the animal is venomous. The 's skin is adapted to ward off predators.
+Figure: lionfish.
+Which animal's skin is better adapted as a warning sign to ward off predators?
+A. crown-of-thorns sea star
+B. gray tree frog
+Answer with the option's letter from the given choices directly.",natural science,Adaptations,grade3
+train_5790,train_5790.png,Which property do these two objects have in common?,b,"Context: Select the better answer.
+Which property do these two objects have in common?
+A. smooth
+B. rough
+Answer with the option's letter from the given choices directly.",natural science,Materials,grade2
+train_4902,train_4902.png,Which better describes the Sonoran Desert ecosystem?,b,"Context: Figure: Sonoran Desert.
+The Sonoran Desert is a hot desert ecosystem in the southwestern United States and northwestern Mexico.
+Which better describes the Sonoran Desert ecosystem?
+A. It has mostly small plants. It also has only a few types of organisms.
+B. It has dry, thin soil. It also has many different types of organisms.
+Answer with the option's letter from the given choices directly.",natural science,Ecosystems,grade4
+train_10811,train_10811.png,Which of the following could Tommy's test show?,c,"Context: People can use the engineering-design process to develop solutions to problems. One step in the process is testing if a potential solution meets the requirements of the design.
+The passage below describes how the engineering-design process was used to test a solution to a problem. Read the passage. Then answer the question below.
+
+Tommy was . At the plant, an expensive filter was used to remove disease-causing bacteria from the water. But over time, the filter would become clogged with bacteria. If the filter became clogged, the water would not move through quickly enough. Tommy had to decide when the filter was too clogged and needed to be replaced. So, during his inspection, Tommy checked the filter by measuring how quickly water moved through it.
+Figure: an engineer at a water treatment plant.
+Which of the following could Tommy's test show?
+A. whether an inexpensive filter would become clogged more often
+B. the amount of bacteria in the water before it was filtered
+C. whether the filter was clogged
+Answer with the option's letter from the given choices directly.",natural science,Engineering practices,grade8
+train_4664,train_4664.png,Which of the following was an independent variable in this experiment?,b,"Context: The passage below describes an experiment. Read the passage and think about the variables that are described.
+
+Lamar liked to hike, but he was often bothered by mosquito bites. He read that rubbing lavender flowers on your skin can repel mosquitoes. Lamar wanted to find out if lavender flowers work better as a mosquito repellent than store-bought bug spray. So, he sprayed bug spray on one of his arms and rubbed lavender flowers on his other arm. Then, he went for a hike.
+When he got home, he counted the number of new mosquito bites on each arm. Lamar repeated this test each afternoon for one week.
+Hint: An independent variable is a variable whose effect you are investigating. A dependent variable is a variable that you measure.
+Figure: a mosquito biting a human.
+Which of the following was an independent variable in this experiment?
+A. the number of mosquito bites
+B. the type of mosquito repellent used
+Answer with the option's letter from the given choices directly.",natural science,Designing experiments,grade6
+train_8530,train_8530.png,What is the capital of New Mexico?,b,"What is the capital of New Mexico?
+A. Newport
+B. Santa Fe
+C. Albuquerque
+D. Phoenix
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade3
+train_5497,train_5497.png,Is quartz a mineral?,a,"Context: Quartz has the following properties:
+solid
+not made by living things
+fixed crystal structure
+made of a pure substance called silica
+found in nature
+Is quartz a mineral?
+A. yes
+B. no
+Answer with the option's letter from the given choices directly.",natural science,Rocks and minerals,grade6
+train_3244,train_3244.png,Identify the question that Sam's experiment can best answer.,a,"Context: The passage below describes an experiment. Read the passage and then follow the instructions below.
+
+Sam poured 30 milliliters of water into each of six measuring cups. He poured the same volume of apple juice into another six measuring cups. He kept the measuring cups in a freezer for 48 hours. Sam then observed the frozen liquids' volumes in the measuring cups. He measured the amount the volumes increased to see how much the liquids had expanded while freezing. He compared how much the water expanded to how much the apple juice expanded.
+Figure: water in a measuring cup.
+Identify the question that Sam's experiment can best answer.
+A. Does apple juice expand more or less than water when it freezes?
+B. Does water freeze more quickly than apple juice?
+Answer with the option's letter from the given choices directly.",natural science,Designing experiments,grade7
+train_2549,train_2549.png,What is the capital of Nevada?,a,"What is the capital of Nevada?
+A. Carson City
+B. Boise
+C. Sacramento
+D. Reno
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade3
+train_10053,train_10053.png,Which animal is also adapted to be camouflaged in the snow?,a,"Context: Short-tailed weasels live in cold, snowy areas in Europe. The short tailed weasel is adapted to be camouflaged in the snow.
+Figure: short-tailed weasel.
+Which animal is also adapted to be camouflaged in the snow?
+A. Arctic wolf
+B. common hawk-cuckoo
+Answer with the option's letter from the given choices directly.",natural science,Adaptations,grade5
+train_7012,train_7012.png,Which animal's feet are also adapted for sticking to smooth surfaces?,a,"Context: Red-eyed tree frogs live in the rain forests of Central America. They spend most of their lives in trees. The feet of the tree frog are adapted to stick to the smooth surfaces of leaves.
+Figure: red-eyed tree frog.
+Which animal's feet are also adapted for sticking to smooth surfaces?
+A. Mediterranean tree frog
+B. platypus
+Answer with the option's letter from the given choices directly.",natural science,Adaptations,grade3
+train_9347,train_9347.png,Is brass a mineral?,a,"Context: Brass has the following properties:
+solid
+no fixed crystal structure
+made in a factory
+mixture of copper and zinc
+Is brass a mineral?
+A. no
+B. yes
+Answer with the option's letter from the given choices directly.",natural science,Rocks and minerals,grade6
+train_3937,train_3937.png,What is the capital of Tennessee?,a,"What is the capital of Tennessee?
+A. Nashville
+B. Pierre
+C. Jefferson City
+D. Baltimore
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade3
+train_415,train_415.png,What is the direction of this pull?,a,"Context: A huge magnet moves metal in a junkyard. The magnet's force pulls pieces of metal upward.
+What is the direction of this pull?
+A. toward the magnet
+B. away from the magnet
+Answer with the option's letter from the given choices directly.",natural science,Force and motion,grade4
+train_6764,train_6764.png,Which trait did Asterotrygon have? Select the trait you can observe on the fossil.,c,"Context: This picture shows a fossil of an ancient animal called Asterotrygon. The fossil preserves the shape of Asterotrygon's body.
+Asterotrygon was a type of fish. It lived in lakes and gave birth to live young.
+Which trait did Asterotrygon have? Select the trait you can observe on the fossil.
+A. a wide tail fin
+B. spots on its skin
+C. a long, thin tail
+D. four legs
+Answer with the option's letter from the given choices directly.",natural science,Fossils,grade6
+train_8658,train_8658.png,Identify the question that Owen's experiment can best answer.,a,"Context: The passage below describes an experiment. Read the passage and then follow the instructions below.
+
+Owen put one two-inch steel nail into each of six test tubes. He added water to three of the test tubes and vinegar to the other three. In each test tube, he completely covered the nail with the same volume of liquid. Owen checked the nails for rust at the same time every day. He recorded how many days it took each nail to become completely covered in rust. Then, he compared the number of days it took nails to rust in water to the number of days it took nails to rust in vinegar.
+Figure: a new steel nail on a pile of rusty nails.
+Identify the question that Owen's experiment can best answer.
+A. Do steel nails take fewer days to rust in water compared to vinegar?
+B. Do steel nails rust in fewer days when submerged in a large volume of liquid compared to a small volume?
+Answer with the option's letter from the given choices directly.",natural science,Designing experiments,grade6
+train_3643,train_3643.png,Compare the average kinetic energies of the particles in each sample. Which sample has the higher temperature?,c,"Context: The diagrams below show two pure samples of gas in identical closed, rigid containers. Each colored ball represents one gas particle. Both samples have the same number of particles.
+Compare the average kinetic energies of the particles in each sample. Which sample has the higher temperature?
+A. neither; the samples have the same temperature
+B. sample B
+C. sample A
+Answer with the option's letter from the given choices directly.",natural science,Particle motion and energy,grade7
+train_6952,train_6952.png,Compare the average kinetic energies of the particles in each sample. Which sample has the higher temperature?,a,"Context: The diagrams below show two pure samples of gas in identical closed, rigid containers. Each colored ball represents one gas particle. Both samples have the same number of particles.
+Compare the average kinetic energies of the particles in each sample. Which sample has the higher temperature?
+A. sample A
+B. neither; the samples have the same temperature
+C. sample B
+Answer with the option's letter from the given choices directly.",natural science,Particle motion and energy,grade7
+train_4063,train_4063.png,Which solution has a higher concentration of pink particles?,c,"Context: The diagram below is a model of two solutions. Each pink ball represents one particle of solute.
+Which solution has a higher concentration of pink particles?
+A. Solution B
+B. neither; their concentrations are the same
+C. Solution A
+Answer with the option's letter from the given choices directly.",natural science,Solutions,grade6
+train_8307,train_8307.png,What is the capital of Virginia?,a,"What is the capital of Virginia?
+A. Richmond
+B. Baton Rouge
+C. Buffalo
+D. Norfolk
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade5
+train_11117,train_11117.png,Which ocean is highlighted?,b,"Which ocean is highlighted?
+A. the Atlantic Ocean
+B. the Arctic Ocean
+C. the Pacific Ocean
+D. the Southern Ocean
+Answer with the option's letter from the given choices directly.",social science,Physical Geography,grade6
+train_9022,train_9022.png,Which property do these four objects have in common?,a,"Context: Select the best answer.
+Which property do these four objects have in common?
+A. sticky
+B. salty
+C. stretchy
+Answer with the option's letter from the given choices directly.",natural science,Materials,grade5
+train_9229,train_9229.png,Think about the magnetic force between the magnets in each pair. Which of the following statements is true?,a,"Context: The images below show two pairs of magnets. The magnets in different pairs do not affect each other. All the magnets shown are made of the same material.
+Think about the magnetic force between the magnets in each pair. Which of the following statements is true?
+A. The strength of the magnetic force is the same in both pairs.
+B. The magnetic force is weaker in Pair 1.
+C. The magnetic force is weaker in Pair 2.
+Answer with the option's letter from the given choices directly.",natural science,Magnets,grade3
+train_4860,train_4860.png,Which animal's legs are also adapted for wading?,b,"Context: Great egrets live near marshes, rivers, and lakes. They eat fish, frogs, insects, and small reptiles that live in shallow water. Great egrets hunt their prey by walking through water, or wading.
+The 's legs are adapted for wading. They are lightweight and keep the bird's body above the water.
+Figure: great egret.
+Which animal's legs are also adapted for wading?
+A. white tern
+B. flamingo
+Answer with the option's letter from the given choices directly.",natural science,Adaptations,grade5
+train_10991,train_10991.png,What is the capital of North Carolina?,d,"What is the capital of North Carolina?
+A. Springfield
+B. Atlanta
+C. Little Rock
+D. Raleigh
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade5
+train_6050,train_6050.png,Select the organism in the same genus as the Japanese camellia.,a,"Context: This organism is a Japanese camellia. Its scientific name is Camellia japonica.
+Select the organism in the same genus as the Japanese camellia.
+A. Camellia sasanqua
+B. Trametes versicolor
+C. Hyacinthus orientalis
+Answer with the option's letter from the given choices directly.",natural science,Scientific names,grade4
+train_5578,train_5578.png,Which of the following statements describess living in an independent city-state?,a,"Context: Athens was one of the most powerful independent city-states in ancient Greece. Look at the definitions below. Then answer the question.
+Which of the following statements describess living in an independent city-state?
+A. My city rules itself and is not part of a larger country.
+B. All the decisions about my city are made by a faraway emperor.
+C. I live by myself in the wilderness.
+D. I vote for a president that rules over many different cities.
+Answer with the option's letter from the given choices directly.",social science,Greece,grade6
+train_11299,train_11299.png,"In this experiment, which were part of a control group?",b,"Context: The passage below describes an experiment.
+
+Danny noticed that he could make a dome of water on a penny if he added drops of water slowly enough. He wondered if adding soap to the water would allow him to fit more or less water on the penny.
+Danny put equal-sized drops of pure water, one at a time, onto a penny. He recorded the number of drops he could add before the water spilled over the edge of the penny. Then, he rinsed and dried the penny, and repeated the test using water mixed with hand soap. Danny repeated these trials on seven additional pennies.
+Figure: a dome of water on the surface of a penny.
+In this experiment, which were part of a control group?
+A. the pennies with soapy water
+B. the pennies with pure water
+Answer with the option's letter from the given choices directly.",natural science,Designing experiments,grade7
+train_1070,train_1070.png,What is the capital of Alaska?,b,"What is the capital of Alaska?
+A. Carson City
+B. Juneau
+C. Sacramento
+D. Providence
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade4
+train_1365,train_1365.png,What can Monica and Troy trade to each get what they want?,a,"Context: Trade happens when people agree to exchange goods and services. People give up something to get something else. Sometimes people barter, or directly exchange one good or service for another.
+Monica and Troy open their lunch boxes in the school cafeteria. Both of them could be happier with their lunches. Monica wanted broccoli in her lunch and Troy was hoping for tomatoes. Look at the images of their lunches. Then answer the question below.
+What can Monica and Troy trade to each get what they want?
+A. Monica can trade her tomatoes for Troy's broccoli.
+B. Troy can trade his almonds for Monica's tomatoes.
+C. Troy can trade his broccoli for Monica's oranges.
+D. Monica can trade her tomatoes for Troy's sandwich.
+Answer with the option's letter from the given choices directly.",social science,Basic economic principles,grade6
+train_10585,train_10585.png,Which type of relationship is formed when a brown-headed cowbird lays an egg in a yellow warbler nest?,a,"Context: Read the passage. Then answer the question.
+
+Brown-headed cowbirds lay their eggs in the nests of yellow warblers or other songbirds. When a cowbird egg hatches, the warbler parents feed and raise the cowbird chick as their own. This way, the cowbird parents don't spend their own energy raising their offspring. The warbler parents spend so much time and energy raising the cowbird chick that they are not able to raise as many of their own offspring.
+Figure: a yellow warbler feeding a brown-headed cowbird chick.
+Which type of relationship is formed when a brown-headed cowbird lays an egg in a yellow warbler nest?
+A. parasitic
+B. commensal
+C. mutualistic
+Answer with the option's letter from the given choices directly.",natural science,Ecological interactions,grade7
+train_12670,train_12670.png,Which continent is highlighted?,c,"Which continent is highlighted?
+A. Africa
+B. Asia
+C. Europe
+Answer with the option's letter from the given choices directly.",social science,Geography,grade2
+train_5698,train_5698.png,What is the capital of Oklahoma?,d,"What is the capital of Oklahoma?
+A. Austin
+B. Tulsa
+C. Baton Rouge
+D. Oklahoma City
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade4
+train_2743,train_2743.png,Which month is the hottest on average in Adelaide?,a,"Context: Use the graph to answer the question below.
+Which month is the hottest on average in Adelaide?
+A. January and February
+B. September and October
+C. June, July, and August
+Answer with the option's letter from the given choices directly.",natural science,Weather and climate,grade4
+train_9398,train_9398.png,"As Ivan pulls on the umbrella, what is the direction of the opposing force?",a,"Context: The text below describes a pair of opposing forces. Opposing forces act on an object in opposite directions. Read the text. Then answer the question below.
+Ivan uses his umbrella on a windy day. Think about two of the forces that act on the umbrella:
+Ivan pulls toward himself.
+The wind pushes away from Ivan.
+As Ivan pulls on the umbrella, what is the direction of the opposing force?
+A. away from Ivan
+B. toward Ivan
+Answer with the option's letter from the given choices directly.",natural science,Force and motion,grade3
+train_9698,train_9698.png,What is the capital of Oklahoma?,b,"What is the capital of Oklahoma?
+A. Charleston
+B. Oklahoma City
+C. Denver
+D. Tulsa
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade5
+train_12229,train_12229.png,Which state is highlighted?,c,"Which state is highlighted?
+A. Indiana
+B. Missouri
+C. Minnesota
+D. Wisconsin
+Answer with the option's letter from the given choices directly.",social science,States,grade5
+train_10458,train_10458.png,Which of the following could Eli's test show?,a,"Context: People can use the engineering-design process to develop solutions to problems. One step in the process is testing if a potential solution meets the requirements of the design.
+The passage below describes how the engineering-design process was used to test a solution to a problem. Read the passage. Then answer the question below.
+
+Eli was a mechanical engineer who was designing  to record temperature, precipitation, and wind speed. The weather station would be used in a town where the highest recorded temperature was 40°C. Eli wanted to make sure the weather station would work even in unusually warm weather.
+So, he set an indoor test chamber to 50°C with low moisture and no wind. He left the weather station in the chamber overnight. The next day, he checked to see if the weather station displayed accurate measurements after 24 hours at 50°C.
+Figure: a weather station.
+Which of the following could Eli's test show?
+A. if the weather station would work when the temperature was 50°C
+B. how well the weather station would work when it was windy
+Answer with the option's letter from the given choices directly.",natural science,Engineering practices,grade6
+train_7912,train_7912.png,What is the capital of Rhode Island?,b,"What is the capital of Rhode Island?
+A. Manchester
+B. Providence
+C. Augusta
+D. Newport
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade5
+train_12143,train_12143.png,Identify the question that Lisa's experiment can best answer.,b,"Context: The passage below describes an experiment. Read the passage and then follow the instructions below.
+
+Lisa prepared ten buckets, each with one gallon of boiling water and three tablespoons of black fabric dye. Lisa soaked white linen fabric squares in five of the buckets, and white cotton fabric squares in the other five buckets. All of the fabric squares were soaked for 15 minutes. After the fabric dried, Lisa scored the darkness of the squares on a scale from light to dark. She compared the darkness of the linen fabric to the darkness of the cotton fabric.
+Figure: fabric that has been dyed black.
+Identify the question that Lisa's experiment can best answer.
+A. Does fabric turn darker when soaked in a mixture of black dye and water for 15 minutes compared to 30 minutes?
+B. Does linen fabric turn darker than cotton fabric when soaked in a mixture of black dye and water?
+Answer with the option's letter from the given choices directly.",natural science,Designing experiments,grade6
+train_1771,train_1771.png,Which country is highlighted?,b,"Which country is highlighted?
+A. Cuba
+B. Haiti
+C. The Bahamas
+D. Saint Kitts and Nevis
+Answer with the option's letter from the given choices directly.",social science,The Americas: geography,grade7
+train_1663,train_1663.png,Which of these states is farthest north?,d,"Which of these states is farthest north?
+A. Mississippi
+B. Indiana
+C. Maryland
+D. Montana
+Answer with the option's letter from the given choices directly.",social science,Geography,grade3
+train_12346,train_12346.png,Select the fish below.,b,"Context: Fish live underwater. They have fins, not limbs.
+Fish are cold-blooded. The body temperature of cold-blooded animals depends on their environment.
+A tiger shark is an example of a fish.
+Select the fish below.
+A. green chameleon
+B. goldfish
+C. fruit bat
+D. great crested newt
+Answer with the option's letter from the given choices directly.",natural science,Classification,grade4
+train_9915,train_9915.png,Which of the following could Dave's test show?,b,"Context: People can use the engineering-design process to develop solutions to problems. One step in the process is testing if a potential solution meets the requirements of the design.
+The passage below describes how the engineering-design process was used to test a solution to a problem. Read the passage. Then answer the question below.
+
+Dave was a mechanical engineer who was designing  to record temperature, precipitation, and wind speed. The weather station would be used in a town where the highest recorded temperature was 40°C. Dave wanted to make sure the weather station would work even in unusually warm weather.
+So, he set an indoor test chamber to 50°C with low moisture and no wind. He left the weather station in the chamber overnight. The next day, he checked to see if the weather station displayed accurate measurements after 24 hours at 50°C.
+Figure: a weather station.
+Which of the following could Dave's test show?
+A. how well the weather station would work when it was windy
+B. if the weather station would work when the temperature was 50°C
+Answer with the option's letter from the given choices directly.",natural science,Engineering practices,grade6
+train_4881,train_4881.png,Look at the models of molecules below. Select the elementary substance.,c,"Look at the models of molecules below. Select the elementary substance.
+A. propane
+B. 2-chloroethanol
+C. nitrogen
+Answer with the option's letter from the given choices directly.",natural science,Atoms and molecules,grade6
+train_10330,train_10330.png,Is sandstone a mineral?,a,"Context: Sandstone has the following properties:
+not a pure substance
+naturally occurring
+solid
+no fixed crystal structure
+not made by organisms
+Is sandstone a mineral?
+A. no
+B. yes
+Answer with the option's letter from the given choices directly.",natural science,Rocks and minerals,grade6
+train_4719,train_4719.png,What is the name of the colony shown?,c,"What is the name of the colony shown?
+A. Connecticut
+B. Tennessee
+C. Massachusetts
+D. Iowa
+Answer with the option's letter from the given choices directly.",social science,English colonies in North America,grade5
+train_2213,train_2213.png,What is the capital of South Dakota?,b,"What is the capital of South Dakota?
+A. Hilo
+B. Pierre
+C. Indianapolis
+D. Bridgeport
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade5
+train_6483,train_6483.png,Which of the following organisms is the primary consumer in this food web?,b,"Context: Below is a food web from a tundra ecosystem in Nunavut, a territory in Northern Canada.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.
+Which of the following organisms is the primary consumer in this food web?
+A. snowy owl
+B. brown lemming
+C. bear sedge
+Answer with the option's letter from the given choices directly.",natural science,Ecological interactions,grade6
+train_3129,train_3129.png,What is the capital of Oklahoma?,c,"What is the capital of Oklahoma?
+A. Tulsa
+B. Des Moines
+C. Oklahoma City
+D. Montgomery
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade4
+train_11526,train_11526.png,Which of these states is farthest east?,b,"Which of these states is farthest east?
+A. Louisiana
+B. New Jersey
+C. West Virginia
+D. Utah
+Answer with the option's letter from the given choices directly.",social science,Maps,grade4
+train_2227,train_2227.png,Does Hevea brasiliensis have cells that have a nucleus?,a,"Context: This organism is Hevea brasiliensis. It is a member of the plant kingdom.
+Hevea brasiliensis is commonly called a rubber tree. Rubber trees make a white liquid called latex. Rubber trees use latex for protection. Latex has a bad taste and can be poisonous to some animals. So, the latex helps to stop animals from eating the rubber tree's leaves and branches.
+Does Hevea brasiliensis have cells that have a nucleus?
+A. yes
+B. no
+Answer with the option's letter from the given choices directly.",natural science,Classification,grade4
+train_12624,train_12624.png,What is the expected ratio of offspring with a dwarf body to offspring with a normal-sized body? Choose the most likely ratio.,a,"Context: In a group of rats, some individuals have a normal-sized body and others have a dwarf body. In this group, the gene for the body size trait has two alleles. The allele for a dwarf body (b) is recessive to the allele for a normal-sized body (B).
+This Punnett square shows a cross between two rats.
+What is the expected ratio of offspring with a dwarf body to offspring with a normal-sized body? Choose the most likely ratio.
+A. 2:2
+B. 4:0
+C. 1:3
+D. 0:4
+E. 3:1
+Answer with the option's letter from the given choices directly.",natural science,Genes to traits,grade8
+train_451,train_451.png,Select the reptile below.,a,"Context: Reptiles have scaly, waterproof skin. Most reptiles live on land. A box turtle is an example of a reptile.
+Select the reptile below.
+A. American alligator
+B. manta ray
+Answer with the option's letter from the given choices directly.",natural science,Classification,grade2
+train_8930,train_8930.png,What is the capital of Montana?,a,"What is the capital of Montana?
+A. Helena
+B. Missoula
+C. Philadelphia
+D. Billings
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade5
+train_566,train_566.png,What is the probability that a pea plant produced by this cross will have a tall stem?,b,"Context: In a group of pea plants, some individuals have a tall stem and others have a short stem. In this group, the gene for the stem height trait has two alleles. The allele for a short stem (h) is recessive to the allele for a tall stem (H).
+This Punnett square shows a cross between two pea plants.
+What is the probability that a pea plant produced by this cross will have a tall stem?
+A. 0/4
+B. 2/4
+C. 4/4
+D. 3/4
+E. 1/4
+Answer with the option's letter from the given choices directly.",natural science,Genes to traits,grade8
+train_3599,train_3599.png,Which solution has a higher concentration of green particles?,c,"Context: The diagram below is a model of two solutions. Each green ball represents one particle of solute.
+Which solution has a higher concentration of green particles?
+A. neither; their concentrations are the same
+B. Solution A
+C. Solution B
+Answer with the option's letter from the given choices directly.",natural science,Solutions,grade7
+train_11007,train_11007.png,Which material is this table made of?,a,"Which material is this table made of?
+A. glass
+B. porcelain
+Answer with the option's letter from the given choices directly.",natural science,Materials,grade2
+train_10680,train_10680.png,"Based on the table, what did Ruth Handler invent?",b,"Context: This table shows the inventors of some popular toys.
+Based on the table, what did Ruth Handler invent?
+A. the Rubik's Cube
+B. the Barbie doll
+Answer with the option's letter from the given choices directly.",language science,Visual elements,grade5
+train_11359,train_11359.png,What is the capital of Massachusetts?,d,"What is the capital of Massachusetts?
+A. Plymouth
+B. Providence
+C. Cambridge
+D. Boston
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade5
+train_11939,train_11939.png,Which state is highlighted?,c,"Which state is highlighted?
+A. Alabama
+B. Georgia
+C. West Virginia
+D. South Carolina
+Answer with the option's letter from the given choices directly.",social science,States,grade5
+train_245,train_245.png,Which bird's beak is also adapted to get nectar out of long flowers?,b,"Context: Purple honeycreepers live in the forests of South America. The shape of the 's beak is adapted to get nectar out of long flowers.
+Figure: purple honeycreeper.
+Which bird's beak is also adapted to get nectar out of long flowers?
+A. common nighthawk
+B. green violetear
+Answer with the option's letter from the given choices directly.",natural science,Adaptations,grade4
+train_6273,train_6273.png,Which statement describes the Buffalo Gap National Grassland ecosystem?,b,"Context: Figure: Buffalo Gap National Grassland.
+Buffalo Gap National Grassland is a prairie grassland ecosystem in southwestern South Dakota. It is home to the endangered black-footed ferret. This is the only kind of ferret that is native to North America.
+Which statement describes the Buffalo Gap National Grassland ecosystem?
+A. It has cold winters and cool summers.
+B. It has a medium amount of rain.
+Answer with the option's letter from the given choices directly.",natural science,Ecosystems,grade6
+train_109,train_109.png,Which type of force from the girl opens the window?,b,"Context: A girl applies a force to a window. She uses the force to open the window.
+Which type of force from the girl opens the window?
+A. pull
+B. push
+Answer with the option's letter from the given choices directly.",natural science,Force and motion,grade3
+train_6810,train_6810.png,Which is this organism's scientific name?,b,"Context: This organism is Agalychnis callidryas. It is also called a red-eyed tree frog.
+Which is this organism's scientific name?
+A. red-eyed tree frog
+B. Agalychnis callidryas
+Answer with the option's letter from the given choices directly.",natural science,Classification and scientific names,grade7
+train_4824,train_4824.png,Which of the following could Layla and Jane's test show?,a,"Context: People can use the engineering-design process to develop solutions to problems. One step in the process is testing if a potential solution meets the requirements of the design.
+The passage below describes how the engineering-design process was used to test a solution to a problem. Read the passage. Then answer the question below.
+
+Layla and Jane were making batches of concrete for a construction project. To make the concrete, they mixed together dry cement powder, gravel, and water. Then, they checked if each batch was firm enough using a test called a slump test.
+They poured some of the fresh concrete into an upside-down metal cone. They left the concrete in the metal cone for 30 seconds. Then, they lifted the cone to see if the concrete stayed in a cone shape or if it collapsed. If the concrete in a batch collapsed, they would know the batch should not be used.
+Figure: preparing a concrete slump test.
+Which of the following could Layla and Jane's test show?
+A. if a new batch of concrete was firm enough to use
+B. if the concrete from each batch took the same amount of time to dry
+Answer with the option's letter from the given choices directly.",natural science,Engineering practices,grade6
+train_6401,train_6401.png,Identify the question that Myra and Nathan's experiment can best answer.,b,"Context: The passage below describes an experiment. Read the passage and then follow the instructions below.
+
+Myra applied a thin layer of wax to the underside of her snowboard and rode the board straight down a hill. Then, she removed the wax and rode the snowboard straight down the hill again. She repeated the rides four more times, alternating whether she rode with a thin layer of wax on the board or not. Her friend Nathan timed each ride. Myra and Nathan calculated the average time it took to slide straight down the hill on the snowboard with wax compared to the average time on the snowboard without wax.
+Figure: snowboarding down a hill.
+Identify the question that Myra and Nathan's experiment can best answer.
+A. Does Myra's snowboard slide down a hill in less time when it has a thin layer of wax or a thick layer of wax?
+B. Does Myra's snowboard slide down a hill in less time when it has a layer of wax or when it does not have a layer of wax?
+Answer with the option's letter from the given choices directly.",natural science,Designing experiments,grade8
+train_5334,train_5334.png,Identify the question that Vince's experiment can best answer.,b,"Context: The passage below describes an experiment. Read the passage and then follow the instructions below.
+
+Vince used a dropper to put equal-sized drops of pure water, one at a time, onto a penny. The drops stayed together and formed a dome on the penny's surface. Vince recorded the number of drops he could add before the water spilled over the edge of the penny. Then, he rinsed and dried the penny, and repeated the test using water mixed with hand soap. He repeated these trials on nine additional pennies. Vince compared the average number of pure water drops to the average number of water drops mixed with hand soap that he could add to a penny before the water spilled over.
+Figure: a dome of water on the surface of a penny.
+Identify the question that Vince's experiment can best answer.
+A. Can pennies hold more drops of water mixed with dish soap or water mixed with hand soap?
+B. Can pennies hold more drops of pure water or water mixed with hand soap?
+Answer with the option's letter from the given choices directly.",natural science,Designing experiments,grade6
+train_3575,train_3575.png,Will these magnets attract or repel each other?,a,"Context: Two magnets are placed as shown.
+Will these magnets attract or repel each other?
+A. attract
+B. repel
+Answer with the option's letter from the given choices directly.",natural science,Magnets,grade4
+train_12480,train_12480.png,What can Lexi and Cindy trade to each get what they want?,a,"Context: Trade happens when people agree to exchange goods and services. People give up something to get something else. Sometimes people barter, or directly exchange one good or service for another.
+Lexi and Cindy open their lunch boxes in the school cafeteria. Neither Lexi nor Cindy got everything that they wanted. The table below shows which items they each wanted:
+
+Look at the images of their lunches. Then answer the question below.
+Lexi's lunch Cindy's lunch
+What can Lexi and Cindy trade to each get what they want?
+A. Lexi can trade her tomatoes for Cindy's broccoli.
+B. Cindy can trade her almonds for Lexi's tomatoes.
+C. Cindy can trade her broccoli for Lexi's oranges.
+D. Lexi can trade her tomatoes for Cindy's carrots.
+Answer with the option's letter from the given choices directly.",social science,Basic economic principles,grade8
+train_3754,train_3754.png,Which is this organism's common name?,b,"Context: This organism is a frilled lizard. It is also called Chlamydosaurus kingii.
+Which is this organism's common name?
+A. Chlamydosaurus kingii
+B. frilled lizard
+Answer with the option's letter from the given choices directly.",natural science,Classification and scientific names,grade8
+train_11207,train_11207.png,Which statement is true about the average monthly precipitation in Charlotte?,c,"Context: Use the graph to answer the question below.
+Which statement is true about the average monthly precipitation in Charlotte?
+A. June is wetter than July.
+B. Charlotte has a rainy season and a dry season.
+C. Precipitation does not change much from month to month.
+Answer with the option's letter from the given choices directly.",natural science,Weather and climate,grade3
+train_1606,train_1606.png,Select the organism in the same genus as the sand cat.,b,"Context: This organism is a sand cat. Its scientific name is Felis margarita.
+Select the organism in the same genus as the sand cat.
+A. Lynx lynx
+B. Felis catus
+C. Lynx rufus
+Answer with the option's letter from the given choices directly.",natural science,Scientific names,grade5
+train_5133,train_5133.png,Think about the magnetic force between the magnets in each pair. Which of the following statements is true?,a,"Context: The images below show two pairs of magnets. The magnets in different pairs do not affect each other. All the magnets shown are made of the same material, but some of them are different shapes.
+Think about the magnetic force between the magnets in each pair. Which of the following statements is true?
+A. The magnitude of the magnetic force is the same in both pairs.
+B. The magnitude of the magnetic force is smaller in Pair 1.
+C. The magnitude of the magnetic force is smaller in Pair 2.
+Answer with the option's letter from the given choices directly.",natural science,Magnets,grade5
+train_10540,train_10540.png,What is the capital of Indiana?,c,"What is the capital of Indiana?
+A. Fargo
+B. Fort Wayne
+C. Indianapolis
+D. Bismarck
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade4
+train_6066,train_6066.png,What is the name of the colony shown?,c,"What is the name of the colony shown?
+A. South Carolina
+B. Florida
+C. Maryland
+D. Washington, D.C.
+Answer with the option's letter from the given choices directly.",social science,English colonies in North America,grade4
+train_7249,train_7249.png,Does this passage describe the weather or the climate?,a,"Context: Figure: New Zealand.
+Dry air has a lower level of humidity than moist air. The air at these volcanoes felt dry last week because the humidity was very low.
+Hint: Weather is what the atmosphere is like at a certain place and time. Climate is the pattern of weather in a certain place.
+Does this passage describe the weather or the climate?
+A. weather
+B. climate
+Answer with the option's letter from the given choices directly.",natural science,Weather and climate,grade5
+train_6251,train_6251.png,Which of the following organisms is the primary consumer in this food web?,b,"Context: Below is a food web from an ocean ecosystem in Monterey Bay, off the coast of California.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.
+Which of the following organisms is the primary consumer in this food web?
+A. phytoplankton
+B. kelp bass
+C. orca
+D. sea otter
+Answer with the option's letter from the given choices directly.",natural science,Ecological interactions,grade8
+train_2051,train_2051.png,Which is this organism's scientific name?,b,"Context: This organism is a water buffalo. It is also called Bubalus bubalis.
+Which is this organism's scientific name?
+A. water buffalo
+B. Bubalus bubalis
+Answer with the option's letter from the given choices directly.",natural science,Classification and scientific names,grade7
+train_11750,train_11750.png,Which animal's feet are also adapted to walk on snow and ice?,a,"Context: Polar bears live in cold, snowy areas near the Arctic Ocean. The 's feet are adapted for walking on snow and ice.
+Figure: polar bear.
+Which animal's feet are also adapted to walk on snow and ice?
+A. Siberian tiger
+B. tiger-striped leaf frog
+Answer with the option's letter from the given choices directly.",natural science,Adaptations,grade3
+train_7640,train_7640.png,What is the capital of North Carolina?,b,"What is the capital of North Carolina?
+A. Philadelphia
+B. Raleigh
+C. Charlotte
+D. Jackson
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade4
+train_7403,train_7403.png,Think about the magnetic force between the magnets in each pair. Which of the following statements is true?,c,"Context: The images below show two pairs of magnets. The magnets in different pairs do not affect each other. All the magnets shown are made of the same material.
+Think about the magnetic force between the magnets in each pair. Which of the following statements is true?
+A. The magnitude of the magnetic force is greater in Pair 2.
+B. The magnitude of the magnetic force is greater in Pair 1.
+C. The magnitude of the magnetic force is the same in both pairs.
+Answer with the option's letter from the given choices directly.",natural science,"Velocity, acceleration, and forces",grade6
+train_9790,train_9790.png,What is the name of the colony shown?,b,"What is the name of the colony shown?
+A. Virginia
+B. Delaware
+C. Maryland
+D. Pennsylvania
+Answer with the option's letter from the given choices directly.",social science,English colonies in North America,grade4
+train_5131,train_5131.png,Which continent is highlighted?,c,"Which continent is highlighted?
+A. South America
+B. Asia
+C. North America
+D. Australia
+Answer with the option's letter from the given choices directly.",social science,Physical Geography,grade8
+train_12144,train_12144.png,What is the capital of New York?,b,"What is the capital of New York?
+A. Montpelier
+B. Albany
+C. Concord
+D. Augusta
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade5
+train_12319,train_12319.png,Which bird's beak is also adapted to filter through mud?,b,"Context: Northern pintails eat plants that grow underwater or in mud. The shape of the 's beak is adapted to filter through mud for food.
+The  gathers muddy water in its beak and then pushes it out through gaps along the sides. Bits of food, such as plant roots, are left behind inside the pintail's beak.
+Figure: northern pintail.
+Which bird's beak is also adapted to filter through mud?
+A. common nighthawk
+B. black swan
+Answer with the option's letter from the given choices directly.",natural science,Adaptations,grade5
+train_4206,train_4206.png,Which animal's neck is also adapted for reaching high branches?,a,"Context: Giraffes eat leaves and twigs. The 's neck is adapted for reaching branches that are high above the ground.
+Figure: giraffe.
+Which animal's neck is also adapted for reaching high branches?
+A. chital
+B. bison
+Answer with the option's letter from the given choices directly.",natural science,Adaptations,grade5
+train_8164,train_8164.png,What is the capital of Hawaii?,c,"What is the capital of Hawaii?
+A. Helena
+B. Raleigh
+C. Honolulu
+D. Trenton
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade3
+train_10990,train_10990.png,Which bird's beak is also adapted to get nectar out of long flowers?,a,"Context: Rufous hummingbirds live in the woodlands and meadows of western North America. The shape of the 's beak is adapted to get nectar out of long flowers.
+Figure: rufous hummingbird.
+Which bird's beak is also adapted to get nectar out of long flowers?
+A. malachite sunbird
+B. roseate spoonbill
+Answer with the option's letter from the given choices directly.",natural science,Adaptations,grade4
+train_9592,train_9592.png,Select the organism in the same species as the black-blotched porcupinefish.,b,"Context: This organism is a black-blotched porcupinefish. Its scientific name is Diodon liturosus.
+Select the organism in the same species as the black-blotched porcupinefish.
+A. Amphiprion perideraion
+B. Diodon liturosus
+C. Chelmon rostratus
+Answer with the option's letter from the given choices directly.",natural science,Classification and scientific names,grade7
+train_11733,train_11733.png,Which three months have over 200millimeters of precipitation in Singapore?,a,"Context: Use the graph to answer the question below.
+Which three months have over 200millimeters of precipitation in Singapore?
+A. November, December, and January
+B. August, September, and October
+C. February, March, and April
+Answer with the option's letter from the given choices directly.",natural science,Weather and climate,grade4
+train_9690,train_9690.png,What is the capital of Oregon?,d,"What is the capital of Oregon?
+A. Denver
+B. Portland
+C. Omaha
+D. Salem
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade3
+train_7510,train_7510.png,Which animal's feet are also adapted to walk on snow and ice?,b,"Context: Snow leopards live in the snowy mountains of central Asia. The 's feet are adapted for walking on snow and ice.
+Figure: snow leopard.
+Which animal's feet are also adapted to walk on snow and ice?
+A. tokay gecko
+B. polar bear
+Answer with the option's letter from the given choices directly.",natural science,Adaptations,grade5
+train_12330,train_12330.png,Which animal is also adapted to be camouflaged in a sandy desert?,a,"Context: Camels live in dry places such as deserts. The  is adapted to be camouflaged in a sandy desert.
+Figure: camel.
+Which animal is also adapted to be camouflaged in a sandy desert?
+A. bearded dragon
+B. scarlet snake
+Answer with the option's letter from the given choices directly.",natural science,Adaptations,grade4
+train_4184,train_4184.png,Which statement describes the Mount Rainier National Park ecosystem?,c,"Context: Figure: Mount Rainier National Park.
+Mount Rainier National Park is a taiga ecosystem in Washington State. The park is named after a volcano called Mount Rainier, which is covered in glaciers.
+Which statement describes the Mount Rainier National Park ecosystem?
+A. It has soil that is rich in nutrients.
+B. It has mostly small plants.
+C. It has soil that is poor in nutrients.
+Answer with the option's letter from the given choices directly.",natural science,Ecosystems,grade5
+train_3180,train_3180.png,What is the capital of Massachusetts?,c,"What is the capital of Massachusetts?
+A. Providence
+B. Oklahoma City
+C. Boston
+D. Plymouth
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade5
+train_711,train_711.png,What is the name of the colony shown?,a,"What is the name of the colony shown?
+A. Massachusetts
+B. South Carolina
+C. Mississippi
+D. New Hampshire
+Answer with the option's letter from the given choices directly.",social science,English colonies in North America,grade5
+train_11830,train_11830.png,Which solution has a higher concentration of pink particles?,c,"Context: The diagram below is a model of two solutions. Each pink ball represents one particle of solute.
+Which solution has a higher concentration of pink particles?
+A. neither; their concentrations are the same
+B. Solution B
+C. Solution A
+Answer with the option's letter from the given choices directly.",natural science,Solutions,grade8
+train_4921,train_4921.png,Which of the following could David's test show?,a,"Context: People can use the engineering-design process to develop solutions to problems. One step in the process is testing if a potential solution meets the requirements of the design.
+The passage below describes how the engineering-design process was used to test a solution to a problem. Read the passage. Then answer the question below.
+
+David was a mechanical engineer who was designing  to record temperature, precipitation, and wind speed. The weather station would be used in a town where the highest recorded temperature was 40°C. David wanted to make sure the weather station would work even in unusually warm weather.
+So, he set an indoor test chamber to 50°C with low moisture and no wind. He left the weather station in the chamber overnight. The next day, he checked to see if the weather station displayed accurate measurements after 24 hours at 50°C.
+Figure: a weather station.
+Which of the following could David's test show?
+A. if the weather station would work when the temperature was 50°C
+B. how well the weather station would work when it was windy
+Answer with the option's letter from the given choices directly.",natural science,Engineering practices,grade6
+train_4821,train_4821.png,Select the organism in the same genus as the barred owl.,c,"Context: This organism is a barred owl. Its scientific name is Strix varia.
+Select the organism in the same genus as the barred owl.
+A. Falco novaeseelandiae
+B. Haliaeetus pelagicus
+C. Strix aluco
+Answer with the option's letter from the given choices directly.",natural science,Classification and scientific names,grade8
+train_9312,train_9312.png,Which continent is highlighted?,b,"Which continent is highlighted?
+A. Australia
+B. Africa
+C. North America
+D. Asia
+Answer with the option's letter from the given choices directly.",social science,Physical Geography,grade6
+train_10472,train_10472.png,Which continent is highlighted?,c,"Which continent is highlighted?
+A. South America
+B. Australia
+C. Europe
+D. Asia
+Answer with the option's letter from the given choices directly.",social science,Oceans and continents,grade5
+train_9491,train_9491.png,Select the fish below.,b,"Context: Fish live underwater. They have fins, not limbs. A tiger shark is an example of a fish.
+Select the fish below.
+A. bald eagle
+B. piranha
+Answer with the option's letter from the given choices directly.",natural science,Classification,grade2
+train_5503,train_5503.png,Does this passage describe the weather or the climate?,a,"Context: Figure: Nicaragua.
+Winds are called offshore when they blow from land to water. Offshore winds blew on the west coast of Nicaragua last week.  Most people prefer to surf on days when the winds are offshore.
+Hint: Weather is what the atmosphere is like at a certain place and time. Climate is the pattern of weather in a certain place.
+Does this passage describe the weather or the climate?
+A. weather
+B. climate
+Answer with the option's letter from the given choices directly.",natural science,Weather and climate,grade5
+train_7013,train_7013.png,Which type of relationship is formed when a Guinea worm lives in a person's body?,c,"Context: Read the passage. Then answer the question.
+
+Guinea worms are a type of roundworm. Immature Guinea worms live in freshwater, and they are so tiny that they are visible only with a microscope. If a person drinks water that contains a worm, the worm is not digested. Instead, it can take refuge in the person's body and grow up to two feet long!
+The mature worm creates a painful open wound in the person's skin. The person may put the wound in water to ease the pain. Then the worm releases its tiny offspring through the wound, into the water. If the offspring are released into drinking water, they can get inside another person's body.
+Figure: a woman drinking through a straw that removes immature Guinea worms from water.
+Which type of relationship is formed when a Guinea worm lives in a person's body?
+A. mutualistic
+B. commensal
+C. parasitic
+Answer with the option's letter from the given choices directly.",natural science,Ecological interactions,grade7
+train_7545,train_7545.png,Is celestine a mineral?,a,"Context: Celestine has the following properties:
+found in nature
+not made by organisms
+solid
+fixed crystal structure
+pure substance
+Is celestine a mineral?
+A. yes
+B. no
+Answer with the option's letter from the given choices directly.",natural science,Rocks and minerals,grade6
+train_8191,train_8191.png,What is the capital of Rhode Island?,b,"What is the capital of Rhode Island?
+A. Little Rock
+B. Providence
+C. Newport
+D. Hartford
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade4
+train_5474,train_5474.png,Which of the following was a dependent variable in this experiment?,b,"Context: The passage below describes an experiment. Read the passage and think about the variables that are described.
+
+Many types of bacteria cannot survive on objects made of copper. Dr. Bennett was considering using beds with copper bed rails instead of beds with plastic rails at the hospital where she worked. She wanted to know if copper bed rails would reduce the number of patients who got new infections.
+To test this, Dr. Bennett had beds with copper rails placed in half of the hospital rooms. Over the next six months, 430 patients were admitted to the hospital: 215 patients were put in rooms with copper bed rails and 215 patients were put in rooms with plastic bed rails. Dr. Bennett counted the number of patients in each type of room who got new infections while they were in the hospital.
+Hint: An independent variable is a variable whose effect you are investigating. A dependent variable is a variable that you measure.
+Figure: a hospital bed with plastic bed rails.
+Which of the following was a dependent variable in this experiment?
+A. the type of bed rail
+B. the number of patients who got new infections
+Answer with the option's letter from the given choices directly.",natural science,Designing experiments,grade6
+train_3711,train_3711.png,Which three months have over 200millimeters of precipitation in Singapore?,b,"Context: Use the graph to answer the question below.
+Which three months have over 200millimeters of precipitation in Singapore?
+A. May, June, and July
+B. November, December, and January
+C. August, September, and October
+Answer with the option's letter from the given choices directly.",natural science,Weather and climate,grade3
+train_9609,train_9609.png,What is the name of the colony shown?,d,"What is the name of the colony shown?
+A. Connecticut
+B. Pennsylvania
+C. North Carolina
+D. Delaware
+Answer with the option's letter from the given choices directly.",social science,English colonies in North America,grade5
+train_10775,train_10775.png,Which material is this baseball bat made of?,b,"Which material is this baseball bat made of?
+A. polyester
+B. wood
+Answer with the option's letter from the given choices directly.",natural science,Materials,grade2
+train_8670,train_8670.png,Which i in column 1?,b,"Which i in column 1?
+A. the police department
+B. the pond
+C. the school
+D. the fire department
+Answer with the option's letter from the given choices directly.",social science,Geography,grade3
+train_8999,train_8999.png,What is the capital of Louisiana?,a,"What is the capital of Louisiana?
+A. Baton Rouge
+B. New Orleans
+C. Charlotte
+D. Little Rock
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade5
+train_1941,train_1941.png,Will these magnets attract or repel each other?,a,"Context: Two magnets are placed as shown.
+
+Hint: Magnets that attract pull together. Magnets that repel push apart.
+Will these magnets attract or repel each other?
+A. attract
+B. repel
+Answer with the option's letter from the given choices directly.",natural science,Magnets,grade2
+train_10303,train_10303.png,Which property matches this object?,a,"Context: Select the better answer.
+Which property matches this object?
+A. sour
+B. yellow
+Answer with the option's letter from the given choices directly.",natural science,Materials,grade2
+train_9414,train_9414.png,Is hornblende a mineral?,a,"Context: Hornblende has the following properties:
+not made by living things
+naturally occurring
+fixed crystal structure
+pure substance
+solid
+Is hornblende a mineral?
+A. yes
+B. no
+Answer with the option's letter from the given choices directly.",natural science,Rocks and minerals,grade5
+train_2432,train_2432.png,What is the name of the colony shown?,a,"What is the name of the colony shown?
+A. Pennsylvania
+B. Illinois
+C. West Virginia
+D. Rhode Island
+Answer with the option's letter from the given choices directly.",social science,English colonies in North America,grade4
+train_4964,train_4964.png,What is the capital of Hawaii?,d,"What is the capital of Hawaii?
+A. Olympia
+B. Portland
+C. Santa Fe
+D. Honolulu
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade5
+train_9422,train_9422.png,What is the capital of Idaho?,c,"What is the capital of Idaho?
+A. Carson City
+B. Nampa
+C. Boise
+D. Sacramento
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade5
+train_10162,train_10162.png,What is the name of the colony shown?,d,"What is the name of the colony shown?
+A. Kentucky
+B. Mississippi
+C. Maryland
+D. Massachusetts
+Answer with the option's letter from the given choices directly.",social science,Colonial America,grade7
+train_8846,train_8846.png,Which is the main persuasive appeal used in this ad?,c,"Which is the main persuasive appeal used in this ad?
+A. logos (reason)
+B. ethos (character)
+C. pathos (emotion)
+Answer with the option's letter from the given choices directly.",language science,Persuasive strategies,grade7
+train_3732,train_3732.png,Which animal is also adapted to be camouflaged in the snow?,a,"Context: s live in the Canadian Arctic and Greenland. The  is adapted to be camouflaged in the snow.
+Figure: Arctic hare.
+Which animal is also adapted to be camouflaged in the snow?
+A. polar bear
+B. hedgehog
+Answer with the option's letter from the given choices directly.",natural science,Adaptations,grade5
+train_10705,train_10705.png,Select the bird below.,a,"Context: Birds have feathers, two wings, and a beak. A woodpecker is an example of a bird.
+Select the bird below.
+A. bald eagle
+B. goldfish
+Answer with the option's letter from the given choices directly.",natural science,Classification,grade2
+train_6080,train_6080.png,Which of these states is farthest east?,d,"Which of these states is farthest east?
+A. South Dakota
+B. Illinois
+C. Kansas
+D. Maine
+Answer with the option's letter from the given choices directly.",social science,Geography,grade3
+train_9073,train_9073.png,Which solution has a higher concentration of yellow particles?,b,"Context: The diagram below is a model of two solutions. Each yellow ball represents one particle of solute.
+Which solution has a higher concentration of yellow particles?
+A. neither; their concentrations are the same
+B. Solution A
+C. Solution B
+Answer with the option's letter from the given choices directly.",natural science,Solutions,grade6
+train_102,train_102.png,Select the organism in the same genus as the crystal jellyfish.,c,"Context: This organism is a crystal jellyfish. Its scientific name is Aequorea victoria.
+Select the organism in the same genus as the crystal jellyfish.
+A. Goura victoria
+B. Larus occidentalis
+C. Aequorea victoria
+Answer with the option's letter from the given choices directly.",natural science,Classification and scientific names,grade7
+train_3477,train_3477.png,What is the capital of Hawaii?,b,"What is the capital of Hawaii?
+A. Hilo
+B. Honolulu
+C. Helena
+D. Missoula
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade3
+train_2868,train_2868.png,Which air temperature was measured within the outlined area shown?,c,"Context: The map below shows air temperatures in the lower atmosphere on April 15, 2017. The outlined area shows an air mass that influenced weather in North America on that day.
+Look at the map. Then, answer the question below.
+Data source: United States National Oceanic and Atmospheric Administration/Earth System Research Laboratory, Physical Sciences Division
+Which air temperature was measured within the outlined area shown?
+A. 23°C
+B. 12°C
+C. -23°C
+Answer with the option's letter from the given choices directly.",natural science,Weather and climate,grade6
+train_12499,train_12499.png,Select the mammal below.,b,"Context: Mammals have hair or fur and feed their young milk. A giraffe is an example of a mammal.
+Select the mammal below.
+A. white stork
+B. koala
+Answer with the option's letter from the given choices directly.",natural science,Classification,grade3
+train_6112,train_6112.png,What is the capital of Wyoming?,a,"What is the capital of Wyoming?
+A. Cheyenne
+B. Raleigh
+C. Laramie
+D. Saint Paul
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade3
+train_4541,train_4541.png,How often is the Nobel Peace Prize given out?,a,"Context: Read the passage about Malala Yousafzai and the Nobel Peace Prize.
+The Nobel Peace Prize is given to people who work to make the world a better place. Winners are picked once a year. They get a gold medal and some prize money, too.
+The youngest Nobel Peace Prize winner was Malala Yousafzai. She was seventeen years old. Malala won because she spoke up for kids in her home country, Pakistan. Some of those kids, mostly girls, don't get to go to school. Malala worked to change that.
+How often is the Nobel Peace Prize given out?
+A. every year
+B. every other year
+Answer with the option's letter from the given choices directly.",language science,Independent reading comprehension,grade2
+train_2398,train_2398.png,Select the reptile below.,a,"Context: Reptiles have scaly, waterproof skin. Most reptiles live on land. A Chinese alligator is an example of a reptile.
+Select the reptile below.
+A. helmeted iguana
+B. fruit bat
+Answer with the option's letter from the given choices directly.",natural science,Classification,grade2
+train_6758,train_6758.png,What type of rock is diorite?,b,"Context: Diorite forms from melted rock. Dolerite can form when melted rock cools below the earth's surface. This piece of diorite has white and black mineral grains in it.
+Diorite is a very hard rock. The people of ancient Egypt used diorite to make pottery and sculptures. Diorite was also used to polish other rocks such as granite.
+What type of rock is diorite?
+A. metamorphic
+B. igneous
+C. sedimentary
+Answer with the option's letter from the given choices directly.",natural science,Rocks and minerals,grade7
+train_3376,train_3376.png,"In this food chain, the sludge worm is a consumer. Why?",b,"Context: This diagram shows a food chain from the River Frome, a freshwater ecosystem in England.
+In this food chain, the sludge worm is a consumer. Why?
+A. It makes its own food.
+B. It eats another organism.
+Answer with the option's letter from the given choices directly.",natural science,Ecosystems,grade4
+train_10509,train_10509.png,Which continent is highlighted?,c,"Which continent is highlighted?
+A. Asia
+B. Europe
+C. North America
+D. Australia
+Answer with the option's letter from the given choices directly.",social science,Physical Geography,grade7
+train_6949,train_6949.png,Which of the following was a dependent variable in this experiment?,a,"Context: The passage below describes an experiment. Read the passage and think about the variables that are described.
+
+Santiago liked to hike, but he was often bothered by mosquito bites. He read that rubbing lavender flowers on your skin can repel mosquitoes. Santiago wanted to find out if lavender flowers work better as a mosquito repellent than store-bought bug spray. So, he sprayed bug spray on one of his arms and rubbed lavender flowers on his other arm. Then, he went for a hike.
+When he got home, he counted the number of new mosquito bites on each arm. Santiago repeated this test each afternoon for one week.
+Hint: An independent variable is a variable whose effect you are investigating. A dependent variable is a variable that you measure.
+Figure: a mosquito biting a human.
+Which of the following was a dependent variable in this experiment?
+A. the number of mosquito bites
+B. the type of mosquito repellent used
+Answer with the option's letter from the given choices directly.",natural science,Designing experiments,grade6
+train_861,train_861.png,Which animal is also adapted to be camouflaged in the snow?,a,"Context: Polar bears live in and around the cold Arctic Ocean. The  is adapted to be camouflaged in the snow.
+Figure: polar bear.
+Which animal is also adapted to be camouflaged in the snow?
+A. Arctic fox
+B. screech owl
+Answer with the option's letter from the given choices directly.",natural science,Adaptations,grade5
+train_2947,train_2947.png,Select the organism in the same species as the red-billed gull.,c,"Context: This organism is a red-billed gull. Its scientific name is Chroicocephalus scopulinus.
+Select the organism in the same species as the red-billed gull.
+A. Cyanocitta stelleri
+B. Polysticta stelleri
+C. Chroicocephalus scopulinus
+Answer with the option's letter from the given choices directly.",natural science,Scientific names,grade5
+train_1814,train_1814.png,Identify the question that Kayla's experiment can best answer.,b,"Context: The passage below describes an experiment. Read the passage and then follow the instructions below.
+
+Kayla planted 25 tomato seeds one-half inch below the soil surface in each of six pots. Kayla added an equal amount of fertilizer to three of the six pots. She placed the pots in a plant growth chamber where all the seeds experienced the same temperature, amount of light, and humidity level. After two weeks, Kayla counted the number of seedlings that grew in each pot. She compared the number of seedlings in the pots with fertilizer to the number of seedlings in the pots without fertilizer.
+Figure: tomato seedlings growing in soil.
+Identify the question that Kayla's experiment can best answer.
+A. Does the humidity level where tomato seeds are planted affect the number of tomato seedlings that grow?
+B. Do more tomato seedlings grow when they are planted in soil with fertilizer compared to soil without fertilizer?
+Answer with the option's letter from the given choices directly.",natural science,Designing experiments,grade8
+train_6466,train_6466.png,"Which bird's beak is also adapted to crack large, hard nuts?",a,"Context: Hyacinth macaws live in the rain forests of South America. They eat large seeds and nuts. The shape of the 's beak is adapted to crack open large, hard nuts.
+Figure: hyacinth macaw.
+Which bird's beak is also adapted to crack large, hard nuts?
+A. Alexandrine parakeet
+B. spotted dove
+Answer with the option's letter from the given choices directly.",natural science,Adaptations,grade3
+train_6797,train_6797.png,Identify the question that Colette's experiment can best answer.,a,"Context: The passage below describes an experiment. Read the passage and then follow the instructions below.
+
+Colette cut tomato and broccoli plant leaves into one-inch squares. In each of 12 containers, she placed six leaf squares: three tomato-leaf squares and three broccoli-leaf squares. She put one slug from her garden into each container. After two days, Colette measured the amount of each leaf square that had been eaten by the slugs. She compared the amount that had been eaten from the tomato-leaf squares to the amount that had been eaten from the broccoli-leaf squares.
+Figure: a slug on a leaf.
+Identify the question that Colette's experiment can best answer.
+A. Do slugs eat more from tomato leaves or broccoli leaves?
+B. Do slugs weigh more after eating tomato leaves or broccoli leaves?
+Answer with the option's letter from the given choices directly.",natural science,Designing experiments,grade7
+train_10589,train_10589.png,What is the capital of Alaska?,b,"What is the capital of Alaska?
+A. Olympia
+B. Juneau
+C. Cambridge
+D. Anchorage
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade5
+train_4599,train_4599.png,What is the capital of Arizona?,c,"What is the capital of Arizona?
+A. Des Moines
+B. Lansing
+C. Phoenix
+D. Tucson
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade5
+train_211,train_211.png,What can happen to the spores after they are released?,b,"Context: This diagram shows the life cycle of a moss.
+What can happen to the spores after they are released?
+A. They can fuse and form a fertilized egg.
+B. They can grow into an adult moss plant.
+Answer with the option's letter from the given choices directly.",natural science,Plant reproduction,grade7
+train_3564,train_3564.png,Which continent is highlighted?,d,"Which continent is highlighted?
+A. Africa
+B. North America
+C. Antarctica
+D. Australia
+Answer with the option's letter from the given choices directly.",social science,Physical Geography,grade8
+train_7216,train_7216.png,What is the capital of Virginia?,d,"What is the capital of Virginia?
+A. Tulsa
+B. Bridgeport
+C. Atlanta
+D. Richmond
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade4
+train_26,train_26.png,Select the fish below.,b,"Context: Fish live underwater. They have fins, not limbs. A tiger shark is an example of a fish.
+Select the fish below.
+A. black howler
+B. cardinalfish
+Answer with the option's letter from the given choices directly.",natural science,Classification,grade3
+train_4107,train_4107.png,Select the bird below.,b,"Context: Birds have feathers, two wings, and a beak. A turkey vulture is an example of a bird.
+Select the bird below.
+A. hammerhead shark
+B. flamingo
+Answer with the option's letter from the given choices directly.",natural science,Classification,grade3
+train_5170,train_5170.png,Which air temperature was measured within the outlined area shown?,b,"Context: The map below shows air temperatures in the lower atmosphere on November 12, 2015. The outlined area shows an air mass that influenced weather in Europe on that day.
+Look at the map. Then, answer the question below.
+Data source: United States National Oceanic and Atmospheric Administration/Earth System Research Laboratory, Physical Sciences Division
+Which air temperature was measured within the outlined area shown?
+A. 8°C
+B. -10°C
+C. 5°C
+Answer with the option's letter from the given choices directly.",natural science,Weather and climate,grade6
+train_4942,train_4942.png,Which of the following could Caleb's test show?,b,"Context: People can use the engineering-design process to develop solutions to problems. One step in the process is testing if a potential solution meets the requirements of the design.
+The passage below describes how the engineering-design process was used to test a solution to a problem. Read the passage. Then answer the question below.
+
+Caleb was a mechanical engineer who was designing  to record temperature, precipitation, and wind speed. The weather station would be used in a town where the highest recorded temperature was 40°C. Caleb wanted to make sure the weather station would work even in unusually warm weather.
+So, he set an indoor test chamber to 50°C with low moisture and no wind. He left the weather station in the chamber overnight. The next day, he checked to see if the weather station displayed accurate measurements after 24 hours at 50°C.
+Figure: a weather station.
+Which of the following could Caleb's test show?
+A. how well the weather station would work when it was windy
+B. if the weather station would work when the temperature was 50°C
+Answer with the option's letter from the given choices directly.",natural science,Engineering practices,grade6
+train_7055,train_7055.png,Which continent is highlighted?,b,"Which continent is highlighted?
+A. South America
+B. Antarctica
+C. North America
+D. Europe
+Answer with the option's letter from the given choices directly.",social science,Physical Geography,grade8
+train_1798,train_1798.png,What is the capital of Colorado?,c,"What is the capital of Colorado?
+A. Colorado Springs
+B. Boulder
+C. Denver
+D. Cheyenne
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade4
+train_827,train_827.png,What is the capital of Iowa?,c,"What is the capital of Iowa?
+A. Cedar Rapids
+B. Frankfort
+C. Des Moines
+D. Davenport
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade4
+train_10734,train_10734.png,Which continent is highlighted?,b,"Which continent is highlighted?
+A. Europe
+B. South America
+C. Antarctica
+D. North America
+Answer with the option's letter from the given choices directly.",social science,Oceans and continents	,grade4
+train_7678,train_7678.png,Will these magnets attract or repel each other?,a,"Context: Two magnets are placed as shown.
+Will these magnets attract or repel each other?
+A. attract
+B. repel
+Answer with the option's letter from the given choices directly.",natural science,Magnets,grade4
+train_10373,train_10373.png,What is the capital of Montana?,a,"What is the capital of Montana?
+A. Helena
+B. Salem
+C. Missoula
+D. Austin
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade3
+train_12638,train_12638.png,What do seeds grow into?,c,"Context: This drawing shows watermelon seeds.
+What do seeds grow into?
+A. flowers
+B. fruit
+C. new plants
+Answer with the option's letter from the given choices directly.",natural science,Plants,grade3
+train_12241,train_12241.png,Which animal is also adapted to be camouflaged in the snow?,a,"Context: Short-tailed weasels live in cold, snowy areas in Europe. The short tailed weasel is adapted to be camouflaged in the snow.
+Figure: short-tailed weasel.
+Which animal is also adapted to be camouflaged in the snow?
+A. ptarmigan
+B. hedgehog
+Answer with the option's letter from the given choices directly.",natural science,Adaptations,grade4
+train_5368,train_5368.png,Which property do these three objects have in common?,b,"Context: Select the best answer.
+Which property do these three objects have in common?
+A. rough
+B. translucent
+C. fuzzy
+Answer with the option's letter from the given choices directly.",natural science,Materials,grade3
+train_10467,train_10467.png,Which of these continents does the equator intersect?,c,"Which of these continents does the equator intersect?
+A. Antarctica
+B. Europe
+C. South America
+Answer with the option's letter from the given choices directly.",social science,Maps,grade5
+train_12627,train_12627.png,"Is a baseball cap a solid, a liquid, or a gas?",b,"Is a baseball cap a solid, a liquid, or a gas?
+A. a liquid
+B. a solid
+C. a gas
+Answer with the option's letter from the given choices directly.",natural science,States of matter,grade3
+train_5122,train_5122.png,Which property do these two objects have in common?,b,"Context: Select the better answer.
+Which property do these two objects have in common?
+A. scratchy
+B. colorful
+Answer with the option's letter from the given choices directly.",natural science,Materials,grade2
+train_10980,train_10980.png,Which animal's skin is better adapted as a warning sign to ward off predators?,a,"Context: Fire salamanders have poisonous glands in their brightly colored skin. The bright colors serve as a warning sign that the animal is poisonous. The 's skin is adapted to ward off predators.
+Figure: fire salamander.
+Which animal's skin is better adapted as a warning sign to ward off predators?
+A. flamboyant cuttlefish
+B. gray tree frog
+Answer with the option's letter from the given choices directly.",natural science,Adaptations,grade4
+train_11853,train_11853.png,What is the capital of New Jersey?,d,"What is the capital of New Jersey?
+A. Olympia
+B. Louisville
+C. Augusta
+D. Trenton
+Answer with the option's letter from the given choices directly.",social science,State capitals,grade5
+train_7025,train_7025.png,Which material is this clothespin made of?,a,"Which material is this clothespin made of?
+A. wood
+B. glass
+Answer with the option's letter from the given choices directly.",natural science,Materials,grade2
+train_11295,train_11295.png,Which country is highlighted?,d,"Which country is highlighted?
+A. Solomon Islands
+B. Nauru
+C. Tonga
+D. the Marshall Islands
+Answer with the option's letter from the given choices directly.",social science,Oceania: geography,grade6
+train_11031,train_11031.png,Which of the following could Ruben's test show?,c,"Context: People can use the engineering-design process to develop solutions to problems. One step in the process is testing if a potential solution meets the requirements of the design.
+The passage below describes how the engineering-design process was used to test a solution to a problem. Read the passage. Then answer the question below.
+
+Ruben was a landscape architect who was hired to design a new city park. The city council wanted the park to have space for outdoor concerts and to have at least 20% of the park shaded by trees. Ruben thought the concert area should be at least 150 meters from the road so traffic noise didn't interrupt the music. He developed three possible designs for the park with the concert area in a different location in each design. Then, he tested each design by measuring the distance between the road and the concert area.
+Figure: studying an architect's design.
+Which of the following could Ruben's test show?
+A. if at least 20% of the park would be shaded by trees in each design
+B. which design would have the least traffic noise in the concert area
+C. which design would have the greatest distance between the concert area and the road
+Answer with the option's letter from the given choices directly.",natural science,Engineering practices,grade7

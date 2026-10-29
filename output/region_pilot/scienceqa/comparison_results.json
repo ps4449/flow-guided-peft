@@ -1,0 +1,38 @@
+{
+  "repository": {
+    "branch": "dev",
+    "commit": "8734991cd5c80eff45b09eb954d6d849ef495d58"
+  },
+  "flow_pruned_seed0": {
+    "correct": 1636,
+    "total": 2017,
+    "accuracy": 81.11,
+    "accuracy_unrounded": 81.1105602379772,
+    "predictions_reverified": true,
+    "source": "output/peft/flow_pruned16_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa"
+  },
+  "region_seed0": {
+    "status": "not_run_nearly_identical_selection",
+    "correct": null,
+    "total": null,
+    "accuracy": null,
+    "accuracy_delta_pp_vs_flow_seed0": null,
+    "reason": "15/16 shared layers; only layer 8 replaced by 16. Does not satisfy the meaningful-difference gate."
+  },
+  "zero_shot": {
+    "status": "not_submitted_permission_declined",
+    "slurm_job_id": null,
+    "correct": null,
+    "total": null,
+    "accuracy": null,
+    "reason": "No saved 2017-question test predictions/metrics found in this checkout; the earlier submission was rejected by the approval gate.",
+    "documentation_only_reference": {
+      "source": "RESULTS.md:93",
+      "correct": 1395,
+      "total": 2017,
+      "accuracy": 69.16,
+      "verified_from_predictions": false
+    },
+    "launch_command": "bash scripts/tc2_region_zero_shot.sh"
+  }
+}

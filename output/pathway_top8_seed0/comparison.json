@@ -1,0 +1,85 @@
+{
+  "updated_at": "2026-10-29T10:23:18.268067+08:00",
+  "rows": [
+    {
+      "experiment": "combined_flow_top8",
+      "run_dir": "/home/msai/swarangi001/flow-guided-peft/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0",
+      "adapter": "/home/msai/swarangi001/flow-guided-peft/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter",
+      "seed": 0,
+      "selected_layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11
+      ],
+      "accuracy": 79.57,
+      "correct": 1605,
+      "total": 2017,
+      "trainable_parameters": 1048576,
+      "trainer_logged_minutes": 55.6,
+      "duration_source": "Last trainer log entry; rounded minutes, includes model setup; not an exact Slurm wall duration",
+      "historical_adapter_available": false,
+      "metrics": "/home/msai/swarangi001/flow-guided-peft/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+      "predictions": "/home/msai/swarangi001/flow-guided-peft/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+      "difference_percentage_points": 0.0,
+      "state": "completed"
+    },
+    {
+      "experiment": "question_to_last",
+      "seed": 0,
+      "selected_layers": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "trainable_parameters": 1048576,
+      "adapter": "/home/msai/swarangi001/flow-guided-peft/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter",
+      "checkpoint": "/home/msai/swarangi001/flow-guided-peft/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/checkpoint.pt",
+      "metrics": "/home/msai/swarangi001/flow-guided-peft/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+      "predictions": "/home/msai/swarangi001/flow-guided-peft/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+      "state": "completed",
+      "accuracy": 77.94,
+      "correct": 1572,
+      "total": 2017,
+      "difference_percentage_points": -1.6360932077342587,
+      "trainer_logged_minutes": 55.7,
+      "training_wall_seconds": 3351.4064565971494
+    },
+    {
+      "experiment": "middle_control",
+      "seed": 0,
+      "selected_layers": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "trainable_parameters": 1048576,
+      "adapter": "/home/msai/swarangi001/flow-guided-peft/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter",
+      "checkpoint": "/home/msai/swarangi001/flow-guided-peft/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/checkpoint.pt",
+      "metrics": "/home/msai/swarangi001/flow-guided-peft/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+      "predictions": "/home/msai/swarangi001/flow-guided-peft/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+      "state": "completed",
+      "accuracy": 75.46,
+      "correct": 1522,
+      "total": 2017,
+      "difference_percentage_points": -4.1150223103619235,
+      "trainer_logged_minutes": 55.3,
+      "training_wall_seconds": 3328.9209622098133
+    }
+  ],
+  "caveat": "One seed is exploratory; no statistical superiority claim. Pending metrics are unknown, not zero."
+}

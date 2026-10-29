@@ -1,0 +1,10 @@
+shared_layers,image_question_own_full_count,image_question_existing_combined_count,image_question_paired_combined_count,question_last_own_full_count,question_last_existing_combined_count,question_last_paired_combined_count,combined_own_full_count,combined_existing_combined_count,combined_paired_combined_count
+0,0,0,0,0,0,0,0,0,0
+1,0,0,0,0,0,0,0,0,0
+2,0,0,0,0,7,26,0,0,0
+3,0,0,0,0,4993,4974,0,0,0
+4,0,0,0,0,0,0,0,0,0
+5,4,2189,2018,0,0,0,40,40,0
+6,1414,2078,2261,0,0,0,352,352,0
+7,2349,722,713,8,0,0,2105,2105,0
+8,1233,11,8,4992,0,0,2503,2503,5000

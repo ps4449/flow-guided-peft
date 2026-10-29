@@ -22,3 +22,8 @@ CCDSGPU-TC2-MSc-UserGuide.pdf
 LLaVA-NeXT/
 
 slurm/logs/*
+
+# Final placement control: retain numerical evidence, never weights or scheduler logs.
+outputs/final_early8_seed0/adapter/
+outputs/final_early8_seed0/checkpoint.pt*
+outputs/final_early8_seed0/logs/

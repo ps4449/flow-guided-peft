@@ -1,0 +1,15 @@
+{
+  "protected_artifacts_unchanged": 75,
+  "analysis_code_matches_frozen_manifest": true,
+  "all_15000_top8_selections_verified": true,
+  "overlap_histograms_verified": true,
+  "independent_question_weighted_draws_verified": [
+    0,
+    2499,
+    4999
+  ],
+  "all32_layers_exported": true,
+  "plot_artifacts_verified": 6,
+  "models_trained_or_evaluated": false,
+  "gpu_jobs_submitted": false
+}
