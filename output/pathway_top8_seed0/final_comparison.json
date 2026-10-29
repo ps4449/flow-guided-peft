@@ -1,0 +1,213 @@
+{
+  "created_at": "2026-10-29T13:37:35.590717+08:00",
+  "models": [
+    {
+      "model": "combined",
+      "seed": 0,
+      "selected_layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11
+      ],
+      "correct": 1605,
+      "total": 2017,
+      "accuracy": 79.57362419434804,
+      "trainable_parameters": 1048576,
+      "trainer_logged_minutes": 55.6,
+      "adapter": "/home/msai/swarangi001/flow-guided-peft/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter",
+      "predictions": "/home/msai/swarangi001/flow-guided-peft/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+      "metrics": "/home/msai/swarangi001/flow-guided-peft/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+      "rank_configuration": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/flow_pruned8_scienceqa.json"
+    },
+    {
+      "model": "question_last",
+      "seed": 0,
+      "selected_layers": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "correct": 1572,
+      "total": 2017,
+      "accuracy": 77.93753098661378,
+      "trainable_parameters": 1048576,
+      "trainer_logged_minutes": 55.7,
+      "adapter": "/home/msai/swarangi001/flow-guided-peft/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter",
+      "predictions": "/home/msai/swarangi001/flow-guided-peft/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+      "metrics": "/home/msai/swarangi001/flow-guided-peft/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+      "rank_configuration": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/question_last_pruned8_scienceqa.json"
+    },
+    {
+      "model": "middle",
+      "seed": 0,
+      "selected_layers": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "correct": 1522,
+      "total": 2017,
+      "accuracy": 75.45860188398612,
+      "trainable_parameters": 1048576,
+      "trainer_logged_minutes": 55.3,
+      "adapter": "/home/msai/swarangi001/flow-guided-peft/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter",
+      "predictions": "/home/msai/swarangi001/flow-guided-peft/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+      "metrics": "/home/msai/swarangi001/flow-guided-peft/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+      "rank_configuration": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/middle_pruned8_scienceqa.json"
+    },
+    {
+      "model": "early",
+      "seed": 0,
+      "selected_layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "correct": 1605,
+      "total": 2017,
+      "accuracy": 79.57362419434804,
+      "trainable_parameters": 1048576,
+      "trainer_logged_minutes": 55.5,
+      "adapter": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter",
+      "predictions": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+      "metrics": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+      "rank_configuration": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/early_pruned8_scienceqa.json"
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "a": "combined",
+      "b": "early",
+      "primary": true,
+      "both_correct": 1563,
+      "both_wrong": 370,
+      "a_only_correct": 42,
+      "b_only_correct": 42,
+      "accuracy_difference_pp": 0.0,
+      "ci95_lower_pp": -0.8924144769459593,
+      "ci95_upper_pp": 0.8924144769459593,
+      "mcnemar_exact_p": 1.0,
+      "mcnemar_holm_all_six_p": 1.0
+    },
+    {
+      "a": "combined",
+      "b": "question_last",
+      "primary": false,
+      "both_correct": 1513,
+      "both_wrong": 353,
+      "a_only_correct": 92,
+      "b_only_correct": 59,
+      "accuracy_difference_pp": 1.6360932077342587,
+      "ci95_lower_pp": 0.44620723847297966,
+      "ci95_upper_pp": 2.875557759048091,
+      "mcnemar_exact_p": 0.008986616457699267,
+      "mcnemar_holm_all_six_p": 0.0269598493730978
+    },
+    {
+      "a": "combined",
+      "b": "middle",
+      "primary": false,
+      "both_correct": 1461,
+      "both_wrong": 351,
+      "a_only_correct": 144,
+      "b_only_correct": 61,
+      "accuracy_difference_pp": 4.1150223103619235,
+      "ci95_lower_pp": 2.7268220128904312,
+      "ci95_upper_pp": 5.552801189885969,
+      "mcnemar_exact_p": 6.404925733312152e-09,
+      "mcnemar_holm_all_six_p": 3.842955439987291e-08
+    },
+    {
+      "a": "question_last",
+      "b": "middle",
+      "primary": false,
+      "both_correct": 1485,
+      "both_wrong": 408,
+      "a_only_correct": 87,
+      "b_only_correct": 37,
+      "accuracy_difference_pp": 2.478929102627665,
+      "ci95_lower_pp": 1.3882002974714922,
+      "ci95_upper_pp": 3.5696579077838373,
+      "mcnemar_exact_p": 8.274158969176748e-06,
+      "mcnemar_holm_all_six_p": 3.309663587670699e-05
+    },
+    {
+      "a": "question_last",
+      "b": "early",
+      "primary": false,
+      "both_correct": 1510,
+      "both_wrong": 350,
+      "a_only_correct": 62,
+      "b_only_correct": 95,
+      "accuracy_difference_pp": -1.6360932077342587,
+      "ci95_lower_pp": -2.875557759048091,
+      "ci95_upper_pp": -0.39662865642042633,
+      "mcnemar_exact_p": 0.010422962029359046,
+      "mcnemar_holm_all_six_p": 0.0269598493730978
+    },
+    {
+      "a": "middle",
+      "b": "early",
+      "primary": false,
+      "both_correct": 1461,
+      "both_wrong": 351,
+      "a_only_correct": 61,
+      "b_only_correct": 144,
+      "accuracy_difference_pp": -4.1150223103619235,
+      "ci95_lower_pp": -5.5032226078334165,
+      "ci95_upper_pp": -2.7268220128904312,
+      "mcnemar_exact_p": 6.404925733312152e-09,
+      "mcnemar_holm_all_six_p": 3.842955439987291e-08
+    }
+  ],
+  "primary_comparison": [
+    "combined",
+    "early"
+  ],
+  "bootstrap": {
+    "replicates": 20000,
+    "seed": 0,
+    "unit": "paired question",
+    "same_draws_for_all_models": true,
+    "interval": "2.5/97.5 marginal percentile"
+  },
+  "verification": {
+    "same_2017_unique_ids": true,
+    "exact_gold_labels_agree": true,
+    "normalization": "unchanged evaluator.normalize: strip().rstrip('.').lower()"
+  },
+  "source_commit": "8734991cd5c80eff45b09eb954d6d849ef495d58",
+  "packages": {
+    "torch": "2.1.2",
+    "transformers": "4.40.0.dev0",
+    "peft": "0.12.0",
+    "numpy": "1.26.1",
+    "scipy": "1.15.3",
+    "accelerate": "1.15.0",
+    "safetensors": "0.8.0",
+    "huggingface-hub": "0.36.2",
+    "Pillow": "12.3.0"
+  },
+  "uncertainty": "Fixed-checkpoint evaluation-question significance does not quantify training-seed reliability; seed 0 is exploratory",
+  "protected_historical_files_unchanged": true
+}

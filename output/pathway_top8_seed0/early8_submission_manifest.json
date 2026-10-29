@@ -1,0 +1,1245 @@
+{
+  "created_at": "2026-10-29T12:33:49.836079+08:00",
+  "state": "completed",
+  "source_commit": "8734991cd5c80eff45b09eb954d6d849ef495d58",
+  "source_branch": "dev",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "packages": {
+    "torch": "2.1.2",
+    "transformers": "4.40.0.dev0",
+    "peft": "0.12.0",
+    "numpy": "1.26.1",
+    "scipy": "1.15.3",
+    "accelerate": "1.15.0",
+    "safetensors": "0.8.0",
+    "huggingface-hub": "0.36.2",
+    "Pillow": "12.3.0"
+  },
+  "python": "3.10.22 (main, Oct  1 2026, 20:14:04) [GCC 14.3.0]",
+  "selected_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "seed": 0,
+  "rank_config": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/early_pruned8_scienceqa.json",
+  "run_dir": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0",
+  "adapter": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter",
+  "checkpoint": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/checkpoint.pt",
+  "predictions": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+  "metrics": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+  "planned_training_configuration": {
+    "ranks": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/early_pruned8_scienceqa.json",
+    "seed": 0,
+    "model_path": "liuhaotian/llava-v1.5-7b",
+    "conv_mode": "vicuna_v1",
+    "train_file": "datasets/scienceqa/train_llava.json",
+    "image_folder": "datasets/scienceqa/images",
+    "out_dir": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0",
+    "tag": null,
+    "limit": null,
+    "epochs": 1,
+    "batch_size": 4,
+    "grad_accum": 4,
+    "lr": 0.0002,
+    "warmup_ratio": 0.03,
+    "save_every": 200,
+    "max_hours": 5.5,
+    "num_workers": 4,
+    "trainable_params": 1048576,
+    "total_steps": 388,
+    "flow_gates": false,
+    "gate_lr": 0.01
+  },
+  "training_extra": [
+    "--model-path",
+    "liuhaotian/llava-v1.5-7b",
+    "--conv-mode",
+    "vicuna_v1",
+    "--train-file",
+    "datasets/scienceqa/train_llava.json",
+    "--image-folder",
+    "datasets/scienceqa/images",
+    "--epochs",
+    "1",
+    "--batch-size",
+    "4",
+    "--grad-accum",
+    "4",
+    "--lr",
+    "0.0002",
+    "--warmup-ratio",
+    "0.03",
+    "--save-every",
+    "200",
+    "--max-hours",
+    "5.5",
+    "--num-workers",
+    "4",
+    "--out-dir",
+    "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0"
+  ],
+  "evaluation_extra": [
+    "--questions",
+    "datasets/scienceqa/test_questions.jsonl",
+    "--model-path",
+    "liuhaotian/llava-v1.5-7b",
+    "--conv-mode",
+    "vicuna_v1",
+    "--image-folder",
+    "datasets/scienceqa/images",
+    "--max-new-tokens",
+    "16"
+  ],
+  "matching": {
+    "optimizer": "AdamW",
+    "weight_decay": 0.0,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "scheduler": "cosine",
+    "warmup_steps": 11,
+    "lora_alpha": 16,
+    "lora_dropout": 0.05,
+    "precision": "bf16 shared loader",
+    "gradient_clipping": 1.0,
+    "gradient_checkpointing": "use_reentrant=False",
+    "multimodal_batching": "unchanged corrected collator with one image modality per row",
+    "answer_format": "unchanged uppercase A-E option letter plus EOS",
+    "optimizer_steps": 388,
+    "train_examples": 6218,
+    "supervised_examples_per_epoch": 6208,
+    "evaluation": "unchanged greedy merged-adapter evaluation; 16 new tokens"
+  },
+  "adapter_validation": {
+    "status": "passed",
+    "trainable_parameters": 1048576,
+    "selected_layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "rank_file": {
+      "path": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/rank_config.json",
+      "sha256": "53614275eb901eb66ae2807b0ea600672ed72e0542b7421ece28d4100865f941"
+    },
+    "checkpoint_config": {
+      "path": "/home/msai/swarangi001/hf_cache/hub/models--liuhaotian--llava-v1.5-7b/snapshots/4481d270cc22fd5c4d1bb5df129622006ccd9234/config.json",
+      "sha256": "f112de882e31171a105f0d3f69d9e6e8700a40149f0944f4b507d3a41789e492"
+    },
+    "checkpoint_snapshot": "4481d270cc22fd5c4d1bb5df129622006ccd9234",
+    "base_layers_preserved": 32,
+    "mode": "Full actual checkpoint architecture on meta; actual LoRA tensors allocated/initialized on CPU; no GPU inference/training",
+    "adapter_modules": [
+      {
+        "name": "base_model.model.model.layers.0.self_attn.q_proj",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "A_shape": [
+          8,
+          4096
+        ],
+        "B_shape": [
+          4096,
+          8
+        ]
+      },
+      {
+        "name": "base_model.model.model.layers.0.self_attn.v_proj",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "A_shape": [
+          8,
+          4096
+        ],
+        "B_shape": [
+          4096,
+          8
+        ]
+      },
+      {
+        "name": "base_model.model.model.layers.1.self_attn.q_proj",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "A_shape": [
+          8,
+          4096
+        ],
+        "B_shape": [
+          4096,
+          8
+        ]
+      },
+      {
+        "name": "base_model.model.model.layers.1.self_attn.v_proj",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "A_shape": [
+          8,
+          4096
+        ],
+        "B_shape": [
+          4096,
+          8
+        ]
+      },
+      {
+        "name": "base_model.model.model.layers.2.self_attn.q_proj",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "A_shape": [
+          8,
+          4096
+        ],
+        "B_shape": [
+          4096,
+          8
+        ]
+      },
+      {
+        "name": "base_model.model.model.layers.2.self_attn.v_proj",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "A_shape": [
+          8,
+          4096
+        ],
+        "B_shape": [
+          4096,
+          8
+        ]
+      },
+      {
+        "name": "base_model.model.model.layers.3.self_attn.q_proj",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "A_shape": [
+          8,
+          4096
+        ],
+        "B_shape": [
+          4096,
+          8
+        ]
+      },
+      {
+        "name": "base_model.model.model.layers.3.self_attn.v_proj",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "A_shape": [
+          8,
+          4096
+        ],
+        "B_shape": [
+          4096,
+          8
+        ]
+      },
+      {
+        "name": "base_model.model.model.layers.4.self_attn.q_proj",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "A_shape": [
+          8,
+          4096
+        ],
+        "B_shape": [
+          4096,
+          8
+        ]
+      },
+      {
+        "name": "base_model.model.model.layers.4.self_attn.v_proj",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "A_shape": [
+          8,
+          4096
+        ],
+        "B_shape": [
+          4096,
+          8
+        ]
+      },
+      {
+        "name": "base_model.model.model.layers.5.self_attn.q_proj",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "A_shape": [
+          8,
+          4096
+        ],
+        "B_shape": [
+          4096,
+          8
+        ]
+      },
+      {
+        "name": "base_model.model.model.layers.5.self_attn.v_proj",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "A_shape": [
+          8,
+          4096
+        ],
+        "B_shape": [
+          4096,
+          8
+        ]
+      },
+      {
+        "name": "base_model.model.model.layers.6.self_attn.q_proj",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "A_shape": [
+          8,
+          4096
+        ],
+        "B_shape": [
+          4096,
+          8
+        ]
+      },
+      {
+        "name": "base_model.model.model.layers.6.self_attn.v_proj",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "A_shape": [
+          8,
+          4096
+        ],
+        "B_shape": [
+          4096,
+          8
+        ]
+      },
+      {
+        "name": "base_model.model.model.layers.7.self_attn.q_proj",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "A_shape": [
+          8,
+          4096
+        ],
+        "B_shape": [
+          4096,
+          8
+        ]
+      },
+      {
+        "name": "base_model.model.model.layers.7.self_attn.v_proj",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "A_shape": [
+          8,
+          4096
+        ],
+        "B_shape": [
+          4096,
+          8
+        ]
+      }
+    ],
+    "trainable_tensors": [
+      {
+        "name": "base_model.model.model.layers.0.self_attn.q_proj.lora_A.default.weight",
+        "numel": 32768,
+        "shape": [
+          8,
+          4096
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.0.self_attn.q_proj.lora_B.default.weight",
+        "numel": 32768,
+        "shape": [
+          4096,
+          8
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.0.self_attn.v_proj.lora_A.default.weight",
+        "numel": 32768,
+        "shape": [
+          8,
+          4096
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.0.self_attn.v_proj.lora_B.default.weight",
+        "numel": 32768,
+        "shape": [
+          4096,
+          8
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.1.self_attn.q_proj.lora_A.default.weight",
+        "numel": 32768,
+        "shape": [
+          8,
+          4096
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.1.self_attn.q_proj.lora_B.default.weight",
+        "numel": 32768,
+        "shape": [
+          4096,
+          8
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.1.self_attn.v_proj.lora_A.default.weight",
+        "numel": 32768,
+        "shape": [
+          8,
+          4096
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.1.self_attn.v_proj.lora_B.default.weight",
+        "numel": 32768,
+        "shape": [
+          4096,
+          8
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.2.self_attn.q_proj.lora_A.default.weight",
+        "numel": 32768,
+        "shape": [
+          8,
+          4096
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.2.self_attn.q_proj.lora_B.default.weight",
+        "numel": 32768,
+        "shape": [
+          4096,
+          8
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.2.self_attn.v_proj.lora_A.default.weight",
+        "numel": 32768,
+        "shape": [
+          8,
+          4096
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.2.self_attn.v_proj.lora_B.default.weight",
+        "numel": 32768,
+        "shape": [
+          4096,
+          8
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.3.self_attn.q_proj.lora_A.default.weight",
+        "numel": 32768,
+        "shape": [
+          8,
+          4096
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.3.self_attn.q_proj.lora_B.default.weight",
+        "numel": 32768,
+        "shape": [
+          4096,
+          8
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.3.self_attn.v_proj.lora_A.default.weight",
+        "numel": 32768,
+        "shape": [
+          8,
+          4096
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.3.self_attn.v_proj.lora_B.default.weight",
+        "numel": 32768,
+        "shape": [
+          4096,
+          8
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.4.self_attn.q_proj.lora_A.default.weight",
+        "numel": 32768,
+        "shape": [
+          8,
+          4096
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.4.self_attn.q_proj.lora_B.default.weight",
+        "numel": 32768,
+        "shape": [
+          4096,
+          8
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.4.self_attn.v_proj.lora_A.default.weight",
+        "numel": 32768,
+        "shape": [
+          8,
+          4096
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.4.self_attn.v_proj.lora_B.default.weight",
+        "numel": 32768,
+        "shape": [
+          4096,
+          8
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.5.self_attn.q_proj.lora_A.default.weight",
+        "numel": 32768,
+        "shape": [
+          8,
+          4096
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.5.self_attn.q_proj.lora_B.default.weight",
+        "numel": 32768,
+        "shape": [
+          4096,
+          8
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.5.self_attn.v_proj.lora_A.default.weight",
+        "numel": 32768,
+        "shape": [
+          8,
+          4096
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.5.self_attn.v_proj.lora_B.default.weight",
+        "numel": 32768,
+        "shape": [
+          4096,
+          8
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.6.self_attn.q_proj.lora_A.default.weight",
+        "numel": 32768,
+        "shape": [
+          8,
+          4096
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.6.self_attn.q_proj.lora_B.default.weight",
+        "numel": 32768,
+        "shape": [
+          4096,
+          8
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.6.self_attn.v_proj.lora_A.default.weight",
+        "numel": 32768,
+        "shape": [
+          8,
+          4096
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.6.self_attn.v_proj.lora_B.default.weight",
+        "numel": 32768,
+        "shape": [
+          4096,
+          8
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.7.self_attn.q_proj.lora_A.default.weight",
+        "numel": 32768,
+        "shape": [
+          8,
+          4096
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.7.self_attn.q_proj.lora_B.default.weight",
+        "numel": 32768,
+        "shape": [
+          4096,
+          8
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.7.self_attn.v_proj.lora_A.default.weight",
+        "numel": 32768,
+        "shape": [
+          8,
+          4096
+        ],
+        "device": "cpu"
+      },
+      {
+        "name": "base_model.model.model.layers.7.self_attn.v_proj.lora_B.default.weight",
+        "numel": 32768,
+        "shape": [
+          4096,
+          8
+        ],
+        "device": "cpu"
+      }
+    ],
+    "versions": {
+      "torch": "2.1.2+cu121",
+      "peft": "0.12.0",
+      "transformers": "4.40.0.dev0"
+    }
+  },
+  "primary_comparison": [
+    "combined",
+    "early"
+  ],
+  "bootstrap": {
+    "replicates": 20000,
+    "seed": 0,
+    "unit": "paired question"
+  },
+  "historical_runs": [
+    "/home/msai/swarangi001/flow-guided-peft/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0",
+    "/home/msai/swarangi001/flow-guided-peft/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0",
+    "/home/msai/swarangi001/flow-guided-peft/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0"
+  ],
+  "historical_correct": [
+    1605,
+    1572,
+    1522
+  ],
+  "protected_historical_files": [
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/flow_pruned16_scienceqa.json",
+      "sha256": "05094e6cd18990e91ca848e9fe37714cf66199082ab92707604c09bf9927fa1d"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/flow_pruned8_scienceqa.json",
+      "sha256": "e14269da571bb3e48d6a50a1e39ef2963d6e61e838217499106573351736b030"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/region_pruned16_scienceqa.json",
+      "sha256": "c772dd955e844f15cc9ba91b6bd69d9d505e63d37dd886432cdb50fd3731e2a8"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/flow_protected.json",
+      "sha256": "dc48c0c0abdd2e712b796d1aa7b856d616fce71c2c4a624c3e8e3081dac15995"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/random_pruned16_scienceqa.json",
+      "sha256": "558f9ca2106dd63a73463f0c5a41667b7d7c245e8db008999e2f680f02f2537b"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/flow_pruned4_scienceqa.json",
+      "sha256": "f7a6ca823645e4910c47d90e27453f73dcc049b7fd0bc421d8fad1e9436463e7"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/similarity_pruned16_scienceqa.json",
+      "sha256": "f4a26bd5da93bf76544b1204b54ee038815c1bc475ff30599c405935a9b3a2e4"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/question_last_pruned8_scienceqa.json",
+      "sha256": "ca5cf005ad7d2ae908e91792a765f8cabd0a79c34ccdf11d44f9f060ac7d2110"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/inverse_flow.json",
+      "sha256": "7fdab216e14086685f9adc0f53bf994e6f4870f3a6620995e88a679667198e49"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/spectrum_pruned16_scienceqa.json",
+      "sha256": "7feffd78cc670c522d6bf7aa59a8e428ea11104758677fe7611c596dbe1e6f5f"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/inverse_pruned16_scienceqa.json",
+      "sha256": "7feffd78cc670c522d6bf7aa59a8e428ea11104758677fe7611c596dbe1e6f5f"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/middle_pruned8_scienceqa.json",
+      "sha256": "b2030711cc66ceb1adc5f786edf74c45e489e2ef894b3bf56f60b39646613e32"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/inverse_flow_scienceqa.json",
+      "sha256": "4ec1b4fa7a88728861be043838441263f5a2fedd116a29b43a0fc3eae1ff106c"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/uniform.json",
+      "sha256": "295d8ff85588f4d797faa0c87acfb321de7984fee30367018c284d06b9d9fc0d"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/flow_guided_scienceqa.json",
+      "sha256": "a9e93be667375bc30c41bf063582219d26bf571b2ab88132c6943e363d494066"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/grad_pruned16_scienceqa.json",
+      "sha256": "05094e6cd18990e91ca848e9fe37714cf66199082ab92707604c09bf9927fa1d"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/flow_guided.json",
+      "sha256": "8aed0ec2e88f07ad59e01c3f0c4e7860dae1588589354261d0d1a9a3376941e3"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/train_config.json",
+      "sha256": "f1e87a36741bf5b1e043e787c11df9d496258e082788f6db5da6ea1efeb1d6b5"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/train_log.jsonl",
+      "sha256": "9f54079ef8a4da9baa0336e83539d81838f6b39c3df85cf453302ee5d1beef55"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+      "sha256": "3518ff8472b1f7dc5751fa4e0537e0429f63efc8c74b4aaa2e4cc97a783cc906"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+      "sha256": "1a090cb3ec5c0f2983445d180de9d0f3b7132b136e112bd82278cbe0fcfa3641"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/train_config.json",
+      "sha256": "a925211b80633f6cc55da4b6d7d460e8166e600e7743487c134827e9fa876390"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/train_log.jsonl",
+      "sha256": "d45464c4ad48379f576f8958b7039b27cdbd41973d3bd34c7ca456c810152eaa"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter/adapter_config.json",
+      "sha256": "05543202eadb086504624b371cd7391664a43b0e8d88ee234c4e3fef8be3eba2"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter/adapter_model.safetensors",
+      "sha256": "70e1aa97334fac67ffc0e07cf49dba2fc28d05a84fc8ca3c76960e7a3927f1e5"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter/README.md",
+      "sha256": "c9e595723cb622aa1c660bcc0f42fc1946f84e21105fc32f34c185e2d8565af7"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+      "sha256": "1a1f2a0a5ec7e5e998cfbdfc8f7c6c3207c3a0be60cb632681006877b0a13280"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+      "sha256": "f8fd1e78a6fc1958c2280fe9e004f50bcc100607bfe65aa4c64ae8189c278cbd"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/train_config.json",
+      "sha256": "1bba15c9abcce52d0f4f8db5b1f248030e6afafa98401ec01122c3e56116f187"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/train_log.jsonl",
+      "sha256": "3d50c41fe7f61a63e846a1ff3a8e183ed0c7aa418986dde7a783f74b77600461"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter/adapter_config.json",
+      "sha256": "61778d2ab6f8893f15d2527d7f8ff7aa4ed6329e27fc641e3afe3c1219121eda"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter/adapter_model.safetensors",
+      "sha256": "e1d7f328506035bab4f2c47218f7718371e04aa3a59a6438815172370fd21486"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter/README.md",
+      "sha256": "c9e595723cb622aa1c660bcc0f42fc1946f84e21105fc32f34c185e2d8565af7"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+      "sha256": "88e3c009f96f840a5911039b2b69654b3dfb82786317505d81ab39b6795a9900"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+      "sha256": "c43805ef8c75349d73541a9cfe1e2edb20b2726fb534cbc3c51cb646c2652bc8"
+    }
+  ],
+  "frozen_files": [
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/peft_lora/train_lora.py",
+      "sha256": "282a8c7796a344ec88d4955b640c16e99ab1b1bc2806e1247d50da2ae5bbe6da"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/peft_lora/eval_gqa.py",
+      "sha256": "9bdec040c2b6a1c93adfd7d9f5687556c2c79a91ff7832ed29d9261a78dc9281"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/peft_lora/common.py",
+      "sha256": "8cbe56ac54d2413c7611445a0447c6da16e7b71d88f3711b8484a6783fc65ebd"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/peft_lora/methods/pathway_specific/experiment_seed0.py",
+      "sha256": "c7a85472c9e682db3b2a92b1e10a62aefa4a2d989997bdfbdd47c748961eaea1"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/scripts/tc2_train.sh",
+      "sha256": "116486c12cf3c8fda042ed55d2a9143dfbe4524e136a7ef46b0a37f3a48b3a71"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/scripts/tc2_eval.sh",
+      "sha256": "94092c8141047c4500f0b5ae0a03f1f6556697f6b24fde80540886b7db9a716e"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/scripts/launch_scienceqa_early8_seed0.sh",
+      "sha256": "7adf221427f0fef8591f79dbf2e51609e73fd190ce6c9c2496dab2911b0dae72"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/datasets/scienceqa/train_llava.json",
+      "sha256": "8cc00fb37a7e642e05b0063e2554a5e4a0be3a3e8bb13e49dbba20045ea1c4f9"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/datasets/scienceqa/test_questions.jsonl",
+      "sha256": "3d3f7a94463894d4bb95c9920199cfd458ddda0f35f4d447aedc16891a3caa15"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/LLaVA-NeXT/llava/model/llava_arch.py",
+      "sha256": "ce3d69fbcd69fcb0d056d419a1b6760237a209f1fc09584174bb10e54b9ff3af"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/LLaVA-NeXT/llava/model/builder.py",
+      "sha256": "288a4dc45ff84623332e312e2072adeadba2712853518475cca4a6fdf3e524e1"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/LLaVA-NeXT/llava/conversation.py",
+      "sha256": "f3a902025d032b19f7d2c37fe08707b3e184e5fa6f00aba7c931ca5d1e249629"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/peft_lora/methods/pathway_specific/final_early8_seed0.py",
+      "sha256": "794dee852d5bf01ad1a373415603862f3821465319deab22c73ece914a1dcaf1"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/rank_config.json",
+      "sha256": "53614275eb901eb66ae2807b0ea600672ed72e0542b7421ece28d4100865f941"
+    },
+    {
+      "path": "/home/msai/swarangi001/hf_cache/hub/models--liuhaotian--llava-v1.5-7b/snapshots/4481d270cc22fd5c4d1bb5df129622006ccd9234/config.json",
+      "sha256": "f112de882e31171a105f0d3f69d9e6e8700a40149f0944f4b507d3a41789e492"
+    },
+    {
+      "path": "/home/msai/swarangi001/hf_cache/hub/models--liuhaotian--llava-v1.5-7b/refs/main",
+      "sha256": "a7642d3e19ae61fad04a04633bd797bb4ac1877e3897d2d8513b6f574f0d0c3f"
+    }
+  ],
+  "resources_from_existing_scripts": {
+    "train": [
+      "--partition=MGPU-TC2",
+      "--qos=normal",
+      "--nodes=1",
+      "--gres=gpu:1",
+      "--cpus-per-task=8",
+      "--mem=30G",
+      "--time=06:00:00"
+    ],
+    "eval": [
+      "--partition=MGPU-TC2",
+      "--qos=normal",
+      "--nodes=1",
+      "--gres=gpu:1",
+      "--cpus-per-task=4",
+      "--mem=30G",
+      "--time=06:00:00"
+    ]
+  },
+  "jobs": {
+    "train": {
+      "state": "COMPLETED",
+      "comment": "final_early8_seed0:train:b962a171f080",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--partition=MGPU-TC2",
+        "--qos=normal",
+        "--nodes=1",
+        "--gres=gpu:1",
+        "--cpus-per-task=8",
+        "--mem=30G",
+        "--time=06:00:00",
+        "--job-name",
+        "sqa_final_early8_s0_train",
+        "--chdir",
+        "/home/msai/swarangi001/flow-guided-peft",
+        "--comment",
+        "final_early8_seed0:train:b962a171f080",
+        "--open-mode=append",
+        "--output",
+        "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/logs/train_%j.out",
+        "--error",
+        "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/logs/train_%j.err",
+        "--export=ALL",
+        "--wrap",
+        "exec /home/msai/swarangi001/.conda/envs/llava/bin/python -u /home/msai/swarangi001/flow-guided-peft/peft_lora/methods/pathway_specific/final_early8_seed0.py --worker train"
+      ],
+      "intent_at": "2026-10-29T12:34:11.987442+08:00",
+      "job_id": "48704",
+      "submitted_at": "2026-10-29T12:34:12.001679+08:00",
+      "state_before_completion_refresh": "RUNNING",
+      "exit_code": "0:0"
+    },
+    "eval": {
+      "state": "COMPLETED",
+      "comment": "final_early8_seed0:eval:b962a171f080",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--partition=MGPU-TC2",
+        "--qos=normal",
+        "--nodes=1",
+        "--gres=gpu:1",
+        "--cpus-per-task=4",
+        "--mem=30G",
+        "--time=06:00:00",
+        "--job-name",
+        "sqa_final_early8_s0_eval",
+        "--chdir",
+        "/home/msai/swarangi001/flow-guided-peft",
+        "--comment",
+        "final_early8_seed0:eval:b962a171f080",
+        "--open-mode=append",
+        "--output",
+        "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/logs/eval_%j.out",
+        "--error",
+        "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/logs/eval_%j.err",
+        "--dependency",
+        "afterok:48704",
+        "--export=ALL",
+        "--wrap",
+        "exec /home/msai/swarangi001/.conda/envs/llava/bin/python -u /home/msai/swarangi001/flow-guided-peft/peft_lora/methods/pathway_specific/final_early8_seed0.py --worker eval"
+      ],
+      "intent_at": "2026-10-29T12:34:12.031158+08:00",
+      "job_id": "48705",
+      "submitted_at": "2026-10-29T12:34:12.044958+08:00",
+      "state_before_completion_refresh": "PENDING",
+      "exit_code": "0:0"
+    }
+  },
+  "executions": {
+    "train": {
+      "48704": {
+        "state": "completed",
+        "job_id": "48704",
+        "started_at": "2026-10-29T12:34:16.314496+08:00",
+        "node": "TC2N01",
+        "gpu": "NVIDIA A40",
+        "source_commit": "8734991cd5c80eff45b09eb954d6d849ef495d58",
+        "packages": {
+          "torch": "2.1.2",
+          "transformers": "4.40.0.dev0",
+          "peft": "0.12.0",
+          "numpy": "1.26.1",
+          "scipy": "1.15.3",
+          "accelerate": "1.15.0",
+          "safetensors": "0.8.0",
+          "huggingface-hub": "0.36.2",
+          "Pillow": "12.3.0"
+        },
+        "ended_at": "2026-10-29T13:29:56.453182+08:00",
+        "wall_seconds": 3339.9663096107543,
+        "exit_code": 0
+      }
+    },
+    "eval": {
+      "48705": {
+        "state": "completed",
+        "job_id": "48705",
+        "started_at": "2026-10-29T13:29:59.521923+08:00",
+        "node": "TC2N01",
+        "gpu": "NVIDIA A40",
+        "source_commit": "8734991cd5c80eff45b09eb954d6d849ef495d58",
+        "packages": {
+          "torch": "2.1.2",
+          "transformers": "4.40.0.dev0",
+          "peft": "0.12.0",
+          "numpy": "1.26.1",
+          "scipy": "1.15.3",
+          "accelerate": "1.15.0",
+          "safetensors": "0.8.0",
+          "huggingface-hub": "0.36.2",
+          "Pillow": "12.3.0"
+        },
+        "ended_at": "2026-10-29T13:37:30.280074+08:00",
+        "wall_seconds": 450.6299904808402,
+        "exit_code": 0
+      }
+    }
+  },
+  "single_seed_caveat": "Question uncertainty conditional on fixed checkpoints is not training-seed reliability",
+  "updated_at": "2026-10-29T13:37:35.630098+08:00",
+  "actual_training_configuration": {
+    "ranks": "configs/ranks/early_pruned8_scienceqa.json",
+    "seed": 0,
+    "model_path": "liuhaotian/llava-v1.5-7b",
+    "conv_mode": "vicuna_v1",
+    "train_file": "datasets/scienceqa/train_llava.json",
+    "image_folder": "datasets/scienceqa/images",
+    "out_dir": "output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0",
+    "tag": null,
+    "limit": null,
+    "epochs": 1,
+    "batch_size": 4,
+    "grad_accum": 4,
+    "lr": 0.0002,
+    "warmup_ratio": 0.03,
+    "save_every": 200,
+    "max_hours": 5.5,
+    "num_workers": 4,
+    "flow_gates": false,
+    "gate_lr": 0.01,
+    "trainable_params": 1048576,
+    "total_steps": 388
+  },
+  "saved_adapter_parameters_verified": 1048576,
+  "comparison_generated_at": "2026-10-29T13:37:35.630075+08:00",
+  "final_report": "/home/msai/swarangi001/flow-guided-peft/docs/FINAL_TOP8_COMPARISON.md",
+  "original_run_locations": {
+    "rank_config": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/rank_config.json",
+    "run_dir": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0",
+    "adapter": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/adapter",
+    "checkpoint": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/checkpoint.pt",
+    "predictions": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/eval_scienceqa/predictions.jsonl",
+    "metrics": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/eval_scienceqa/metrics.json"
+  },
+  "submitted_training_configuration": {
+    "ranks": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/rank_config.json",
+    "seed": 0,
+    "model_path": "liuhaotian/llava-v1.5-7b",
+    "conv_mode": "vicuna_v1",
+    "train_file": "datasets/scienceqa/train_llava.json",
+    "image_folder": "datasets/scienceqa/images",
+    "out_dir": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0",
+    "tag": null,
+    "limit": null,
+    "epochs": 1,
+    "batch_size": 4,
+    "grad_accum": 4,
+    "lr": 0.0002,
+    "warmup_ratio": 0.03,
+    "save_every": 200,
+    "max_hours": 5.5,
+    "num_workers": 4,
+    "flow_gates": false,
+    "gate_lr": 0.01,
+    "trainable_params": 1048576,
+    "total_steps": 388
+  },
+  "submitted_training_extra": [
+    "--model-path",
+    "liuhaotian/llava-v1.5-7b",
+    "--conv-mode",
+    "vicuna_v1",
+    "--train-file",
+    "datasets/scienceqa/train_llava.json",
+    "--image-folder",
+    "datasets/scienceqa/images",
+    "--epochs",
+    "1",
+    "--batch-size",
+    "4",
+    "--grad-accum",
+    "4",
+    "--lr",
+    "0.0002",
+    "--warmup-ratio",
+    "0.03",
+    "--save-every",
+    "200",
+    "--max-hours",
+    "5.5",
+    "--num-workers",
+    "4",
+    "--out-dir",
+    "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0"
+  ],
+  "path_relocations": {
+    "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/train_config.json": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/train_config.json",
+    "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/paired_comparison.csv": "/home/msai/swarangi001/flow-guided-peft/output/pathway_top8_seed0/final_paired_comparison.csv",
+    "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/summary.csv": "/home/msai/swarangi001/flow-guided-peft/output/pathway_top8_seed0/final_summary.csv",
+    "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/accuracy.png": "/home/msai/swarangi001/flow-guided-peft/output/pathway_top8_seed0/final_accuracy.png",
+    "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/final_comparison.json": "/home/msai/swarangi001/flow-guided-peft/output/pathway_top8_seed0/final_comparison.json",
+    "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/train_log.jsonl": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/train_log.jsonl",
+    "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/selected_layers.png": "/home/msai/swarangi001/flow-guided-peft/output/pathway_top8_seed0/final_selected_layers.png",
+    "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/rank_config.json": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/early_pruned8_scienceqa.json",
+    "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/submission_manifest.json": "/home/msai/swarangi001/flow-guided-peft/output/pathway_top8_seed0/early8_submission_manifest.json",
+    "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/logs/eval_48705.out": "/home/msai/swarangi001/flow-guided-peft/slurm/logs/sqa_final_early8_s0_eval_48705.out",
+    "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/logs/train_48704.out": "/home/msai/swarangi001/flow-guided-peft/slurm/logs/sqa_final_early8_s0_train_48704.out",
+    "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/logs/eval_48705.err": "/home/msai/swarangi001/flow-guided-peft/slurm/logs/sqa_final_early8_s0_eval_48705.err",
+    "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/logs/train_48704.err": "/home/msai/swarangi001/flow-guided-peft/slurm/logs/sqa_final_early8_s0_train_48704.err",
+    "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/adapter/adapter_config.json": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter/adapter_config.json",
+    "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/adapter/adapter_model.safetensors": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter/adapter_model.safetensors",
+    "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/adapter/README.md": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter/README.md",
+    "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/eval_scienceqa/metrics.json": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+    "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/eval_scienceqa/predictions.jsonl": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+    "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0"
+  },
+  "layout": "repository_standard",
+  "reorganized_at": "2026-10-29T14:05:38.684601+08:00",
+  "provenance_note": "Original job commands, frozen source hashes, validation paths and submitted training configuration preserve execution provenance. Current artifact paths reflect repository layout; model weights, predictions, train log and numerical comparisons are unchanged.",
+  "relocated_artifacts": [
+    {
+      "original_path": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/train_config.json",
+      "current_path": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/train_config.json",
+      "original_sha256": "77509eeb7d1fb17c8f9f6de705de26b17212e00d49678be46e6a2aa162aa068f"
+    },
+    {
+      "original_path": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/paired_comparison.csv",
+      "current_path": "/home/msai/swarangi001/flow-guided-peft/output/pathway_top8_seed0/final_paired_comparison.csv",
+      "original_sha256": "237f430e6d953563922f67614c978a130fd4fb787d077fb2d7d7c83db9b10db1"
+    },
+    {
+      "original_path": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/summary.csv",
+      "current_path": "/home/msai/swarangi001/flow-guided-peft/output/pathway_top8_seed0/final_summary.csv",
+      "original_sha256": "19e622b86e0ec0d8dd13864ffef05d5fa400636369898c7ec9a6dc3e687f0fde"
+    },
+    {
+      "original_path": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/accuracy.png",
+      "current_path": "/home/msai/swarangi001/flow-guided-peft/output/pathway_top8_seed0/final_accuracy.png",
+      "original_sha256": "3408f87e1653d484b66d6ca03fc562bc76bc7fc44951344f3632d464ccecde5a"
+    },
+    {
+      "original_path": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/final_comparison.json",
+      "current_path": "/home/msai/swarangi001/flow-guided-peft/output/pathway_top8_seed0/final_comparison.json",
+      "original_sha256": "2144697ecffe408fcb14881469bb44772a35894a8cd833e7a87c6e9607ec9fb3"
+    },
+    {
+      "original_path": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/train_log.jsonl",
+      "current_path": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/train_log.jsonl",
+      "original_sha256": "c085d5cb802c43ddbedd0f0d2543ad0bbf8338762a760cff8ecbcc51512515ab"
+    },
+    {
+      "original_path": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/selected_layers.png",
+      "current_path": "/home/msai/swarangi001/flow-guided-peft/output/pathway_top8_seed0/final_selected_layers.png",
+      "original_sha256": "1b23984bdfe373cc04b566642e4652dfd1c572a70844c005ab8e78bf0607eb2c"
+    },
+    {
+      "original_path": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/rank_config.json",
+      "current_path": "/home/msai/swarangi001/flow-guided-peft/configs/ranks/early_pruned8_scienceqa.json",
+      "original_sha256": "53614275eb901eb66ae2807b0ea600672ed72e0542b7421ece28d4100865f941"
+    },
+    {
+      "original_path": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/submission_manifest.json",
+      "current_path": "/home/msai/swarangi001/flow-guided-peft/output/pathway_top8_seed0/early8_submission_manifest.json",
+      "original_sha256": "2ef1ff246055da3b3cf933eea1fb2cfc5b02c2bcef84b0dc7ec5e07296733e1b"
+    },
+    {
+      "original_path": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/logs/eval_48705.out",
+      "current_path": "/home/msai/swarangi001/flow-guided-peft/slurm/logs/sqa_final_early8_s0_eval_48705.out",
+      "original_sha256": "d7bb36ccdb6a50462b25a7067d2e9e896edc45f57b5eed066c864667615800cd"
+    },
+    {
+      "original_path": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/logs/train_48704.out",
+      "current_path": "/home/msai/swarangi001/flow-guided-peft/slurm/logs/sqa_final_early8_s0_train_48704.out",
+      "original_sha256": "81415ce9e67858e9f985f9165c88222105344e6f2e1198d002986a83bb500512"
+    },
+    {
+      "original_path": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/logs/eval_48705.err",
+      "current_path": "/home/msai/swarangi001/flow-guided-peft/slurm/logs/sqa_final_early8_s0_eval_48705.err",
+      "original_sha256": "ade91f41ef85435d9aca0b9f8664f5821ad06e1ad103bb6b915623fdcd9bb85f"
+    },
+    {
+      "original_path": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/logs/train_48704.err",
+      "current_path": "/home/msai/swarangi001/flow-guided-peft/slurm/logs/sqa_final_early8_s0_train_48704.err",
+      "original_sha256": "f60115a8d5a2856e49abf0c60f530d5434d54ebe9b2d9b666700bd7f2197b2a2"
+    },
+    {
+      "original_path": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/adapter/adapter_config.json",
+      "current_path": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter/adapter_config.json",
+      "original_sha256": "9e9ea8f75998c0b30707d8ced81ba41d976b5f91aca4e1bc57c1a07a9d8f8432"
+    },
+    {
+      "original_path": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/adapter/adapter_model.safetensors",
+      "current_path": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter/adapter_model.safetensors",
+      "original_sha256": "82252f3a578346bc8905c56e16a13bb4b0fe1e2bf6aa132e733238186e9cb56d"
+    },
+    {
+      "original_path": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/adapter/README.md",
+      "current_path": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/adapter/README.md",
+      "original_sha256": "c9e595723cb622aa1c660bcc0f42fc1946f84e21105fc32f34c185e2d8565af7"
+    },
+    {
+      "original_path": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/eval_scienceqa/metrics.json",
+      "current_path": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+      "original_sha256": "19898fc03d3d4f718786c4ff051a1f5c483f8badb080acc507325e4c8588e16d"
+    },
+    {
+      "original_path": "/home/msai/swarangi001/flow-guided-peft/outputs/final_early8_seed0/eval_scienceqa/predictions.jsonl",
+      "current_path": "/home/msai/swarangi001/flow-guided-peft/output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+      "original_sha256": "cc8a987acb9f4157ddb4a6cd3c72269d73c30ca4b56c8d498b8dd3798929adb2"
+    }
+  ],
+  "current_layout_sources": [
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/peft_lora/methods/pathway_specific/final_early8_seed0.py",
+      "sha256": "8ee1d87c0cb8430def7e83d8b5a892fa88e98f3e4af4041ddd61fc819203277d"
+    }
+  ]
+}
