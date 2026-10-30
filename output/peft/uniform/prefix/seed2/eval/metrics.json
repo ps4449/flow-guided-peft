@@ -1,50 +1,49 @@
 {
-  "accuracy": 62.88,
-  "correct": 7909,
+  "accuracy": 61.93,
+  "correct": 7789,
   "total": 12578,
-  "adapter": "output/peft/uniform/uniform_new/seed2/adapter",
-  "questions": "datasets/gqa/testdev_questions.jsonl",
+  "adapter": "output/peft/uniform/default/seed2/adapter",
   "by_structural": {
     "choose": {
-      "accuracy": 83.7,
+      "accuracy": 82.82,
       "total": 1129
     },
     "compare": {
-      "accuracy": 66.04,
+      "accuracy": 62.99,
       "total": 589
     },
     "logical": {
-      "accuracy": 75.82,
+      "accuracy": 74.43,
       "total": 1803
     },
     "query": {
-      "accuracy": 48.92,
+      "accuracy": 48.46,
       "total": 6805
     },
     "verify": {
-      "accuracy": 83.44,
+      "accuracy": 81.84,
       "total": 2252
     }
   },
   "by_semantic": {
     "attr": {
-      "accuracy": 69.3,
+      "accuracy": 67.82,
       "total": 5186
     },
     "cat": {
-      "accuracy": 54.05,
+      "accuracy": 54.83,
       "total": 1149
     },
     "global": {
-      "accuracy": 66.24,
+      "accuracy": 61.15,
       "total": 157
     },
     "obj": {
-      "accuracy": 87.02,
+      "accuracy": 87.4,
       "total": 778
     },
     "rel": {
-      "accuracy": 54.88,
+      "accuracy": 53.99,
       "total": 5308
     }
   }

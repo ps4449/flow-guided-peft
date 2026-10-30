@@ -28,10 +28,10 @@ See [docs/CAPITALIZATION_FIX.md](docs/CAPITALIZATION_FIX.md) for the fix, how to
 
 | Configuration | Accuracy (%) | Batch (micro × accum) | Notes |
 |---|---|---|---|
-| Uniform LoRA (rank 8), seed 0 | | 4 × 4 ✅ | running (rerun with the batch fix) |
-| Uniform LoRA (rank 8), seed 1 | | 4 × 4 ✅ | |
-| Uniform LoRA (rank 8), seed 2 | | 4 × 4 ✅ | |
-| **Uniform LoRA (rank 8), mean ± sample std of seeds 0–2** | | 4 × 4 ✅ | |
+| Uniform LoRA (rank 8), seed 0 | 62.51 | 4 × 4 ✅ | 7,863 / 12,578 correct; [outputs](output/peft/uniform/default/seed0/eval/metrics.json); rerun with the batch fix |
+| Uniform LoRA (rank 8), seed 1 | 62.80 | 4 × 4 ✅ | 7,899 / 12,578 correct; [outputs](output/peft/uniform/default/seed1/eval/metrics.json) |
+| Uniform LoRA (rank 8), seed 2 | 62.88 | 4 × 4 ✅ | 7,909 / 12,578 correct; [outputs](output/peft/uniform/default/seed2/eval/metrics.json) |
+| **Uniform LoRA (rank 8), mean ± sample std of seeds 0–2** | **62.73 ± 0.19** | 4 × 4 ✅ | +0.82 vs zero-shot (61.91; better on every seed, McNemar p = 0.009 / 5e-5 / 1e-5); flow-guided −0.11 (paired over the 3 seeds, flow alone right on 406 questions vs uniform alone on 447; no seed significant) and inverse-flow +0.02 (415 vs 409) |
 | AdaLoRA (init rank 12 → avg 8), seed 0 | 62.56 | 1 × 16 | 7,869 / 12,578 correct; [outputs](output/peft/adalora_capfirst/seed0/eval/metrics.json); +1.12 vs lowercase seed 0 |
 | AdaLoRA (init rank 12 → avg 8), seed 1 | 62.45 | 1 × 16 | 7,855 / 12,578 correct; [outputs](output/peft/adalora_capfirst/seed1/eval/metrics.json) |
 | AdaLoRA (init rank 12 → avg 8), seed 2 | 62.47 | 1 × 16 | 7,857 / 12,578 correct; [outputs](output/peft/adalora_capfirst/seed2/eval/metrics.json) |
@@ -45,6 +45,22 @@ See [docs/CAPITALIZATION_FIX.md](docs/CAPITALIZATION_FIX.md) for the fix, how to
 | Inverse-flow LoRA, seed 2 | 62.79 | 4 × 4 ✅ | 7,898 / 12,578 correct; [outputs](output/peft/inverse_flow/default/seed2/eval/metrics.json); rerun with the batch fix; capitalized targets; rank budget 512 |
 | **Inverse-flow LoRA, mean ± sample std of seeds 0–2** | **62.75 ± 0.04** | 4 × 4 ✅ | Calculated from exact correct counts; std in percentage points, ddof=1; +0.84 vs zero-shot (61.91) |
 
+#### Knockout contrast loss (seed 1)
+
+Uniform rank 8 (`uniform.json`), plain LoRA, trained with `train_lora.py --contrast flow`: each batch also runs with the
+Image→Question attention cut in layers 5–15, and the loss adds −log σ(log p(answer) − log p(answer | cut)) (weight 1, β 1)
+to the usual answer loss, so the answer should need the flow path. `--contrast crop` is the same loss with a random crop
+(1–20% of the image area, resized back) in place of the cut, as in mDPO's CoPO (EMNLP 2024) without the reference model.
+
+| Configuration | Parameters | Accuracy (%) | Batch (micro × accum) | Notes |
+|---|---|---|---|---|
+| Uniform LoRA + flow contrast, seed 1 | 4,194,304 | 62.84 | 4 × 4 ✅ | 7,904 / 12,578 correct; same as uniform seed 1 (62.80; 157 vs 152 questions, p = 0.82; agree on 97.5%), flow-guided seed 1 (62.67; 190 vs 169 questions, p = 0.29) and inverse-flow seed 1 (62.73; 154 vs 140, p = 0.45; agree on 97.7%); +0.93 vs zero-shot (443 vs 326, p = 3e-5); gap log p(answer) − log p(answer \| cut) rose from 0.3 to 18.4; final loss 0.377; 301.5 min training (uniform seed 1: 154.9); [outputs](output/peft/uniform/contrastflow/seed1/eval/metrics.json) |
+| Uniform LoRA + crop contrast, seed 1 | 4,194,304 | 62.04 | 4 × 4 ✅ | 7,803 / 12,578 correct; −0.76 vs uniform seed 1 (198 vs 294 questions, p = 2e-5), −0.80 vs flow contrast (187 vs 288, p = 4e-6), −0.63 vs flow-guided seed 1 (p = 7e-4) and −0.69 vs inverse-flow seed 1 (p = 1e-4); same as zero-shot (438 vs 422, p = 0.61); losses mostly in choose and verify (−1.5 each), compare and logical level; gap rose from 0.8 to 15.5; final loss 0.390; 299.2 min training; [outputs](output/peft/uniform/contrastcrop/seed1/eval/metrics.json) |
+
+Flow contrast matches plain LoRA: the model learns to fail when the path is cut (gap 18), but its normal answers barely
+change. Crop contrast loses the whole gain over zero-shot. Both runs take ~2× plain LoRA's time because each batch runs
+twice, not because of the knockout mask.
+
 ### Variants: before the batch fix
 
 Capitalised training answers, trained before the batch fix (⚠️: may have learned from ~1 of every 4 training questions).
@@ -52,9 +68,9 @@ Kept for reference; the table above replaces them.
 
 | Configuration | Accuracy (%) | Batch (micro × accum) | Notes |
 |---|---|---|---|
-| Uniform LoRA (rank 8), seed 0 | 61.94 | 4 × 4 ⚠️ | 7,791 / 12,578 correct; `uniform/default/seed0` (rerun on capitalised answers) |
-| Uniform LoRA (rank 8), seed 1 | 61.99 | 4 × 4 ⚠️ | 7,797 / 12,578 correct; [outputs](output/peft/uniform/default/seed1/eval/metrics.json) |
-| Uniform LoRA (rank 8), seed 2 | 61.93 | 4 × 4 ⚠️ | 7,789 / 12,578 correct; [outputs](output/peft/uniform/default/seed2/eval/metrics.json) |
+| Uniform LoRA (rank 8), seed 0 | 61.94 | 4 × 4 ⚠️ | 7,791 / 12,578 correct; old `uniform/default/seed0`, not in git (rerun on capitalised answers) |
+| Uniform LoRA (rank 8), seed 1 | 61.99 | 4 × 4 ⚠️ | 7,797 / 12,578 correct; [outputs](output/peft/uniform/prefix/seed1/eval/metrics.json) |
+| Uniform LoRA (rank 8), seed 2 | 61.93 | 4 × 4 ⚠️ | 7,789 / 12,578 correct; [outputs](output/peft/uniform/prefix/seed2/eval/metrics.json) |
 | **Uniform LoRA (rank 8), mean of seeds 0–2** | **61.95 ± 0.03** | 4 × 4 ⚠️ | sample std over 3 seeds; +0.04 vs zero-shot (61.91) |
 | Flow-guided LoRA, seed 0 | 61.77 | 4 × 4 ⚠️ | 7,770 / 12,578 correct; `flow_guided/default/seed0`; log shows target 'Right</s>' |
 | Flow-guided LoRA, seed 1 | 62.03 | 4 × 4 ⚠️ | 7,802 / 12,578 correct; `flow_guided/default/seed1` |
@@ -71,7 +87,7 @@ Kept for reference; the table above replaces them.
 | Configuration | Accuracy (%) | Batch (micro × accum) | Notes |
 |---|---|---|---|
 | Uniform LoRA (rank 8), seed 0 | 61.27 | 4 × 4 ⚠️ | 7,706 / 12,578 correct; `configs/ranks/uniform.json` |
-| Uniform LoRA (rank 8), seed 0, rerun | 61.36 | 4 × 4 ⚠️ | 7,718 / 12,578 correct; `uniform/default/seed0`; meant to be capitalised, but the cluster still had the lowercase training file |
+| Uniform LoRA (rank 8), seed 0, rerun | 61.36 | 4 × 4 ⚠️ | 7,718 / 12,578 correct; old `uniform/default/seed0`, not in git; meant to be capitalised, but the cluster still had the lowercase training file |
 | AdaLoRA (init rank 12 → avg 8), seed 0 | 61.44 | 1 × 16 | 7,728 / 12,578 correct; [outputs](output/peft/adalora/seed0/eval/metrics.json); final ranks in [`configs/adalora_seed0_ranks_gqa.csv`](configs/adalora_seed0_ranks_gqa.csv) |
 | AdaLoRA (init rank 12 → avg 8), seed 1 | 61.35 | 1 × 16 | 7,717 / 12,578 correct; [outputs](output/peft/adalora/seed1/eval/metrics.json) |
 | Flow-guided LoRA, seed 0 | 61.02 | 4 × 4 ⚠️ | 7,675 / 12,578 correct; ranks averaged over 6 question types (`configs/ranks/flow_guided.json`) |
@@ -181,7 +197,7 @@ All methods use 1,048,576 trainable adapter parameters and matched ScienceQA tra
 | [Fixed middle (12–19)](configs/ranks/middle_pruned8_scienceqa.json) | [75.46](output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json) | [76.25](output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed1/eval_scienceqa/metrics.json) | [76.65](output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed2/eval_scienceqa/metrics.json) | 76.12 ± 0.61 |
 | [Fixed early (0–7)](configs/ranks/early_pruned8_scienceqa.json) | [79.57](output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json) | [79.57](output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed1/eval_scienceqa/metrics.json) | [79.18](output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed2/eval_scienceqa/metrics.json) | 79.44 ± 0.23 |
 
-Combined-flow selection outperformed Question→Last and fixed middle placement in all three matched seeds. Fixed early-layer selection matched combined flow in seed 0 and trailed it in seeds 1 and 2, giving combined flow a 0.43-point higher three-seed mean; this small comparison does not by itself establish a unique advantage over a simple early-layer rule.
+Combined-flow selection outperformed Question→Last and fixed middle placement in all three matched seeds. Fixed early-layer selection matched combined flow in seed 0 and trailed it in seeds 1 and 2, giving combined flow a 0.43-point higher three-seed mean (paired per seed: 42 vs 42, 64 vs 53, 70 vs 55 questions; pooled 176 vs 150, exact McNemar p = 0.17, not significant); this small comparison does not by itself establish a unique advantage over a simple early-layer rule.
 
 #### Other ways to choose the 16 layers (seed 0)
 
@@ -223,6 +239,22 @@ PiSSA and LoRA+ add about 2–2.5 points on the flow layers, while DoRA adds not
 plain LoRA at 4× the learning rate stays at 81.4. Over three seeds, flow-pruned PiSSA (83.06 ± 0.12) matches or beats
 uniform PiSSA (82.37 ± 0.99) with half the parameters and is far more stable across seeds; uniform PiSSA has the single
 best seed (83.49). LoRA+ shows the same direction on seed 0 (83.59 vs 82.75) but is not significant on one seed.
+
+#### LoRA at text or image positions only (seed 0)
+
+Same 16 flow layers and rank 8 (`flow_pruned16_scienceqa.json`), plain LoRA, with the LoRA output zeroed at the image
+positions (text only) or at every other position (image only) by `train_lora.py --lora-tokens text|image`. "Text" is every
+non-image token: system prompt, question, `ASSISTANT:` and answer. Evaluated unmerged with the same mask.
+
+| Configuration | Parameters | Accuracy (%) | Batch (micro × accum) | Notes |
+|---|---|---|---|---|
+| Flow-pruned LoRA, all tokens, seed 0 | 2,097,152 | 81.11 | 4 × 4 ✅ | from the table above |
+| Flow-pruned LoRA, text tokens only, seed 0 | 2,097,152 | 81.06 | 4 × 4 ✅ | 1,635 / 2,017 correct; same as all tokens (27 vs 28 questions, p = 1.0; same right/wrong on 97.3% of questions); final loss 0.247 (all tokens 0.237); [outputs](output/peft/flow_pruned16_scienceqa/scienceqa_train_llava_loratext/seed0/eval_scienceqa/metrics.json) |
+| Flow-pruned LoRA, image tokens only, seed 0 | 2,097,152 | 80.71 | 4 × 4 ✅ | 1,628 / 2,017 correct; same as all tokens (58 vs 66, p = 0.53; agree on 93.9%) and text only (64 vs 71, p = 0.61); +8.28 vs inverse-pruned all tokens (228 vs 61, p = 8e-24); final loss 0.236; [outputs](output/peft/flow_pruned16_scienceqa/scienceqa_train_llava_loraimage/seed0/eval_scienceqa/metrics.json) |
+
+Either half is enough: in the flow layers, adapting only the image tokens or only the text tokens gives the same accuracy
+as adapting all of them, likely because both change the same image→question exchange through attention, from opposite
+ends. Which layers get LoRA matters (81 in layers 0–15 vs 72.4 in layers 16–31); which tokens get it does not.
 
 ### AdaLoRA diagnostics (seed 0)
 

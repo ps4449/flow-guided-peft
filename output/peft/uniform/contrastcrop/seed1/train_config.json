@@ -5,7 +5,7 @@
   "conv_mode": "vicuna_v1",
   "train_file": "datasets/gqa/train_20000_llava.json",
   "image_folder": "datasets/gqa/images",
-  "out_dir": "output/peft/uniform/uniform_new/seed1",
+  "out_dir": null,
   "tag": null,
   "limit": null,
   "epochs": 1,
@@ -18,6 +18,13 @@
   "num_workers": 4,
   "flow_gates": false,
   "gate_lr": 0.01,
+  "variant": "lora",
+  "loraplus_ratio": 16.0,
+  "lora_tokens": null,
+  "contrast": "crop",
+  "contrast_layers": "5-15",
+  "contrast_weight": 1.0,
+  "contrast_beta": 1.0,
   "trainable_params": 4194304,
   "total_steps": 1250
 }

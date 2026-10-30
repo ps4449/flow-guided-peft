@@ -42,6 +42,45 @@ def load_image(path, image_processor, model_config):
     return process_images([image], image_processor, model_config)[0].to(DTYPE), image.size
 
 
+class LoraTokens:
+    """LoRA at text positions only (keep="text") or image positions only (keep="image"), train_lora.py --lora-tokens.
+
+    Zeroes the output of every lora_A at the other positions, so the adapter cannot be merged.
+    Call set_spans() before every forward or generate.
+    """
+
+    def __init__(self, model, keep):
+        self.keep_image = keep == "image"
+        self.left_pad = getattr(model.config, "tokenizer_padding_side", "right") == "left"
+        self.spans, self.image_len, self.mask = None, None, None
+        model.get_model().mm_projector.register_forward_hook(
+            lambda module, inp, out: setattr(self, "image_len", out.shape[-2]))
+        for name, module in model.named_modules():
+            if name.endswith("lora_A.default"):
+                module.register_forward_hook(self._hook)
+
+    def set_spans(self, input_ids, attention_mask=None):
+        """Per sample, before the image is expanded: image position and length."""
+        self.spans = [(int((ids == IMAGE_TOKEN_INDEX).nonzero()[0]),
+                       int(attention_mask[i].sum()) if attention_mask is not None else len(ids))
+                      for i, ids in enumerate(input_ids)]
+        self.mask = None
+
+    def _hook(self, module, args, out):
+        q_len = out.shape[1]
+        if q_len == 1:  # generating answer tokens with the cache: text
+            return out * (not self.keep_image)
+        if self.mask is None or self.mask.shape[1] != q_len:
+            if max(n - 1 + self.image_len for _, n in self.spans) != q_len:
+                sys.exit(f"LoRA tokens: expected {q_len} tokens after expanding the image")
+            image = torch.zeros(len(self.spans), q_len, 1, dtype=torch.bool, device=out.device)
+            for i, (pos, n) in enumerate(self.spans):
+                start = pos + (q_len - (n - 1 + self.image_len) if self.left_pad else 0)
+                image[i, start:start + self.image_len] = True
+            self.mask = image if self.keep_image else ~image
+        return out * self.mask.to(out.dtype)
+
+
 FLOW_GATE_LAYERS = range(5, 16)  # where the GQA knockout shows the Image->Question flow
 
 
@@ -52,21 +91,27 @@ class FlowGates(torch.nn.Module):
     text after the image (question, then "ASSISTANT:") to the image tokens. 0 = unchanged (the start), > 0 = the
     text takes in more from the image, < 0 = less. Answer tokens are not gated. Needs eager or sdpa attention.
     Call set_spans() before every forward or generate.
+    With knockout=True the Image->Question attention is cut instead (train_lora.py --contrast flow), only in the
+    samples where set_spans(knock=...) is True.
     """
 
-    def __init__(self, model):
+    def __init__(self, model, layers=FLOW_GATE_LAYERS, knockout=False):
         super().__init__()
-        self.log_scale = torch.nn.Parameter(torch.zeros(len(FLOW_GATE_LAYERS), model.config.num_attention_heads,
-                                                        device=model.device))
+        scale = torch.zeros(len(layers), model.config.num_attention_heads, device=model.device)
+        if knockout:
+            self.register_buffer("log_scale", scale.fill_(torch.finfo(DTYPE).min))
+        else:
+            self.log_scale = torch.nn.Parameter(scale)
         self.left_pad = getattr(model.config, "tokenizer_padding_side", "right") == "left"
-        self.spans, self.image_len = None, None
+        self.spans, self.image_len, self.knock = None, None, None
         model.get_model().mm_projector.register_forward_hook(
             lambda module, inp, out: setattr(self, "image_len", out.shape[-2]))
-        for gate, layer in enumerate(FLOW_GATE_LAYERS):
+        for gate, layer in enumerate(layers):
             model.get_model().layers[layer].self_attn.register_forward_pre_hook(self._hook(gate), with_kwargs=True)
 
-    def set_spans(self, input_ids, labels=None, attention_mask=None):
+    def set_spans(self, input_ids, labels=None, attention_mask=None, knock=None):
         """Per sample, before the image is expanded: image position, prompt end (first answer token) and length."""
+        self.knock = knock
         self.spans = []
         for i, ids in enumerate(input_ids):
             n = int(attention_mask[i].sum()) if attention_mask is not None else len(ids)
@@ -90,6 +135,8 @@ class FlowGates(torch.nn.Module):
             bias = torch.zeros(len(self.spans), self.log_scale.shape[1], q_len, mask.shape[-1],
                                device=mask.device, dtype=mask.dtype)
             for i, (image, end, n) in enumerate(self.spans):
+                if self.knock is not None and not self.knock[i]:
+                    continue
                 offset = q_len - (n - 1 + n_img) if self.left_pad else 0
                 img_start, img_end = offset + image, offset + image + n_img
                 bias[i, :, img_end:offset + end - 1 + n_img, img_start:img_end] = \

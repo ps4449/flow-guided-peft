@@ -22,6 +22,15 @@ checkpoint and stops; submitting the same command again resumes from it.
             NeurIPS 2024). Saved converted to a plain LoRA of twice the rank, so it loads on the original model.
   loraplus  B learns --loraplus-ratio times faster than A (LoRA+, ICML 2024)
 
+--lora-tokens text|image applies the LoRA update only at text or only at image positions (LoraTokens in
+common.py); eval_gqa.py reads it from train_config.json and keeps the adapter unmerged.
+
+--contrast adds mDPO's conditional preference term (CoPO, EMNLP 2024) to the loss: the same answer should be
+more likely with the image intact than with it degraded, -log sigmoid(beta * (log p(y|image) - log p(y|degraded))),
+weighted by --contrast-weight. Each micro-batch runs twice in one forward pass.
+  flow  Image->Question attention cut in --contrast-layers (FlowGates knockout in common.py)
+  crop  the input image replaced by a random crop of 1-20% of its area (mDPO's rejected image)
+
 Usage:
   python peft_lora/train_lora.py --ranks configs/ranks/<method>.json --seed 0 [--limit 100]
   ... --train-file datasets/scienceqa/train_llava.json    # ScienceQA -> <settings> = scienceqa_train_llava
@@ -39,12 +48,13 @@ import time
 
 import numpy as np
 import torch
+import torch.nn.functional as F
 from peft import AdaLoraConfig, LoraConfig, get_peft_model, get_peft_model_state_dict, set_peft_model_state_dict
 from torch.nn.utils.rnn import pad_sequence
 from torch.utils.data import DataLoader, Dataset
 from transformers import get_cosine_schedule_with_warmup
 
-from common import FlowGates, build_prompt, load_image, load_model, tokenize
+from common import FlowGates, LoraTokens, build_prompt, load_image, load_model, tokenize
 from llava.constants import IGNORE_INDEX
 
 MODULE_RE = re.compile(r"layers\.\d+\.(self_attn\.[qkvo]_proj|mlp\.(gate|up|down)_proj)")
@@ -133,7 +143,8 @@ def check_ranks(model, expected):
 # options that change the training result, with their short names in the run folder
 SETTING_NAMES = {"lr": "lr", "epochs": "ep", "batch_size": "bs", "grad_accum": "ga", "warmup_ratio": "wu",
                  "train_file": "", "limit": "limit", "flow_gates": "flowgates", "gate_lr": "glr",
-                 "variant": "", "loraplus_ratio": "lpr"}
+                 "variant": "", "loraplus_ratio": "lpr", "lora_tokens": "lora", "contrast": "contrast",
+                 "contrast_layers": "cl", "contrast_weight": "cw", "contrast_beta": "cb"}
                  # a different train file shows as its name
 
 
@@ -154,6 +165,40 @@ def settings_name(args, parser):
     parts += [f"{short}{short_value(getattr(args, key))}" for key, short in SETTING_NAMES.items()
               if getattr(args, key) != parser.get_default(key)]
     return "_".join(parts) or "default"
+
+
+def random_crop(images):
+    h, w = images.shape[-2:]
+    out = []
+    for im in images:
+        s = math.sqrt(random.uniform(0.01, 0.2))
+        ch, cw = max(1, int(h * s)), max(1, int(w * s))
+        y, x = random.randrange(h - ch + 1), random.randrange(w - cw + 1)
+        out.append(F.interpolate(im[None, :, y:y + ch, x:x + cw].float(), size=(h, w), mode="bilinear")[0])
+    return torch.stack(out).to(images.dtype)
+
+
+def contrast_loss(model, batch, knockout, args):
+    """Answer cross-entropy on the batch plus the CoPO term; also returns the mean log p gap (intact - degraded)."""
+    n = len(batch["input_ids"])
+    double = {k: v.repeat(2, *[1] * (v.dim() - 1)) if torch.is_tensor(v) else v * 2 for k, v in batch.items()}
+    if args.contrast == "crop":
+        double["images"] = torch.cat([batch["images"], random_crop(batch["images"])])
+    else:
+        knockout.set_spans(double["input_ids"], double["labels"], double["attention_mask"], knock=[False] * n + [True] * n)
+    labels = double.pop("labels")
+    logits = model(**double).logits
+    # after the image token is expanded, answer token j sits at j + image_len - 1 (right padding)
+    logp, count = [], []
+    for row, lab in zip(logits, labels):
+        j = (lab != IGNORE_INDEX).nonzero().squeeze(1)
+        pred = row[j + knockout.image_len - 2].float().log_softmax(-1)
+        logp.append(pred.gather(1, lab[j, None]).sum())
+        count.append(len(j))
+    logp = torch.stack(logp)
+    gap = logp[:n] - logp[n:]
+    loss = -logp[:n].sum() / sum(count[:n]) - args.contrast_weight * F.logsigmoid(args.contrast_beta * gap).mean()
+    return loss, gap.mean().item()
 
 
 def save_checkpoint(path, model, optimizer, scheduler, step, gates):
@@ -190,7 +235,16 @@ def main():
     parser.add_argument("--gate-lr", type=float, default=1e-2, help="learning rate of the flow gates")
     parser.add_argument("--variant", default="lora", choices=["lora", "dora", "pissa", "loraplus"])
     parser.add_argument("--loraplus-ratio", type=float, default=16.0, help="B / A learning rate for --variant loraplus")
+    parser.add_argument("--lora-tokens", default=None, choices=["text", "image"], help="LoRA only at these positions")
+    parser.add_argument("--contrast", default=None, choices=["flow", "crop"], help="add the CoPO term, see above")
+    parser.add_argument("--contrast-layers", default="5-15", help="layers of the flow knockout, e.g. 0-4")
+    parser.add_argument("--contrast-weight", type=float, default=1.0)
+    parser.add_argument("--contrast-beta", type=float, default=1.0)
     args = parser.parse_args()
+    if args.lora_tokens and args.variant in ("dora", "pissa"):
+        sys.exit("--lora-tokens needs plain LoRA or loraplus (DoRA and PiSSA also change the frozen weights)")
+    if args.contrast and (args.flow_gates or args.lora_tokens):
+        sys.exit("--contrast does not combine with --flow-gates or --lora-tokens")
     args.image_folder = args.image_folder or os.path.join(os.path.dirname(args.train_file), "images")
     start = time.time()
 
@@ -217,6 +271,14 @@ def main():
     model.requires_grad_(False)
     model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
     gates = FlowGates(model) if args.flow_gates else None
+    knockout = None
+    if args.contrast:
+        if "adalora" in spec:
+            sys.exit("--contrast works with LoRA rank files only")
+        first, last = map(int, args.contrast_layers.split("-"))
+        knockout = FlowGates(model, range(first, last + 1), knockout=True)
+        if knockout.left_pad:
+            sys.exit("--contrast assumes right padding")
 
     bs, accum = args.batch_size, args.grad_accum
     steps_per_epoch = math.ceil(len(rows) / bs) // accum
@@ -226,6 +288,7 @@ def main():
     model = get_peft_model(model, peft_config)
     if expected_ranks is not None:
         check_ranks(model, expected_ranks)
+    lora_tokens = LoraTokens(model, args.lora_tokens) if args.lora_tokens else None
     pissa_init_dir = os.path.join(out_dir, "pissa_init")
     if args.variant == "pissa" and not os.path.exists(pissa_init_dir):
         # the starting A and B, needed to save the result as a plain LoRA (the SVD gives the same start on resume)
@@ -244,7 +307,10 @@ def main():
         params = params + list(gates.parameters())
     n_params = sum(p.numel() for p in params)
     print(f"Method: {name}  Seed: {args.seed}  Trainable params: {n_params:,}  Steps: {total_steps}"
-          + ("  Flow gates: on" if gates else "") + (f"  Variant: {args.variant}" if args.variant != "lora" else ""))
+          + ("  Flow gates: on" if gates else "") + (f"  Variant: {args.variant}" if args.variant != "lora" else "")
+          + (f"  LoRA tokens: {args.lora_tokens} only" if args.lora_tokens else "")
+          + (f"  Contrast: {args.contrast}" + (f" (layers {args.contrast_layers})" if args.contrast == "flow" else "")
+             if args.contrast else ""))
 
     optimizer = torch.optim.AdamW(groups, lr=args.lr, weight_decay=0.0)
     scheduler = get_cosine_schedule_with_warmup(optimizer, int(args.warmup_ratio * total_steps), total_steps)
@@ -274,12 +340,19 @@ def main():
         order = order[step_in_epoch * accum * bs: steps_per_epoch * accum * bs]
         loader = DataLoader(dataset, batch_size=bs, sampler=order, num_workers=args.num_workers,
                             collate_fn=lambda b: collate(b, tokenizer.pad_token_id))
-        running, logged_steps = 0.0, 0  # loss summed over the optimizer steps since the last log line
+        running, running_gap, logged_steps = 0.0, 0.0, 0  # summed over the optimizer steps since the last log line
         for i, batch in enumerate(loader):
             batch = {k: v.cuda() if torch.is_tensor(v) else v for k, v in batch.items()}
             if gates:
                 gates.set_spans(batch["input_ids"], batch["labels"], batch["attention_mask"])
-            loss = model(**batch).loss / accum
+            if lora_tokens:
+                lora_tokens.set_spans(batch["input_ids"], batch["attention_mask"])
+            if knockout:
+                loss, gap = contrast_loss(model, batch, knockout, args)
+                loss = loss / accum
+                running_gap += gap / accum
+            else:
+                loss = model(**batch).loss / accum
             loss.backward()
             running += loss.item()
             if (i + 1) % accum:
@@ -299,10 +372,12 @@ def main():
                          "lr": scheduler.get_last_lr()[0], "minutes": round((time.time() - start) / 60, 1)}
                 if gates:  # mean gate per layer (layers 5-15)
                     entry["gates"] = [round(g, 3) for g in gates.log_scale.mean(1).tolist()]
+                if knockout:  # loss includes the CoPO term; gap = mean log p(answer) intact - degraded
+                    entry["gap"] = round(running_gap / logged_steps, 4)
                 print(json.dumps(entry), flush=True)
                 log.write(json.dumps(entry) + "\n")
                 log.flush()
-                running, logged_steps = 0.0, 0
+                running, running_gap, logged_steps = 0.0, 0.0, 0
 
             if step == total_steps:
                 break

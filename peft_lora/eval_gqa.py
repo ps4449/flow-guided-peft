@@ -76,15 +76,22 @@ def main():
         # imported here so metrics can be recomputed on a machine without the GPU packages
         import torch
         from tqdm import tqdm
-        from common import DTYPE, FlowGates, build_prompt, load_image, load_model, tokenize
+        from common import DTYPE, FlowGates, LoraTokens, build_prompt, load_image, load_model, tokenize
         from llava.constants import DEFAULT_IMAGE_TOKEN
 
         tokenizer, model, image_processor = load_model(args.model_path)
-        gates = None
+        gates, lora_tokens = None, None
         if args.adapter:
             from peft import PeftModel
-            model = PeftModel.from_pretrained(model, args.adapter).merge_and_unload()
-            model.to(DTYPE)  # peft 0.12 leaves DoRA-merged weights in float32
+            config_path = os.path.join(run_dir, "train_config.json")
+            keep = json.load(open(config_path)).get("lora_tokens") if os.path.exists(config_path) else None
+            model = PeftModel.from_pretrained(model, args.adapter)
+            if keep:  # LoRA at some positions only: cannot be merged
+                lora_tokens = LoraTokens(model, keep)
+                print(f"LoRA at {keep} positions only")
+            else:
+                model = model.merge_and_unload()
+                model.to(DTYPE)  # peft 0.12 leaves DoRA-merged weights in float32
             gates_path = os.path.join(args.adapter, "flow_gates.pt")
             if os.path.exists(gates_path):  # trained with --flow-gates
                 gates = FlowGates(model)
@@ -99,6 +106,8 @@ def main():
                 input_ids = tokenize(prompt, tokenizer).unsqueeze(0).cuda()
                 if gates:
                     gates.set_spans(input_ids)
+                if lora_tokens:
+                    lora_tokens.set_spans(input_ids)
                 output_ids = model.generate(input_ids, images=image.unsqueeze(0).cuda(), image_sizes=[size],
                                             do_sample=False, max_new_tokens=args.max_new_tokens, use_cache=True)
                 prediction = tokenizer.batch_decode(output_ids, skip_special_tokens=True)[0].strip()
