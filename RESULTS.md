@@ -170,6 +170,19 @@ The top 8 and top 4 layers by the same importance (`make_ranks.py --keep 8` / `-
 Accuracy rises with the number of flow layers and reaches full LoRA at 16; fewer layers lose accuracy, but flow layers
 still give more per parameter than random or late layers.
 
+#### Top-8 layer-placement ablations (Experiments #4 and #5)
+
+All methods use 1,048,576 trainable adapter parameters and matched ScienceQA training/evaluation on the same 2,017 image test questions; values are accuracy percentages, with mean ± sample SD over seeds 0–2 where available.
+
+| Method (layers) | Seed 0 | Seed 1 | Seed 2 | Mean ± sample SD (%) |
+|---|---:|---:|---:|---:|
+| [Combined flow (0–4, 9–11)](configs/ranks/flow_pruned8_scienceqa.json) | [79.57](output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json) | [80.12](output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed1/eval_scienceqa/metrics.json) | [79.92](output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed2/eval_scienceqa/metrics.json) | 79.87 ± 0.28 |
+| [Question→Last (9–16)](configs/ranks/question_last_pruned8_scienceqa.json) | [77.94](output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json) | [79.03](output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed1/eval_scienceqa/metrics.json) | [79.57](output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed2/eval_scienceqa/metrics.json) | 78.85 ± 0.83 |
+| [Fixed middle (12–19)](configs/ranks/middle_pruned8_scienceqa.json) | [75.46](output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json) | [76.25](output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed1/eval_scienceqa/metrics.json) | [76.65](output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed2/eval_scienceqa/metrics.json) | 76.12 ± 0.61 |
+| [Fixed early (0–7)](configs/ranks/early_pruned8_scienceqa.json) | [79.57](output/peft/early_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json) | Not run | Not run | Seed 0 only |
+
+Combined-flow selection outperformed Question→Last and fixed middle placement in all three matched seeds. Fixed early-layer selection matched combined-flow accuracy in seed 0, so these experiments establish neither equivalence nor a unique advantage of flow over a simple early-layer rule.
+
 #### Other ways to choose the 16 layers (seed 0)
 
 Layer-selection methods from the literature, scored without the knockout by
