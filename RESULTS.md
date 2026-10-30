@@ -144,6 +144,19 @@ Ordered flow > random > inverse on every seed, matching the knockout importance.
 matches full uniform LoRA, while a random half loses 1.4 and the opposite half loses 8.4. Same story as the full-budget
 runs (inverse-flow 79.21 vs uniform 81.21): the early flow layers must be tuned, the late ones add little.
 
+#### Budget-matched uniform rank-4 control (30 October 2026)
+
+Uniform rank 4 on q_proj/v_proj in all 32 layers uses **2,097,152 trainable parameters**, the same as rank 8 on 16 layers. These are new corrected-batch runs from source commit `1138b73`, one epoch and microbatch 4 × accumulation 4, evaluated with merged adapters on all 2,017 ScienceQA image test questions.
+
+| Configuration | Seed 0 | Seed 1 | Seed 2 | Mean ± sample SD (%) |
+|---|---:|---:|---:|---:|
+| Uniform rank 4, all 32 layers | 80.12 (1616) | 81.06 (1635) | 80.37 (1621) | **80.52 ± 0.49** |
+| Flow-pruned rank 8, layers 0–15 | 81.11 (1636) | 81.71 (1648) | 81.26 (1639) | **81.36 ± 0.31** |
+
+Parentheses give correct counts out of 2,017. The flow-pruned control is higher on all three seeds, by **0.84 percentage points on average** (calculated from exact counts). This supports concentrating the budget in these selected layers rather than uniformly spreading a smaller rank in this setting. It does **not** isolate a unique benefit of flow: the selected 16 layers are exactly the first half of the model. No formal significance or equivalence conclusion is asserted here.
+
+[Exact-count summary](output/peft/uniform_rank4/scienceqa_20261030/summary.json); per-seed predictions, metrics, training configurations, training logs, and validation records are alongside it. [Run provenance](docs/UNIFORM_RANK4_SCIENCEQA.md). SLURM job 49074 completed with exit 0 in 01:46:11 on TC2N04; this timing must not be used as a hardware-matched speed comparison against older runs.
+
 #### Fewer layers (seed 0)
 
 The top 8 and top 4 layers by the same importance (`make_ranks.py --keep 8` / `--keep 4`), rank 8 each.
