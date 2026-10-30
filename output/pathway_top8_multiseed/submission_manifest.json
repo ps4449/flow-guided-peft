@@ -1,0 +1,1062 @@
+{
+  "created_at": "2026-10-29T22:43:17.524321+08:00",
+  "state": "completed",
+  "experimental_branch": "experiments/flow-placement-ablations",
+  "experimental_commit": "80b8f9315b1633e869072112b3583c2fef31ad24",
+  "training_source_commit": "8734991cd5c80eff45b09eb954d6d849ef495d58",
+  "worktree": "/home/msai/swarangi001/flow-placement-ablations",
+  "runtime_source": "/home/msai/swarangi001/flow-placement-ablations/output/pathway_top8_multiseed/runtime_seed0",
+  "packages": {
+    "torch": "2.1.2",
+    "transformers": "4.40.0.dev0",
+    "peft": "0.12.0",
+    "numpy": "1.26.1",
+    "scipy": "1.15.3",
+    "accelerate": "1.15.0",
+    "safetensors": "0.8.0",
+    "huggingface-hub": "0.36.2",
+    "Pillow": "12.3.0"
+  },
+  "frozen_files": [
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/output/pathway_top8_multiseed/runtime_seed0/peft_lora/train_lora.py",
+      "sha256": "282a8c7796a344ec88d4955b640c16e99ab1b1bc2806e1247d50da2ae5bbe6da"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/output/pathway_top8_multiseed/runtime_seed0/peft_lora/eval_gqa.py",
+      "sha256": "9bdec040c2b6a1c93adfd7d9f5687556c2c79a91ff7832ed29d9261a78dc9281"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/output/pathway_top8_multiseed/runtime_seed0/peft_lora/common.py",
+      "sha256": "8cbe56ac54d2413c7611445a0447c6da16e7b71d88f3711b8484a6783fc65ebd"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/output/pathway_top8_multiseed/runtime_seed0/scripts/tc2_train.sh",
+      "sha256": "116486c12cf3c8fda042ed55d2a9143dfbe4524e136a7ef46b0a37f3a48b3a71"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/output/pathway_top8_multiseed/runtime_seed0/scripts/tc2_eval.sh",
+      "sha256": "94092c8141047c4500f0b5ae0a03f1f6556697f6b24fde80540886b7db9a716e"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/datasets/scienceqa/train_llava.json",
+      "sha256": "8cc00fb37a7e642e05b0063e2554a5e4a0be3a3e8bb13e49dbba20045ea1c4f9"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/datasets/scienceqa/test_questions.jsonl",
+      "sha256": "3d3f7a94463894d4bb95c9920199cfd458ddda0f35f4d447aedc16891a3caa15"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/peft_lora/methods/pathway_specific/multiseed.py",
+      "sha256": "f18b470b6cd628f639335431330a440610bee91552922916f7b2f71c98dd81ca"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/scripts/launch_scienceqa_top8_multiseed.sh",
+      "sha256": "349b87f055f72996dce3e72eb67ea7685f73ba331205cb4f70280bda413f92e3"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/configs/ranks/flow_pruned8_scienceqa.json",
+      "sha256": "e14269da571bb3e48d6a50a1e39ef2963d6e61e838217499106573351736b030"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/configs/ranks/question_last_pruned8_scienceqa.json",
+      "sha256": "ca5cf005ad7d2ae908e91792a765f8cabd0a79c34ccdf11d44f9f060ac7d2110"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/configs/ranks/middle_pruned8_scienceqa.json",
+      "sha256": "b2030711cc66ceb1adc5f786edf74c45e489e2ef894b3bf56f60b39646613e32"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/train_config.json",
+      "sha256": "f1e87a36741bf5b1e043e787c11df9d496258e082788f6db5da6ea1efeb1d6b5"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/train_log.jsonl",
+      "sha256": "9f54079ef8a4da9baa0336e83539d81838f6b39c3df85cf453302ee5d1beef55"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+      "sha256": "3518ff8472b1f7dc5751fa4e0537e0429f63efc8c74b4aaa2e4cc97a783cc906"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+      "sha256": "1a090cb3ec5c0f2983445d180de9d0f3b7132b136e112bd82278cbe0fcfa3641"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/train_config.json",
+      "sha256": "a925211b80633f6cc55da4b6d7d460e8166e600e7743487c134827e9fa876390"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/train_log.jsonl",
+      "sha256": "d45464c4ad48379f576f8958b7039b27cdbd41973d3bd34c7ca456c810152eaa"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+      "sha256": "1a1f2a0a5ec7e5e998cfbdfc8f7c6c3207c3a0be60cb632681006877b0a13280"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+      "sha256": "f8fd1e78a6fc1958c2280fe9e004f50bcc100607bfe65aa4c64ae8189c278cbd"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/train_config.json",
+      "sha256": "1bba15c9abcce52d0f4f8db5b1f248030e6afafa98401ec01122c3e56116f187"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/train_log.jsonl",
+      "sha256": "3d50c41fe7f61a63e846a1ff3a8e183ed0c7aa418986dde7a783f74b77600461"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+      "sha256": "88e3c009f96f840a5911039b2b69654b3dfb82786317505d81ab39b6795a9900"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-placement-ablations/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl",
+      "sha256": "c43805ef8c75349d73541a9cfe1e2edb20b2726fb534cbc3c51cb646c2652bc8"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/LLaVA-NeXT/llava/model/llava_arch.py",
+      "sha256": "ce3d69fbcd69fcb0d056d419a1b6760237a209f1fc09584174bb10e54b9ff3af"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/LLaVA-NeXT/llava/model/builder.py",
+      "sha256": "288a4dc45ff84623332e312e2072adeadba2712853518475cca4a6fdf3e524e1"
+    },
+    {
+      "path": "/home/msai/swarangi001/flow-guided-peft/LLaVA-NeXT/llava/conversation.py",
+      "sha256": "f3a902025d032b19f7d2c37fe08707b3e184e5fa6f00aba7c931ca5d1e249629"
+    },
+    {
+      "path": "/home/msai/swarangi001/hf_cache/hub/models--liuhaotian--llava-v1.5-7b/snapshots/4481d270cc22fd5c4d1bb5df129622006ccd9234/config.json",
+      "sha256": "f112de882e31171a105f0d3f69d9e6e8700a40149f0944f4b507d3a41789e492"
+    },
+    {
+      "path": "/home/msai/swarangi001/hf_cache/hub/models--liuhaotian--llava-v1.5-7b/refs/main",
+      "sha256": "a7642d3e19ae61fad04a04633bd797bb4ac1877e3897d2d8513b6f574f0d0c3f"
+    }
+  ],
+  "cases": {
+    "combined_s1": {
+      "allocation": "combined",
+      "seed": 1,
+      "state": "completed",
+      "jobs": {
+        "train": {
+          "state": "COMPLETED",
+          "comment": "scienceqa_top8_seeds12:combined_s1:train:13fd7b08b926",
+          "command": [
+            "sbatch",
+            "--parsable",
+            "--partition=MGPU-TC2",
+            "--qos=normal",
+            "--nodes=1",
+            "--gres=gpu:1",
+            "--cpus-per-task=8",
+            "--mem=30G",
+            "--time=06:00:00",
+            "--job-name",
+            "sqa_top8_combined_s1_train",
+            "--chdir",
+            "/home/msai/swarangi001/flow-placement-ablations",
+            "--output",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_combined_s1_train_%j.out",
+            "--error",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_combined_s1_train_%j.err",
+            "--comment",
+            "scienceqa_top8_seeds12:combined_s1:train:13fd7b08b926",
+            "--open-mode=append",
+            "--export=ALL",
+            "--wrap",
+            "exec /home/msai/swarangi001/.conda/envs/llava/bin/python -u /home/msai/swarangi001/flow-placement-ablations/peft_lora/methods/pathway_specific/multiseed.py --worker train --case combined_s1"
+          ],
+          "intent_at": "2026-10-29T23:03:14.533637+08:00",
+          "job_id": "49027",
+          "submitted_at": "2026-10-29T23:03:14.552365+08:00"
+        },
+        "eval": {
+          "state": "COMPLETED",
+          "comment": "scienceqa_top8_seeds12:combined_s1:eval:13fd7b08b926",
+          "command": [
+            "sbatch",
+            "--parsable",
+            "--partition=MGPU-TC2",
+            "--qos=normal",
+            "--nodes=1",
+            "--gres=gpu:1",
+            "--cpus-per-task=4",
+            "--mem=30G",
+            "--time=06:00:00",
+            "--job-name",
+            "sqa_top8_combined_s1_eval",
+            "--chdir",
+            "/home/msai/swarangi001/flow-placement-ablations",
+            "--output",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_combined_s1_eval_%j.out",
+            "--error",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_combined_s1_eval_%j.err",
+            "--comment",
+            "scienceqa_top8_seeds12:combined_s1:eval:13fd7b08b926",
+            "--open-mode=append",
+            "--dependency",
+            "afterok:49027",
+            "--export=ALL",
+            "--wrap",
+            "exec /home/msai/swarangi001/.conda/envs/llava/bin/python -u /home/msai/swarangi001/flow-placement-ablations/peft_lora/methods/pathway_specific/multiseed.py --worker eval --case combined_s1"
+          ],
+          "intent_at": "2026-10-29T23:03:14.608278+08:00",
+          "job_id": "49028",
+          "submitted_at": "2026-10-29T23:03:14.623439+08:00"
+        }
+      },
+      "executions": {
+        "train": {
+          "49027": {
+            "job_id": "49027",
+            "state": "completed",
+            "started_at": "2026-10-29T23:03:20.171089+08:00",
+            "node": "TC2N01",
+            "gpu": "NVIDIA A40",
+            "packages": {
+              "torch": "2.1.2",
+              "transformers": "4.40.0.dev0",
+              "peft": "0.12.0",
+              "numpy": "1.26.1",
+              "scipy": "1.15.3",
+              "accelerate": "1.15.0",
+              "safetensors": "0.8.0",
+              "huggingface-hub": "0.36.2",
+              "Pillow": "12.3.0"
+            },
+            "training_source_commit": "8734991cd5c80eff45b09eb954d6d849ef495d58",
+            "exit_code": 0,
+            "ended_at": "2026-10-30T00:00:05.729072+08:00",
+            "wall_seconds": 3405.398464521393,
+            "actual_training_configuration": {
+              "ranks": "/home/msai/swarangi001/flow-placement-ablations/configs/ranks/flow_pruned8_scienceqa.json",
+              "seed": 1,
+              "model_path": "liuhaotian/llava-v1.5-7b",
+              "conv_mode": "vicuna_v1",
+              "train_file": "datasets/scienceqa/train_llava.json",
+              "image_folder": "datasets/scienceqa/images",
+              "out_dir": "/home/msai/swarangi001/flow-placement-ablations/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed1",
+              "tag": null,
+              "limit": null,
+              "epochs": 1,
+              "batch_size": 4,
+              "grad_accum": 4,
+              "lr": 0.0002,
+              "warmup_ratio": 0.03,
+              "save_every": 200,
+              "max_hours": 5.5,
+              "num_workers": 4,
+              "flow_gates": false,
+              "gate_lr": 0.01,
+              "trainable_params": 1048576,
+              "total_steps": 388
+            },
+            "saved_adapter_parameters_verified": 1048576,
+            "adapter_sha256": "e1e136a302aa13d9ba14654fb924c8ea92d426152054eefcaafc6e32d1c32ddd"
+          }
+        },
+        "eval": {
+          "49028": {
+            "job_id": "49028",
+            "state": "completed",
+            "started_at": "2026-10-30T00:00:09.597877+08:00",
+            "node": "TC2N01",
+            "gpu": "NVIDIA A40",
+            "packages": {
+              "torch": "2.1.2",
+              "transformers": "4.40.0.dev0",
+              "peft": "0.12.0",
+              "numpy": "1.26.1",
+              "scipy": "1.15.3",
+              "accelerate": "1.15.0",
+              "safetensors": "0.8.0",
+              "huggingface-hub": "0.36.2",
+              "Pillow": "12.3.0"
+            },
+            "training_source_commit": "8734991cd5c80eff45b09eb954d6d849ef495d58",
+            "exit_code": 0,
+            "ended_at": "2026-10-30T00:07:46.889084+08:00",
+            "wall_seconds": 455.79644142929465,
+            "correct": 1616,
+            "total": 2017
+          }
+        }
+      },
+      "correct": 1616,
+      "total": 2017,
+      "completed_at": "2026-10-30T00:08:10.719188+08:00"
+    },
+    "combined_s2": {
+      "allocation": "combined",
+      "seed": 2,
+      "state": "completed",
+      "jobs": {
+        "train": {
+          "state": "COMPLETED",
+          "comment": "scienceqa_top8_seeds12:combined_s2:train:13fd7b08b926",
+          "command": [
+            "sbatch",
+            "--parsable",
+            "--partition=MGPU-TC2",
+            "--qos=normal",
+            "--nodes=1",
+            "--gres=gpu:1",
+            "--cpus-per-task=8",
+            "--mem=30G",
+            "--time=06:00:00",
+            "--job-name",
+            "sqa_top8_combined_s2_train",
+            "--chdir",
+            "/home/msai/swarangi001/flow-placement-ablations",
+            "--output",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_combined_s2_train_%j.out",
+            "--error",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_combined_s2_train_%j.err",
+            "--comment",
+            "scienceqa_top8_seeds12:combined_s2:train:13fd7b08b926",
+            "--open-mode=append",
+            "--export=ALL",
+            "--wrap",
+            "exec /home/msai/swarangi001/.conda/envs/llava/bin/python -u /home/msai/swarangi001/flow-placement-ablations/peft_lora/methods/pathway_specific/multiseed.py --worker train --case combined_s2"
+          ],
+          "intent_at": "2026-10-30T00:08:40.934105+08:00",
+          "job_id": "49069",
+          "submitted_at": "2026-10-30T00:08:40.949423+08:00"
+        },
+        "eval": {
+          "state": "COMPLETED",
+          "comment": "scienceqa_top8_seeds12:combined_s2:eval:13fd7b08b926",
+          "command": [
+            "sbatch",
+            "--parsable",
+            "--partition=MGPU-TC2",
+            "--qos=normal",
+            "--nodes=1",
+            "--gres=gpu:1",
+            "--cpus-per-task=4",
+            "--mem=30G",
+            "--time=06:00:00",
+            "--job-name",
+            "sqa_top8_combined_s2_eval",
+            "--chdir",
+            "/home/msai/swarangi001/flow-placement-ablations",
+            "--output",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_combined_s2_eval_%j.out",
+            "--error",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_combined_s2_eval_%j.err",
+            "--comment",
+            "scienceqa_top8_seeds12:combined_s2:eval:13fd7b08b926",
+            "--open-mode=append",
+            "--dependency",
+            "afterok:49069",
+            "--export=ALL",
+            "--wrap",
+            "exec /home/msai/swarangi001/.conda/envs/llava/bin/python -u /home/msai/swarangi001/flow-placement-ablations/peft_lora/methods/pathway_specific/multiseed.py --worker eval --case combined_s2"
+          ],
+          "intent_at": "2026-10-30T00:08:41.005750+08:00",
+          "job_id": "49070",
+          "submitted_at": "2026-10-30T00:08:41.021019+08:00"
+        }
+      },
+      "executions": {
+        "train": {
+          "49069": {
+            "job_id": "49069",
+            "state": "completed",
+            "started_at": "2026-10-30T00:08:52.657684+08:00",
+            "node": "TC2N02",
+            "gpu": "NVIDIA A40",
+            "packages": {
+              "torch": "2.1.2",
+              "transformers": "4.40.0.dev0",
+              "peft": "0.12.0",
+              "numpy": "1.26.1",
+              "scipy": "1.15.3",
+              "accelerate": "1.15.0",
+              "safetensors": "0.8.0",
+              "huggingface-hub": "0.36.2",
+              "Pillow": "12.3.0"
+            },
+            "training_source_commit": "8734991cd5c80eff45b09eb954d6d849ef495d58",
+            "exit_code": 0,
+            "ended_at": "2026-10-30T01:06:16.724490+08:00",
+            "wall_seconds": 3443.896313302219,
+            "actual_training_configuration": {
+              "ranks": "/home/msai/swarangi001/flow-placement-ablations/configs/ranks/flow_pruned8_scienceqa.json",
+              "seed": 2,
+              "model_path": "liuhaotian/llava-v1.5-7b",
+              "conv_mode": "vicuna_v1",
+              "train_file": "datasets/scienceqa/train_llava.json",
+              "image_folder": "datasets/scienceqa/images",
+              "out_dir": "/home/msai/swarangi001/flow-placement-ablations/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed2",
+              "tag": null,
+              "limit": null,
+              "epochs": 1,
+              "batch_size": 4,
+              "grad_accum": 4,
+              "lr": 0.0002,
+              "warmup_ratio": 0.03,
+              "save_every": 200,
+              "max_hours": 5.5,
+              "num_workers": 4,
+              "flow_gates": false,
+              "gate_lr": 0.01,
+              "trainable_params": 1048576,
+              "total_steps": 388
+            },
+            "saved_adapter_parameters_verified": 1048576,
+            "adapter_sha256": "bb7b232749fbdab9b707cdbd65b5e35ad7d1b61de6ac2425732cdead655146e5"
+          }
+        },
+        "eval": {
+          "49070": {
+            "job_id": "49070",
+            "state": "completed",
+            "started_at": "2026-10-30T01:06:19.881271+08:00",
+            "node": "TC2N01",
+            "gpu": "NVIDIA A40",
+            "packages": {
+              "torch": "2.1.2",
+              "transformers": "4.40.0.dev0",
+              "peft": "0.12.0",
+              "numpy": "1.26.1",
+              "scipy": "1.15.3",
+              "accelerate": "1.15.0",
+              "safetensors": "0.8.0",
+              "huggingface-hub": "0.36.2",
+              "Pillow": "12.3.0"
+            },
+            "training_source_commit": "8734991cd5c80eff45b09eb954d6d849ef495d58",
+            "exit_code": 0,
+            "ended_at": "2026-10-30T01:14:02.612558+08:00",
+            "wall_seconds": 462.5724078025669,
+            "correct": 1612,
+            "total": 2017
+          }
+        }
+      },
+      "correct": 1612,
+      "total": 2017,
+      "completed_at": "2026-10-30T01:14:10.093443+08:00"
+    },
+    "question_last_s1": {
+      "allocation": "question_last",
+      "seed": 1,
+      "state": "completed",
+      "jobs": {
+        "train": {
+          "state": "COMPLETED",
+          "comment": "scienceqa_top8_seeds12:question_last_s1:train:13fd7b08b926",
+          "command": [
+            "sbatch",
+            "--parsable",
+            "--partition=MGPU-TC2",
+            "--qos=normal",
+            "--nodes=1",
+            "--gres=gpu:1",
+            "--cpus-per-task=8",
+            "--mem=30G",
+            "--time=06:00:00",
+            "--job-name",
+            "sqa_top8_question_last_s1_train",
+            "--chdir",
+            "/home/msai/swarangi001/flow-placement-ablations",
+            "--output",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_question_last_s1_train_%j.out",
+            "--error",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_question_last_s1_train_%j.err",
+            "--comment",
+            "scienceqa_top8_seeds12:question_last_s1:train:13fd7b08b926",
+            "--open-mode=append",
+            "--export=ALL",
+            "--wrap",
+            "exec /home/msai/swarangi001/.conda/envs/llava/bin/python -u /home/msai/swarangi001/flow-placement-ablations/peft_lora/methods/pathway_specific/multiseed.py --worker train --case question_last_s1"
+          ],
+          "intent_at": "2026-10-30T01:14:40.330333+08:00",
+          "job_id": "49090",
+          "submitted_at": "2026-10-30T01:14:40.344963+08:00"
+        },
+        "eval": {
+          "state": "COMPLETED",
+          "comment": "scienceqa_top8_seeds12:question_last_s1:eval:13fd7b08b926",
+          "command": [
+            "sbatch",
+            "--parsable",
+            "--partition=MGPU-TC2",
+            "--qos=normal",
+            "--nodes=1",
+            "--gres=gpu:1",
+            "--cpus-per-task=4",
+            "--mem=30G",
+            "--time=06:00:00",
+            "--job-name",
+            "sqa_top8_question_last_s1_eval",
+            "--chdir",
+            "/home/msai/swarangi001/flow-placement-ablations",
+            "--output",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_question_last_s1_eval_%j.out",
+            "--error",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_question_last_s1_eval_%j.err",
+            "--comment",
+            "scienceqa_top8_seeds12:question_last_s1:eval:13fd7b08b926",
+            "--open-mode=append",
+            "--dependency",
+            "afterok:49090",
+            "--export=ALL",
+            "--wrap",
+            "exec /home/msai/swarangi001/.conda/envs/llava/bin/python -u /home/msai/swarangi001/flow-placement-ablations/peft_lora/methods/pathway_specific/multiseed.py --worker eval --case question_last_s1"
+          ],
+          "intent_at": "2026-10-30T01:14:40.401433+08:00",
+          "job_id": "49091",
+          "submitted_at": "2026-10-30T01:14:40.415195+08:00"
+        }
+      },
+      "executions": {
+        "train": {
+          "49090": {
+            "job_id": "49090",
+            "state": "completed",
+            "started_at": "2026-10-30T01:14:43.697310+08:00",
+            "node": "TC2N01",
+            "gpu": "NVIDIA A40",
+            "packages": {
+              "torch": "2.1.2",
+              "transformers": "4.40.0.dev0",
+              "peft": "0.12.0",
+              "numpy": "1.26.1",
+              "scipy": "1.15.3",
+              "accelerate": "1.15.0",
+              "safetensors": "0.8.0",
+              "huggingface-hub": "0.36.2",
+              "Pillow": "12.3.0"
+            },
+            "training_source_commit": "8734991cd5c80eff45b09eb954d6d849ef495d58",
+            "exit_code": 0,
+            "ended_at": "2026-10-30T02:10:24.250223+08:00",
+            "wall_seconds": 3340.394789500162,
+            "actual_training_configuration": {
+              "ranks": "/home/msai/swarangi001/flow-placement-ablations/configs/ranks/question_last_pruned8_scienceqa.json",
+              "seed": 1,
+              "model_path": "liuhaotian/llava-v1.5-7b",
+              "conv_mode": "vicuna_v1",
+              "train_file": "datasets/scienceqa/train_llava.json",
+              "image_folder": "datasets/scienceqa/images",
+              "out_dir": "/home/msai/swarangi001/flow-placement-ablations/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed1",
+              "tag": null,
+              "limit": null,
+              "epochs": 1,
+              "batch_size": 4,
+              "grad_accum": 4,
+              "lr": 0.0002,
+              "warmup_ratio": 0.03,
+              "save_every": 200,
+              "max_hours": 5.5,
+              "num_workers": 4,
+              "flow_gates": false,
+              "gate_lr": 0.01,
+              "trainable_params": 1048576,
+              "total_steps": 388
+            },
+            "saved_adapter_parameters_verified": 1048576,
+            "adapter_sha256": "8a212073a76c9f2138f4f61384e56a4a3ae4429f5b8cda34ce618cdb3b2193f2"
+          }
+        },
+        "eval": {
+          "49091": {
+            "job_id": "49091",
+            "state": "completed",
+            "started_at": "2026-10-30T02:10:27.129163+08:00",
+            "node": "TC2N01",
+            "gpu": "NVIDIA A40",
+            "packages": {
+              "torch": "2.1.2",
+              "transformers": "4.40.0.dev0",
+              "peft": "0.12.0",
+              "numpy": "1.26.1",
+              "scipy": "1.15.3",
+              "accelerate": "1.15.0",
+              "safetensors": "0.8.0",
+              "huggingface-hub": "0.36.2",
+              "Pillow": "12.3.0"
+            },
+            "training_source_commit": "8734991cd5c80eff45b09eb954d6d849ef495d58",
+            "exit_code": 0,
+            "ended_at": "2026-10-30T02:17:59.458652+08:00",
+            "wall_seconds": 452.23130273539573,
+            "correct": 1594,
+            "total": 2017
+          }
+        }
+      },
+      "correct": 1594,
+      "total": 2017,
+      "completed_at": "2026-10-30T02:18:10.275460+08:00"
+    },
+    "question_last_s2": {
+      "allocation": "question_last",
+      "seed": 2,
+      "state": "completed",
+      "jobs": {
+        "train": {
+          "state": "COMPLETED",
+          "comment": "scienceqa_top8_seeds12:question_last_s2:train:13fd7b08b926",
+          "command": [
+            "sbatch",
+            "--parsable",
+            "--partition=MGPU-TC2",
+            "--qos=normal",
+            "--nodes=1",
+            "--gres=gpu:1",
+            "--cpus-per-task=8",
+            "--mem=30G",
+            "--time=06:00:00",
+            "--job-name",
+            "sqa_top8_question_last_s2_train",
+            "--chdir",
+            "/home/msai/swarangi001/flow-placement-ablations",
+            "--output",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_question_last_s2_train_%j.out",
+            "--error",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_question_last_s2_train_%j.err",
+            "--comment",
+            "scienceqa_top8_seeds12:question_last_s2:train:13fd7b08b926",
+            "--open-mode=append",
+            "--export=ALL",
+            "--wrap",
+            "exec /home/msai/swarangi001/.conda/envs/llava/bin/python -u /home/msai/swarangi001/flow-placement-ablations/peft_lora/methods/pathway_specific/multiseed.py --worker train --case question_last_s2"
+          ],
+          "intent_at": "2026-10-30T02:18:40.528521+08:00",
+          "job_id": "49110",
+          "submitted_at": "2026-10-30T02:18:40.544340+08:00"
+        },
+        "eval": {
+          "state": "COMPLETED",
+          "comment": "scienceqa_top8_seeds12:question_last_s2:eval:13fd7b08b926",
+          "command": [
+            "sbatch",
+            "--parsable",
+            "--partition=MGPU-TC2",
+            "--qos=normal",
+            "--nodes=1",
+            "--gres=gpu:1",
+            "--cpus-per-task=4",
+            "--mem=30G",
+            "--time=06:00:00",
+            "--job-name",
+            "sqa_top8_question_last_s2_eval",
+            "--chdir",
+            "/home/msai/swarangi001/flow-placement-ablations",
+            "--output",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_question_last_s2_eval_%j.out",
+            "--error",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_question_last_s2_eval_%j.err",
+            "--comment",
+            "scienceqa_top8_seeds12:question_last_s2:eval:13fd7b08b926",
+            "--open-mode=append",
+            "--dependency",
+            "afterok:49110",
+            "--export=ALL",
+            "--wrap",
+            "exec /home/msai/swarangi001/.conda/envs/llava/bin/python -u /home/msai/swarangi001/flow-placement-ablations/peft_lora/methods/pathway_specific/multiseed.py --worker eval --case question_last_s2"
+          ],
+          "intent_at": "2026-10-30T02:18:40.599782+08:00",
+          "job_id": "49111",
+          "submitted_at": "2026-10-30T02:18:40.613822+08:00"
+        }
+      },
+      "executions": {
+        "train": {
+          "49110": {
+            "job_id": "49110",
+            "state": "completed",
+            "started_at": "2026-10-30T02:18:43.474085+08:00",
+            "node": "TC2N01",
+            "gpu": "NVIDIA A40",
+            "packages": {
+              "torch": "2.1.2",
+              "transformers": "4.40.0.dev0",
+              "peft": "0.12.0",
+              "numpy": "1.26.1",
+              "scipy": "1.15.3",
+              "accelerate": "1.15.0",
+              "safetensors": "0.8.0",
+              "huggingface-hub": "0.36.2",
+              "Pillow": "12.3.0"
+            },
+            "training_source_commit": "8734991cd5c80eff45b09eb954d6d849ef495d58",
+            "exit_code": 0,
+            "ended_at": "2026-10-30T03:14:13.951426+08:00",
+            "wall_seconds": 3330.323461464606,
+            "actual_training_configuration": {
+              "ranks": "/home/msai/swarangi001/flow-placement-ablations/configs/ranks/question_last_pruned8_scienceqa.json",
+              "seed": 2,
+              "model_path": "liuhaotian/llava-v1.5-7b",
+              "conv_mode": "vicuna_v1",
+              "train_file": "datasets/scienceqa/train_llava.json",
+              "image_folder": "datasets/scienceqa/images",
+              "out_dir": "/home/msai/swarangi001/flow-placement-ablations/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed2",
+              "tag": null,
+              "limit": null,
+              "epochs": 1,
+              "batch_size": 4,
+              "grad_accum": 4,
+              "lr": 0.0002,
+              "warmup_ratio": 0.03,
+              "save_every": 200,
+              "max_hours": 5.5,
+              "num_workers": 4,
+              "flow_gates": false,
+              "gate_lr": 0.01,
+              "trainable_params": 1048576,
+              "total_steps": 388
+            },
+            "saved_adapter_parameters_verified": 1048576,
+            "adapter_sha256": "7e703bdce1b34c55ef8cc578768945b17cf0256e132ece2a606ca3bb656784cb"
+          }
+        },
+        "eval": {
+          "49111": {
+            "job_id": "49111",
+            "state": "completed",
+            "started_at": "2026-10-30T03:14:16.818585+08:00",
+            "node": "TC2N01",
+            "gpu": "NVIDIA A40",
+            "packages": {
+              "torch": "2.1.2",
+              "transformers": "4.40.0.dev0",
+              "peft": "0.12.0",
+              "numpy": "1.26.1",
+              "scipy": "1.15.3",
+              "accelerate": "1.15.0",
+              "safetensors": "0.8.0",
+              "huggingface-hub": "0.36.2",
+              "Pillow": "12.3.0"
+            },
+            "training_source_commit": "8734991cd5c80eff45b09eb954d6d849ef495d58",
+            "exit_code": 0,
+            "ended_at": "2026-10-30T03:21:45.552580+08:00",
+            "wall_seconds": 448.6269768225029,
+            "correct": 1605,
+            "total": 2017
+          }
+        }
+      },
+      "correct": 1605,
+      "total": 2017,
+      "completed_at": "2026-10-30T03:21:54.175223+08:00"
+    },
+    "middle_s1": {
+      "allocation": "middle",
+      "seed": 1,
+      "state": "completed",
+      "jobs": {
+        "train": {
+          "state": "COMPLETED",
+          "comment": "scienceqa_top8_seeds12:middle_s1:train:13fd7b08b926",
+          "command": [
+            "sbatch",
+            "--parsable",
+            "--partition=MGPU-TC2",
+            "--qos=normal",
+            "--nodes=1",
+            "--gres=gpu:1",
+            "--cpus-per-task=8",
+            "--mem=30G",
+            "--time=06:00:00",
+            "--job-name",
+            "sqa_top8_middle_s1_train",
+            "--chdir",
+            "/home/msai/swarangi001/flow-placement-ablations",
+            "--output",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_middle_s1_train_%j.out",
+            "--error",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_middle_s1_train_%j.err",
+            "--comment",
+            "scienceqa_top8_seeds12:middle_s1:train:13fd7b08b926",
+            "--open-mode=append",
+            "--export=ALL",
+            "--wrap",
+            "exec /home/msai/swarangi001/.conda/envs/llava/bin/python -u /home/msai/swarangi001/flow-placement-ablations/peft_lora/methods/pathway_specific/multiseed.py --worker train --case middle_s1"
+          ],
+          "intent_at": "2026-10-30T03:22:24.443481+08:00",
+          "job_id": "49124",
+          "submitted_at": "2026-10-30T03:22:24.459301+08:00"
+        },
+        "eval": {
+          "state": "COMPLETED",
+          "comment": "scienceqa_top8_seeds12:middle_s1:eval:13fd7b08b926",
+          "command": [
+            "sbatch",
+            "--parsable",
+            "--partition=MGPU-TC2",
+            "--qos=normal",
+            "--nodes=1",
+            "--gres=gpu:1",
+            "--cpus-per-task=4",
+            "--mem=30G",
+            "--time=06:00:00",
+            "--job-name",
+            "sqa_top8_middle_s1_eval",
+            "--chdir",
+            "/home/msai/swarangi001/flow-placement-ablations",
+            "--output",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_middle_s1_eval_%j.out",
+            "--error",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_middle_s1_eval_%j.err",
+            "--comment",
+            "scienceqa_top8_seeds12:middle_s1:eval:13fd7b08b926",
+            "--open-mode=append",
+            "--dependency",
+            "afterok:49124",
+            "--export=ALL",
+            "--wrap",
+            "exec /home/msai/swarangi001/.conda/envs/llava/bin/python -u /home/msai/swarangi001/flow-placement-ablations/peft_lora/methods/pathway_specific/multiseed.py --worker eval --case middle_s1"
+          ],
+          "intent_at": "2026-10-30T03:22:24.516787+08:00",
+          "job_id": "49125",
+          "submitted_at": "2026-10-30T03:22:24.530801+08:00"
+        }
+      },
+      "executions": {
+        "train": {
+          "49124": {
+            "job_id": "49124",
+            "state": "completed",
+            "started_at": "2026-10-30T03:22:27.475074+08:00",
+            "node": "TC2N01",
+            "gpu": "NVIDIA A40",
+            "packages": {
+              "torch": "2.1.2",
+              "transformers": "4.40.0.dev0",
+              "peft": "0.12.0",
+              "numpy": "1.26.1",
+              "scipy": "1.15.3",
+              "accelerate": "1.15.0",
+              "safetensors": "0.8.0",
+              "huggingface-hub": "0.36.2",
+              "Pillow": "12.3.0"
+            },
+            "training_source_commit": "8734991cd5c80eff45b09eb954d6d849ef495d58",
+            "exit_code": 0,
+            "ended_at": "2026-10-30T04:17:59.686631+08:00",
+            "wall_seconds": 3332.0483267698437,
+            "actual_training_configuration": {
+              "ranks": "/home/msai/swarangi001/flow-placement-ablations/configs/ranks/middle_pruned8_scienceqa.json",
+              "seed": 1,
+              "model_path": "liuhaotian/llava-v1.5-7b",
+              "conv_mode": "vicuna_v1",
+              "train_file": "datasets/scienceqa/train_llava.json",
+              "image_folder": "datasets/scienceqa/images",
+              "out_dir": "/home/msai/swarangi001/flow-placement-ablations/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed1",
+              "tag": null,
+              "limit": null,
+              "epochs": 1,
+              "batch_size": 4,
+              "grad_accum": 4,
+              "lr": 0.0002,
+              "warmup_ratio": 0.03,
+              "save_every": 200,
+              "max_hours": 5.5,
+              "num_workers": 4,
+              "flow_gates": false,
+              "gate_lr": 0.01,
+              "trainable_params": 1048576,
+              "total_steps": 388
+            },
+            "saved_adapter_parameters_verified": 1048576,
+            "adapter_sha256": "ae1826f88b9c3c4ef2faf670fd11f51dbec160180254a540da6c4b3e177cdbac"
+          }
+        },
+        "eval": {
+          "49125": {
+            "job_id": "49125",
+            "state": "completed",
+            "started_at": "2026-10-30T04:18:02.648374+08:00",
+            "node": "TC2N01",
+            "gpu": "NVIDIA A40",
+            "packages": {
+              "torch": "2.1.2",
+              "transformers": "4.40.0.dev0",
+              "peft": "0.12.0",
+              "numpy": "1.26.1",
+              "scipy": "1.15.3",
+              "accelerate": "1.15.0",
+              "safetensors": "0.8.0",
+              "huggingface-hub": "0.36.2",
+              "Pillow": "12.3.0"
+            },
+            "training_source_commit": "8734991cd5c80eff45b09eb954d6d849ef495d58",
+            "exit_code": 0,
+            "ended_at": "2026-10-30T04:25:33.461472+08:00",
+            "wall_seconds": 450.71335456427187,
+            "correct": 1538,
+            "total": 2017
+          }
+        }
+      },
+      "correct": 1538,
+      "total": 2017,
+      "completed_at": "2026-10-30T04:25:58.987709+08:00"
+    },
+    "middle_s2": {
+      "allocation": "middle",
+      "seed": 2,
+      "state": "completed",
+      "jobs": {
+        "train": {
+          "state": "COMPLETED",
+          "comment": "scienceqa_top8_seeds12:middle_s2:train:13fd7b08b926",
+          "command": [
+            "sbatch",
+            "--parsable",
+            "--partition=MGPU-TC2",
+            "--qos=normal",
+            "--nodes=1",
+            "--gres=gpu:1",
+            "--cpus-per-task=8",
+            "--mem=30G",
+            "--time=06:00:00",
+            "--job-name",
+            "sqa_top8_middle_s2_train",
+            "--chdir",
+            "/home/msai/swarangi001/flow-placement-ablations",
+            "--output",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_middle_s2_train_%j.out",
+            "--error",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_middle_s2_train_%j.err",
+            "--comment",
+            "scienceqa_top8_seeds12:middle_s2:train:13fd7b08b926",
+            "--open-mode=append",
+            "--export=ALL",
+            "--wrap",
+            "exec /home/msai/swarangi001/.conda/envs/llava/bin/python -u /home/msai/swarangi001/flow-placement-ablations/peft_lora/methods/pathway_specific/multiseed.py --worker train --case middle_s2"
+          ],
+          "intent_at": "2026-10-30T04:26:29.267840+08:00",
+          "job_id": "49133",
+          "submitted_at": "2026-10-30T04:26:29.283670+08:00"
+        },
+        "eval": {
+          "state": "COMPLETED",
+          "comment": "scienceqa_top8_seeds12:middle_s2:eval:13fd7b08b926",
+          "command": [
+            "sbatch",
+            "--parsable",
+            "--partition=MGPU-TC2",
+            "--qos=normal",
+            "--nodes=1",
+            "--gres=gpu:1",
+            "--cpus-per-task=4",
+            "--mem=30G",
+            "--time=06:00:00",
+            "--job-name",
+            "sqa_top8_middle_s2_eval",
+            "--chdir",
+            "/home/msai/swarangi001/flow-placement-ablations",
+            "--output",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_middle_s2_eval_%j.out",
+            "--error",
+            "/home/msai/swarangi001/flow-placement-ablations/slurm/logs/sqa_top8_middle_s2_eval_%j.err",
+            "--comment",
+            "scienceqa_top8_seeds12:middle_s2:eval:13fd7b08b926",
+            "--open-mode=append",
+            "--dependency",
+            "afterok:49133",
+            "--export=ALL",
+            "--wrap",
+            "exec /home/msai/swarangi001/.conda/envs/llava/bin/python -u /home/msai/swarangi001/flow-placement-ablations/peft_lora/methods/pathway_specific/multiseed.py --worker eval --case middle_s2"
+          ],
+          "intent_at": "2026-10-30T04:26:29.342283+08:00",
+          "job_id": "49134",
+          "submitted_at": "2026-10-30T04:26:29.358076+08:00"
+        }
+      },
+      "executions": {
+        "train": {
+          "49133": {
+            "job_id": "49133",
+            "state": "completed",
+            "started_at": "2026-10-30T04:26:32.557063+08:00",
+            "node": "TC2N01",
+            "gpu": "NVIDIA A40",
+            "packages": {
+              "torch": "2.1.2",
+              "transformers": "4.40.0.dev0",
+              "peft": "0.12.0",
+              "numpy": "1.26.1",
+              "scipy": "1.15.3",
+              "accelerate": "1.15.0",
+              "safetensors": "0.8.0",
+              "huggingface-hub": "0.36.2",
+              "Pillow": "12.3.0"
+            },
+            "training_source_commit": "8734991cd5c80eff45b09eb954d6d849ef495d58",
+            "exit_code": 0,
+            "ended_at": "2026-10-30T05:22:07.199257+08:00",
+            "wall_seconds": 3334.4824944250286,
+            "actual_training_configuration": {
+              "ranks": "/home/msai/swarangi001/flow-placement-ablations/configs/ranks/middle_pruned8_scienceqa.json",
+              "seed": 2,
+              "model_path": "liuhaotian/llava-v1.5-7b",
+              "conv_mode": "vicuna_v1",
+              "train_file": "datasets/scienceqa/train_llava.json",
+              "image_folder": "datasets/scienceqa/images",
+              "out_dir": "/home/msai/swarangi001/flow-placement-ablations/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed2",
+              "tag": null,
+              "limit": null,
+              "epochs": 1,
+              "batch_size": 4,
+              "grad_accum": 4,
+              "lr": 0.0002,
+              "warmup_ratio": 0.03,
+              "save_every": 200,
+              "max_hours": 5.5,
+              "num_workers": 4,
+              "flow_gates": false,
+              "gate_lr": 0.01,
+              "trainable_params": 1048576,
+              "total_steps": 388
+            },
+            "saved_adapter_parameters_verified": 1048576,
+            "adapter_sha256": "fa0d6e1b0e82f1af1da1e38b47ec8f24492a75f3997f9d1285ceadfd3b3b893c"
+          }
+        },
+        "eval": {
+          "49134": {
+            "job_id": "49134",
+            "state": "completed",
+            "started_at": "2026-10-30T05:22:10.126362+08:00",
+            "node": "TC2N01",
+            "gpu": "NVIDIA A40",
+            "packages": {
+              "torch": "2.1.2",
+              "transformers": "4.40.0.dev0",
+              "peft": "0.12.0",
+              "numpy": "1.26.1",
+              "scipy": "1.15.3",
+              "accelerate": "1.15.0",
+              "safetensors": "0.8.0",
+              "huggingface-hub": "0.36.2",
+              "Pillow": "12.3.0"
+            },
+            "training_source_commit": "8734991cd5c80eff45b09eb954d6d849ef495d58",
+            "exit_code": 0,
+            "ended_at": "2026-10-30T05:29:36.887126+08:00",
+            "wall_seconds": 446.5891305580735,
+            "correct": 1546,
+            "total": 2017
+          }
+        }
+      },
+      "correct": 1546,
+      "total": 2017,
+      "completed_at": "2026-10-30T05:30:06.408450+08:00"
+    }
+  },
+  "optional_early_included": false,
+  "single_seed_caveat": "Three seeds estimate training variation descriptively; fixed-question uncertainty is different.",
+  "updated_at": "2026-10-30T05:30:36.858302+08:00",
+  "completed_at": "2026-10-30T05:30:36.858293+08:00"
+}

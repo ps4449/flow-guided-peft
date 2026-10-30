@@ -1,0 +1,184 @@
+{
+  "updated_at": "2026-10-30T05:30:36.839886+08:00",
+  "state": "completed",
+  "runs": [
+    {
+      "allocation": "combined",
+      "seed": 0,
+      "layers": "0,1,2,3,4,9,10,11",
+      "correct": 1605,
+      "total": 2017,
+      "accuracy_percent": 79.57362419434804,
+      "parameters": 1048576,
+      "metrics": "/home/msai/swarangi001/flow-placement-ablations/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+      "predictions": "/home/msai/swarangi001/flow-placement-ablations/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl"
+    },
+    {
+      "allocation": "combined",
+      "seed": 1,
+      "layers": "0,1,2,3,4,9,10,11",
+      "correct": 1616,
+      "total": 2017,
+      "accuracy_percent": 80.11898859692613,
+      "parameters": 1048576,
+      "metrics": "/home/msai/swarangi001/flow-placement-ablations/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed1/eval_scienceqa/metrics.json",
+      "predictions": "/home/msai/swarangi001/flow-placement-ablations/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed1/eval_scienceqa/predictions.jsonl"
+    },
+    {
+      "allocation": "combined",
+      "seed": 2,
+      "layers": "0,1,2,3,4,9,10,11",
+      "correct": 1612,
+      "total": 2017,
+      "accuracy_percent": 79.92067426871591,
+      "parameters": 1048576,
+      "metrics": "/home/msai/swarangi001/flow-placement-ablations/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed2/eval_scienceqa/metrics.json",
+      "predictions": "/home/msai/swarangi001/flow-placement-ablations/output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed2/eval_scienceqa/predictions.jsonl"
+    },
+    {
+      "allocation": "question_last",
+      "seed": 0,
+      "layers": "9,10,11,12,13,14,15,16",
+      "correct": 1572,
+      "total": 2017,
+      "accuracy_percent": 77.93753098661378,
+      "parameters": 1048576,
+      "metrics": "/home/msai/swarangi001/flow-placement-ablations/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+      "predictions": "/home/msai/swarangi001/flow-placement-ablations/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl"
+    },
+    {
+      "allocation": "question_last",
+      "seed": 1,
+      "layers": "9,10,11,12,13,14,15,16",
+      "correct": 1594,
+      "total": 2017,
+      "accuracy_percent": 79.02825979176995,
+      "parameters": 1048576,
+      "metrics": "/home/msai/swarangi001/flow-placement-ablations/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed1/eval_scienceqa/metrics.json",
+      "predictions": "/home/msai/swarangi001/flow-placement-ablations/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed1/eval_scienceqa/predictions.jsonl"
+    },
+    {
+      "allocation": "question_last",
+      "seed": 2,
+      "layers": "9,10,11,12,13,14,15,16",
+      "correct": 1605,
+      "total": 2017,
+      "accuracy_percent": 79.57362419434804,
+      "parameters": 1048576,
+      "metrics": "/home/msai/swarangi001/flow-placement-ablations/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed2/eval_scienceqa/metrics.json",
+      "predictions": "/home/msai/swarangi001/flow-placement-ablations/output/peft/question_last_pruned8_scienceqa/scienceqa_train_llava/seed2/eval_scienceqa/predictions.jsonl"
+    },
+    {
+      "allocation": "middle",
+      "seed": 0,
+      "layers": "12,13,14,15,16,17,18,19",
+      "correct": 1522,
+      "total": 2017,
+      "accuracy_percent": 75.45860188398612,
+      "parameters": 1048576,
+      "metrics": "/home/msai/swarangi001/flow-placement-ablations/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json",
+      "predictions": "/home/msai/swarangi001/flow-placement-ablations/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/predictions.jsonl"
+    },
+    {
+      "allocation": "middle",
+      "seed": 1,
+      "layers": "12,13,14,15,16,17,18,19",
+      "correct": 1538,
+      "total": 2017,
+      "accuracy_percent": 76.25185919682697,
+      "parameters": 1048576,
+      "metrics": "/home/msai/swarangi001/flow-placement-ablations/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed1/eval_scienceqa/metrics.json",
+      "predictions": "/home/msai/swarangi001/flow-placement-ablations/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed1/eval_scienceqa/predictions.jsonl"
+    },
+    {
+      "allocation": "middle",
+      "seed": 2,
+      "layers": "12,13,14,15,16,17,18,19",
+      "correct": 1546,
+      "total": 2017,
+      "accuracy_percent": 76.6484878532474,
+      "parameters": 1048576,
+      "metrics": "/home/msai/swarangi001/flow-placement-ablations/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed2/eval_scienceqa/metrics.json",
+      "predictions": "/home/msai/swarangi001/flow-placement-ablations/output/peft/middle_pruned8_scienceqa/scienceqa_train_llava/seed2/eval_scienceqa/predictions.jsonl"
+    }
+  ],
+  "three_seed_summary": [
+    {
+      "allocation": "combined",
+      "completed_seeds": 3,
+      "mean_accuracy_percent": 79.87109568666337,
+      "sample_sd_pp": 0.27604186231185074
+    },
+    {
+      "allocation": "question_last",
+      "completed_seeds": 3,
+      "mean_accuracy_percent": 78.84647165757725,
+      "sample_sd_pp": 0.8330578853828186
+    },
+    {
+      "allocation": "middle",
+      "completed_seeds": 3,
+      "mean_accuracy_percent": 76.11964964468683,
+      "sample_sd_pp": 0.6058602802784137
+    }
+  ],
+  "matched_per_seed_differences": [
+    {
+      "seed": 0,
+      "a": "combined",
+      "b": "question_last",
+      "difference_pp": 1.6360932077342587
+    },
+    {
+      "seed": 0,
+      "a": "combined",
+      "b": "middle",
+      "difference_pp": 4.1150223103619235
+    },
+    {
+      "seed": 0,
+      "a": "question_last",
+      "b": "middle",
+      "difference_pp": 2.478929102627665
+    },
+    {
+      "seed": 1,
+      "a": "combined",
+      "b": "question_last",
+      "difference_pp": 1.0907288051561725
+    },
+    {
+      "seed": 1,
+      "a": "combined",
+      "b": "middle",
+      "difference_pp": 3.867129400099157
+    },
+    {
+      "seed": 1,
+      "a": "question_last",
+      "b": "middle",
+      "difference_pp": 2.7764005949429844
+    },
+    {
+      "seed": 2,
+      "a": "combined",
+      "b": "question_last",
+      "difference_pp": 0.34705007436787305
+    },
+    {
+      "seed": 2,
+      "a": "combined",
+      "b": "middle",
+      "difference_pp": 3.2721864154685174
+    },
+    {
+      "seed": 2,
+      "a": "question_last",
+      "b": "middle",
+      "difference_pp": 2.9251363411006444
+    }
+  ],
+  "strict_seed0_order_preserved": true,
+  "uncertainty": "Sample SD is across training seeds; question-bootstrap intervals conditional on fixed checkpoints are different. Three seeds provide limited precision.",
+  "fixed_early_seeds_1_2": "Not submitted; optional team approval pending"
+}
