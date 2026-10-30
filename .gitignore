@@ -14,6 +14,7 @@ output/peft/**/checkpoint.pt*
 # Python cache
 __pycache__/
 *.pyc
+.pytest_cache/
 
 # Cluster user guide (restricted)
 CCDSGPU-TC2-MSc-UserGuide.pdf
