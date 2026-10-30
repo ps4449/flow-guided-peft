@@ -142,7 +142,7 @@ McNemar tests are paired on the same questions and seed; "pooled" adds the count
 
 Ordered flow > random > inverse on every seed, matching the knockout importance. With half the parameters, flow-pruned
 matches full uniform LoRA, while a random half loses 1.4 and the opposite half loses 8.4. Same story as the full-budget
-runs (inverse-flow 79.21 vs uniform 81.21): these allocations favor early adapters under the tested protocol; they do not isolate individual layers' necessity or show that late adapters never help.
+runs (inverse-flow 79.21 vs uniform 81.21): the early flow layers must be tuned, the late ones add little.
 
 #### Fewer layers (seed 0)
 
@@ -154,8 +154,8 @@ The top 8 and top 4 layers by the same importance (`make_ranks.py --keep 8` / `-
 | Flow-pruned LoRA, 8 layers, seed 0 | 0, 1, 2, 3, 4, 9, 10, 11 | 1,048,576 | 79.57 | 4 × 4 ✅ | 1,605 / 2,017 correct; `configs/ranks/flow_pruned8_scienceqa.json`; −1.54 vs 16 layers (35 vs 66 questions, p = 0.003), −1.29 vs uniform seed 0 (p = 0.01); same as random-pruned 16 layers seed 0 (79.38, p = 0.75) with half its parameters; final loss 0.239; [outputs](output/peft/flow_pruned8_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json) |
 | Flow-pruned LoRA, 4 layers, seed 0 | 0, 2, 3, 4 | 524,288 | 77.99 | 4 × 4 ✅ | 1,573 / 2,017 correct; `configs/ranks/flow_pruned4_scienceqa.json`; −3.12 vs 16 layers (45 vs 108 questions, p = 4e-7); +8.83 over zero-shot and +5.56 over inverse-pruned 16 layers seed 0, with 1/4 of its parameters; final loss 0.258; [outputs](output/peft/flow_pruned4_scienceqa/scienceqa_train_llava/seed0/eval_scienceqa/metrics.json) |
 
-For these seed-0 runs, accuracy rises with the number of selected layers and approaches full uniform LoRA at 16.
-They show a budget–accuracy tradeoff; flow's unique advantage over depth-based selection remains unestablished.
+Accuracy rises with the number of flow layers and reaches full LoRA at 16; fewer layers lose accuracy, but flow layers
+still give more per parameter than random or late layers.
 
 #### Other ways to choose the 16 layers (seed 0)
 

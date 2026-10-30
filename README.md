@@ -1,25 +1,97 @@
-# Flow-guided PEFT — AI6130 project
+# Cross-modal Information Flow in Multimodal Large Language Model
+This is the official repository for our CVPR paper: [Cross-modal Information Flow in Multimodal Large Language Models](https://arxiv.org/abs/2411.18620)
 
-We study whether attention-knockout information flow can guide where to place LoRA adapters in LLaVA-1.5-7B, using ScienceQA and GQA.
+# Installation
+```
+1. git clone https://github.com/FightingFighting/cross-modal-information-flow-in-MLLM.git
+2. cd cross-modal-information-flow-in-MLLM
+3. Please following LLaVANEXT(https://github.com/LLaVA-VL/LLaVA-NeXT) to install the environment: llava
+```
+After installing llava environment, you will find an LLaVA-NeXT folder in cross-modal-information-flow-in-MLLM
 
-[Zhang et al., *Cross-modal Information Flow in Multimodal Large Language Models*](https://arxiv.org/abs/2411.18620) motivate measuring how visual information reaches question tokens and the answer position. This project extends their [analysis code](https://github.com/FightingFighting/cross-modal-information-flow-in-MLLM).
-[Zhou et al., *An Empirical Study on Parameter-Efficient Fine-Tuning for MultiModal Large Language Models*](https://aclanthology.org/2024.findings-acl.598/) study PEFT choices, including module placement, in multimodal models. Together these motivate our placement question; neither paper establishes that knockout importance predicts the best LoRA allocation.
+# Dataset
+Our dataset is collected from [GQA](https://cs.stanford.edu/people/dorarad/gqa/index.html). The collected datasets are in `datasets`. 
+For the images, please download from [here](https://downloads.cs.stanford.edu/nlp/data/gqa/images.zip).
 
-**Flow-guided LoRA** assigns adapter ranks using flow importance. **Flow-pruned LoRA** assigns rank 8 to selected layers and no adapters elsewhere. “Pruned” refers to adapter placement: all 32 original transformer layers remain. Both use `q_proj` and `v_proj`.
+# Use
+## Information flow
+1. Open `scripts/informationFlow.sh`
+2. Setting:
+   
+   `current_window`: how many layers you want to block for the attention knock at a time;
+   
+   `current_block_desc`: which kind of information flow you want to block;
+   
+   `model_path`: which kind of model you want to explore;
+   
+   `convmode`: different kind of model has different convmode;
+   
+   `dataset`: which kind of task you want to explore;
+   
+   `imagefolder`: the image folder
+   
+4. Run `sbatch scripts/informationFlow.sh`
 
-Our main corrected ScienceQA comparison uses seeds 0–2 and the same 2,017 held-out image questions:
+**current_block_desc** can be chosen from:
+```
+  "Question->Last"
+  "Image->Last"
+  "Image->Question"
+  "Last->Last"
+  "Image Central Object->Question"
+  "Image Without Central Object->Question"
+```
 
-| Allocation | Trainable adapter parameters | Accuracy, mean ± sample SD |
-| --- | ---: | ---: |
-| Uniform rank 8, all 32 layers | 4,194,304 | 81.21 ± 0.41% |
-| Flow-pruned rank 8, layers 0–15 | 2,097,152 | 81.36 ± 0.31% |
+**model_path** and **convmode** can be chosen from:
+```
+  model_path="liuhaotian/llava-v1.6-vicuna-7b" convmode="vicuna_v1"
+  model_path="lmms-lab/llama3-llava-next-8b"  convmode="llava_llama_3"
+  model_path="liuhaotian/llava-v1.5-7b"   convmode="vicuna_v1"
+  model_path="liuhaotian/llava-v1.5-13b"   convmode="vicuna_v1"
+```
 
-This gives approximately the same observed accuracy with half the adapter parameters (2.10M versus 4.19M). Gradient-based selection chose the same layers 0–15, so this comparison does not distinguish flow from gradient-based or simple early-layer selection. It does not establish equivalence, faster inference, or a halving of total model size. See the [full results ledger](RESULTS.md) for main experiments, other methods, and historical runs affected by earlier batching/answer-format issues.
+**dataset** can be chosen from:
+```
+  datasets/GQA_val_correct_question_with_choose_ChooseAttr.csv
+  datasets/GQA_val_correct_question_with_positionQuery_QueryAttr.csv
+  datasets/GQA_val_correct_question_with_existThatOr_LogicalObj.csv
+  datasets/GQA_val_correct_question_with_twoCommon_CompareAttr.csv
+  datasets/GQA_val_correct_question_with_relChooser_ChooseRel.csv
+  datasets/GQA_val_correct_question_with_categoryThatThisChoose_objThisChoose_ChooseCat.csv
+```
 
-**The seed-0 follow-up placement ablations are complete.** The [short team update](docs/FLOW_PLACEMENT_EXPERIMENTS_UPDATE.md) follows the region, window-size, pathway and position-control studies. At the eight-layer seed-0 budget of 1,048,576 adapter parameters, combined flow (layers 0–4, 9–11) and fixed early (0–7) each reached **79.57% (1605/2017)**; Question→Last reached **77.94%**, and fixed middle **75.46%**. The [final paired comparison](docs/FINAL_TOP8_COMPARISON.md) found no observed combined-flow advantage over this early control: difference 0.000 percentage points, 95% paired-question interval [−0.892, +0.892], exact McNemar p = 1.0.
+## Probability of answer word tracking
+1. Open `scripts/last_position_answer_prob.sh`
+2. Setting:
+   
+   `model_path`: which kind of model you want to explore;
+   
+   `convmode`: different kind of model has different convmode;
+   
+   `dataset`: which kind of task you want to explore;
+   
+   `imagefolder`: the image folder
+   
+4. Run `sbatch scripts/last_position_answer_prob.sh`
 
-These single-seed follow-ups are separate from the three-seed main result. The tie does not establish statistical equivalence or reliability across training seeds. Flow's unique advantage over gradient-based or simple depth selection remains unestablished.
+# Visulization
+if you want to merge several lines into one figure, you can run `python vil/merge_lineplot.py`.
 
-Detailed evidence: [regions](docs/REGION_GUIDED_PILOT.md), [window sensitivity](docs/FLOW_WINDOW_SENSITIVITY.md), [pathway rankings](docs/PATHWAY_SPECIFIC_SELECTION.md), [matched training](docs/PATHWAY_TOP8_SCIENCEQA.md), [paired errors](docs/PATHWAY_TOP8_PAIRED_ERRORS.md), [final four-model comparison](docs/FINAL_TOP8_COMPARISON.md), and the [seed-1/2 replication audit](docs/SCIENCEQA_TOP8_MULTISEED.md). [SETUP.md](SETUP.md) contains environment and reproduction details. Other teammates' experiments and historical results are preserved.
+For example, you might already get the results of the information flow: `Question->Last`,`Image->Last`,`Last->Last`, and you want to merge these three lines in one Figure, and then you could run `python vil/merge_lineplot.py`.
 
-The upstream analysis also builds on [LLaVA-NeXT](https://github.com/LLaVA-VL/LLaVA-NeXT) and Google's [dissecting factual predictions](https://github.com/google-research/google-research/tree/master/dissecting_factual_predictions).
+## Cite
+If this project is helpful for you, please cite our paper:
+```
+@article{zhang2024cross,
+  title={Cross-modal Information Flow in Multimodal Large Language Models},
+  author={Zhang, Zhi and Yadav, Srishti and Han, Fengze and Shutova, Ekaterina},
+  journal={arXiv preprint arXiv:2411.18620},
+  year={2024}
+}
+```
+
+
+## Acknowledgement
+The code is built upon https://github.com/google-research/google-research/tree/master/dissecting_factual_predictions and [LLaVA](https://github.com/LLaVA-VL/LLaVA-NeXT).
+
+Our used datasets are collected from [GQA](https://cs.stanford.edu/people/dorarad/gqa/index.html)
