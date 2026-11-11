@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1136" height="444" viewBox="0 0 1136 444" font-family='"Helvetica Neue", Helvetica, Arial, sans-serif'>
+<line x1="415.7" y1="70.0" x2="415.7" y2="380.0" stroke="#d8dee4" stroke-width="1"/>
+<text x="415.7" y="406.0" font-size="17" fill="#57606a" text-anchor="middle" font-weight="400">81</text>
+<line x1="647.1" y1="70.0" x2="647.1" y2="380.0" stroke="#d8dee4" stroke-width="1"/>
+<text x="647.1" y="406.0" font-size="17" fill="#57606a" text-anchor="middle" font-weight="400">82</text>
+<line x1="878.6" y1="70.0" x2="878.6" y2="380.0" stroke="#d8dee4" stroke-width="1"/>
+<text x="878.6" y="406.0" font-size="17" fill="#57606a" text-anchor="middle" font-weight="400">83</text>
+<line x1="1110.0" y1="70.0" x2="1110.0" y2="380.0" stroke="#d8dee4" stroke-width="1"/>
+<text x="1110.0" y="406.0" font-size="17" fill="#57606a" text-anchor="middle" font-weight="400">84</text>
+<text x="705.0" y="432.0" font-size="17" fill="#57606a" text-anchor="middle" font-weight="400">ScienceQA accuracy (%), whiskers show ±1 SD over seeds</text>
+<circle cx="300.0" cy="24.0" r="7" fill="#c2410c" stroke="#ffffff" stroke-width="2"/>
+<text x="314.0" y="30.0" font-size="17" fill="#57606a" text-anchor="start" font-weight="400">Layers 0–15 (2.10M)</text>
+<circle cx="510.0" cy="24.0" r="7" fill="#0077a0" stroke="#ffffff" stroke-width="2"/>
+<text x="524.0" y="30.0" font-size="17" fill="#57606a" text-anchor="start" font-weight="400">All 32 layers (4.19M)</text>
+<circle cx="730.0" cy="24.0" r="6" fill="#ffffff" stroke="#c2410c" stroke-width="2.5"/>
+<circle cx="750.0" cy="24.0" r="6" fill="#ffffff" stroke="#0077a0" stroke-width="2.5"/>
+<text x="764.0" y="30.0" font-size="17" fill="#57606a" text-anchor="start" font-weight="400">Hollow: single seed</text>
+<text x="0.0" y="99.0" font-size="20" fill="#1f2933" text-anchor="start" font-weight="400">LoRA+</text>
+<text x="0.0" y="121.0" font-size="15" fill="#57606a" text-anchor="start" font-weight="400">1 seed</text>
+<line x1="300.0" y1="101.0" x2="1110.0" y2="101.0" stroke="#f1f3f5" stroke-width="1"/>
+<circle cx="819.9" cy="101.0" r="6" fill="#ffffff" stroke="#0077a0" stroke-width="2.5"/>
+<text x="819.9" y="86.0" font-size="16" fill="#1f2933" text-anchor="middle" font-weight="400">82.75</text>
+<circle cx="1015.0" cy="101.0" r="6" fill="#ffffff" stroke="#c2410c" stroke-width="2.5"/>
+<text x="1015.0" y="86.0" font-size="16" fill="#1f2933" text-anchor="middle" font-weight="400">83.59</text>
+<text x="0.0" y="161.0" font-size="20" fill="#1f2933" text-anchor="start" font-weight="700">PiSSA</text>
+<text x="0.0" y="183.0" font-size="15" fill="#57606a" text-anchor="start" font-weight="400">3 seeds</text>
+<line x1="300.0" y1="163.0" x2="1110.0" y2="163.0" stroke="#f1f3f5" stroke-width="1"/>
+<line x1="502.1" y1="163.0" x2="961.8" y2="163.0" stroke="#0077a0" stroke-width="2.5"/>
+<circle cx="732.0" cy="163.0" r="7" fill="#0077a0" stroke="#ffffff" stroke-width="2"/>
+<text x="732.0" y="148.0" font-size="16" fill="#1f2933" text-anchor="middle" font-weight="400">82.37</text>
+<line x1="863.7" y1="163.0" x2="921.5" y2="163.0" stroke="#c2410c" stroke-width="2.5"/>
+<circle cx="892.6" cy="163.0" r="7" fill="#c2410c" stroke="#ffffff" stroke-width="2"/>
+<text x="892.6" y="148.0" font-size="16" fill="#1f2933" text-anchor="middle" font-weight="400">83.06</text>
+<text x="0.0" y="223.0" font-size="20" fill="#1f2933" text-anchor="start" font-weight="400">LoRA, 4× learning rate</text>
+<text x="0.0" y="245.0" font-size="15" fill="#57606a" text-anchor="start" font-weight="400">1 seed</text>
+<line x1="300.0" y1="225.0" x2="1110.0" y2="225.0" stroke="#f1f3f5" stroke-width="1"/>
+<circle cx="510.1" cy="225.0" r="6" fill="#ffffff" stroke="#c2410c" stroke-width="2.5"/>
+<text x="510.1" y="210.0" font-size="16" fill="#1f2933" text-anchor="middle" font-weight="400">81.41</text>
+<text x="0.0" y="285.0" font-size="20" fill="#1f2933" text-anchor="start" font-weight="400">LoRA</text>
+<text x="0.0" y="307.0" font-size="15" fill="#57606a" text-anchor="start" font-weight="400">3 seeds</text>
+<line x1="300.0" y1="287.0" x2="1110.0" y2="287.0" stroke="#f1f3f5" stroke-width="1"/>
+<line x1="370.3" y1="287.0" x2="558.2" y2="287.0" stroke="#0077a0" stroke-width="2.5"/>
+<circle cx="464.2" cy="287.0" r="7" fill="#0077a0" stroke="#ffffff" stroke-width="2"/>
+<text x="464.2" y="272.0" font-size="16" fill="#1f2933" text-anchor="end" font-weight="400">81.21</text>
+<line x1="427.0" y1="287.0" x2="570.3" y2="287.0" stroke="#c2410c" stroke-width="2.5"/>
+<circle cx="498.7" cy="287.0" r="7" fill="#c2410c" stroke="#ffffff" stroke-width="2"/>
+<text x="498.7" y="272.0" font-size="16" fill="#1f2933" text-anchor="start" font-weight="400">81.36</text>
+<text x="0.0" y="347.0" font-size="20" fill="#1f2933" text-anchor="start" font-weight="400">DoRA</text>
+<text x="0.0" y="369.0" font-size="15" fill="#57606a" text-anchor="start" font-weight="400">1 seed</text>
+<line x1="300.0" y1="349.0" x2="1110.0" y2="349.0" stroke="#f1f3f5" stroke-width="1"/>
+<circle cx="475.7" cy="349.0" r="6" fill="#ffffff" stroke="#c2410c" stroke-width="2.5"/>
+<text x="475.7" y="334.0" font-size="16" fill="#1f2933" text-anchor="middle" font-weight="400">81.26</text>
+</svg>

@@ -108,7 +108,7 @@ style: |
 
 An evaluation of LoRA placement in LLaVA-1.5-7B
 
-**Nop Polboon, Priyanka Srinivas, Ananya Tirumala, Swarangi Satpute**
+**Priyanka Srinivas, Ananya Anil Tirumala, Nop Polboon, Swarangi Satpute**
 
 AI6130: Large Language Models, Nanyang Technological University
 
@@ -146,7 +146,7 @@ AI6130: Large Language Models, Nanyang Technological University
 
 - Compare the probability of the correct answer with and without the connection
 - Block a 9-layer window at each of the 32 positions; score each layer by the sum of both drops
-- Measured once on 989 ScienceQA *training* questions, so no test data is used for selection
+- Measured once on 1000 ScienceQA *training* questions, so no test data is used for selection
 
 ---
 
@@ -154,7 +154,7 @@ AI6130: Large Language Models, Nanyang Technological University
 
 ![w:1000](slides_assets/knockout_map.svg)
 
-Blocking layers one at a time, **layer 0 alone accounts for −8.1%**. *Layers 1–4 rank highly mainly because their windows include layer 0.*
+Blocking layers one at a time, **layer 0 alone accounts for −8.1%**. Layers 1–4 rank highly mainly because their windows include layer 0.
 
 ---
 
@@ -163,9 +163,9 @@ Blocking layers one at a time, **layer 0 alone accounts for −8.1%**. *Layers 1
 | Component | Configuration |
 |---|---|
 | Model | LLaVA-1.5-7B; LoRA on query and value projections, rank 8 |
-| ScienceQA (image subset) | 6,218 training and 2,017 test questions; new to the model |
-| GQA | 20,000 training and 12,578 test questions; part of LLaVA's training data |
-| Evaluation | Mostly three seeds; paired tests on identical test questions |
+| ScienceQA (image subset) | 6,218 training and 2,017 test questions |
+| GQA | 20,000 training and 12,578 test questions, part of LLaVA's training data |
+| Evaluation | Three seeds; paired tests on identical test questions |
 
 ## Implementation corrections made before the reported results
 
@@ -187,7 +187,7 @@ Blocking layers one at a time, **layer 0 alone accounts for −8.1%**. *Layers 1
 
 - All three allocations are statistically tied, with little gain over the baseline
 - LLaVA already saw GQA during training, which may limit what is left to learn
-- *Only rank allocation was tested here; layers were not removed on GQA*
+- *Only rank allocation was tested here. Layers were not removed on GQA*
 
 The main study therefore uses **ScienceQA**, which offers substantially more room for improvement.
 
@@ -248,7 +248,7 @@ Share of the full-LoRA gain retained: **101% with 16 layers**, 89% with 8 layers
 ![w:1000](slides_assets/variants.svg)
 
 - **PiSSA improves on plain LoRA by 1.70 points** on layers 0–15 (270 vs 167 questions)
-- *The lead over all-layer PiSSA (0.69 points) is suggestive only: the order reverses on seed 1*
+- *The lead over all-layer PiSSA (0.69 points) is suggestive only as the order reverses on seed 1*
 
 ---
 
