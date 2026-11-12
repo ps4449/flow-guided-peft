@@ -1,6 +1,6 @@
 """Draw the slide figures as SVG from the project's raw results (standard library only).
 
-Usage, from the repo root:  python slides_assets/make_figures.py
+Usage, from the repo root:  python docs/slides/slides_assets/make_figures.py
 """
 import csv
 import json
@@ -9,7 +9,7 @@ import statistics as st
 from collections import defaultdict
 from xml.sax.saxutils import escape
 
-OUT = "slides_assets"
+OUT = "docs/slides/slides_assets"
 ORANGE, TEAL = "#c2410c", "#0077a0"
 INK, MUTED, GRID, NEUTRAL, BAND = "#1f2933", "#57606a", "#d8dee4", "#8c959f", "#f1f3f5"
 FONT = '"Helvetica Neue", Helvetica, Arial, sans-serif'
@@ -151,6 +151,35 @@ def knockout_map():
     s.rect(left + 200, 16, 24, 4, TEAL, rx=2)
     s.text(left + 232, 24, "Question → Last", size=16, fill=MUTED)
     s.save("knockout_map.svg")
+
+
+def layer0():
+    one = knockout_curve(f"{FLOW_DIR}/Image___Question/SQA_train_correct_ScienceQA_window1_Image___Question.csv")
+    nine = knockout_curve(f"{FLOW_DIR}/Image___Question/SQA_train_correct_ScienceQA_window9_Image___Question.csv")
+    s = Svg(1136, 420)
+    left, right, top, bottom = 90, 1110, 50, 365
+    step = (right - left) / 32
+    x = lambda layer: left + step * (layer + 0.5)
+    y = lambda v: top + (bottom - top) * (2 - v) / 16
+    for v in (0, -4, -8, -12):
+        s.line(left, y(v), right, y(v), stroke=INK if v == 0 else GRID)
+        s.text(left - 10, y(v) + 6, f"{v}", size=17, fill=MUTED, anchor="end")
+    for layer, v in enumerate(one):
+        top_y, bar_y = (y(0), y(v)) if v < 0 else (y(v), y(0))
+        s.rect(x(layer) - step * 0.35, top_y, step * 0.7, bar_y - top_y, ORANGE, rx=2)
+    s.path("M " + " L ".join(f"{x(i):.1f} {y(v):.1f}" for i, v in enumerate(nine)), INK, width=2, dash="6 5")
+    for layer in (0, 5, 10, 15, 20, 25, 31):
+        s.text(x(layer), bottom + 26, str(layer), size=17, fill=MUTED, anchor="middle")
+    s.text((left + right) / 2, bottom + 52, "Layer", size=17, fill=MUTED, anchor="middle")
+    s.items.append(f'<text transform="translate(22 {(top + bottom) / 2}) rotate(-90)" font-size="17" fill="{MUTED}" '
+                   f'text-anchor="middle">Change in answer probability (%)</text>')
+    s.text(x(6), y(-7), f"Layer 0 alone: {one[0]:.1f}%", size=19, weight=700)
+    s.text(x(6), y(-7) + 23, "no other single layer costs more than 1%", size=17, fill=MUTED)
+    s.rect(left, 16, 24, 14, ORANGE, rx=2)
+    s.text(left + 32, 28, "One layer blocked", size=16, fill=MUTED)
+    s.line(left + 220, 23, left + 250, 23, stroke=INK, width=2, dash="6 5")
+    s.text(left + 258, 28, "Nine layers blocked (the map used for selection)", size=16, fill=MUTED)
+    s.save("layer0.svg")
 
 
 def placement(rows, name, note):
@@ -329,6 +358,7 @@ if __name__ == "__main__":
     motivation()
     knockout_method()
     knockout_map()
+    layer0()
     full, half = set(range(16)), set(range(16, 32))
     every = set(range(32))
     placement([("Full LoRA", "rank 8, 4.19M", every, TEAL, 1, "full"),
@@ -337,10 +367,9 @@ if __name__ == "__main__":
                ("Random", "rank 8, 2.10M, one set", {1, 4, 6, 8, 9, 11, 12, 13, 15, 16, 18, 24, 25, 28, 30, 31}, NEUTRAL, 1, "random"),
                ("Inverse", "rank 8, 2.10M", half, NEUTRAL, 1, "inverse")],
               "placement_16.svg", "Three-seed means ± sample SD. Bars start at zero-shot (69.16%).")
-    placement([("Combined flow", "chosen by knockout", {0, 1, 2, 3, 4, 9, 10, 11}, ORANGE, 1, "flow8"),
-               ("Fixed early block", "no measurement needed", set(range(8)), TEAL, 1, "early8"),
+    placement([("Combined flow", "both pathways", {0, 1, 2, 3, 4, 9, 10, 11}, ORANGE, 1, "flow8"),
                ("Question → Last", "one pathway only", set(range(9, 17)), NEUTRAL, 1, "ql8"),
-               ("Fixed middle block", "layers 12–19", set(range(12, 20)), NEUTRAL, 1, "mid8")],
+               ("Middle block", "layers 12–19", set(range(12, 20)), NEUTRAL, 1, "mid8")],
               "placement_8.svg", "All placements use 1.05M parameters. Three-seed means ± sample SD. Bars start at zero-shot (69.16%).")
     size_accuracy()
     variants()
