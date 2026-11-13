@@ -230,13 +230,13 @@ Share of the full-LoRA gain retained: **101% with 16 layers**, 89% with 8 layers
 
 ---
 
-# Without the Flow Layers, Image Questions Fail
+# Inverse Placement Loses Most on Map and Diagram Questions
 
 ![w:930](slides_assets/categories.svg)
 
 - Maps, particle diagrams and climate charts drop by **20–37 points** with inverse placement
-- Questions answered mostly from the words (state capitals, economics) barely move
-- 130 test questions are right with flow-pruned and wrong with inverse on **all three seeds**; only 18 go the other way
+- On questions the base model already answers, inverse is as accurate as flow-pruned (92.1% vs 91.9%)
+- On questions it gets wrong, flow-pruned fixes **58%**, inverse only 29%: without the flow layers, LoRA learns far less
 
 ---
 
@@ -244,7 +244,7 @@ Share of the full-LoRA gain retained: **101% with 16 layers**, 89% with 8 layers
 
 ![w:1080](slides_assets/examples.png)
 
-Right with flow-pruned LoRA and wrong with inverse LoRA on all three seeds: a highlighted country, the driest month on a climate chart, and particle concentration. These are the same map and diagram questions that depend on layer 0 in the knockout.
+Right with flow-pruned LoRA and wrong with inverse LoRA on all three seeds: a highlighted country, the driest month on a climate chart, and particle concentration. 130 test questions go this way on every seed; only 18 go the other way.
 
 ---
 

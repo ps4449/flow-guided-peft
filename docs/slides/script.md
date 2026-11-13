@@ -100,13 +100,13 @@ Even four flow layers beat sixteen inverse layers by more than five points, with
 
 ---
 
-## Slide 12: Without the Flow Layers, Image Questions Fail (50 seconds)
+## Slide 12: Inverse Placement Loses Most on Map and Diagram Questions (50 seconds)
 
 We then asked which questions suffer when the flow layers receive no adapter. Each row compares flow-pruned LoRA in orange with inverse placement in blue.
 
-The largest gaps are on questions that need the picture: maps, particle diagrams and climate charts drop by 20 to 37 points. Oceania geography falls from about 63 percent to about 26. Questions that can be answered mostly from the words, such as state capitals or basic economics, barely move.
+The largest gaps are on maps, particle diagrams and climate charts, which drop by 20 to 37 points. Oceania geography falls from about 63 percent to about 26. Questions that can be answered mostly from the words, such as state capitals or basic economics, barely move.
 
-These failures are consistent. 130 test questions are answered correctly by flow-pruned LoRA on all three seeds and wrongly by inverse LoRA on all three. Only 18 go the other way.
+We also split the test questions by whether the untuned model already answers them. On those it gets right, inverse placement is just as accurate as flow-pruned LoRA. On those it gets wrong, flow-pruned LoRA fixes 58 percent and inverse placement only 29. So without the flow layers, LoRA keeps what the model knows but learns far less, which matches its higher training loss.
 
 ---
 
@@ -114,7 +114,7 @@ These failures are consistent. 130 test questions are answered correctly by flow
 
 Here are three of those 130 questions. On a map asking which country is highlighted, inverse LoRA answers New Zealand instead of Palau on every seed. On a climate chart, it misreads the driest month. On a particle diagram, it picks the solution with the lower concentration.
 
-These are the same map and diagram questions that depend on layer 0 in the knockout. The map and the fine-tuning results point to the same questions.
+This pattern is consistent: 130 test questions are answered correctly by flow-pruned LoRA on all three seeds and wrongly by inverse LoRA on all three. Only 18 go the other way.
 
 ---
 
@@ -148,7 +148,7 @@ Learnable gates on the flow and a loss rewarding use of the flow gave no gain, a
 
 ## Slide 17: Conclusions (50 seconds)
 
-To conclude. Attention knockout shows that LLaVA mixes the image into the question in its first layer and passes it on through the middle layers. Placing LoRA only on the 16 layers this map ranks highest matches full LoRA with half the parameters, on every seed. The same budget spread over all layers, a random half, and the opposite half are all worse, and without the flow layers the model loses exactly the questions that need the picture.
+To conclude. Attention knockout shows that LLaVA mixes the image into the question in its first layer and passes it on through the middle layers. Placing LoRA only on the 16 layers this map ranks highest matches full LoRA with half the parameters, on every seed. The same budget spread over all layers, a random half, and the opposite half are all worse. Without the flow layers, LoRA learns far fewer of the questions the untuned model gets wrong, mostly maps and diagrams.
 
 There are limits. The saving is in adapter size, not training time. We studied one model and one new task, and several controls have one seed.
 
@@ -174,7 +174,7 @@ They are somewhat optimistic for that reason. The large gaps survive a bootstrap
 It is limited. It is one fixed set of layers trained with three seeds, so the seeds vary the training but not the choice of layers.
 
 **Layers 0–15 are the first half of the model. Is this just depth?**
-Our study is about what the flow map reveals, not about competing selection rules. We ran a fixed early block as a sanity check, and it is in the appendix of the report. What the map adds is the reason: layer 0 is where the image enters the question, and the questions that fail without it are the image-heavy ones.
+Our study is about what the flow map reveals, not about competing selection rules. We ran a fixed early block as a sanity check, and it is in the appendix of the report. What the map adds is an explanation of what those layers do: layer 0 is where the image enters the question, and the questions that suffer without the flow layers are mostly maps and diagrams.
 
 **How stable is the layer choice?**
 The best two eight-layer regions share 15 of the 16 layers. A window of 3 instead of 9 changes the ranking but still shares 15 of the top 16. Over 5,000 bootstrap resamples of the 989 questions, the question-to-last top 8 reappears in more than 99 percent of them.
@@ -190,6 +190,9 @@ No. It used micro-batches of 1 with 16 accumulation steps, rather than 4 and 4, 
 
 **Where does the ScienceQA baseline come from?**
 The 69.16 is recorded in [RESULTS.md](../../RESULTS.md), but its raw test predictions are not stored in the repository.
+
+**Do the questions that fail depend on layer 0?**
+Not question by question, as far as we can test. We ran the single-layer knockout on the test questions the untuned model answers correctly. About one in five depend strongly on layer 0, but flow-pruned and inverse LoRA are equally accurate on them. Inverse placement loses on questions the untuned model gets wrong, and the knockout cannot score those, so that link remains open.
 
 **How did the batching bug go unnoticed?**
 Without `modalities` passed for every sample, the installed LLaVA code kept only the first sample of each micro-batch, and the runs still completed without an error. It is documented in [MULTIMODAL_BATCH_FIX.md](../MULTIMODAL_BATCH_FIX.md).
