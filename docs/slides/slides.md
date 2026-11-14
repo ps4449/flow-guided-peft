@@ -3,7 +3,7 @@ marp: true
 theme: default
 size: 16:9
 paginate: true
-footer: 'Information Flow and LoRA Placement in LLaVA-1.5-7B  |  AI6130 Large Language Models'
+footer: 'Information-Flow-Guided Fine-Tuning in LLaVA-1.5-7B  |  AI6130 Large Language Models'
 style: |
   section {
     background: #ffffff;
@@ -232,11 +232,11 @@ Share of the full-LoRA gain retained: **101% with 16 layers**, 89% with 8 layers
 
 # Inverse Placement Loses Most on Map and Diagram Questions
 
-![w:930](slides_assets/categories.svg)
+![w:900](slides_assets/categories.svg)
 
-- Maps, particle diagrams and climate charts drop by **20–37 points** with inverse placement
-- On questions the base model already answers, inverse is as accurate as flow-pruned (92.1% vs 91.9%)
-- On questions it gets wrong, flow-pruned fixes **58%**, inverse only 29%: without the flow layers, LoRA learns far less
+- Maps, particle diagrams and climate charts drop by **20–37 points**
+- Questions the base model already answers: inverse matches flow-pruned (92.1% vs 91.9%)
+- Questions it gets wrong: flow-pruned fixes **58%**, inverse only 29%
 
 ---
 
