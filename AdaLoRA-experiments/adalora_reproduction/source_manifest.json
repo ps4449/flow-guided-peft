@@ -1,0 +1,19 @@
+{
+  "training_environment": {
+    "torch": "2.1.2",
+    "peft": "0.12.0",
+    "transformers": "4.40.0.dev0",
+    "llava": "1.7.0.dev0"
+  },
+  "capitalized_data_sha256": "a7976b64c609217d0a8118fbee2c5b87ef9cacf2c67f8e9cd5bab7f88d971402",
+  "original_checkout": "b2959d0ad6b79296075d78a898a804b58a8d330f",
+  "files": {
+    "adalora_runtime.py": "35b8154714d1edc9ccfcefb51f96ca5bb7a59bb256da0e1e2c57795f64c81dc4",
+    "check_shared_reload.py": "ce565ca9f9834593d42d144656d3aedb5a5650944e6423a3936ab416050c4389",
+    "budget.py": "ed089bae4aec02b6b0e857b5e78a048d94e0d25d780b64dddf2f86a56a14ce44",
+    "eval_gqa.py": "9e5bf6aa0c591acd66e3263b51f87ab7e9b80a14cbfd70b6353624c795f3e205",
+    "common.py": "d541cd387241d36aa0ec88021ad961f831289a1e26b0aa669afbee55fb7a6328",
+    "train_lora.py": "939781a0b2f7de5a2a88db20a029e9de0d7dd19d87d39e2438c33b4b3438f9bb",
+    "adalora.json": "abf0b7af579b5a7a63ca83a551a9797884aca9fbfef2b040e9205c9e1e465b76"
+  }
+}

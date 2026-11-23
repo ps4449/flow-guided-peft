@@ -59,9 +59,16 @@ class CustomDataset(Dataset):
     def __getitem__(self, index):
 
         line = self.questions[index]
-        question = line["question"]
-        question = question + " \nAnswer the question using a single word or phrase."
-        image_file = str(line["img_id"]) + ".jpg" if ".jpg" not in str(line["img_id"]) else str(line["img_id"])
+        # a "prompt" column (e.g. ScienceQA: context, question, options, instruction) replaces the GQA prompt;
+        # the "question" column is still what the Question token range is found from
+        if line.get("prompt"):
+            question = line["prompt"]
+        else:
+            question = line["question"]
+            question = question + " \nAnswer the question using a single word or phrase."
+        image_file = str(line["img_id"])
+        if not os.path.splitext(image_file)[1]:  # GQA ids have no extension
+            image_file += ".jpg"
 
 
         qs = DEFAULT_IMAGE_TOKEN + "\n" + question  #
@@ -386,11 +393,13 @@ def InforFlowAna(args):
     for (input_ids, image_tensor, original_image_sizes, prompts, mask_tensor), line in tqdm(zip(data_loader, questions), total=len(questions)):
 
         question_id = line["q_id"]
-        img_id= str(line["img_id"]) + ".jpg"
+        img_id = str(line["img_id"]) if os.path.splitext(str(line["img_id"]))[1] else str(line["img_id"]) + ".jpg"
 
         input_ids = input_ids.to(device='cuda')
         image_tensor = [img_t.to(device='cuda') for img_t in image_tensor]
-        mask_tensor = [ma.to(device='cuda') for ma in mask_tensor]
+        # no object boxes (e.g. the GQA_train_*_All files) -> no mask; masks are only used by the "Image ..." object flows
+        if mask_tensor is not None:
+            mask_tensor = [ma.to(device='cuda') for ma in mask_tensor]
 
         inps={
             "inputs":input_ids,
@@ -417,7 +426,8 @@ def InforFlowAna(args):
         else:
             base_score_first, predicted_answer, first_answer_token_id, inputs_embeds_shape = run_original(model, inps, tokenizer, model_name, args=args)
 
-        if answer!=predicted_answer:
+        # keep only the questions answered correctly (default) or wrongly (--keep wrong)
+        if (answer == predicted_answer) != (args.keep == "correct"):
             continue
         else:
             index += 1
@@ -426,11 +436,15 @@ def InforFlowAna(args):
 
         #get range
         block_descs_split = args.block_description.split("->")
-        if args.certain_part_image:
-            range1 = blockdesc2range_patches(block_descs_split[0], input_ids, inputs_embeds_shape,central_object_patch_indices, pad_patch_indices, hd_patch_indice,objects_indices_in_hd, original_patch_indices)
-        else:
-            range1 = blockdesc2range(block_descs_split[0], dataset_dict, question_id, input_ids, inputs_embeds_shape,tokenizer, model_name)
-        range2 = blockdesc2range(block_descs_split[1], dataset_dict, question_id, input_ids, inputs_embeds_shape,tokenizer, model_name)
+        try:
+            if args.certain_part_image:
+                range1 = blockdesc2range_patches(block_descs_split[0], input_ids, inputs_embeds_shape,central_object_patch_indices, pad_patch_indices, hd_patch_indice,objects_indices_in_hd, original_patch_indices)
+            else:
+                range1 = blockdesc2range(block_descs_split[0], dataset_dict, question_id, input_ids, inputs_embeds_shape,tokenizer, model_name)
+            range2 = blockdesc2range(block_descs_split[1], dataset_dict, question_id, input_ids, inputs_embeds_shape,tokenizer, model_name)
+        except ValueError:  # the question text was not found in the prompt tokens (e.g. unusual characters)
+            print("Skipped (question tokens not found):", question_id)
+            continue
         block_descs = [([range1, range2], args.block_description)]
 
         for block_ids, block_desc in block_descs:
@@ -474,11 +488,18 @@ def InforFlowAna(args):
         save_name=save_name+"_noHD_noPad"
     tmp = pd.DataFrame.from_records(results)
     model_name = model_name.replace('-', '_').replace('.', '_')
-    os.makedirs(f"output/information_flow/{model_name}/{task_name}/val/{save_name}", exist_ok=True)
-    tmp.to_csv(f'output/information_flow/{model_name}/{task_name}/val/{save_name}/{args.refined_dataset.split("/")[-1].split(".csv")[0]}_window{args.window}_{save_name}.csv', index=False)
+    # <split> is the dataset's source and filter from its name, e.g. GQA_val_correct_..._ChooseAttr -> val_correct,
+    # GQA_train_wrong_All -> train_wrong, SQA_train_correct_ScienceQA -> train_correct;
+    # other files (e.g. test_ChooseAttr) go to their first word (test)
+    dataset_name = args.refined_dataset.split("/")[-1].split(".csv")[0]
+    name_parts = dataset_name.split("_")
+    split = "_".join(name_parts[1:3]) if len(name_parts) > 2 and name_parts[2] in ("correct", "wrong") else name_parts[0]
+    out_dir = f"output/information_flow/{model_name}/{task_name}/{split}/{save_name}"
+    os.makedirs(out_dir, exist_ok=True)
+    tmp.to_csv(f'{out_dir}/{dataset_name}_window{args.window}_{save_name}.csv', index=False)
 
     # Plot the results
-    save_path=f'output/information_flow/{model_name}/{task_name}/val/{save_name}/{args.refined_dataset.split("/")[-1].split(".csv")[0]}_window{args.window}_{save_name}_first.pdf'
+    save_path=f'{out_dir}/{dataset_name}_window{args.window}_{save_name}_first.pdf'
     generate_plot(tmp, save_path, x="layer", y="relative diff first", hue="block_desc", layers=model.config.num_hidden_layers)
 
 
@@ -502,9 +523,13 @@ if __name__ == "__main__":
     parser.add_argument('--block_description', default=None, type=str, help="block_description")
     parser.add_argument('--certain_part_image', default=False, action="store_true")
     parser.add_argument('--noHD_noPad', default=False, action="store_true", help="noHD_noPad")
+    parser.add_argument('--keep', choices=["correct", "wrong"], default=None,
+                        help="questions to analyse (default: wrong if the dataset name has _wrong_, else correct)")
 
 
     args = parser.parse_args()
+    if args.keep is None:
+        args.keep = "wrong" if "_wrong_" in args.refined_dataset.split("/")[-1] else "correct"
 
     block_descs_split = args.block_description.split("->")
     if "Image " in block_descs_split[0]:

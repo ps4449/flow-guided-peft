@@ -1,0 +1,24 @@
+# GQA images and download files (only the needed*.txt lists and question files are tracked)
+datasets/gqa/images/
+datasets/gqa/*.zip
+datasets/gqa/wget.log
+
+# ScienceQA images (made by scripts/prepare_scienceqa.py; the question files are tracked)
+datasets/scienceqa/images/
+
+# LoRA weights and resume checkpoints (binary, tens of MB per run).
+# Results stay tracked: eval/predictions.jsonl, eval/metrics.json, train_log.jsonl, train_config.json
+output/peft/**/adapter/
+output/peft/**/checkpoint.pt*
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Cluster user guide (restricted)
+CCDSGPU-TC2-MSc-UserGuide.pdf
+
+# LLaVA-NeXT is cloned separately during setup
+LLaVA-NeXT/
+
+slurm/logs/*

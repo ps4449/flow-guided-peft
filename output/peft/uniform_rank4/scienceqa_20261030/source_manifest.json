@@ -1,0 +1,15 @@
+{
+  "source_commit": "1138b73485adb664691abf46fc1f9ed69fb50fc5",
+  "rank_sum": 256,
+  "expected_trainable_parameters": 2097152,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "source_sha256": {
+    "eval_gqa.py": "dfe3aa0a8139edf74f18b42ebd18ece08ad4ede8c85960208381d140abb48ad8",
+    "common.py": "8cbe56ac54d2413c7611445a0447c6da16e7b71d88f3711b8484a6783fc65ebd",
+    "train_lora.py": "afa8638194a8abd634be3caeae6628ab61cf2f65fcd34b0982a1092bb86e4698"
+  }
+}

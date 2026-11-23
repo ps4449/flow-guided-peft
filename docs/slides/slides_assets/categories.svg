@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1136" height="470" viewBox="0 0 1136 470" font-family='"Helvetica Neue", Helvetica, Arial, sans-serif'>
+<line x1="330.0" y1="52.0" x2="330.0" y2="412.0" stroke="#d8dee4" stroke-width="1"/>
+<text x="330.0" y="438.0" font-size="17" fill="#57606a" text-anchor="middle" font-weight="400">0</text>
+<line x1="520.0" y1="52.0" x2="520.0" y2="412.0" stroke="#d8dee4" stroke-width="1"/>
+<text x="520.0" y="438.0" font-size="17" fill="#57606a" text-anchor="middle" font-weight="400">25</text>
+<line x1="710.0" y1="52.0" x2="710.0" y2="412.0" stroke="#d8dee4" stroke-width="1"/>
+<text x="710.0" y="438.0" font-size="17" fill="#57606a" text-anchor="middle" font-weight="400">50</text>
+<line x1="900.0" y1="52.0" x2="900.0" y2="412.0" stroke="#d8dee4" stroke-width="1"/>
+<text x="900.0" y="438.0" font-size="17" fill="#57606a" text-anchor="middle" font-weight="400">75</text>
+<line x1="1090.0" y1="52.0" x2="1090.0" y2="412.0" stroke="#d8dee4" stroke-width="1"/>
+<text x="1090.0" y="438.0" font-size="17" fill="#57606a" text-anchor="middle" font-weight="400">100</text>
+<text x="710.0" y="462.0" font-size="17" fill="#57606a" text-anchor="middle" font-weight="400">Accuracy (%), mean of three seeds</text>
+<circle cx="330.0" cy="20.0" r="7" fill="#c2410c" stroke="#ffffff" stroke-width="2"/>
+<text x="344.0" y="26.0" font-size="17" fill="#57606a" text-anchor="start" font-weight="400">Flow-pruned, layers 0–15</text>
+<circle cx="600.0" cy="20.0" r="7" fill="#0077a0" stroke="#ffffff" stroke-width="2"/>
+<text x="614.0" y="26.0" font-size="17" fill="#57606a" text-anchor="start" font-weight="400">Inverse, layers 16–31</text>
+<text x="0.0" y="81.5" font-size="19" fill="#1f2933" text-anchor="start" font-weight="400">Oceania geography</text>
+<line x1="806.9" y1="74.5" x2="523.7" y2="74.5" stroke="#8c959f" stroke-width="3"/>
+<circle cx="523.7" cy="74.5" r="7" fill="#0077a0" stroke="#ffffff" stroke-width="2"/>
+<circle cx="806.9" cy="74.5" r="7" fill="#c2410c" stroke="#ffffff" stroke-width="2"/>
+<text x="510.7" y="80.5" font-size="16" fill="#1f2933" text-anchor="end" font-weight="400">25.5</text>
+<text x="819.9" y="80.5" font-size="16" fill="#1f2933" text-anchor="start" font-weight="400">62.7</text>
+<text x="0.0" y="126.5" font-size="19" fill="#1f2933" text-anchor="start" font-weight="400">Solutions (particle diagrams)</text>
+<line x1="794.4" y1="119.5" x2="569.3" y2="119.5" stroke="#8c959f" stroke-width="3"/>
+<circle cx="569.3" cy="119.5" r="7" fill="#0077a0" stroke="#ffffff" stroke-width="2"/>
+<circle cx="794.4" cy="119.5" r="7" fill="#c2410c" stroke="#ffffff" stroke-width="2"/>
+<text x="556.3" y="125.5" font-size="16" fill="#1f2933" text-anchor="end" font-weight="400">31.5</text>
+<text x="807.4" y="125.5" font-size="16" fill="#1f2933" text-anchor="start" font-weight="400">61.1</text>
+<text x="0.0" y="171.5" font-size="19" fill="#1f2933" text-anchor="start" font-weight="400">Maps</text>
+<line x1="1057.0" y1="164.5" x2="880.7" y2="164.5" stroke="#8c959f" stroke-width="3"/>
+<circle cx="880.7" cy="164.5" r="7" fill="#0077a0" stroke="#ffffff" stroke-width="2"/>
+<circle cx="1057.0" cy="164.5" r="7" fill="#c2410c" stroke="#ffffff" stroke-width="2"/>
+<text x="867.7" y="170.5" font-size="16" fill="#1f2933" text-anchor="end" font-weight="400">72.5</text>
+<text x="1070.0" y="170.5" font-size="16" fill="#1f2933" text-anchor="start" font-weight="400">95.7</text>
+<text x="0.0" y="216.5" font-size="19" fill="#1f2933" text-anchor="start" font-weight="400">Weather and climate</text>
+<line x1="910.9" y1="209.5" x2="740.6" y2="209.5" stroke="#8c959f" stroke-width="3"/>
+<circle cx="740.6" cy="209.5" r="7" fill="#0077a0" stroke="#ffffff" stroke-width="2"/>
+<circle cx="910.9" cy="209.5" r="7" fill="#c2410c" stroke="#ffffff" stroke-width="2"/>
+<text x="727.6" y="215.5" font-size="16" fill="#1f2933" text-anchor="end" font-weight="400">54.0</text>
+<text x="923.9" y="215.5" font-size="16" fill="#1f2933" text-anchor="start" font-weight="400">76.4</text>
+<text x="0.0" y="261.5" font-size="19" fill="#1f2933" text-anchor="start" font-weight="400">Materials</text>
+<line x1="1026.2" y1="254.5" x2="969.5" y2="254.5" stroke="#8c959f" stroke-width="3"/>
+<circle cx="969.5" cy="254.5" r="7" fill="#0077a0" stroke="#ffffff" stroke-width="2"/>
+<circle cx="1026.2" cy="254.5" r="7" fill="#c2410c" stroke="#ffffff" stroke-width="2"/>
+<text x="956.5" y="260.5" font-size="16" fill="#1f2933" text-anchor="end" font-weight="400">84.1 vs 91.6</text>
+<text x="0.0" y="306.5" font-size="19" fill="#1f2933" text-anchor="start" font-weight="400">Magnets</text>
+<line x1="611.0" y1="299.5" x2="601.8" y2="299.5" stroke="#8c959f" stroke-width="3"/>
+<circle cx="601.8" cy="299.5" r="7" fill="#0077a0" stroke="#ffffff" stroke-width="2"/>
+<circle cx="611.0" cy="299.5" r="7" fill="#c2410c" stroke="#ffffff" stroke-width="2"/>
+<text x="588.8" y="305.5" font-size="16" fill="#1f2933" text-anchor="end" font-weight="400">35.8 vs 37.0</text>
+<text x="0.0" y="351.5" font-size="19" fill="#1f2933" text-anchor="start" font-weight="400">Basic economics</text>
+<line x1="1090.0" y1="344.5" x2="1068.6" y2="344.5" stroke="#8c959f" stroke-width="3"/>
+<circle cx="1068.6" cy="344.5" r="7" fill="#0077a0" stroke="#ffffff" stroke-width="2"/>
+<circle cx="1090.0" cy="344.5" r="7" fill="#c2410c" stroke="#ffffff" stroke-width="2"/>
+<text x="1055.6" y="350.5" font-size="16" fill="#1f2933" text-anchor="end" font-weight="400">97.2 vs 100.0</text>
+<text x="0.0" y="396.5" font-size="19" fill="#1f2933" text-anchor="start" font-weight="400">State capitals</text>
+<line x1="1090.0" y1="389.5" x2="1085.9" y2="389.5" stroke="#8c959f" stroke-width="3"/>
+<circle cx="1085.9" cy="389.5" r="7" fill="#0077a0" stroke="#ffffff" stroke-width="2"/>
+<circle cx="1090.0" cy="389.5" r="7" fill="#c2410c" stroke="#ffffff" stroke-width="2"/>
+<text x="1072.9" y="395.5" font-size="16" fill="#1f2933" text-anchor="end" font-weight="400">99.5 vs 100.0</text>
+</svg>

@@ -1,0 +1,42 @@
+{
+  "ranks": "configs/ranks/adalora.json",
+  "seed": 2,
+  "model_path": "liuhaotian/llava-v1.5-7b",
+  "conv_mode": "vicuna_v1",
+  "train_file": "datasets/gqa/train_20000_capfirst_diagnostic.json",
+  "image_folder": "datasets/gqa/images",
+  "out_dir": "output/peft/adalora_capfirst/seed2",
+  "limit": null,
+  "epochs": 1,
+  "batch_size": 1,
+  "grad_accum": 16,
+  "lr": 0.0002,
+  "warmup_ratio": 0.03,
+  "save_every": 200,
+  "max_hours": 5.3,
+  "num_workers": 0,
+  "max_length": 2048,
+  "stop_after": null,
+  "trainable_params": 6292224,
+  "total_steps": 1250,
+  "budget": {
+    "final_rank_sum": 512,
+    "matrix_count": 64,
+    "per_rank_AB_cost": 8192,
+    "uniform_reference_parameters": 4194304,
+    "method": "adalora",
+    "initial_rank_sum": 768,
+    "initial_adapter_parameters": 6292224,
+    "target_effective_parameters_nominal": 4194816,
+    "note": "Final effective budget only; initial and allocated budgets differ from static LoRA"
+  },
+  "precision": "base_bf16_adapter_fp32",
+  "peak_allocated_bytes": 15073401344,
+  "peak_reserved_bytes": 16051601408,
+  "final_rank": {
+    "retained_rank_sum": 512,
+    "rank_min": 2,
+    "rank_max": 12,
+    "effective_adapter_parameters": 4194816
+  }
+}

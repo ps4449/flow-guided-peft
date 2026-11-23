@@ -1,0 +1,41 @@
+{
+  "method": "AdaLoRA capitalized targets",
+  "seeds": [
+    {
+      "seed": 0,
+      "correct": 7869,
+      "total": 12578,
+      "accuracy": 62.56161551916044,
+      "training_minutes": 201.0,
+      "peak_allocated_gib": 14.038198947906494,
+      "peak_reserved_gib": 14.869140625,
+      "q_rank_sum": 225,
+      "v_rank_sum": 287
+    },
+    {
+      "seed": 1,
+      "correct": 7855,
+      "total": 12578,
+      "accuracy": 62.45031006519319,
+      "training_minutes": 204.1,
+      "peak_allocated_gib": 14.038198947906494,
+      "peak_reserved_gib": 14.869140625,
+      "q_rank_sum": 211,
+      "v_rank_sum": 301
+    },
+    {
+      "seed": 2,
+      "correct": 7857,
+      "total": 12578,
+      "accuracy": 62.46621084433137,
+      "training_minutes": 200.5,
+      "peak_allocated_gib": 14.038198947906494,
+      "peak_reserved_gib": 14.94921875,
+      "q_rank_sum": 211,
+      "v_rank_sum": 301
+    }
+  ],
+  "mean_accuracy": 62.492712142895,
+  "sample_std_accuracy": 0.06019937823501813,
+  "std_definition": "Sample standard deviation, ddof=1; percentage points"
+}

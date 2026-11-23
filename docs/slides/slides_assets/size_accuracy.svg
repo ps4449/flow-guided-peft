@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1136" height="450" viewBox="0 0 1136 450" font-family='"Helvetica Neue", Helvetica, Arial, sans-serif'>
+<line x1="80.0" y1="343.2" x2="1000.0" y2="343.2" stroke="#d8dee4" stroke-width="1"/>
+<text x="70.0" y="349.2" font-size="17" fill="#57606a" text-anchor="end" font-weight="400">70</text>
+<line x1="80.0" y1="245.6" x2="1000.0" y2="245.6" stroke="#d8dee4" stroke-width="1"/>
+<text x="70.0" y="251.6" font-size="17" fill="#57606a" text-anchor="end" font-weight="400">74</text>
+<line x1="80.0" y1="148.0" x2="1000.0" y2="148.0" stroke="#d8dee4" stroke-width="1"/>
+<text x="70.0" y="154.0" font-size="17" fill="#57606a" text-anchor="end" font-weight="400">78</text>
+<line x1="80.0" y1="50.4" x2="1000.0" y2="50.4" stroke="#d8dee4" stroke-width="1"/>
+<text x="70.0" y="56.4" font-size="17" fill="#57606a" text-anchor="end" font-weight="400">82</text>
+<text x="80.0" y="418.0" font-size="17" fill="#57606a" text-anchor="middle" font-weight="400">0M</text>
+<text x="289.1" y="418.0" font-size="17" fill="#57606a" text-anchor="middle" font-weight="400">1M</text>
+<text x="498.2" y="418.0" font-size="17" fill="#57606a" text-anchor="middle" font-weight="400">2M</text>
+<text x="707.3" y="418.0" font-size="17" fill="#57606a" text-anchor="middle" font-weight="400">3M</text>
+<text x="916.4" y="418.0" font-size="17" fill="#57606a" text-anchor="middle" font-weight="400">4M</text>
+<text x="540.0" y="444.0" font-size="17" fill="#57606a" text-anchor="middle" font-weight="400">Trainable adapter parameters</text>
+<text transform="translate(20 209.0) rotate(-90)" font-size="17" fill="#57606a" text-anchor="middle">ScienceQA accuracy (%)</text>
+<line x1="80.0" y1="363.7" x2="1000.0" y2="363.7" stroke="#8c959f" stroke-width="1" stroke-dasharray="6 5"/>
+<text x="1000.0" y="355.7" font-size="17" fill="#57606a" text-anchor="end" font-weight="400">Zero-shot 69.16</text>
+<line x1="80.0" y1="69.7" x2="1000.0" y2="69.7" stroke="#8c959f" stroke-width="1" stroke-dasharray="6 5"/>
+<path d="M 189.6 148.3 L 299.3 102.3 L 518.5 66.1" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="189.6" cy="148.3" r="6" fill="#ffffff" stroke="#c2410c" stroke-width="2.5"/>
+<circle cx="299.3" cy="102.3" r="7" fill="#c2410c" stroke="#ffffff" stroke-width="2"/>
+<circle cx="518.5" cy="66.1" r="7" fill="#c2410c" stroke="#ffffff" stroke-width="2"/>
+<text x="203.6" y="170.3" font-size="17" fill="#1f2933" text-anchor="start" font-weight="700">4 flow layers  77.99</text>
+<text x="307.3" y="128.3" font-size="17" fill="#1f2933" text-anchor="start" font-weight="700">8 flow layers  79.87</text>
+<text x="506.5" y="54.1" font-size="17" fill="#1f2933" text-anchor="end" font-weight="700">16 flow layers  81.36</text>
+<circle cx="518.5" cy="86.6" r="7" fill="#8c959f" stroke="#ffffff" stroke-width="2"/>
+<text x="532.5" y="88.6" font-size="17" fill="#1f2933" text-anchor="start" font-weight="400">Uniform rank 4  80.52</text>
+<circle cx="518.5" cy="103.6" r="7" fill="#8c959f" stroke="#ffffff" stroke-width="2"/>
+<text x="532.5" y="109.6" font-size="17" fill="#1f2933" text-anchor="start" font-weight="400">Random 16  79.82</text>
+<circle cx="518.5" cy="274.1" r="7" fill="#8c959f" stroke="#ffffff" stroke-width="2"/>
+<text x="532.5" y="280.1" font-size="17" fill="#1f2933" text-anchor="start" font-weight="400">Inverse 16  72.83</text>
+<circle cx="956.9" cy="69.7" r="7" fill="#0077a0" stroke="#ffffff" stroke-width="2"/>
+<text x="950.9" y="55.7" font-size="17" fill="#1f2933" text-anchor="end" font-weight="700">Full LoRA  81.21</text>
+<circle cx="700.0" cy="167.5" r="7" fill="#c2410c" stroke="#ffffff" stroke-width="2"/>
+<text x="716.0" y="173.5" font-size="16" fill="#57606a" text-anchor="start" font-weight="400">Flow-selected layers</text>
+<circle cx="700.0" cy="191.9" r="7" fill="#8c959f" stroke="#ffffff" stroke-width="2"/>
+<text x="716.0" y="197.9" font-size="16" fill="#57606a" text-anchor="start" font-weight="400">Other placements at 2.10M</text>
+<circle cx="700.0" cy="216.3" r="7" fill="#0077a0" stroke="#ffffff" stroke-width="2"/>
+<text x="716.0" y="222.3" font-size="16" fill="#57606a" text-anchor="start" font-weight="400">All 32 layers, rank 8</text>
+<circle cx="700.0" cy="240.7" r="6" fill="#ffffff" stroke="#c2410c" stroke-width="2.5"/>
+<text x="716.0" y="246.7" font-size="16" fill="#57606a" text-anchor="start" font-weight="400">Single seed; others are three-seed means</text>
+</svg>
